@@ -12,11 +12,27 @@
  */
 
 Route::get('/', function () {
-    return view('main');
+  return view('main');
 });
 
 Route::get('/form', function () {
-    return view('form');
+  return view('form');
+});
+
+Route::get('/heart', function () {
+  return view('heart');
+});
+
+Route::get('/vote', function () {
+  return view('vote');
+});
+
+Route::get('/profile', function () {
+  return view('profile');
+});
+
+Route::get('/votetest', function () {
+  return view('votetest');
 });
 
 Route::post('/add_kontestan', function () {
@@ -59,6 +75,3 @@ if ($err) {
     
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

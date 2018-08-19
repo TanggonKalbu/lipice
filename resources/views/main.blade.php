@@ -7,20 +7,66 @@
     <title>Lipice</title>
 
 
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <style>
-        img {
-    width: 100%;
-    height: auto;
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<style>
+/* reset */
+* {
+    padding : 0;
+    margin : 0;
 }
-        *{
-            padding : 0px;
-            margin : 0px;
-            width: 100%;
-        }
+body{
+    background-color: #fbdee8;
+}
+
+/* form */
+* {
+    padding : 0;
+    margin : 0;
+    }
+    .warn {
+      color:white;
+      border-radius:30px;
+      float:right;
+
+    }
+    .reg{
+      color:#6EBEE0;
+      font-size: 2vw;
+    }
+    .card{
+      padding:40px;
+    }
+
+    input[type=text], select {
+        border: 1px solid #ea8a8a;
+    }
+
+    input[type=number], select {
+        border: 1px solid #ea8a8a;
+    }
+
+    input[type=email], select {
+        border: 1px solid #ea8a8a;
+    }
+
+    textarea {
+        border: 1px solid #ea8a8a;
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border-radius: 6px;
+        background-color: white;
+        font-size: 16px;
+        resize: none;
+    }
+/* end form */
+
+/* gambar */
         #Table_01 {
             position:absolute;
             left:0px;
@@ -189,10 +235,11 @@
 .card {
     box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 60%;
+    width: 100%;
     background-color:white;
     align:center;
-    margin-left:60px;   
+    padding-right:30%;
+    padding-left: 10%;
 }
 
 .card:hover {
@@ -204,28 +251,34 @@
 }
 
 .textatas{
-    color: red;
-    font-size: 20pt;
+    position : absolute;
+    color: grey;
+    font-size: 1vw;
     font-family: arial;
-    margin-left: 150px;
+    top: 380px;
+    left : 450px;
 
 }
-    </style>
+
+.samping{
+    padding-right:100px;
+    padding-left: 100px;
+}
+
+/* end gambar */
+</style>
+
 </head>
-<body style="background-color:#fbdee8; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;">
+
+<body>
 <!-- Save for Web Slices (summercamp (2).psd) -->
-<div class="container-fluid">
+<div>
 
 
 	<!-- buah atas -->
-    <div class="row">
-        <div class="column">
             <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
-        </div>
-        <div class="column">
             <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt="">
-        </div>
-    </div>
+
 
     <!-- header -->
      <div class="row">
@@ -237,42 +290,107 @@
         </div>
     </div>
 
-    <div class="row">
+
         <h2 class="textatas"><b>LOREM IPSUM DOLOR SIT <br> 
         AMET, CONSECTETUR <br> 
         ADIPISINING ELIT. ED O <br> 
         EIUSMOD TEMPOR INCINDINTU</b></h2>
-    </div>
+ 
 
-    <!-- form -->
-    <!-- <div class="card">
-        <div class="container">
-            <h4><b>Calling all beauty enthusiast!</b></h4>
-            <h4><b>Submission are available to anyone  and everyone with a passion</b></h4>
-            <h4><b>for make-up artistry.</b></h4> 
-            <p>REGISTRATION FIELD</p> 
-            <br>
-        </div>
-    </div> -->
+   
 
 
     <!-- Card -->
-    <div class="card" style="">
-    <div class="card-body">
-        <h5 class="card-title">Calling all beauty enthusiast!</h5>
-        <h5 class="card-title">Submission are available to anyone  and everyone with a passion</h5>
-        <h5 class="card-title">for make-up artistry.</h5>
+    <div class="samping">
+        <div class="card">
+        <div class="card-body">
+            <h2 class="card-title reg">REGISTER HERE</h2>
+            <br>
+            <h3 class="card-title">Calling all beauty enthusiast!</h3>
+            <h3 class="card-title">Submission are available to anyone  and everyone with a passion</h3>
+            <h3 class="card-title">for make-up artistry.</h3>
         <br>
-        <h6 class="card-subtitle mb-2 text-muted">REGISTRATION FIELDS</h6>
-        <br>
-        <form action="">
+            <label class="card-subtitle mb-2 text-muted">REGISTRATION FIELDS :</label>
+        <br><br>
+        <form class="form-horizontal" action="/action_page.php">
 
+        <div class="form-group row">
+            <label for="namaLengkap" class="col-sm-3 col-form-label">NAMA LENGKAP <b style="color:red;">*</b></label>
+            <div class="col-sm-9">
+            <input type="text" class="form-control" id="namaLengkap" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="namaLengkap" class="col-sm-3 col-form-label">EMAIL <b style="color:red;">*</b></label>
+            <div class="col-sm-9">
+            <input type="email" class="form-control" id="namaLengkap" required>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+        <label for="ttl" class="col-sm-3 col-form-label">TEMPAT TANGGAL LAHIR <b style="color:red;">*</b></label>
+            <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="kota" placeholder="Kota" required>
+            </div>
+            <div class="form-group col-md-1">
+            <input type="number" class="form-control" id="tgl" placeholder="Tgl" required>
+            </div>
+            <div class="form-group col-md-2">
+            <input type="text" class="form-control" id="bln" placeholder="Bulan" required>
+            </div>
+            <div class="form-group col-md-2">
+            <input type="number" class="form-control" id="tahun" placeholder="Tahun" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
+            <div class="col-sm-9">
+            <input type="number" class="form-control" id="telp" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="ig" class="col-sm-3 col-form-label">LINK AKUN INSTAGRAM <b style="color:red;">*</b></label>
+            <div class="col-sm-9">
+            <input type="text" class="form-control" id="ig" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="fb" class="col-sm-3 col-form-label">LINK AKUN FACEBOOK (OPTIONAL) <b style="color:red;">*</b></label>
+            <div class="col-sm-9">
+            <input type="text" class="form-control" id="fb" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-3" for="comment">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE <b style="color:red;">*</b></label>
+            <div class="col-sm-9"> 
+            <textarea class="form-group" rows="5" id="comment" required></textarea>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-warning warn btn-lg">Submit</button>
+        
         </form>
-        <p class="card-text">Quick sample text to create the card title and make up the body of the card's content.</p>
-      
-    </div>
+
+        </div>
+        </div>
     </div>
 
+</div>
 <!-- End Save for Web Slices -->
+
+
+<!-- buah atas -->
+<img src="images/buah_kiri_bawah.png" style="width:121px; height:221px; float:left;" alt="">
+<img src="images/buah_kanan_bawah.png" style="width:109px; height:128px; float:right;" alt="">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
 </html>
