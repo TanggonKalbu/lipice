@@ -161,14 +161,18 @@ a:active {
 /* scrollbar end */
 
 /* modal start */
-.modal-header{
+.modal-abt{
     height: 200px;
     width: 100%;
     background-color:black;
+    padding-right:20px;
+}
+
+.modal-ver{
+    background-color:grey;
 }
 .modal-title{
     color:white;
-    justify-content:center;
     style:bold;
 }
 /* modal end */
@@ -399,10 +403,10 @@ a:active {
 <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header modal-abt">
         
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white; size:20px;">&times;</span>
+          <span aria-hidden="true" style="color:white;">&times;</span>
         </button>
         
       </div>
@@ -415,7 +419,7 @@ a:active {
             <a href="" class="sosmed"><i class="fab fa-twitter"></i></a> 
             <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
         </div> <!-- div sosmed end-->
-        <br>
+
       </div> <!-- modal body end-->
 
       <div class="modal-footer"> <!-- modal footer start-->
@@ -453,34 +457,38 @@ a:active {
 </div>
 <!-- Modal About End -->
 
-<!-- Button VOTE modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
+<!-- Modal Verification Start -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+      <div class="modal-header modal-ver">
+        <h5 class="modal-title" id="exampleModalLongTitle">Enter Verification</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white">&times;</span>
+          <span aria-hidden="true" style="color:white;padding-right:9px;">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <!-- form verification start -->
+        <form align="center">
+            <input type="text" id="verificationcode" placeholder="Enter Verification" style="padding-left:10px">
+            <input type="button" value="Submit" onclick="myFunction()">
+        </form>
+        <br>
+        <div id="recaptcha-container" align="center"></div>
+        <!-- form verification end -->
       </div>
     </div>
   </div>
 </div>
+<!-- Modal Verification end -->
 
-</div>
 
+
+
+<!-- =========SCRIPT HERE========= -->
+
+<!-- script collapse start -->
 <script>
 $(document).ready(function() {
   $("#toggle").click(function() {
@@ -494,7 +502,34 @@ $(document).ready(function() {
     }
   });
 });
+</script>   
+<!-- script collapse end -->
+
+<!-- modal verification -->
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script type="text/javascript">
+  // Initialize Firebase
+  
 </script>
+<script type="text/javascript">
+  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+  firebase.auth().signInWithPhoneNumber("+62081945314191", window.recaptchaVerifier) 
+  .then(function(confirmationResult) {
+    window.confirmationResult = confirmationResult;
+    console.log(confirmationResult);
+  });
+  var myFunction = function() {
+    window.confirmationResult.confirm(document.getElementById("verificationcode").value)
+    .then(function(result) {
+      
+    }, function(error) {
+      console.log(error);
+    });
+  };
+</script>
+<!-- modal verification end -->
+
+
 
 </body>
 </html>
