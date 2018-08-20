@@ -309,19 +309,19 @@ body{
 
 
 	<!-- buah atas -->
-            <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
-            <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt="">
+            <!-- <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
+            <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt=""> -->
 
 
     <!-- header -->
-     <div class="row">
+     <!-- <div class="row">
         <div class="column">
             <img src="images/Untitled-6.png" alt="" class="kiri-logo">
         </div>
         <div class="column">
             <img src="images/Untitled-7.png" alt="" class="kanan-ballon">
         </div>
-    </div>
+    </div> -->
 
 
         <h2 class="textatas"><b>LOREM IPSUM DOLOR SIT <br> 
