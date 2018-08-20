@@ -381,7 +381,7 @@ body{
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="number" class="form-control" id="telp" required>
+            <input type="text" class="form-control" id="telp" required>
             </div>
         </div>
 
