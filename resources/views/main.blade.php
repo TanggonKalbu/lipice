@@ -23,10 +23,6 @@ body{
 }
 
 /* form */
-* {
-    padding : 0;
-    margin : 0;
-    }
     .warn {
       color:white;
       border-radius:30px;
