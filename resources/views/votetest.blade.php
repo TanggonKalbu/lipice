@@ -35,7 +35,7 @@ body{
 }
 
 .button{
-    background-color: #e01171;
+    background-color: #fb61ca;
     border: none;
     color: white;
     padding: 12px 28px;
@@ -65,7 +65,7 @@ body{
 }
 
 .love{
-    color: #e01171; 
+    color: #fb61ca; 
     font-size:1vw;
     text-align:right;
 }
@@ -126,14 +126,14 @@ a:active {
 }
 
 .scrollbar-primary::-webkit-scrollbar {
-  width: 20px;
+  width: 1%;
   border-radius: 15px;
   background-color: #eee; }
 
 .scrollbar-primary::-webkit-scrollbar-thumb {
   border-radius: 15px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  background-color: #f7c729; }
+  background-color: #f8c128; }
 
 /* scrollbar end */
 
@@ -173,17 +173,24 @@ a:active {
 }
 
 /* days challenge */
-.label {
+.label2 {
     color: white;
-    padding: 8px;
+    padding: 15px;
     font-family: Arial;
+    width:9%;
+    font-size:1vw;
+    border: none;
+    display: inline-block;
+    text-align:right;
+    
 }
-.success {border-left: 20px solid red;
-    background-color: lightgrey;} /* Green */
-.info {background-color: #2196F3;} /* Blue */
-.warning {background-color: #ff9800;} /* Orange */
-.danger {background-color: #f44336;} /* Red */ 
-.other {background-color: #e7e7e7; color: black;} /* Gray */ 
+.done {border-left: 25px solid #679175; background-color: #93d0a8} /* Day 1 */
+.dtwo {border-left: 25px solid #006573; background-color: #0091a5;} /* Day 2 */
+.dthree {border-left: 25px solid #2e7e80; background-color:  #42b5b8;} /* Day 3 */
+.dfour {border-left: 25px solid #03354b; background-color: #054c6b;} /* Day 4 */
+.dfive {border-left: 25px solid  #659952; background-color: #90db75;} /* Day 5 */
+.dsix {border-left: 25px solid #979052; background-color:  #d8cf75;} /* Day 6 */
+.dseven {border-left: 25px solid #977652; background-color: #d8a975;} /* Day 7 */
 
 
 
@@ -207,20 +214,22 @@ a:active {
         <br>
         <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
         <br>
-        <div class="row">
-            <span class="label success"><a href=""> DAY <b>01</b></a></span>
-            <span class="label info">Info</span>
-            <span class="label warning">Warning</span>
-            <span class="label danger">Danger</span>
-            <span class="label other">Other</span>
+        <div class="text-center">
+            <button class="label2 done" style="margin-right:3px; margin-left:3px;">DAY <b>01</b></button>
+            <button class="label2 dtwo" style="margin-right:3px; margin-left:3px;">DAY <b>02</b></button>
+            <button class="label2 dthree" style="margin-right:3px; margin-left:3px;">DAY <b>03</b></button>
+            <button class="label2 dfour" style="margin-right:3px; margin-left:3px;">DAY <b>04</b></button>
+            <button class="label2 dfive" style="margin-right:3px; margin-left:3px;">DAY <b>05</b></button>
+            <button class="label2 dsix" style="margin-right:3px; margin-left:3px;">DAY <b>06</b></button>
+            <button class="label2 dseven" style="margin-right:3px; margin-left:3px;">DAY <b>07</b></button>
+            
         </div>
-
-        <a href="#">
+        <br>
+        <br>
+        <!-- <a href="#">
             <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
             &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
-        </a>
-
-        <br><br>
+        </a> -->
 
         <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
         <div class="force-overflow"> 
