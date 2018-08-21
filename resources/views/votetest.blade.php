@@ -28,30 +28,6 @@ body{
     padding-top: 200px;
 }
 
-/* scrollbar start */
-.scrollbar {
-    float: left;
-    height: 500px;
-    width: 100%;
-    background: #fff;
-  
-    overflow:auto;
-    margin-bottom: 25px;
-}
-.force-overflow {
-    max-width: 99%;
-}
-
-.scrollbar-primary::-webkit-scrollbar {
-  width: 12px;
-  background-color: #eee; }
-
-.scrollbar-primary::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  background-color: #f7c729; }
-
-/* scrollbar end */
 
 .space {
     margin-right:5px;
@@ -138,12 +114,10 @@ a:active {
 
 /* scrollbar start */
 .scrollbar2 {
-    padding-right:100px;
     float: left;
     height: 1000px;
     width: 100%;
     background: #fff;
-  
     overflow:auto;
     margin-bottom: 25px;
 }
@@ -228,7 +202,7 @@ a:active {
 
         <br><br>
 
-        <div class="scrollbar2 scrollbar-primary"> <!-- div utama start -->
+        <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
         <div class="force-overflow"> 
             <div class="row justify-content-md-center">
                 <div class="col-md-3 space">
