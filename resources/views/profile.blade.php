@@ -162,6 +162,94 @@ textarea::placeholder{
     border-color: #eeeeee; 
 }
 
+/* image modal */
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+/* image modal end */
 
 
 
@@ -184,20 +272,43 @@ textarea::placeholder{
 
                     <form action="" method="post">
                         <div class="btn-group mb-3">
-                        <div class="dropdown" style="width:100%">
-                            <button class="btn btn-secondary dropdown-toggle dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Nampilin nama kota
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Day 1</a>
-                                <a class="dropdown-item" href="#">Day 2</a>
-                                <a class="dropdown-item" href="#">Day 3</a>
-                                <a class="dropdown-item" href="#">Day 4</a>
-                                <a class="dropdown-item" href="#">Day 5</a>
-                                <a class="dropdown-item" href="#">Day 6</a>
-                                <a class="dropdown-item" href="#">Day 7</a>
-                            </div>
-                            </div>
+                        <select name="provinsi" class="form-control" data-width="10%"> 
+                            <option>Provinsi</option>
+                            <option value="Aceh">Aceh</option>
+                            <option value="Sumatera Utara">Sumatera Utara</option>
+                            <option value="Sumatera Barat">Sumatera Barat</option>
+                            <option value="Riau">Riau</option>
+                            <option value="Jambi">Jambi</option>
+                            <option value="Sumatera Selatan">Sumatera Selatan</option>
+                            <option value="Bengkulu">Bengkulu</option>
+                            <option value="Lampung">Lampung</option>
+                            <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
+                            <option value="Kepulaian Riau">Kepulaian Riau</option>
+                            <option value="DKI Jakarta">DKI Jakarta</option>
+                            <option value="Jawa Barat">Jawa Barat</option>
+                            <option value="Jawa Tengah">Jawa Tengah</option>
+                            <option value="Daerah Istimewa Yogyakarta">Daerah Istimewa Yogyakarta</option>
+                            <option value="Jawa Timur">Jawa Timur</option>
+                            <option value="Banten">Banten</option>
+                            <option value="Bali">Bali</option>
+                            <option value="NTB">NTB</option>
+                            <option value="NTT">NTT</option>
+                            <option value="Kalimantan Barat">Kalimantan Barat</option>
+                            <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                            <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                            <option value="Kalimantan Timur">Kalimantan Timur</option>
+                            <option value="Kalimantan Utara">Kalimantan Utara</option>
+                            <option value="Sulawesi Utara">Sulawesi Utara</option>
+                            <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                            <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                            <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                            <option value="Gorontalo">Gorontalo</option>
+                            <option value="Sukawesi Barat">Sukawesi Barat</option>
+                            <option value="Maluku">Maluku</option>
+                            <option value="Maluku Utara">Maluku Utara</option>
+                            <option value="Papua">Papua</option>
+                            <option value="Papua Barat">Papua Barat</option>
+                        </select>
                         </div>
 
                         <div class="input-group mb-3">
@@ -283,94 +394,96 @@ textarea::placeholder{
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" style="width:100%">  
+                                        <img src="/images/buah_kanan.png" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
+
+                                
                             </div>
                         </div>
                     </div>
@@ -383,9 +496,15 @@ textarea::placeholder{
             </div>
         </div>
         <br><br><br><br>
-    <button>kakaak</button>
-    </div>
     
+    </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
 
 <script>
 function myFig() {
@@ -397,6 +516,32 @@ function myFutube() {
 }
 function myFfb() {
     document.getElementById("myFb").disabled = false;
+}
+</script>
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+var imc = document.querySelectorAll("#myImg");
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+for(a=0;a<imc.length;a++){
+    imc[a].onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+}
+}
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
 }
 </script>
 
