@@ -172,6 +172,18 @@ a:active {
     margin-top:-100px;
 }
 
+/* days challenge */
+.label {
+    color: white;
+    padding: 8px;
+    font-family: Arial;
+}
+.success {border-left: 20px solid red;
+    background-color: lightgrey;} /* Green */
+.info {background-color: #2196F3;} /* Blue */
+.warning {background-color: #ff9800;} /* Orange */
+.danger {background-color: #f44336;} /* Red */ 
+.other {background-color: #e7e7e7; color: black;} /* Gray */ 
 
 
 
@@ -194,6 +206,14 @@ a:active {
     <div class="card-body"> <!-- card body start -->
         <br>
         <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
+        <br>
+        <div class="row">
+            <span class="label success"><a href=""> DAY <b>01</b></a></span>
+            <span class="label info">Info</span>
+            <span class="label warning">Warning</span>
+            <span class="label danger">Danger</span>
+            <span class="label other">Other</span>
+        </div>
 
         <a href="#">
             <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
