@@ -22,7 +22,9 @@ Route::get('/form', function () {
   return view('form');
 });
 
-
+Route::get('/test', function () {
+  return view('test');
+});
 
 Route::get('/heart', function () {
   return view('heart');
