@@ -161,14 +161,18 @@ a:active {
 /* scrollbar end */
 
 /* modal start */
-.modal-header{
+.modal-abt{
     height: 200px;
     width: 100%;
     background-color:black;
+    padding-right:20px;
+}
+
+.modal-ver{
+    background-color:grey;
 }
 .modal-title{
     color:white;
-    text-align:center;
     style:bold;
 }
 /* modal end */
@@ -176,6 +180,25 @@ a:active {
 .sosmed{
     padding:20px;
 }
+
+.abt{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.imground{
+    border-radius: 50%;
+    width:150px;
+    height:150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:-100px;
+}
+
+
+
+
 
 </style>
 </head>
@@ -186,7 +209,8 @@ a:active {
 <img src="images/summercamp.png" style="width:514px; height:250px; float:right;" alt=""> -->
 <div>
     <div class="embed-responsive embed-responsive-21by9 ">   
-        <iframe class="embed-responsive-item" width="100%"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+        <!-- <iframe class="embed-responsive-item" width="100%"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> -->
+            <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 
     <!-- card start -->
@@ -214,45 +238,45 @@ a:active {
                 </div>
 
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left">Putri clarisa</label>
+                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
                     <label for="" class="name" style="float:right">Jakarta</label>    
                 </div>
 
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left">Putri clarisa</label>
+                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
                     <label for="" class="name" style="float:right">Jakarta</label>    
                 </div>
             </div>
             
-            <!-- image -->
+            <!-- videos -->
             <div class="row justify-content-md-center">
                 <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <img src="/images/a.jpeg" alt="" style="width:100%">   
+                    <iframe class="embed-responsive-item" width="100%" height="auto" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                 </div>
 
                 <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <img src="/images/a.jpeg" alt="" style="width:100%">
+                    <iframe class="embed-responsive-item" width="100%" height="auto" src="https://www.youtube.com/embed/6okxuiiHx2w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
 
                 <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <img src="/images/a.jpeg" alt="" style="width:100%">
+                    <iframe class="embed-responsive-item" width="100%" height="auto" src="https://www.youtube.com/embed/mQ055hHdxbE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
             </div>
         
             <!-- button and vote -->
             <div class="row justify-content-md-center">
                 <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button">Vote</button>
+                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                     <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                 </div>
 
                 <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button">Vote</button>
+                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                     <span type="" class="label" >500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                 </div>
 
                 <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button">Vote</button>
+                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                     <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                 </div>
             </div>
@@ -262,22 +286,22 @@ a:active {
             <!-- nama dan kota -->
             <div class="row justify-content-md-center">
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left">Putri clarisa</label>
+                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
                     <label for="" class="name" style="float:right">Jakarta</label>    
                 </div>
 
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left">Putri clarisa</label>
+                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
                     <label for="" class="name" style="float:right">Jakarta</label>    
                 </div>
 
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left">Putri clarisa</label>
+                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
                     <label for="" class="name" style="float:right">Jakarta</label>    
                 </div>
             </div>
             
-            <!-- image -->
+            <!-- videos -->
             <div class="row justify-content-md-center">
                 <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
                     <img src="/images/a.jpeg" alt="" style="width:100%">   
@@ -295,17 +319,17 @@ a:active {
             <!-- button and vote -->
             <div class="row justify-content-md-center">
                 <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button">Vote</button>
+                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                     <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                 </div>
 
                 <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button">Vote</button>
+                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                     <span type="" class="label" >500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                 </div>
 
                 <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button">Vote</button>
+                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                     <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                 </div>
             </div>
@@ -314,22 +338,22 @@ a:active {
              <!-- nama dan kota -->
              <div class="row justify-content-md-center">
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left">Putri clarisa</label>
+                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
                     <label for="" class="name" style="float:right">Jakarta</label>    
                 </div>
 
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left">Putri clarisa</label>
+                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
                     <label for="" class="name" style="float:right">Jakarta</label>    
                 </div>
 
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left">Putri clarisa</label>
+                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
                     <label for="" class="name" style="float:right">Jakarta</label>    
                 </div>
             </div>
             
-            <!-- image -->
+            <!-- videos -->
             <div class="row justify-content-md-center">
                 <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
                     <img src="/images/a.jpeg" alt="" style="width:100%">   
@@ -347,17 +371,17 @@ a:active {
             <!-- button and vote -->
             <div class="row justify-content-md-center">
                 <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button">Vote</button>
+                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                     <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                 </div>
 
                 <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button">Vote</button>
+                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                     <span type="" class="label" >500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                 </div>
 
                 <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button">Vote</button>
+                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                     <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                 </div>
             </div>
@@ -373,88 +397,139 @@ a:active {
 
     <br><br><br>
 
-    <!-- Button trigger modal -->
-<div class="row mb-4">
-    <div class="col text-center">
-      <h3>The Large Modal</h3>
-      <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal">Click to open Modal</a>
-    </div>
-</div>
 
-<!-- Modal -->
+
+<!-- Modal About-->
 <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Large Modal aha</h4>
+      <div class="modal-header modal-abt">
+        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white; size:20px;">&times;</span>
+          <span aria-hidden="true" style="color:white;">&times;</span>
         </button>
+        
       </div>
       <div class="modal-body"> <!-- modal body start-->
-
+        
+        <img src="/images/a.jpeg" alt="Avatar" class="imground">
+        <br>
         <div clas="row" style="text-align:center;"> <!-- div sosmed-->
             <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
             <a href="" class="sosmed"><i class="fab fa-twitter"></i></a> 
             <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
         </div> <!-- div sosmed end-->
-       
+
       </div> <!-- modal body end-->
 
       <div class="modal-footer"> <!-- modal footer start-->
-         <div> <!-- div about-->
+         <div class="abt"> <!-- div about-->
+            <p>
             <h1>What is CSS?</h1>
-            Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.
-            Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any 
-            XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS 
-            is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces 
-            for many mobile applications.
-            <div>
-            <br>
-            <span id="text">CSS is designed primarily to enable the separation of document content from document presentation, including aspects such as the layout, 
-            colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, 
-            enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.
-            Separation of formatting and content makes it possible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, 
-            by voice (via speech-based browser or screen reader), and on Braille-based tactile devices. It can also display the web page differently depending on the screen size or viewing device. 
-            Readers can also specify a different style sheet, such as a CSS file stored on their own computer, to override the one the author specified.
-            Changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in the CSS file they use, rather than by changing markup in the documents.
-            The CSS specification describes a priority scheme to determine which style rules apply if more than one rule matches against a particular element. In this so-called cascade, priorities (or weights) are 
-            calculated and assigned to rules, so that the results are predictable.
-            The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS 
-            validation service for CSS documents.<br>
-            </span>
+                Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.
+                Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any 
+                XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS 
+                is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces 
+                for many mobile applications.
+            </p>    
+            <div class="collapse" id="collapseExample">
+                CSS is designed primarily to enable the separation of document content from document presentation, including aspects such as the layout, 
+                colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, 
+                enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.
+                Separation of formatting and content makes it possible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, 
+                by voice (via speech-based browser or screen reader), and on Braille-based tactile devices. It can also display the web page differently depending on the screen size or viewing device. 
+                Readers can also specify a different style sheet, such as a CSS file stored on their own computer, to override the one the author specified.
+                Changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in the CSS file they use, rather than by changing markup in the documents.
+                The CSS specification describes a priority scheme to determine which style rules apply if more than one rule matches against a particular element. In this so-called cascade, priorities (or weights) are 
+                calculated and assigned to rules, so that the results are predictable.
+                The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS 
+                validation service for CSS documents.
             </div>
-            <div class="btn-container">
-                <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
                     Read More
-                </a>
-            </div>
+            </a>
+            <br><br>
         </div> <!-- div about end-->
       </div><!-- modal footer start-->
 
     </div>
   </div>
 </div>
-<!-- Modal End -->
+<!-- Modal About End -->
 
+
+<!-- Modal Verification Start -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-ver">
+        <h5 class="modal-title" id="exampleModalLongTitle">Enter Verification</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color:white;padding-right:9px;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- form verification start -->
+        <form align="center">
+            <input type="text" id="verificationcode" placeholder="Enter Verification" style="padding-left:10px">
+            <input type="button" value="Submit" onclick="myFunction()">
+        </form>
+        <br>
+        <div id="recaptcha-container" align="center"></div>
+        <!-- form verification end -->
+      </div>
+    </div>
+  </div>
 </div>
+<!-- Modal Verification end -->
 
+
+
+
+<!-- =========SCRIPT HERE========= -->
+
+<!-- script collapse start -->
 <script>
 $(document).ready(function() {
   $("#toggle").click(function() {
     var elem = $("#toggle").text();
-    if (elem == "Read More") {
+    if (elem == "Read Less") {
       //Stuff to do when btn is in the read more state
-      $("#toggle").text("Read Less");
-      $("#text").slideDown();
+      $("#toggle").text("Read More");
     } else {
       //Stuff to do when btn is in the read less state
-      $("#toggle").text("Read More");
-      $("#text").slideUp();
+      $("#toggle").text("Read Less");
     }
   });
 });
+</script>   
+<!-- script collapse end -->
+
+<!-- modal verification -->
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script type="text/javascript">
+  // Initialize Firebase
+  
 </script>
+<script type="text/javascript">
+  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+  firebase.auth().signInWithPhoneNumber("+62081945314191", window.recaptchaVerifier) 
+  .then(function(confirmationResult) {
+    window.confirmationResult = confirmationResult;
+    console.log(confirmationResult);
+  });
+  var myFunction = function() {
+    window.confirmationResult.confirm(document.getElementById("verificationcode").value)
+    .then(function(result) {
+      
+    }, function(error) {
+      console.log(error);
+    });
+  };
+</script>
+<!-- modal verification end -->
+
+
 
 </body>
 </html>

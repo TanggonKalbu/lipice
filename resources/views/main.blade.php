@@ -80,10 +80,6 @@ body{
 }
 
 /* form */
-* {
-    padding : 0;
-    margin : 0;
-    }
     .warn {
       color:white;
       border-radius:30px;
@@ -333,7 +329,13 @@ body{
 
 
 	<!-- buah atas -->
+<<<<<<< HEAD
          
+=======
+            <!-- <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
+            <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt=""> -->
+
+>>>>>>> 5dc91f5c3a656e9f4b89f7374d06a838f8aeda98
 
     <!-- header -->
      <!-- <div class="row">
@@ -404,7 +406,11 @@ body{
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
             <div class="col-sm-9">
+<<<<<<< HEAD
             <input type="number" name="notelp" class="form-control" id="telp" >
+=======
+            <input type="text" class="form-control" id="telp" required>
+>>>>>>> 5dc91f5c3a656e9f4b89f7374d06a838f8aeda98
             </div>
         </div>
 
