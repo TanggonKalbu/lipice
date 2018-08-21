@@ -178,7 +178,7 @@ textarea::placeholder{
                 <div class="card-body">
                     <img src="/images/lipice_icon.png" alt="..." class="rounded-circle">  
                     <br><br>
-                    <h5 class="card-title">Putri Clarisa  &nbsp;&nbsp;
+                    <h5 class="card-title"><?php echo $profile["rows"][0]["value"]["namalengkap"] ?>  &nbsp;&nbsp;
                         <a href="google.com"><i class="fas fa-pen"></i> </a> 
                     </h5>
 
@@ -201,7 +201,7 @@ textarea::placeholder{
                         </div>
 
                         <div class="input-group mb-3">
-                        <input type="text" id="myIg" class="form-control inpp" placeholder="*your Instagram" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                        <input type="text" id="myIg" value="<?php echo $profile["rows"][0]["value"]["linkig"]?>" class="form-control inpp" placeholder="your instagram" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" onclick="myFig()"><i class="fas fa-pen"></i></button>
                             <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->

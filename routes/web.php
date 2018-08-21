@@ -17,6 +17,7 @@ Route::get('/', function () {
 });
 
 Route::resource('kontestans','kontestan_controller');
+Route::resource('profile','profile_controller');
 
 Route::get('/form', function () {
   return view('form');
@@ -32,51 +33,49 @@ Route::get('/vote', function () {
   return view('vote');
 });
 
-Route::get('/profile', function () {
-  return view('profile');
-});
+
 
 Route::get('/votetest', function () {
   return view('votetest');
 });
 
-Route::post('/add_kontestan', function () {
-    $data = json_decode(file_get_contents("php://input"), true);
-    $namalengkap = $data["namalengkap"];
-    $tempatlahir = $data['tempatlahir'];
-    $tgllahir = $data['tgllahir'];
-    $bulanlahir = $data['bulanlahir'];
-    $tahunlahir = $data['tahunlahir'];
-    $notelp = $data['notelp'];
-    $linkig = $data['linkig'];
-    $linkfb = $data['linkfb'];
-    $alasan = $data['alasan'];
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-    CURLOPT_PORT => "5984",
-    CURLOPT_URL => "http://127.0.0.1:5984/lipice/",
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => "",
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 30,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => "POST",
-    CURLOPT_POSTFIELDS => "{\n\t\"type\" : \"kontestan\",\n\t\"namalengkap\" : \"$namalengkap\",\n\t\"tempatlahir\" : \"$tempatlahir\",\n\t\"tgllahir\" : \"$tgllahir\",\n\t\"bulanlahir\" : \"$bulanlahir\",\n\t\"tahunlahir\" : \"$tahunlahir\",\n\t\"notelp\"\t:\t\"$tahunlahir\",\n\t\"linkig\"\t: \"$linkig\",\n\t\"linkfb\"\t: \"$linkfb\",\n\t\"alasan\" \t: \"$alasan\"\n}",
-    CURLOPT_HTTPHEADER => array(
-    "content-type: application/json"
-  ),
-));
+// Route::post('/add_kontestan', function () {
+//     $data = json_decode(file_get_contents("php://input"), true);
+//     $namalengkap = $data["namalengkap"];
+//     $tempatlahir = $data['tempatlahir'];
+//     $tgllahir = $data['tgllahir'];
+//     $bulanlahir = $data['bulanlahir'];
+//     $tahunlahir = $data['tahunlahir'];
+//     $notelp = $data['notelp'];
+//     $linkig = $data['linkig'];
+//     $linkfb = $data['linkfb'];
+//     $alasan = $data['alasan'];
+//     $curl = curl_init();
+//     curl_setopt_array($curl, array(
+//     CURLOPT_PORT => "5984",
+//     CURLOPT_URL => "http://127.0.0.1:5984/lipice/",
+//     CURLOPT_RETURNTRANSFER => true,
+//     CURLOPT_ENCODING => "",
+//     CURLOPT_MAXREDIRS => 10,
+//     CURLOPT_TIMEOUT => 30,
+//     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//     CURLOPT_CUSTOMREQUEST => "POST",
+//     CURLOPT_POSTFIELDS => "{\n\t\"type\" : \"kontestan\",\n\t\"namalengkap\" : \"$namalengkap\",\n\t\"tempatlahir\" : \"$tempatlahir\",\n\t\"tgllahir\" : \"$tgllahir\",\n\t\"bulanlahir\" : \"$bulanlahir\",\n\t\"tahunlahir\" : \"$tahunlahir\",\n\t\"notelp\"\t:\t\"$tahunlahir\",\n\t\"linkig\"\t: \"$linkig\",\n\t\"linkfb\"\t: \"$linkfb\",\n\t\"alasan\" \t: \"$alasan\"\n}",
+//     CURLOPT_HTTPHEADER => array(
+//     "content-type: application/json"
+//   ),
+// ));
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
+// $response = curl_exec($curl);
+// $err = curl_error($curl);
 
-curl_close($curl);
+// curl_close($curl);
 
-if ($err) {
-  echo "cURL Error #:" . $err;
-} else {
-  echo $response;
-}
+// if ($err) {
+//   echo "cURL Error #:" . $err;
+// } else {
+//   echo $response;
+// }
     
-});
+// });
 
