@@ -1,14 +1,14 @@
-<!-- <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Firebase Phone Number Auth</title>
+  <title>LIPICE</title>
 </head>
-<body>
-  <form>
+<!-- <body>
+   <form>
     <input type="text" id="verificationcode" >
     <input type="button" id="submit" value="Submit" onclick="myFunction()" disabled>
   </form>
-  <div id="recaptcha-container"></div>
+  <div id="recaptcha-container" ></div>
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script type="text/javascript">
   
@@ -36,7 +36,7 @@
   firebase.auth().signInWithPhoneNumber("+6281359868716", window.recaptchaVerifier) 
   .then(function(confirmationResult) {
     window.confirmationResult = confirmationResult;
-    console.log(confirmationResult);
+    console.log("asdsadsadsad");
   });
   var myFunction = function() {
     window.confirmationResult.confirm(document.getElementById("verificationcode").value)
@@ -46,17 +46,8 @@
       console.log(error);
     });
   };
-  </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lipice</title>
+  </script> -->
 
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -330,8 +321,13 @@ body{
 
 
 	<!-- buah atas -->
+<<<<<<< HEAD
+            <!-- <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
+            <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt=""> -->
+=======
             <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
             <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt="">
+>>>>>>> eb4d3973b3f86f13cae72919b0b26ae9602684fd
 
 
     <!-- header -->
@@ -351,13 +347,15 @@ body{
         EIUSMOD TEMPOR INCINDINTU</b></h2>
  
 
-   
-
-
     <!-- Card -->
     <div class="samping">
         <div class="card">
         <div class="card-body">
+        @if (\Session::has('success'))
+      <div class="alert alert-success">
+        <p>{{ \Session::get('success') }}</p>
+      </div><br />
+     @endif
             <h2 class="card-title reg">REGISTER HERE</h2>
             <br>
             <h3 class="card-title">Calling all beauty enthusiast!</h3>
@@ -389,8 +387,13 @@ body{
             <div class="form-group col-md-2">
             <input type="text" class="form-control" name="tempatlahir"  id="kota" placeholder="Kota" required>
             </div>
+<<<<<<< HEAD
+            <div class="form-group col-md-2">
+            <input type="number" class="form-control" name="tgl"  id="tgl" placeholder="Tgl" >
+=======
             <div class="form-group col-md-1">
             <input type="number" class="form-control" name="tgl"  id="tgl" placeholder="Tgl" required>
+>>>>>>> eb4d3973b3f86f13cae72919b0b26ae9602684fd
             </div>
             <div class="form-group col-md-1">
             <input type="number" class="form-control" name="bln" id="bln" placeholder="Bulan" required>
@@ -403,7 +406,11 @@ body{
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
             <div class="col-sm-9">
+<<<<<<< HEAD
+            <input type="text" name="notelp" class="form-control" id="telp" required>
+=======
             <input type="text" class="form-control" id="telp" required>
+>>>>>>> eb4d3973b3f86f13cae72919b0b26ae9602684fd
             </div>
         </div>
 
@@ -428,7 +435,20 @@ body{
             </div>
         </div>
 
+<<<<<<< HEAD
+        <!-- <div class="form-group row">
+            <label class="control-label col-sm-3" for="comment">Valida <b style="color:red;">*</b></label>
+            <div class="col-sm-9"> 
+            <input type="text" id="verificationcode" >
+        <input type="button" id="submit" value="Submit" onclick="myFunction()" disabled>
+            </div>
+        </div> -->
+
+
+        <button type="submit" class="btn btn-warning warn btn-lg">Submit</button>
+=======
         <button type="submit" class="btn warn btn-lg">Submit</button>
+>>>>>>> eb4d3973b3f86f13cae72919b0b26ae9602684fd
         
         </form>
 

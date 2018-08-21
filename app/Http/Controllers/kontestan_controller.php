@@ -25,7 +25,6 @@ class kontestan_controller extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -34,17 +33,20 @@ class kontestan_controller extends Controller
      */
     public function store(Request $request)
     {
-       $tgl = $request->get('tgl')."-".$request->get('bln'.$request->get('tgl'));     
-       $namalengkap = $request->get('name');
+       $tgl = $request->get('tgl')." ".$request->get('bln')." ".$request->get('tahun'); 
+       if(date("n")>=$request->get('bln')){
+       $umur = date("Y") - $request->get('tahun');
+       }else {
+        $umur = date("Y") - $request->get('tahun') - 1;
+       }
+       $namalengkap = $request->get('nama');
        $tempatlahir = $request->get('tempatlahir');
+       $email = $request->get('email');
        $tgllahir = $tgl;
-       $bulanlahir = $tgl;
-       $tahunlahir = $tgl;
        $notelp = $request->get('notelp');
        $linkig = $request->get('linkig');
        $linkfb = $request->get('linkfb');
        $alasan = $request->get('alasan');
-       
        $curl = curl_init();
        curl_setopt_array($curl, array(
          CURLOPT_PORT => "5984",
@@ -55,7 +57,10 @@ class kontestan_controller extends Controller
          CURLOPT_TIMEOUT => 30,
          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
          CURLOPT_CUSTOMREQUEST => "POST",
-         CURLOPT_POSTFIELDS => "{\n  \"type\": \"kontestan\",\n  \"namalengkap\": \"bayuhari\",\n  \"tempatlahir\": \"malang\",\n  \"email\": \"bayu@gmail.com\",\n  \"tgllahir\": \"7\",\n  \"bulanlahir\": \"desember\",\n  \"tahunlahir\": \"1996\",\n  \"notelp\": \"081945314191\",\n  \"linkig\": \"blablabla\",\n  \"linkfb\": \"lalala\",\n  \"alasan\": \"passion\"\n}",
+         CURLOPT_POSTFIELDS => "{\n  \"type\": \"kontestan\",\n  \"namalengkap\": \"$namalengkap\",\n  
+            \"tempatlahir\": \"$tempatlahir\",\n  \"email\": \"$email\",\n 
+             \"tgllahir\": \"$tgllahir\",\n  \"umur\": \"$umur\", \n  \"notelp\": \"$notelp\", \n  \"linkig\": \"$linkig\",\n  
+             \"linkfb\": \"$linkfb\",\n  \"alasan\": \"$alasan\"\n}",
          CURLOPT_HTTPHEADER => array(
            "content-type: application/json"
          ),
@@ -63,13 +68,11 @@ class kontestan_controller extends Controller
        
        $response = curl_exec($curl);
        $err = curl_error($curl);
-       
        curl_close($curl);
-       
        if ($err) {
          echo "cURL Error #:" . $err;
        } else {
-         echo $response;
+        return redirect('kontestans')->with('success', 'Information has been added');
        }
 
       
