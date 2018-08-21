@@ -84,6 +84,7 @@ body{
       color:white;
       border-radius:30px;
       float:right;
+      background-color:#df930e;
 
     }
     .reg{
@@ -329,13 +330,9 @@ body{
 
 
 	<!-- buah atas -->
-<<<<<<< HEAD
-         
-=======
-            <!-- <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
-            <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt=""> -->
+            <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
+            <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt="">
 
->>>>>>> 5dc91f5c3a656e9f4b89f7374d06a838f8aeda98
 
     <!-- header -->
      <!-- <div class="row">
@@ -375,14 +372,14 @@ body{
         <div class="form-group row">
             <label for="namaLengkap" class="col-sm-3 col-form-label">NAMA LENGKAP <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" id="namaLengkap" name="nama" >
+            <input type="text" class="form-control" id="namaLengkap" name="nama" required >
             </div>
         </div>
 
         <div class="form-group row">
             <label for="namaLengkap" name="email" class="col-sm-3 col-form-label">EMAIL <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="email" class="form-control" name="email" id="email" >
+            <input type="email" class="form-control" name="email" id="email" required>
             </div>
         </div>
 
@@ -390,52 +387,48 @@ body{
         <div class="form-group row">
         <label for="ttl" class="col-sm-3 col-form-label">TEMPAT TANGGAL LAHIR <b style="color:red;">*</b></label>
             <div class="form-group col-md-2">
-            <input type="text" class="form-control" name="tempatlahir"  id="kota" placeholder="Kota" >
+            <input type="text" class="form-control" name="tempatlahir"  id="kota" placeholder="Kota" required>
             </div>
             <div class="form-group col-md-1">
-            <input type="number" class="form-control" name="tgl"  id="tgl" placeholder="Tgl" >
+            <input type="number" class="form-control" name="tgl"  id="tgl" placeholder="Tgl" required>
+            </div>
+            <div class="form-group col-md-1">
+            <input type="text" class="form-control" name="bln" id="bln" placeholder="Bulan" required>
             </div>
             <div class="form-group col-md-2">
-            <input type="text" class="form-control" name="bln" id="bln" placeholder="Bulan" >
-            </div>
-            <div class="form-group col-md-2">
-            <input type="number" class="form-control" name="tahun" id="tahun" placeholder="Tahun" >
+            <input type="number" class="form-control" name="tahun" id="tahun" placeholder="Tahun" required>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-<<<<<<< HEAD
-            <input type="number" name="notelp" class="form-control" id="telp" >
-=======
             <input type="text" class="form-control" id="telp" required>
->>>>>>> 5dc91f5c3a656e9f4b89f7374d06a838f8aeda98
             </div>
         </div>
 
         <div class="form-group row">
             <label for="ig" class="col-sm-3 col-form-label">LINK AKUN INSTAGRAM <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="text" name="linkig" class="form-control" id="ig" >
+            <input type="text" name="linkig" class="form-control" id="ig" required>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="fb" class="col-sm-3 col-form-label">LINK AKUN FACEBOOK (OPTIONAL) <b style="color:red;">*</b></label>
+            <label for="fb" class="col-sm-3 col-form-label">LINK AKUN FACEBOOK (OPTIONAL)</label>
             <div class="col-sm-9">
             <input type="text" name="linkfb" class="form-control" id="fb" >
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-3" for="comment">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE <b style="color:red;">*</b></label>
+            <label class="control-label col-sm-3" for="comment">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE</label>
             <div class="col-sm-9"> 
             <textarea class="form-group" name="alasan" rows="5" id="comment" ></textarea>
             </div>
         </div>
 
-        <button type="submit" class="btn btn-warning warn btn-lg">Submit</button>
+        <button type="submit" class="btn warn btn-lg">Submit</button>
         
         </form>
 
