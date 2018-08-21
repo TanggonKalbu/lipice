@@ -98,6 +98,11 @@ body{
     font-weight:bold;
     color: grey;
     font-size:1vw;
+    margin-top:50px;
+}
+
+.vt{
+    margin-top:-30px;
 }
 
 
@@ -234,7 +239,7 @@ a:active {
                     <div class="shadow p-3 mb-5 bg-white rounded"> 
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
-                    <div class="row space">
+                    <div class="row space vt">
                         <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
@@ -248,7 +253,7 @@ a:active {
                     <div class="shadow p-3 mb-5 bg-white rounded"> 
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
-                    <div class="row space">
+                    <div class="row space vt">
                         <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
@@ -262,7 +267,7 @@ a:active {
                     <div class="shadow p-3 mb-5 bg-white rounded"> 
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
-                    <div class="row space">
+                    <div class="row space vt">
                         <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
@@ -276,7 +281,35 @@ a:active {
                     <div class="shadow p-3 mb-5 bg-white rounded"> 
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
-                    <div class="row space">
+                    <div class="row space vt">
+                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+
+                <div class="col-md-3 space">
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
+                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
+                    </div>
+                    <div class="shadow p-3 mb-5 bg-white rounded"> 
+                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
+                    </div>
+                    <div class="row space vt">
+                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+
+                <div class="col-md-3 space">
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
+                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
+                    </div>
+                    <div class="shadow p-3 mb-5 bg-white rounded"> 
+                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
+                    </div>
+                    <div class="row space vt">
                         <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
