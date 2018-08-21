@@ -11,13 +11,18 @@
 |
  */
 
+ 
 Route::get('/', function () {
   return view('main');
 });
 
+Route::resource('kontestans','kontestan_controller');
+
 Route::get('/form', function () {
   return view('form');
 });
+
+
 
 Route::get('/heart', function () {
   return view('heart');

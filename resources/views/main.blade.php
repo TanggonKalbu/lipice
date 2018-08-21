@@ -1,17 +1,26 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Firebase Phone Number Auth</title>
 </head>
 <body>
   <form>
-    <input type="text" id="verificationcode" value="enter verification">
-    <input type="button" value="Submit" onclick="myFunction()">
+    <input type="text" id="verificationcode" >
+    <input type="button" id="submit" value="Submit" onclick="myFunction()" disabled>
   </form>
   <div id="recaptcha-container"></div>
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script type="text/javascript">
-  // Initialize Firebase
+  
+  document.getElementById("verificationcode").addEventListener("keyup", function() {
+    var nameInput = document.getElementById('verificationcode').value;
+    if (nameInput != '') {
+        document.getElementById('submit').removeAttribute("disabled");
+    } else {
+        document.getElementById('submit').setAttribute("disabled", null);
+    }
+});
+
   var config = {
     apiKey: "AIzaSyA9q1pskVgdzJbZ3Qki_0UuYM9L5bkQF7w",
     authDomain: "lipice-8a856.firebaseapp.com",
@@ -24,7 +33,7 @@
 </script>
 <script type="text/javascript">
   window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-  firebase.auth().signInWithPhoneNumber("+62081945314191", window.recaptchaVerifier) 
+  firebase.auth().signInWithPhoneNumber("+6281359868716", window.recaptchaVerifier) 
   .then(function(confirmationResult) {
     window.confirmationResult = confirmationResult;
     console.log(confirmationResult);
@@ -32,12 +41,23 @@
   var myFunction = function() {
     window.confirmationResult.confirm(document.getElementById("verificationcode").value)
     .then(function(result) {
-      
+      console.log("bayuganteng");
     }, function(error) {
       console.log(error);
     });
   };
   </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lipice</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -313,19 +333,17 @@ body{
 
 
 	<!-- buah atas -->
-            <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
-            <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt="">
-
+         
 
     <!-- header -->
-     <div class="row">
+     <!-- <div class="row">
         <div class="column">
             <img src="images/Untitled-6.png" alt="" class="kiri-logo">
         </div>
         <div class="column">
             <img src="images/Untitled-7.png" alt="" class="kanan-ballon">
         </div>
-    </div>
+    </div> -->
 
 
         <h2 class="textatas"><b>LOREM IPSUM DOLOR SIT <br> 
@@ -349,19 +367,20 @@ body{
         <br>
             <label class="card-subtitle mb-2 text-muted">REGISTRATION FIELDS :</label>
         <br><br>
-        <form class="form-horizontal" action="/action_page.php">
+        <form class="form-horizontal" method="post" action="{{url('kontestans')}}" enctype="multipart/form-data">
+        @csrf
 
         <div class="form-group row">
             <label for="namaLengkap" class="col-sm-3 col-form-label">NAMA LENGKAP <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" id="namaLengkap" required>
+            <input type="text" class="form-control" id="namaLengkap" name="nama" >
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="namaLengkap" class="col-sm-3 col-form-label">EMAIL <b style="color:red;">*</b></label>
+            <label for="namaLengkap" name="email" class="col-sm-3 col-form-label">EMAIL <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="email" class="form-control" id="namaLengkap" required>
+            <input type="email" class="form-control" name="email" id="email" >
             </div>
         </div>
 
@@ -369,48 +388,48 @@ body{
         <div class="form-group row">
         <label for="ttl" class="col-sm-3 col-form-label">TEMPAT TANGGAL LAHIR <b style="color:red;">*</b></label>
             <div class="form-group col-md-2">
-            <input type="text" class="form-control" id="kota" placeholder="Kota" required>
+            <input type="text" class="form-control" name="tempatlahir"  id="kota" placeholder="Kota" >
             </div>
             <div class="form-group col-md-1">
-            <input type="number" class="form-control" id="tgl" placeholder="Tgl" required>
+            <input type="number" class="form-control" name="tgl"  id="tgl" placeholder="Tgl" >
             </div>
             <div class="form-group col-md-2">
-            <input type="text" class="form-control" id="bln" placeholder="Bulan" required>
+            <input type="text" class="form-control" name="bln" id="bln" placeholder="Bulan" >
             </div>
             <div class="form-group col-md-2">
-            <input type="number" class="form-control" id="tahun" placeholder="Tahun" required>
+            <input type="number" class="form-control" name="tahun" id="tahun" placeholder="Tahun" >
             </div>
         </div>
 
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="number" class="form-control" id="telp" required>
+            <input type="number" name="notelp" class="form-control" id="telp" >
             </div>
         </div>
 
         <div class="form-group row">
             <label for="ig" class="col-sm-3 col-form-label">LINK AKUN INSTAGRAM <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" id="ig" required>
+            <input type="text" name="linkig" class="form-control" id="ig" >
             </div>
         </div>
 
         <div class="form-group row">
             <label for="fb" class="col-sm-3 col-form-label">LINK AKUN FACEBOOK (OPTIONAL) <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" id="fb" required>
+            <input type="text" name="linkfb" class="form-control" id="fb" >
             </div>
         </div>
 
         <div class="form-group row">
             <label class="control-label col-sm-3" for="comment">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE <b style="color:red;">*</b></label>
             <div class="col-sm-9"> 
-            <textarea class="form-group" rows="5" id="comment" required></textarea>
+            <textarea class="form-group" name="alasan" rows="5" id="comment" ></textarea>
             </div>
         </div>
 
-        <button type="button" class="btn btn-warning warn btn-lg">Submit</button>
+        <button type="submit" class="btn btn-warning warn btn-lg">Submit</button>
         
         </form>
 
@@ -423,8 +442,7 @@ body{
 
 
 <!-- buah atas -->
-<img src="images/buah_kiri_bawah.png" style="width:121px; height:221px; float:left;" alt="">
-<img src="images/buah_kanan_bawah.png" style="width:109px; height:128px; float:right;" alt="">
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
