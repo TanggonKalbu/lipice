@@ -46,7 +46,7 @@ body{
 .scrollbar-primary::-webkit-scrollbar-thumb {
   border-radius: 15px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  background-color: #f7c729; }
+  background-color: #f8c128;  }
 
 /* scrollbar end */
 
@@ -76,7 +76,7 @@ body{
 }
 
 .button {
-    background-color: #8EC7DF;
+    background-color: #8bc3d9;
     border: none;
     color: white;
     padding: 6px 80px;    
@@ -91,7 +91,7 @@ body{
 }
 
 .btn-content {
-    background-color: #8EC7DF;
+    background-color: #8bc3d9;
     border: none;
     color: white;
     padding: 12px 80px;
@@ -183,6 +183,23 @@ textarea::placeholder{
                     </h5>
 
                     <form action="" method="post">
+                        <div class="btn-group mb-3">
+                        <div class="dropdown" style="width:100%">
+                            <button class="btn btn-secondary dropdown-toggle dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Nampilin nama kota
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Day 1</a>
+                                <a class="dropdown-item" href="#">Day 2</a>
+                                <a class="dropdown-item" href="#">Day 3</a>
+                                <a class="dropdown-item" href="#">Day 4</a>
+                                <a class="dropdown-item" href="#">Day 5</a>
+                                <a class="dropdown-item" href="#">Day 6</a>
+                                <a class="dropdown-item" href="#">Day 7</a>
+                            </div>
+                            </div>
+                        </div>
+
                         <div class="input-group mb-3">
                         <input type="text" id="myIg" class="form-control inpp" placeholder="*your Instagram" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
                         <div class="input-group-append">
@@ -207,8 +224,8 @@ textarea::placeholder{
                         </div>
                         </div>
 
-                         <button class="button">SAVE</button>
-                         <button class="btn btn-primary" type="submit">Button</button>
+                         <button class="button" type="submit">SAVE</button>
+                         <!-- <button class="btn btn-primary" type="submit">Button</button> -->
                     </form>
 
                     
@@ -224,7 +241,7 @@ textarea::placeholder{
                     <form>
                         <textarea placeholder="About.."></textarea>
                         <button class="button"  style="float:right">SAVE</button>
-                        <button class="btn btn-primary button" type="submit">Button</button>
+                        <!-- <button class="btn btn-primary button" type="submit">Button</button> -->
                     </form>
 
                     <br><br><br><br>

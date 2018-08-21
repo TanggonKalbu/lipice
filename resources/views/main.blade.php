@@ -393,7 +393,7 @@ body{
             <input type="number" class="form-control" name="tgl"  id="tgl" placeholder="Tgl" required>
             </div>
             <div class="form-group col-md-1">
-            <input type="text" class="form-control" name="bln" id="bln" placeholder="Bulan" required>
+            <input type="number" class="form-control" name="bln" id="bln" placeholder="Bulan" required>
             </div>
             <div class="form-group col-md-2">
             <input type="number" class="form-control" name="tahun" id="tahun" placeholder="Tahun" required>
