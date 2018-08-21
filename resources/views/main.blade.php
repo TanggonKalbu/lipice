@@ -321,13 +321,8 @@ body{
 
 
 	<!-- buah atas -->
-<<<<<<< HEAD
-            <!-- <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
-            <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt=""> -->
-=======
             <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
             <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt="">
->>>>>>> eb4d3973b3f86f13cae72919b0b26ae9602684fd
 
 
     <!-- header -->
@@ -387,16 +382,11 @@ body{
             <div class="form-group col-md-2">
             <input type="text" class="form-control" name="tempatlahir"  id="kota" placeholder="Kota" required>
             </div>
-<<<<<<< HEAD
-            <div class="form-group col-md-2">
-            <input type="number" class="form-control" name="tgl"  id="tgl" placeholder="Tgl" >
-=======
             <div class="form-group col-md-1">
             <input type="number" class="form-control" name="tgl"  id="tgl" placeholder="Tgl" required>
->>>>>>> eb4d3973b3f86f13cae72919b0b26ae9602684fd
             </div>
             <div class="form-group col-md-1">
-            <input type="number" class="form-control" name="bln" id="bln" placeholder="Bulan" required>
+            <input type="number" class="form-control" name="bln" id="bln" placeholder="Bln" required>
             </div>
             <div class="form-group col-md-2">
             <input type="number" class="form-control" name="tahun" id="tahun" placeholder="Tahun" required>
@@ -406,11 +396,7 @@ body{
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-<<<<<<< HEAD
             <input type="text" name="notelp" class="form-control" id="telp" required>
-=======
-            <input type="text" class="form-control" id="telp" required>
->>>>>>> eb4d3973b3f86f13cae72919b0b26ae9602684fd
             </div>
         </div>
 
@@ -435,7 +421,6 @@ body{
             </div>
         </div>
 
-<<<<<<< HEAD
         <!-- <div class="form-group row">
             <label class="control-label col-sm-3" for="comment">Valida <b style="color:red;">*</b></label>
             <div class="col-sm-9"> 
@@ -444,11 +429,7 @@ body{
             </div>
         </div> -->
 
-
-        <button type="submit" class="btn btn-warning warn btn-lg">Submit</button>
-=======
         <button type="submit" class="btn warn btn-lg">Submit</button>
->>>>>>> eb4d3973b3f86f13cae72919b0b26ae9602684fd
         
         </form>
 
