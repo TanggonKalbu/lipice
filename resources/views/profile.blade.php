@@ -241,6 +241,12 @@ textarea::placeholder{
     text-decoration: none;
     cursor: pointer;
 }
+.not-active {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: black;
+}
 
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
@@ -272,7 +278,7 @@ textarea::placeholder{
                 <div class="card-body">
                     <img src="/images/lipice_icon.png" alt="..." class="rounded-circle">  
                     <br><br>
-                    <h5 class="card-title"><?php echo $profile["rows"][0]["value"]["namalengkap"] ?>  &nbsp;&nbsp;
+                    <h5 class="card-title"><?php echo $data["profile"]["rows"][0]["value"]["namalengkap"] ?>  &nbsp;&nbsp;
                         <a href="google.com"><i class="fas fa-pen"></i> </a> 
                     </h5>
 
@@ -318,7 +324,7 @@ textarea::placeholder{
                         </div> -->
 
                         <div class="input-group mb-3">
-                        <input type="text" id="myCity" class="form-control inpp" placeholder="city" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                        <input type="text" id="myCity" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>" placeholder="kota"  aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" onclick="myFcity()"><i class="fas fa-pen"></i></button>
                             <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
@@ -326,7 +332,7 @@ textarea::placeholder{
                         </div>
 
                         <div class="input-group mb-3">
-                        <input type="text" id="myIg" value="<?php echo $profile["rows"][0]["value"]["linkig"]?>" class="form-control inpp" placeholder="your instagram" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                        <input type="text" id="myIg" value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>" class="form-control inpp" placeholder="your instagram" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" onclick="myFig()"><i class="fas fa-pen"></i></button>
                             <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
@@ -334,7 +340,7 @@ textarea::placeholder{
                         </div>
 
                         <div class="input-group mb-3">
-                        <input type="text" id="myUtube" class="form-control inpp" placeholder="your Youtube" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                        <input type="text" id="myUtube" value="<?php echo $data["profile"]["rows"][0]["value"]["linkyoutube"]?>" class="form-control inpp" placeholder="your Youtube" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" onclick="myFutube()"><i class="fas fa-pen"></i></button>
                             <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
@@ -342,7 +348,7 @@ textarea::placeholder{
                         </div>
 
                         <div class="input-group mb-3">
-                        <input type="text" id="myFb" class="form-control inpp" placeholder="your Facebook" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                        <input type="text" id="myFb" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>"  placeholder="your Facebook" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" onclick="myFfb()"><i class="fas fa-pen"></i></button>
                             <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
@@ -364,7 +370,7 @@ textarea::placeholder{
                 <div class="card-body">
                     <h5 style="text-align:left;">About</h5>
                     <form>
-                        <textarea placeholder="About.."></textarea>
+                        <textarea placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["alasan"] ?></textarea>
                         <button class="button"  style="float:right">SAVE</button>
                         <!-- <button class="btn btn-primary button" type="submit">Button</button> -->
                     </form>
@@ -554,9 +560,16 @@ textarea::placeholder{
                                         <script async defer src="//www.instagram.com/embed.js"></script>
                                     </div> 
                                 </div>
+
+
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                                         <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
+                                    </div> 
+                                </div>
+                                 <div class="col-md-3">
+                                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                        <img  src="<?php echo $data["gambar"]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                     </div> 
                                 </div>
 
@@ -602,6 +615,8 @@ function myFfb() {
 
 
 <script>
+
+
 // Get the modal
 var modal = document.getElementById('myModal');
 
