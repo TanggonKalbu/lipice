@@ -3,50 +3,7 @@
 <head>
   <title>LIPICE</title>
 </head>
-<!-- <body>
-   <form>
-    <input type="text" id="verificationcode" >
-    <input type="button" id="submit" value="Submit" onclick="myFunction()" disabled>
-  </form>
-  <div id="recaptcha-container" ></div>
-  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-  <script type="text/javascript">
-  
-  document.getElementById("verificationcode").addEventListener("keyup", function() {
-    var nameInput = document.getElementById('verificationcode').value;
-    if (nameInput != '') {
-        document.getElementById('submit').removeAttribute("disabled");
-    } else {
-        document.getElementById('submit').setAttribute("disabled", null);
-    }
-});
-
-  var config = {
-    apiKey: "AIzaSyA9q1pskVgdzJbZ3Qki_0UuYM9L5bkQF7w",
-    authDomain: "lipice-8a856.firebaseapp.com",
-    databaseURL: "https://lipice-8a856.firebaseio.com",
-    projectId: "lipice-8a856",
-    storageBucket: "lipice-8a856.appspot.com",
-    messagingSenderId: "894497846646"
-  };
-  firebase.initializeApp(config);
-</script>
-<script type="text/javascript">
-  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-  firebase.auth().signInWithPhoneNumber("+6281359868716", window.recaptchaVerifier) 
-  .then(function(confirmationResult) {
-    window.confirmationResult = confirmationResult;
-    console.log("asdsadsadsad");
-  });
-  var myFunction = function() {
-    window.confirmationResult.confirm(document.getElementById("verificationcode").value)
-    .then(function(result) {
-      console.log("bayuganteng");
-    }, function(error) {
-      console.log(error);
-    });
-  };
-  </script> -->
+ <body>
 
 
     <meta charset="UTF-8">
@@ -365,14 +322,14 @@ body{
         <div class="form-group row">
             <label for="namaLengkap" class="col-sm-3 col-form-label">NAMA LENGKAP <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" id="namaLengkap" name="nama" required >
+            <input type="text" class="form-control" id="namaLengkap" name="nama" required onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="namaLengkap" name="email" class="col-sm-3 col-form-label">EMAIL <b style="color:red;">*</b></label>
+            <label for="email" name="email" class="col-sm-3 col-form-label">EMAIL <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="email" class="form-control" name="email" id="email" required>
+            <input type="email" class="form-control" name="email" id="email" required onkeyup="capt()">
             </div>
         </div>
 
@@ -380,49 +337,74 @@ body{
         <div class="form-group row">
         <label for="ttl" class="col-sm-3 col-form-label">TEMPAT TANGGAL LAHIR <b style="color:red;">*</b></label>
             <div class="form-group col-md-2">
-            <input type="text" class="form-control" name="tempatlahir"  id="kota" placeholder="Kota" required>
-            </div>
-            <div class="form-group col-md-1">
-            <input type="number" class="form-control" name="tgl"  id="tgl" placeholder="Tgl" required>
-            </div>
-            <div class="form-group col-md-1">
-            <input type="number" class="form-control" name="bln" id="bln" placeholder="Bulan" required>
+            <input type="text" class="form-control" name="tempatlahir"  id="kota" placeholder="Kota" required onkeyup="capt()">
             </div>
             <div class="form-group col-md-2">
-            <input type="number" class="form-control" name="tahun" id="tahun" placeholder="Tahun" required>
+            <input type="number" min="1" max="31"  class="form-control" name="tgl"  id="tgl" placeholder="Tgl" required onkeyup="capt()">
+            </div>
+            <div class="form-group col-md-2">
+
+            <select name="bulan" id="bulan" class="form-control" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a;"> 
+                <option value="1">Januari</option>
+                <option value="2">Februari</option>
+                <option value="3">Maret</option>
+                <option value="4">April</option>
+                <option value="5">Mei</option>
+                <option value="6">Juni</option>
+                <option value="7">Juli</option>
+                <option value="8">Agustus</option>
+                <option value="9">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+            </select>
+                        
+            </div>
+            <div class="form-group col-md-2">
+            <input type="number" min="1990" max="2018" class="form-control" name="tahun" id="tahun" placeholder="Tahun" required onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" id="telp" required>
+            <input type="text" name="notelp" class="form-control" id="telp" required onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="ig" class="col-sm-3 col-form-label">LINK AKUN INSTAGRAM <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="text" name="linkig" class="form-control" id="ig" required>
+            <input type="text" name="linkig" class="form-control" id="ig" required onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="fb" class="col-sm-3 col-form-label">LINK AKUN FACEBOOK (OPTIONAL)</label>
             <div class="col-sm-9">
-            <input type="text" name="linkfb" class="form-control" id="fb" >
+            <input type="text" name="linkfb" class="form-control" id="fb" onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
             <label class="control-label col-sm-3" for="comment">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE</label>
             <div class="col-sm-9"> 
-            <textarea class="form-group" name="alasan" rows="5" id="comment" ></textarea>
+            <textarea class="form-group" name="alasan" rows="5" id="alasan" onkeyup="capt()"></textarea>
             </div>
         </div>
 
-        <button type="submit" class="btn warn btn-lg">Submit</button>
-        
+        <div class="form-group row">
+            <!-- <label class="control-label col-sm-3" for="comment">Kode Validasi Nomor Telepon<b style="color:red;">*</b></label> -->
+            <div class="col-sm-9"> 
+            <!-- <input type="text" id="verificationcode" >
+            <input type="button" id="submit" value="Submit" onclick="myFunction()" > -->
+            <div id="aa" style="display:none">
+            <div id="recaptcha-container" ></div>
+            </div>
+            
+            </div>
+        </div>
+        <button type="submit" id="btnSubmit" class="btn warn btn-lg" disabled>Submit</button>           
         </form>
 
         </div>
@@ -439,5 +421,70 @@ body{
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script>
+        var nama = document.getElementById("namaLengkap");
+        var email = document.getElementById("email");
+        var kota = document.getElementById("kota");
+        var tgl = document.getElementById("tgl");
+        var tahun = document.getElementById("tahun");
+        var telp = document.getElementById("telp");
+        var ig = document.getElementById("ig");
+        var fb = document.getElementById("fb");
+        var alasan = document.getElementById("alasan");
+        var buttons = document.getElementById("btnSubmit");
+        var c = document.getElementById("aa");
+    function capt() {
+        if(nama.value!='' && email.value!='' && kota.value!='' && tgl.value!='' && tahun.value!='' && telp.value!='' && ig.value!='' && fb.value!=''&& alasan.value!=''){
+            c.style.display = '';
+            buttons.disabled= false;
+        }else{
+            captcha.style.display = '';
+        }
+        // if(nama.value!=''){
+        //     captcha.style.display = '';
+        //     buttons.disabled= false;
+        // }else{
+        //     captcha.style.display = 'none';
+        // }  
+    }
+</script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script type="text/javascript">
+  
+  document.getElementById("verificationcode").addEventListener("keyup", function() {
+    var nameInput = document.getElementById('verificationcode').value;
+    if (nameInput != '') {
+        document.getElementById('submit').removeAttribute("disabled");
+    } else {
+        document.getElementById('submit').setAttribute("disabled", null);
+    }
+});
+
+  var config = {
+    apiKey: "AIzaSyA9q1pskVgdzJbZ3Qki_0UuYM9L5bkQF7w",
+    authDomain: "lipice-8a856.firebaseapp.com",
+    databaseURL: "https://lipice-8a856.firebaseio.com",
+    projectId: "lipice-8a856",
+    storageBucket: "lipice-8a856.appspot.com",
+    messagingSenderId: "894497846646"
+  };
+  firebase.initializeApp(config);
+</script>
+<script type="text/javascript">
+  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+  firebase.auth().signInWithPhoneNumber("+62"+telp.value, window.recaptchaVerifier) 
+  .then(function(confirmationResult) {
+    window.confirmationResult = confirmationResult;
+    console.log("asdsadsadsad");
+  });
+  var myFunction = function() {
+    window.confirmationResult.confirm(document.getElementById("verificationcode").value)
+    .then(function(result) {
+      console.log("bayuganteng");
+    }, function(error) {
+      console.log(error);
+    });
+  };
+  </script>
 </body>
 </html>
