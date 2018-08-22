@@ -271,7 +271,7 @@ textarea::placeholder{
                     </h5>
 
                     <form action="" method="post">
-                        <div class="btn-group mb-3">
+                        <!-- <div class="btn-group mb-3">
                         <select name="provinsi" class="form-control" data-width="10%"> 
                             <option>Provinsi</option>
                             <option value="Aceh">Aceh</option>
@@ -309,6 +309,14 @@ textarea::placeholder{
                             <option value="Papua">Papua</option>
                             <option value="Papua Barat">Papua Barat</option>
                         </select>
+                        </div> -->
+
+                        <div class="input-group mb-3">
+                        <input type="text" id="myCity" class="form-control inpp" placeholder="city" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" onclick="myFcity()"><i class="fas fa-pen"></i></button>
+                            <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
+                        </div>
                         </div>
 
                         <div class="input-group mb-3">
@@ -507,6 +515,9 @@ textarea::placeholder{
 </div>
 
 <script>
+function myFcity() {
+    document.getElementById("myCity").disabled = false;
+}
 function myFig() {
     document.getElementById("myIg").disabled = false;
 }
