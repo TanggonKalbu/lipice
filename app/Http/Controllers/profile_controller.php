@@ -11,6 +11,38 @@ class profile_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function gambar() {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => "https://api.instagram.com/oembed/?url=https://www.instagram.com/p/Bk-SKN1HJW0/?taken-by=bayuharii",
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "GET",
+          CURLOPT_POSTFIELDS => "",
+          CURLOPT_COOKIE => "rur=ATN; mid=W31AYQAEAAEhFGLnHLjt971io9mV; urlgen=%22%7B%7D%3A1fsQkL%3AimDV8ZWT6XfxU8rFVkCn8LT-Aho%22; mcd=3; csrftoken=mZFYWBYL39DkXbk8KKD7r4EzPZ0R1wk2",
+          CURLOPT_HTTPHEADER => array(
+            "content-type: application/json"
+          ),
+        ));
+        
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        
+        curl_close($curl);
+        
+        if ($err) {
+          echo "cURL Error #:" . $err;
+        } else {
+          return $response;
+        }
+
+    }
+
+
     public function index()
     {
         $notelp = "81945314191";
@@ -35,12 +67,18 @@ class profile_controller extends Controller
         if ($err) {
         echo "cURL Error #:" . $err;
         } else {
-            $profile= json_decode($response, TRUE);
+            $data["profile"]= json_decode($response, TRUE);
+            $data["gambar"] = json_decode($this->gambar(), TRUE);
+                
            // print_r($profile["rows"][0]["value"]["namalengkap"]);
-          
-            return view('profile',compact('profile'));
+             return view('profile',compact('data'));
         }
+
+
+        
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
