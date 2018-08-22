@@ -276,7 +276,6 @@ body{
 <!-- Save for Web Slices (summercamp (2).psd) -->
 <div>
 
-<br>
   <!-- Button to Open the Modal -->
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
     Open modal

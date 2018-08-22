@@ -32,7 +32,7 @@ body{
     background: #fff;
   
     overflow:auto;
-    margin-bottom: 25px;
+    margin-bottom: 95px;
 }
 .force-overflow {
     max-width: 99%;
@@ -257,13 +257,7 @@ textarea::placeholder{
 
 /* image modal end */
 
-.isDisabled {
-  color: currentColor;
-  cursor: not-allowed;
-  opacity: 0.5;
-  text-decoration: none;
-  
-}
+.control-label .text-info { display:inline-block; color:black }
 
 </style>
 </head>
@@ -278,9 +272,25 @@ textarea::placeholder{
                 <div class="card-body">
                     <img src="/images/lipice_icon.png" alt="..." class="rounded-circle">  
                     <br><br>
-                    <h5 class="card-title"><?php echo $data["profile"]["rows"][0]["value"]["namalengkap"] ?>  &nbsp;&nbsp;
-                        <a href="google.com"><i class="fas fa-pen"></i> </a> 
+
+
+
+
+
+
+                    <!-- <label for="name" class="control-label">
+                    <h5 class="card-title text-info"><?php echo $data["profile"]["rows"][0]["value"]["namalengkap"] ?>  &nbsp;&nbsp;
+                        <a href="#" id="edit" class="btn"><i class="fas fa-pen"></i> </a> 
                     </h5>
+                    </label> -->
+
+                    <label for="name" class="control-label">
+                        <h5 class="text-info"><?php echo $data["profile"]["rows"][0]["value"]["namalengkap"] ?></h5>
+                            <a href="#" id="edit" class="btn">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                    </label>
+                    
 
                     <form action="" method="post">
                         <!-- <div class="btn-group mb-3">
@@ -562,11 +572,12 @@ textarea::placeholder{
                                 </div>
 
 
-                                <div class="col-md-3">
+                                <!-- <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                                         <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
-                                </div>
+                                </div> -->
+
                                  <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                                         <img  src="<?php echo $data["gambar"]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
@@ -579,8 +590,65 @@ textarea::placeholder{
                     </div>
                         
                     </div>
-                    <!-- end entreries -->
+                    <!-- end photo entreries -->
+                    
+                    <br><br><br>
+
+                     <!-- enteries video-->
+                    <div>
+                    <h5 style="text-align:left;">Your Video Enteries</h5>
+                    <div class="scrollbar scrollbar-primary"><br>
+                        <div class="force-overflow">
+                            <div class="row">
+                                
+                                <div class="col-md-3">
+                                    <div>
+                                        <blockquote class="instagram-media shadow-lg p-3 mb-4 bg-white rounded" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                                            <div style="padding:8px;"> 
+                                                <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:62.5% 0; text-align:center; width:100%;"> 
+                                                    <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;">
+                                                    </div>
+                                                </div> 
+                                                <p style=" margin:8px 0 0 0; padding:0 4px;"> 
+                                                    <a href="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Hail satay</a>
+                                                </p> 
+                                                <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">Sebuah kiriman dibagikan oleh <a href="https://www.instagram.com/bayuharii/?utm_source=ig_embed" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Bayu Hari Saputro</a> (@bayuharii) pada 
+                                                <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-07-08T13:58:02+00:00">8 Jul 2018 jam 6:58 PDT</time>
+                                                </p>
+                                            </div>
+                                        </blockquote> 
+                                        <script async defer src="//www.instagram.com/embed.js"></script>
+                                    </div> 
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
+                                    </div> 
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                        <img  src="<?php echo $data["gambar"]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
+                                    </div> 
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+                                    </div> 
+                                </div>
+                                
+
+
+                            </div>
+                        </div>
+                    </div>
+                        
+                    </div>
+                    <!-- end video entreries -->
                      
+                
                 </div>
                 </div>
             </div>
@@ -597,6 +665,7 @@ textarea::placeholder{
 </div>
 
 <script>
+// change button
 function myFcity() {
     document.getElementById("myCity").disabled = false;
 }
@@ -610,11 +679,22 @@ function myFutube() {
 function myFfb() {
     document.getElementById("myFb").disabled = false;
 }
-</script>
+// end change button
 
+// change text
+$('#edit').click(function() {
+ var text = $('.text-info').text();
+ var input = $('<input id="attribute" type="text" value="' + text + '" />')
+ $('.text-info').text('').append(input);
+ input.select();
 
-
-<script>
+ input.blur(function() {
+   var text = $('#attribute').val();
+   $('#attribute').parent().text(text);
+   $('#attribute').remove();
+ });
+});
+// end change text
 
 
 // Get the modal
@@ -627,9 +707,8 @@ for(a=0;a<imc.length;a++){
     imc[a].onclick = function(){
     modal.style.display = "block";
     modalImg.src = this.src;
+    }
 }
-}
-
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -639,6 +718,7 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 </script>
+
 
 </body>
 </html>
