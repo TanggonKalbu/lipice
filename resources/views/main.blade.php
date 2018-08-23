@@ -35,6 +35,13 @@ body{
       background-color:#df930e;
 
     }
+    .submit {
+      color:white;
+      border-radius:30px;
+      float:right;
+      background-color:#ea8a8a;
+
+    }
     .reg{
       color:#6EBEE0;
       font-size: 2vw;
@@ -367,8 +374,9 @@ body{
 
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
+            
             <div class="col-sm-9">
-            <input type="text" name="notelp" class="form-control" id="telp" required onkeyup="capt()">
+            <input type="text" name="notelp" value="+62" class="form-control" id="telp" required onkeyup="capt()">
             </div>
         </div>
 
@@ -394,17 +402,27 @@ body{
         </div>
 
         <div class="form-group row">
-            <!-- <label class="control-label col-sm-3" for="comment">Kode Validasi Nomor Telepon<b style="color:red;">*</b></label> -->
-            <div class="col-sm-9"> 
-            <!-- <input type="text" id="verificationcode" >
-            <input type="button" id="submit" value="Submit" onclick="myFunction()" > -->
-            <div id="aa" style="display:none">
-            <div id="recaptcha-container" ></div>
+            <label class="control-label col-sm-3" for="comment">Kode Validasi Nomor Telepon<b style="color:red;">*</b></label>
+            <div class="col-md-2"> 
+                <input class="form-control" type="text" id="verificationcode" >
             </div>
-            
+            <div class="col-md-2"> 
+                <button class="btn submit" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; display:none">Submit Kode</button>
+            </div>
+                       
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3"></div>
+            <div class="col-md-2">
+            <button class="btn btn-info" type="button" id="button-kirim" style=" float:left; display:none ">Kirim Kode Verifikasi</button> 
             </div>
         </div>
+<<<<<<< HEAD
         
+=======
+        <br><br>
+>>>>>>> cc5b93542d211bd903085b4a320b1e6a5d900c3a
         <button type="submit" id="btnSubmit" class="btn warn btn-lg" disabled>Submit</button>           
         </form>
 
@@ -416,8 +434,8 @@ body{
 <!-- End Save for Web Slices -->
 
 
-<!-- buah atas -->
 
+<!-- ==========SCRIPT========== -->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -433,56 +451,75 @@ body{
         var fb = document.getElementById("fb");
         var alasan = document.getElementById("alasan");
         var buttons = document.getElementById("btnSubmit");
-        var c = document.getElementById("aa");
+        var buttonkode = document.getElementById("button-submit-kode");
+
     function capt() {
         if(nama.value!='' && email.value!='' && kota.value!='' && tgl.value!='' && tahun.value!='' && telp.value!='' && ig.value!='' && fb.value!=''&& alasan.value!=''){
-            c.style.display = '';
-            buttons.disabled= false;
+            document.getElementById("button-kirim").style.display = '';
         }else{
-            captcha.style.display = '';
-        }
-        // if(nama.value!=''){
-        //     captcha.style.display = '';
-        //     buttons.disabled= false;
-        // }else{
-        //     captcha.style.display = 'none';
-        // }  
+            buttons.disabled= true;
+        } 
     }
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-  <script type="text/javascript">
-  
-  document.getElementById("verificationcode").addEventListener("keyup", function() {
-    var nameInput = document.getElementById('verificationcode').value;
-    if (nameInput != '') {
-        document.getElementById('submit').removeAttribute("disabled");
-    } else {
-        document.getElementById('submit').setAttribute("disabled", null);
-    }
-});
-
-  var config = {
-    apiKey: "AIzaSyA9q1pskVgdzJbZ3Qki_0UuYM9L5bkQF7w",
-    authDomain: "lipice-8a856.firebaseapp.com",
-    databaseURL: "https://lipice-8a856.firebaseio.com",
-    projectId: "lipice-8a856",
-    storageBucket: "lipice-8a856.appspot.com",
-    messagingSenderId: "894497846646"
-  };
-  firebase.initializeApp(config);
-</script>
 <script type="text/javascript">
-  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-  firebase.auth().signInWithPhoneNumber("+62"+telp.value, window.recaptchaVerifier) 
-  .then(function(confirmationResult) {
-    window.confirmationResult = confirmationResult;
-    console.log("asdsadsadsad");
-  });
+    var config = {
+        apiKey: "AIzaSyA9q1pskVgdzJbZ3Qki_0UuYM9L5bkQF7w",
+        authDomain: "lipice-8a856.firebaseapp.com",
+        databaseURL: "https://lipice-8a856.firebaseio.com",
+        projectId: "lipice-8a856",
+        storageBucket: "lipice-8a856.appspot.com",
+        messagingSenderId: "894497846646"
+    };
+    firebase.initializeApp(config);
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('button-kirim', {
+    'size': 'invisible',
+    'callback': function(response) {
+        submit();
+    }
+    });
+    recaptchaVerifier.render().then(function(widgetId) {
+    window.recaptchaWidgetId = widgetId;
+
+    });
+
+  var submit = function(){
+    var telpv = telp.value;
+    var appVerifier = window.recaptchaVerifier;
+    firebase
+    .auth()
+    .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
+    .then(function(confirmationResult) {
+        window.confirmationResult = confirmationResult;
+        console.log("good");
+        document.getElementById("button-kirim").disabled = true;
+        document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
+        setTimeout(kirimulang, 5000);
+        buttonkode.style.display = '';
+        function kirimulang(){
+            document.getElementById("button-kirim").disabled = false;
+        }
+
+    })
+    .catch(function (error) {
+            // Error; SMS not sent
+            console.error('Terjadi Kesalahan :', error);
+            window.alert('Error during signInWithPhoneNumber:\n\n'
+                + error.code + '\n\n' + error.message);
+            window.signingIn = false;
+        });
+  }
+
   var myFunction = function() {
     window.confirmationResult.confirm(document.getElementById("verificationcode").value)
     .then(function(result) {
-      console.log("bayuganteng");
+        window.alert('Konfirmasi Kode Berhasil');
+        console.log("success");
+        buttons.disabled = false;
     }, function(error) {
+        window.alert('Terjadi Kesalahan :\n\n'
+                + error.code + '\n\n' + error.message);
+            window.signingIn = false;
       console.log(error);
     });
   };
