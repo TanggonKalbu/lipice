@@ -198,6 +198,7 @@ a:active {
 </style>
 </head>
 <body>
+<a href="{{action('profile_controller@edit', 81945314191)}}" class="btn btn-warning">Edit</a>
 <!-- <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
 <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt="">
 <img src="images/lipice_icon.png" style="width:162px; height:150px; float:left;" alt="">

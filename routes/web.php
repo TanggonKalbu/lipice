@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::resource('kontestans','kontestan_controller');
 Route::resource('profile','profile_controller');
 
+
 Route::get('/form', function () {
   return view('form');
 });
