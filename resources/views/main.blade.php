@@ -402,7 +402,7 @@ body{
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-3" for="comment">Kode Validasi Nomor Telepon<b style="color:red;">*</b></label>
+            <label class="control-label col-sm-3" for="comment">Kode Validasi Nomor Telepon <b style="color:red;">*</b></label>
             <div class="col-md-2"> 
                 <input class="form-control" type="text" id="verificationcode" >
             </div>

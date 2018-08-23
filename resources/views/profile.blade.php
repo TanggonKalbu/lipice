@@ -68,11 +68,15 @@ body{
 }
 
 .rounded-circle{
-    height: 30%;
-    width: 30%;
-    border: 2px;
+    height: 70%;
+    width: 70%;
+    
     margin-top:30px;
-    border-color: red;
+    padding:5px;
+}
+
+.round-border{
+    border: 2px solid #00b2b2;
 }
 
 .button {
@@ -107,9 +111,8 @@ textarea {
     height: 150px;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: none;
+    border: 1px solid #eeeeee;
     border-radius: 0;       
-    background-color: #eeeeee;
     font-size: 16px;
     resize: none;
 }
@@ -270,29 +273,23 @@ textarea::placeholder{
             <div class="col-sm-3">
                 <div class="card">
                 <div class="card-body">
-                    <img src="/images/lipice_icon.png" alt="..." class="rounded-circle">  
-                    <br><br>
+                    <form action="" method="post">
+                        <div class="round-border rounded-circle" style="display:box; margin:auto">
+                            <img src="/images/lipice_icon.png" alt="..." class="">  
+                            <input type="file" name="image" class="form-control-file"id="">
+                        </div>
+                        <br><br>
 
 
-
-
-
-
-                    <!-- <label for="name" class="control-label">
-                    <h5 class="card-title text-info"><?php echo $data["profile"]["rows"][0]["value"]["namalengkap"] ?>  &nbsp;&nbsp;
-                        <a href="#" id="edit" class="btn"><i class="fas fa-pen"></i> </a> 
-                    </h5>
-                    </label> -->
-
-                    <label for="name" class="control-label">
-                        <h5 class="text-info"><?php echo $data["profile"]["rows"][0]["value"]["namalengkap"] ?></h5>
-                            <a href="#" id="edit" class="btn">
-                                <i class="fas fa-pen"></i>
-                            </a>
-                    </label>
+                        <label for="name" class="control-label">
+                            <h5 class="text-info"><?php echo $data["profile"]["rows"][0]["value"]["namalengkap"] ?></h5>
+                                <a href="#" id="edit" class="btn">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                        </label>
                     
 
-                    <form action="" method="post">
+                    
                         <!-- <div class="btn-group mb-3">
                         <select name="provinsi" class="form-control" data-width="10%"> 
                             <option>Provinsi</option>
@@ -382,7 +379,6 @@ textarea::placeholder{
                     <form>
                         <textarea placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["alasan"] ?></textarea>
                         <button class="button"  style="float:right">SAVE</button>
-                        <!-- <button class="btn btn-primary button" type="submit">Button</button> -->
                     </form>
 
                     <br><br><br><br>
