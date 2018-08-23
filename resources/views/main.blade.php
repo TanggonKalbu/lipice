@@ -489,7 +489,13 @@ body{
         window.confirmationResult = confirmationResult;
         console.log("good");
         document.getElementById("button-kirim").disabled = true;
+        document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
+        setTimeout(kirimulang, 5000);
         buttonkode.style.display = '';
+        function kirimulang(){
+            document.getElementById("button-kirim").disabled = false;
+        }
+
     })
     .catch(function (error) {
             // Error; SMS not sent
@@ -504,7 +510,7 @@ body{
     window.confirmationResult.confirm(document.getElementById("verificationcode").value)
     .then(function(result) {
         window.alert('Konfirmasi Kode Berhasil');
-        console.log("bayuganteng");
+        console.log("success");
         buttons.disabled = false;
     }, function(error) {
         window.alert('Terjadi Kesalahan :\n\n'

@@ -47,6 +47,8 @@ class kontestan_controller extends Controller
        $linkig = $request->get('linkig');
        $linkfb = $request->get('linkfb');
        $alasan = $request->get('alasan');
+
+       //echo base64_encode(file_get_contents($request->fileToUpload));
        $curl = curl_init();
        curl_setopt_array($curl, array(
          CURLOPT_PORT => "5984",
@@ -60,7 +62,7 @@ class kontestan_controller extends Controller
          CURLOPT_POSTFIELDS => "{\n  \"type\": \"kontestan\",\n  \"namalengkap\": \"$namalengkap\",\n  
             \"tempatlahir\": \"$tempatlahir\",\n  \"email\": \"$email\",\n 
              \"tgllahir\": \"$tgllahir\",\n  \"umur\": \"$umur\", \n  \"notelp\": \"$notelp\", \n  \"linkig\": \"$linkig\",\n  
-             \"linkfb\": \"$linkfb\",\n  \"alasan\": \"$alasan\"\n}",
+             \"linkfb\": \"$linkfb\",\n  \"kota\": \" \",\n  \"image\": \"\",  \n  \"alasan\": \"$alasan\"\n}",
          CURLOPT_HTTPHEADER => array(
            "content-type: application/json"
          ),
