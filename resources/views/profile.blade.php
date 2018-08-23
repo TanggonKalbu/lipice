@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 <style>
@@ -286,8 +287,37 @@ input[type="file"] {
 </head>
 <body>
 
+
+<script> 
+$(document).on('click', '#btn-submit', function(e) {
+    e.preventDefault();
+    swal({
+        title: 'Confirm',
+        input: 'checkbox',
+        inputValue: 0,
+        inputPlaceholder: ' I agree with the Terms',
+        confirmButtonText: 'Continue',
+        inputValidator: function (result) {
+            return new Promise(function (resolve, reject) {
+                if (result) {
+                    resolve();
+                } else {
+                    reject('You need to agree with the Terms');
+                }
+            })
+        }
+    }).then(function (result) {
+        $('#myForm').submit();
+    });
+});
+</script>
 <!-- card -->
     <div>
+    @if (\Session::has('success'))
+      <div class="alert alert-success">
+        <p>{{ \Session::get('success') }}</p>
+      </div><br />
+     @endif
         <div class="row">
         <!-- profile -->
             <div class="col-sm-3">
@@ -321,10 +351,6 @@ input[type="file"] {
                             
                         <br>
 
-                        
-
-                        
-
                         <br>
 
                         <!-- label nama user -->
@@ -335,9 +361,6 @@ input[type="file"] {
                                 </a>
                         </label>
                         <!-- end -->
-                        
-
-                        
                         
                             <!-- <div class="btn-group mb-3">
                             <select name="provinsi" class="form-control" data-width="10%"> 
@@ -406,20 +429,41 @@ input[type="file"] {
                             </div>
                             </div>
 
-                            <div class="input-group mb-3">
-                            <input type="text" id="myFb" name="linkfb" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>"  placeholder="your Facebook" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" onclick="myFfb()"><i class="fas fa-pen"></i></button>
-                                <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
-                            </div>
-                            </div>
+                        <div class="input-group mb-3">
+                        <input type="text" id="myFb" name="linkfb" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>"  placeholder="your Facebook" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" onclick="myFfb()"><i class="fas fa-pen"></i></button>
+                            <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
+                        </div>
+                        </div>
+                        <button type="submit" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
 
-                            <button type="submit" class="btn-default mb-2 button">SAVE</button>
-                            <!-- <button class="btn btn-primary" type="submit">Button</button> -->
-                        </form>
+                       
+                         <!-- <button class="btn btn-primary" type="submit">Button</button> -->
+                    </form>
 
-                        
-                    </div>
+                    <script> 
+$(document).on('click', '#btn-submit', function(e) {
+    e.preventDefault();
+    swal({
+  title: "Hore!",
+  text: "Kamu berhasil update data kamu",
+  icon: "success",
+  button: "oke",
+}).then((konfirmasi) => {
+  if (konfirmasi) {
+    $('#myForm').submit();
+  } else {
+    
+  }
+});
+
+
+});
+</script>
+
+                    
+                </div>
                 </div>
             </div>
 
@@ -727,6 +771,8 @@ function myFutube() {
 function myFfb() {
     document.getElementById("myFb").disabled = false;
 }
+
+
 // end change button
 
 // change text
@@ -766,6 +812,7 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 </script>
+
 
 
 </body>
