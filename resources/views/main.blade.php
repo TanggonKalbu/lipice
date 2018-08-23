@@ -396,8 +396,9 @@ body{
 
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
+            
             <div class="col-sm-9">
-            <input type="text" name="notelp" class="form-control" id="telp" required onkeyup="capt()">
+            <input type="text" name="notelp" value="+62" class="form-control" id="telp" required onkeyup="capt()">
             </div>
         </div>
 
@@ -423,13 +424,16 @@ body{
         </div>
 
         <div class="form-group row">
-            <!-- <label class="control-label col-sm-3" for="comment">Kode Validasi Nomor Telepon<b style="color:red;">*</b></label> -->
+            <label class="control-label col-sm-3" for="comment">Kode Validasi Nomor Telepon<b style="color:red;">*</b></label>
             <div class="col-sm-9"> 
-            <!-- <input type="text" id="verificationcode" >
-            <input type="button" id="submit" value="Submit" onclick="myFunction()" > -->
-            <div id="aa" style="display:none">
-            <div id="recaptcha-container" ></div>
+            <div id="aa">
+                <!-- <div id="recaptcha-container" ></div> -->
+                <input type="text" id="verificationcode" >
+                <button type="button" id="button-submit-kode" onclick="myFunction()" style="display:none">Submit Kode</button>
+                <button type="button" id="button-kirim" style="display:none">Kirim Kode Verifikasi</button>           
             </div>
+            
+            
             
             </div>
         </div>
@@ -461,13 +465,14 @@ body{
         var fb = document.getElementById("fb");
         var alasan = document.getElementById("alasan");
         var buttons = document.getElementById("btnSubmit");
+        var buttonkode = document.getElementById("button-submit-kode");
         var c = document.getElementById("aa");
     function capt() {
         if(nama.value!='' && email.value!='' && kota.value!='' && tgl.value!='' && tahun.value!='' && telp.value!='' && ig.value!='' && fb.value!=''&& alasan.value!=''){
             c.style.display = '';
-            buttons.disabled= false;
+            document.getElementById("button-kirim").style.display = '';
         }else{
-            captcha.style.display = '';
+            buttons.disabled= true;
         }
         // if(nama.value!=''){
         //     captcha.style.display = '';
@@ -478,39 +483,58 @@ body{
     }
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-  <script type="text/javascript">
-  
-  document.getElementById("verificationcode").addEventListener("keyup", function() {
-    var nameInput = document.getElementById('verificationcode').value;
-    if (nameInput != '') {
-        document.getElementById('submit').removeAttribute("disabled");
-    } else {
-        document.getElementById('submit').setAttribute("disabled", null);
-    }
-});
-
-  var config = {
-    apiKey: "AIzaSyA9q1pskVgdzJbZ3Qki_0UuYM9L5bkQF7w",
-    authDomain: "lipice-8a856.firebaseapp.com",
-    databaseURL: "https://lipice-8a856.firebaseio.com",
-    projectId: "lipice-8a856",
-    storageBucket: "lipice-8a856.appspot.com",
-    messagingSenderId: "894497846646"
-  };
-  firebase.initializeApp(config);
-</script>
 <script type="text/javascript">
-  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-  firebase.auth().signInWithPhoneNumber("+62"+telp.value, window.recaptchaVerifier) 
-  .then(function(confirmationResult) {
-    window.confirmationResult = confirmationResult;
-    console.log("asdsadsadsad");
-  });
+    var config = {
+        apiKey: "AIzaSyA9q1pskVgdzJbZ3Qki_0UuYM9L5bkQF7w",
+        authDomain: "lipice-8a856.firebaseapp.com",
+        databaseURL: "https://lipice-8a856.firebaseio.com",
+        projectId: "lipice-8a856",
+        storageBucket: "lipice-8a856.appspot.com",
+        messagingSenderId: "894497846646"
+    };
+    firebase.initializeApp(config);
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('button-kirim', {
+    'size': 'invisible',
+    'callback': function(response) {
+        submit();
+    }
+    });
+    recaptchaVerifier.render().then(function(widgetId) {
+    window.recaptchaWidgetId = widgetId;
+
+    });
+
+  var submit = function(){
+    var telpv = telp.value;
+    var appVerifier = window.recaptchaVerifier;
+    firebase
+    .auth()
+    .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
+    .then(function(confirmationResult) {
+        window.confirmationResult = confirmationResult;
+        console.log("good");
+        document.getElementById("button-kirim").disabled = true;
+        buttonkode.style.display = '';
+    })
+    .catch(function (error) {
+            // Error; SMS not sent
+            console.error('Terjadi Kesalahan :', error);
+            window.alert('Error during signInWithPhoneNumber:\n\n'
+                + error.code + '\n\n' + error.message);
+            window.signingIn = false;
+        });
+  }
+
   var myFunction = function() {
     window.confirmationResult.confirm(document.getElementById("verificationcode").value)
     .then(function(result) {
-      console.log("bayuganteng");
+        window.alert('Konfirmasi Kode Berhasil');
+        console.log("bayuganteng");
+        buttons.disabled = false;
     }, function(error) {
+        window.alert('Terjadi Kesalahan :\n\n'
+                + error.code + '\n\n' + error.message);
+            window.signingIn = false;
       console.log(error);
     });
   };
