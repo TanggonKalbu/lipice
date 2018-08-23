@@ -35,6 +35,13 @@ body{
       background-color:#df930e;
 
     }
+    .submit {
+      color:white;
+      border-radius:30px;
+      float:right;
+      background-color:#ea8a8a;
+
+    }
     .reg{
       color:#6EBEE0;
       font-size: 2vw;
@@ -425,18 +432,22 @@ body{
 
         <div class="form-group row">
             <label class="control-label col-sm-3" for="comment">Kode Validasi Nomor Telepon<b style="color:red;">*</b></label>
-            <div class="col-sm-9"> 
-            <div id="aa">
-                <!-- <div id="recaptcha-container" ></div> -->
-                <input type="text" id="verificationcode" >
-                <button type="button" id="button-submit-kode" onclick="myFunction()" style="display:none">Submit Kode</button>
-                <button type="button" id="button-kirim" style="display:none">Kirim Kode Verifikasi</button>           
+            <div class="col-md-2"> 
+                <input class="form-control" type="text" id="verificationcode" >
             </div>
-            
-            
-            
+            <div class="col-md-2"> 
+                <button class="btn submit" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; display:none">Submit Kode</button>
+            </div>
+                       
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3"></div>
+            <div class="col-md-2">
+            <button class="btn btn-info" type="button" id="button-kirim" style=" float:left; display:none ">Kirim Kode Verifikasi</button> 
             </div>
         </div>
+        <br><br>
         <button type="submit" id="btnSubmit" class="btn warn btn-lg" disabled>Submit</button>           
         </form>
 
@@ -448,8 +459,8 @@ body{
 <!-- End Save for Web Slices -->
 
 
-<!-- buah atas -->
 
+<!-- ==========SCRIPT========== -->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -466,20 +477,13 @@ body{
         var alasan = document.getElementById("alasan");
         var buttons = document.getElementById("btnSubmit");
         var buttonkode = document.getElementById("button-submit-kode");
-        var c = document.getElementById("aa");
+
     function capt() {
         if(nama.value!='' && email.value!='' && kota.value!='' && tgl.value!='' && tahun.value!='' && telp.value!='' && ig.value!='' && fb.value!=''&& alasan.value!=''){
-            c.style.display = '';
             document.getElementById("button-kirim").style.display = '';
         }else{
             buttons.disabled= true;
-        }
-        // if(nama.value!=''){
-        //     captcha.style.display = '';
-        //     buttons.disabled= false;
-        // }else{
-        //     captcha.style.display = 'none';
-        // }  
+        } 
     }
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>

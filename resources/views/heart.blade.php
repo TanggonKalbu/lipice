@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -64,46 +64,5 @@ body{
             <i class="fas fa-heart"></i>
         </div>
     </div>
-</body>
-</html> -->
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<style>
-.control-label .text-info { display:inline-block; }
-</style>
-</head>
-<body>
-<label for="name" class="control-label"><p class="text-info">Saghir</p><i class="icon-star"></i></label>
-<div class="controls">
-   <a href="#" id="edit" class="btn">Edit</a>
-</div>
-<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-
-<script>
-$('#edit').click(function() {
- var text = $('.text-info').text();
- var input = $('<input id="attribute" type="text" value="' + text + '" />')
- $('.text-info').text('').append(input);
- input.select();
-
- input.blur(function() {
-   var text = $('#attribute').val();
-   $('#attribute').parent().text(text);
-   $('#attribute').remove();
- });
-});
-</script>
 </body>
 </html>
