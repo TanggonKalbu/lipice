@@ -70,13 +70,18 @@ body{
 .rounded-circle{
     height: 70%;
     width: 70%;
-    
-    margin-top:30px;
     padding:5px;
+    z-index:-1;
 }
 
 .round-border{
-    border: 2px solid #00b2b2;
+    border: 3px solid #00b2b2;
+    border-radius: 50%;
+    width: 72%;
+    height: 72%; 
+    float: none;
+    margin: 0 auto;
+    margin-top:40px;
 }
 
 .button {
@@ -251,6 +256,16 @@ textarea::placeholder{
   color: black;
 }
 
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content {
@@ -262,6 +277,11 @@ textarea::placeholder{
 
 .control-label .text-info { display:inline-block; color:black }
 
+.position{
+    font-size:2.5vw;
+    z-index:3;
+}
+
 </style>
 </head>
 <body>
@@ -272,112 +292,134 @@ textarea::placeholder{
         <!-- profile -->
             <div class="col-sm-3">
                 <div class="card">
-                <div class="card-body">
-                 <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
-                    <img src="/images/lipice_icon.png" alt="..." class="rounded-circle">  
-                 <?php }else { ?>
-                    <img style src='http://159.65.139.254:5984/lipice/869999ee44c2ef3202a6fa489504156d/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." class="rounded-circle"> 
-                 <?php } ?>
-                    <br><br>
+                    <div class="card-body">
+                    <!-- form untuk edit -->
+                    <form class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
+                            @csrf
 
+                        <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
+                            <div class="round-border">
+                            <img src="/images/lipice_icon.png" alt="..." class="rounded-circle"> 
+                            </div> 
+                        <?php }else { ?>
+                            <div class="round-border">
+                                <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/869999ee44c2ef3202a6fa489504156d/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
+                                <!-- button change photo profile -->
+                                <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
+                                    <i class="far fa-user-circle position"></i>
+                                </label>
+                                <input id="file-upload" type="file" name="fileToUpload"/>
+                                <!-- end -->
+                            </div>
+                        <?php } ?>
+                        
+                        
+                            
 
+                            <!-- <input type="file" class="form-control-file" name="fileToUpload" id="exampleInputFile" aria-describedby="fileHelp"> -->
 
+                            
+                        <br>
 
+                        
 
+                        
 
+                        <br>
 
+                        <!-- label nama user -->
                         <label for="name" class="control-label">
                             <h5 class="text-info"><?php echo $data["profile"]["rows"][0]["value"]["namalengkap"] ?></h5>
                                 <a href="#" id="edit" class="btn">
                                     <i class="fas fa-pen"></i>
                                 </a>
                         </label>
-                    
+                        <!-- end -->
+                        
 
-                    <form class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
-                    @csrf
-                    <input type="file" class="form-control-file" name="fileToUpload" id="exampleInputFile" aria-describedby="fileHelp">
-                        <!-- <div class="btn-group mb-3">
-                        <select name="provinsi" class="form-control" data-width="10%"> 
-                            <option>Provinsi</option>
-                            <option value="Aceh">Aceh</option>
-                            <option value="Sumatera Utara">Sumatera Utara</option>
-                            <option value="Sumatera Barat">Sumatera Barat</option>
-                            <option value="Riau">Riau</option>
-                            <option value="Jambi">Jambi</option>
-                            <option value="Sumatera Selatan">Sumatera Selatan</option>
-                            <option value="Bengkulu">Bengkulu</option>
-                            <option value="Lampung">Lampung</option>
-                            <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
-                            <option value="Kepulaian Riau">Kepulaian Riau</option>
-                            <option value="DKI Jakarta">DKI Jakarta</option>
-                            <option value="Jawa Barat">Jawa Barat</option>
-                            <option value="Jawa Tengah">Jawa Tengah</option>
-                            <option value="Daerah Istimewa Yogyakarta">Daerah Istimewa Yogyakarta</option>
-                            <option value="Jawa Timur">Jawa Timur</option>
-                            <option value="Banten">Banten</option>
-                            <option value="Bali">Bali</option>
-                            <option value="NTB">NTB</option>
-                            <option value="NTT">NTT</option>
-                            <option value="Kalimantan Barat">Kalimantan Barat</option>
-                            <option value="Kalimantan Tengah">Kalimantan Tengah</option>
-                            <option value="Kalimantan Selatan">Kalimantan Selatan</option>
-                            <option value="Kalimantan Timur">Kalimantan Timur</option>
-                            <option value="Kalimantan Utara">Kalimantan Utara</option>
-                            <option value="Sulawesi Utara">Sulawesi Utara</option>
-                            <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                            <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                            <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
-                            <option value="Gorontalo">Gorontalo</option>
-                            <option value="Sukawesi Barat">Sukawesi Barat</option>
-                            <option value="Maluku">Maluku</option>
-                            <option value="Maluku Utara">Maluku Utara</option>
-                            <option value="Papua">Papua</option>
-                            <option value="Papua Barat">Papua Barat</option>
-                        </select>
-                        </div> -->
+                        
+                        
+                            <!-- <div class="btn-group mb-3">
+                            <select name="provinsi" class="form-control" data-width="10%"> 
+                                <option>Provinsi</option>
+                                <option value="Aceh">Aceh</option>
+                                <option value="Sumatera Utara">Sumatera Utara</option>
+                                <option value="Sumatera Barat">Sumatera Barat</option>
+                                <option value="Riau">Riau</option>
+                                <option value="Jambi">Jambi</option>
+                                <option value="Sumatera Selatan">Sumatera Selatan</option>
+                                <option value="Bengkulu">Bengkulu</option>
+                                <option value="Lampung">Lampung</option>
+                                <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
+                                <option value="Kepulaian Riau">Kepulaian Riau</option>
+                                <option value="DKI Jakarta">DKI Jakarta</option>
+                                <option value="Jawa Barat">Jawa Barat</option>
+                                <option value="Jawa Tengah">Jawa Tengah</option>
+                                <option value="Daerah Istimewa Yogyakarta">Daerah Istimewa Yogyakarta</option>
+                                <option value="Jawa Timur">Jawa Timur</option>
+                                <option value="Banten">Banten</option>
+                                <option value="Bali">Bali</option>
+                                <option value="NTB">NTB</option>
+                                <option value="NTT">NTT</option>
+                                <option value="Kalimantan Barat">Kalimantan Barat</option>
+                                <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                                <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                                <option value="Kalimantan Timur">Kalimantan Timur</option>
+                                <option value="Kalimantan Utara">Kalimantan Utara</option>
+                                <option value="Sulawesi Utara">Sulawesi Utara</option>
+                                <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                                <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                                <option value="Gorontalo">Gorontalo</option>
+                                <option value="Sukawesi Barat">Sukawesi Barat</option>
+                                <option value="Maluku">Maluku</option>
+                                <option value="Maluku Utara">Maluku Utara</option>
+                                <option value="Papua">Papua</option>
+                                <option value="Papua Barat">Papua Barat</option>
+                            </select>
+                            </div> -->
 
-                        <div class="input-group mb-3">
-                        <input name="_method" type="hidden" value="PATCH">
-                        <input type="hidden" id="rev" name="rev" value="<?php echo $data["profile"]["rows"][0]["value"]["_rev"]?>">
-                        <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
-                        <input type="text" name="kota" id="myCity" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>" placeholder="kota"  aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" onclick="myFcity()"><i class="fas fa-pen"></i></button>
-                            <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
-                        </div>
-                        </div>
+                            <div class="input-group mb-3">
+                            <input name="_method" type="hidden" value="PATCH">
+                            <input type="hidden" id="rev" name="rev" value="<?php echo $data["profile"]["rows"][0]["value"]["_rev"]?>">
+                            <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
+                            <input type="text" name="kota" id="myCity" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>" placeholder="kota"  aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" onclick="myFcity()"><i class="fas fa-pen"></i></button>
+                                <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
+                            </div>
+                            </div>
 
-                        <div class="input-group mb-3">
-                        <input type="text" name="linkig" id="myIg" value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>" class="form-control inpp" placeholder="your instagram" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" onclick="myFig()"><i class="fas fa-pen"></i></button>
-                            <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
-                        </div>
-                        </div>
+                            <div class="input-group mb-3">
+                            <input type="text" name="linkig" id="myIg" value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>" class="form-control inpp" placeholder="your instagram" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" onclick="myFig()"><i class="fas fa-pen"></i></button>
+                                <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
+                            </div>
+                            </div>
 
-                        <div class="input-group mb-3">
-                        <input type="text" name="linkyoutube" id="myUtube" value="<?php echo $data["profile"]["rows"][0]["value"]["linkyoutube"]?>" class="form-control inpp" placeholder="your Youtube" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" onclick="myFutube()"><i class="fas fa-pen"></i></button>
-                            <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
-                        </div>
-                        </div>
+                            <div class="input-group mb-3">
+                            <input type="text" name="linkyoutube" id="myUtube" value="<?php echo $data["profile"]["rows"][0]["value"]["linkyoutube"]?>" class="form-control inpp" placeholder="your Youtube" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" onclick="myFutube()"><i class="fas fa-pen"></i></button>
+                                <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
+                            </div>
+                            </div>
 
-                        <div class="input-group mb-3">
-                        <input type="text" id="myFb" name="linkfb" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>"  placeholder="your Facebook" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" onclick="myFfb()"><i class="fas fa-pen"></i></button>
-                            <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
-                        </div>
-                        </div>
+                            <div class="input-group mb-3">
+                            <input type="text" id="myFb" name="linkfb" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>"  placeholder="your Facebook" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" onclick="myFfb()"><i class="fas fa-pen"></i></button>
+                                <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
+                            </div>
+                            </div>
 
-                        <button type="submit" class="btn-default mb-2 button">SAVE</button>
-                         <!-- <button class="btn btn-primary" type="submit">Button</button> -->
-                    </form>
+                            <button type="submit" class="btn-default mb-2 button">SAVE</button>
+                            <!-- <button class="btn btn-primary" type="submit">Button</button> -->
+                        </form>
 
-                    
-                </div>
+                        
+                    </div>
                 </div>
             </div>
 
