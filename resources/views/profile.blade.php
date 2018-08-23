@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 <style>
@@ -266,8 +267,37 @@ textarea::placeholder{
 </head>
 <body>
 
+
+<script> 
+$(document).on('click', '#btn-submit', function(e) {
+    e.preventDefault();
+    swal({
+        title: 'Confirm',
+        input: 'checkbox',
+        inputValue: 0,
+        inputPlaceholder: ' I agree with the Terms',
+        confirmButtonText: 'Continue',
+        inputValidator: function (result) {
+            return new Promise(function (resolve, reject) {
+                if (result) {
+                    resolve();
+                } else {
+                    reject('You need to agree with the Terms');
+                }
+            })
+        }
+    }).then(function (result) {
+        $('#myForm').submit();
+    });
+});
+</script>
 <!-- card -->
     <div>
+    @if (\Session::has('success'))
+      <div class="alert alert-success">
+        <p>{{ \Session::get('success') }}</p>
+      </div><br />
+     @endif
         <div class="row">
         <!-- profile -->
             <div class="col-sm-3">
@@ -283,9 +313,6 @@ textarea::placeholder{
 
 
 
-
-
-
                         <label for="name" class="control-label">
                             <h5 class="text-info"><?php echo $data["profile"]["rows"][0]["value"]["namalengkap"] ?></h5>
                                 <a href="#" id="edit" class="btn">
@@ -294,7 +321,7 @@ textarea::placeholder{
                         </label>
                     
 
-                    <form class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
+                    <form id="myForm" class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
                     @csrf
                     <input type="file" class="form-control-file" name="fileToUpload" id="exampleInputFile" aria-describedby="fileHelp">
                         <!-- <div class="btn-group mb-3">
@@ -371,10 +398,31 @@ textarea::placeholder{
                             <!-- <a href="#" class="btn btn-outline-secondary" type="button"onclick="myFunction()"><i class="fas fa-pen"></i></a> -->
                         </div>
                         </div>
+                        <button type="submit" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
 
-                        <button type="submit" class="btn-default mb-2 button">SAVE</button>
+                       
                          <!-- <button class="btn btn-primary" type="submit">Button</button> -->
                     </form>
+
+                    <script> 
+$(document).on('click', '#btn-submit', function(e) {
+    e.preventDefault();
+    swal({
+  title: "Hore!",
+  text: "Kamu berhasil update data kamu",
+  icon: "success",
+  button: "oke",
+}).then((konfirmasi) => {
+  if (konfirmasi) {
+    $('#myForm').submit();
+  } else {
+    
+  }
+});
+
+
+});
+</script>
 
                     
                 </div>
@@ -685,6 +733,8 @@ function myFutube() {
 function myFfb() {
     document.getElementById("myFb").disabled = false;
 }
+
+
 // end change button
 
 // change text
@@ -724,6 +774,7 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 </script>
+
 
 
 </body>

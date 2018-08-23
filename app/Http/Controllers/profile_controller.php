@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Alert;
 
 class profile_controller extends Controller
 {
@@ -45,7 +46,7 @@ class profile_controller extends Controller
 
     public function index()
     {
-        
+        return redirect("/votetest");
     }
 
     
@@ -57,7 +58,7 @@ class profile_controller extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -79,7 +80,7 @@ class profile_controller extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -118,6 +119,7 @@ class profile_controller extends Controller
             //  print_r ($json);
                // print_r($data["gambar"]["html"]);
            // print_r($data["profile"]["rows"][0]["value"]["image"]);
+        
             return view('profile',compact('data','notelp'));
         }
 
@@ -134,6 +136,7 @@ class profile_controller extends Controller
     {
         if($request->fileToUpload) {
         $image = base64_encode(file_get_contents($request->fileToUpload));
+        $ext = $request->fileToUpload->extension();
         $rev = $request->get('rev');
         $id = $request->get('id');
         $nama =$request->get("nama");
@@ -151,12 +154,11 @@ class profile_controller extends Controller
           CURLOPT_TIMEOUT => 30,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => "PUT",
-          CURLOPT_POSTFIELDS => "{\n  \"_id\": \"$id\",\n  \"_rev\": \"$rev\",\n  \"type\": \"kontestan\",\n  \"namalengkap\": \"bayu hari saputro\",\n  \"tempatlahir\": \"Malang\",\n  \"email\": \"aurakanzaaa@gmail.com\",\n  \"tgllahir\": \"11  1998\",\n  \"umur\": \"20\",\n  \"notelp\": \"81945314191\",\n  \"linkig\": \"$ig\",\n  \"linkfb\": \"$fb\",\n  \"linkyoutube\": \"$youtube\",\n  \"kota\": \"$kota\",\n  \"image\": \"profile.png\", \n  \"alasan\": \"kkk\", \n\t\"_attachments\":\n{\n  \"profile.png\":\n  {\n    \"content_type\": \"image/png\",\n    \"data\": \"$image \"\n  }\n}\n\t\n}",
+          CURLOPT_POSTFIELDS => "{\n  \"_id\": \"$id\",\n  \"_rev\": \"$rev\",\n  \"type\": \"kontestan\",\n  \"namalengkap\": \"bayu hari saputro\",\n  \"tempatlahir\": \"Malang\",\n  \"email\": \"aurakanzaaa@gmail.com\",\n  \"tgllahir\": \"11  1998\",\n  \"umur\": \"20\",\n  \"notelp\": \"81945314191\",\n  \"linkig\": \"$ig\",\n  \"linkfb\": \"$fb\",\n  \"linkyoutube\": \"$youtube\",\n  \"kota\": \"$kota\",\n  \"image\": \"profile.png\", \n  \"alasan\": \"kkk\", \n\t\"_attachments\":\n{\n  \"profile.png\":\n  {\n    \"content_type\": \"image/$ext\",\n    \"data\": \"$image \"\n  }\n}\n\t\n}",
           CURLOPT_HTTPHEADER => array(
             "content-type: application/json"
           ),
         ));
-        
         $response = curl_exec($curl);
         $err = curl_error($curl);
         
@@ -165,7 +167,9 @@ class profile_controller extends Controller
         if ($err) {
           echo "cURL Error #:" . $err;
         } else {
-          echo $response;
+            
+            return redirect('/profile/'.$notelp.'/edit/');
+
         }
     }
     }
