@@ -267,30 +267,6 @@ textarea::placeholder{
 </head>
 <body>
 
-
-<script> 
-$(document).on('click', '#btn-submit', function(e) {
-    e.preventDefault();
-    swal({
-        title: 'Confirm',
-        input: 'checkbox',
-        inputValue: 0,
-        inputPlaceholder: ' I agree with the Terms',
-        confirmButtonText: 'Continue',
-        inputValidator: function (result) {
-            return new Promise(function (resolve, reject) {
-                if (result) {
-                    resolve();
-                } else {
-                    reject('You need to agree with the Terms');
-                }
-            })
-        }
-    }).then(function (result) {
-        $('#myForm').submit();
-    });
-});
-</script>
 <!-- card -->
     <div>
     @if (\Session::has('success'))
@@ -321,45 +297,6 @@ $(document).on('click', '#btn-submit', function(e) {
                     <form id="myForm" class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
                     @csrf
                     <input type="file" class="form-control-file" name="fileToUpload" id="exampleInputFile" aria-describedby="fileHelp">
-                        <!-- <div class="btn-group mb-3">
-                        <select name="provinsi" class="form-control" data-width="10%"> 
-                            <option>Provinsi</option>
-                            <option value="Aceh">Aceh</option>
-                            <option value="Sumatera Utara">Sumatera Utara</option>
-                            <option value="Sumatera Barat">Sumatera Barat</option>
-                            <option value="Riau">Riau</option>
-                            <option value="Jambi">Jambi</option>
-                            <option value="Sumatera Selatan">Sumatera Selatan</option>
-                            <option value="Bengkulu">Bengkulu</option>
-                            <option value="Lampung">Lampung</option>
-                            <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
-                            <option value="Kepulaian Riau">Kepulaian Riau</option>
-                            <option value="DKI Jakarta">DKI Jakarta</option>
-                            <option value="Jawa Barat">Jawa Barat</option>
-                            <option value="Jawa Tengah">Jawa Tengah</option>
-                            <option value="Daerah Istimewa Yogyakarta">Daerah Istimewa Yogyakarta</option>
-                            <option value="Jawa Timur">Jawa Timur</option>
-                            <option value="Banten">Banten</option>
-                            <option value="Bali">Bali</option>
-                            <option value="NTB">NTB</option>
-                            <option value="NTT">NTT</option>
-                            <option value="Kalimantan Barat">Kalimantan Barat</option>
-                            <option value="Kalimantan Tengah">Kalimantan Tengah</option>
-                            <option value="Kalimantan Selatan">Kalimantan Selatan</option>
-                            <option value="Kalimantan Timur">Kalimantan Timur</option>
-                            <option value="Kalimantan Utara">Kalimantan Utara</option>
-                            <option value="Sulawesi Utara">Sulawesi Utara</option>
-                            <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                            <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                            <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
-                            <option value="Gorontalo">Gorontalo</option>
-                            <option value="Sukawesi Barat">Sukawesi Barat</option>
-                            <option value="Maluku">Maluku</option>
-                            <option value="Maluku Utara">Maluku Utara</option>
-                            <option value="Papua">Papua</option>
-                            <option value="Papua Barat">Papua Barat</option>
-                        </select>
-                        </div> -->
                         <script> 
                             $('#edit').click(function() {
                             var text = $('.text-info').text();
@@ -371,7 +308,7 @@ $(document).on('click', '#btn-submit', function(e) {
                             $('#attribute').parent().text(text);
                             $('#attribute').remove();
                             });
-                });
+                  });
                         
                         </script>
                         <div class="input-group mb-3">
@@ -380,6 +317,8 @@ $(document).on('click', '#btn-submit', function(e) {
                         <?php $img = 'http://159.65.139.254:5984/lipice/'.$data["profile"]["rows"][0]["value"]["_id"].'/profile.png'?>
                         <input type="hidden" id="img" name="img" value="<?php echo ($img)?>">
                         <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
+                        
+                        
                         <input type="text" name="kota" id="myCity" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>" placeholder="kota"  aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" onclick="myFcity()"><i class="fas fa-pen"></i></button>
@@ -417,26 +356,22 @@ $(document).on('click', '#btn-submit', function(e) {
                     </form>
 
                     <script> 
-$(document).on('click', '#btn-submit', function(e) {
-    e.preventDefault();
-    swal({
-  title: "Hore!",
-  text: "Kamu berhasil update data kamu",
-  icon: "success",
-  button: "oke",
-}).then((konfirmasi) => {
-  if (konfirmasi) {
-    $('#myForm').submit();
-  } else {
-    
-  }
-});
-
-
-});
-</script>
-
-                    
+                    $(document).on('click', '#btn-submit', function(e) {
+                        e.preventDefault();
+                         swal({
+                            title: "Hore!",
+                            text: "Kamu berhasil update profile kamu",
+                            icon: "success",
+                             button: "oke",
+                            }).then((konfirmasi) => {
+                                if (konfirmasi) {
+                                     $('#myForm').submit();
+                                        } else {  
+                                            $('#myForm').submit();
+                                           }
+                                           });
+                                        });
+                                    </script>
                 </div>
                 </div>
             </div>
@@ -446,9 +381,11 @@ $(document).on('click', '#btn-submit', function(e) {
                 <div class="card content">
                 <div class="card-body">
                     <h5 style="text-align:left;">About</h5>
-                    <form>
+                    <form method="post" action="{{action('about_controller@update', $notelp)}}" enctype="multipart/form-data" >
+                    @csrf
+                        <input name="_method" type="hidden" value="PATCH">
                         <textarea placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["alasan"] ?></textarea>
-                        <button class="button"  style="float:right">SAVE</button>
+                        <button type="submit" class="btn-default mb-2 button" style="float:right">SAVE</button>
                     </form>
 
                     <br><br><br><br>

@@ -47,8 +47,6 @@ class kontestan_controller extends Controller
        $linkig = $request->get('linkig');
        $linkfb = $request->get('linkfb');
        $alasan = $request->get('alasan');
-
-       //echo base64_encode(file_get_contents($request->fileToUpload));
        $curl = curl_init();
        curl_setopt_array($curl, array(
          CURLOPT_PORT => "5984",

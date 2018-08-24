@@ -114,12 +114,6 @@ class profile_controller extends Controller
         } else {
             $data["profile"]= json_decode($response,TRUE);
             $data["gambar"] = json_decode($this->gambar(), TRUE);
-            // $json = json_encode($data["profile"]["rows"][0]["value"]["_attachments"]);
-            
-            //  print_r ($json);
-               // print_r($data["gambar"]["html"]);
-           // print_r($data["profile"]["rows"][0]["value"]["image"]);
-        
             return view('profile',compact('data','notelp'));
         }
 
@@ -136,13 +130,14 @@ class profile_controller extends Controller
     {
         if($request->fileToUpload) {
         $image = base64_encode(file_get_contents($request->fileToUpload));
+        $ext = $request->fileToUpload->extension();
         }
         else {
         $image = base64_encode(file_get_contents($request->get('img')));
         $split = explode( '.', $request->get("img") );
         $ext = $split[4];
         }
-
+        $about = $request->get('about');
         $rev = $request->get('rev');
         $id = $request->get('id');
         $nama =$request->get("nama");
@@ -160,7 +155,25 @@ class profile_controller extends Controller
           CURLOPT_TIMEOUT => 30,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => "PUT",
-          CURLOPT_POSTFIELDS => "{\n  \"_id\": \"$id\",\n  \"_rev\": \"$rev\",\n  \"type\": \"kontestan\",\n  \"namalengkap\": \"$nama\",\n  \"tempatlahir\": \"Malang\",\n  \"email\": \"aurakanzaaa@gmail.com\",\n  \"tgllahir\": \"11  1998\",\n  \"umur\": \"20\",\n  \"notelp\": \"81945314191\",\n  \"linkig\": \"$ig\",\n  \"linkfb\": \"$fb\",\n  \"linkyoutube\": \"$youtube\",\n  \"kota\": \"$kota\",\n  \"image\": \"profile.png\", \n  \"alasan\": \"kkk\", \n\t\"_attachments\":\n{\n  \"profile.png\":\n  {\n    \"content_type\": \"image/$ext\",\n    \"data\": \"$image \"\n  }\n}\n\t\n}",
+          CURLOPT_POSTFIELDS => "{\n  \"_id\": \"$id\",\n  \"_rev\": \"$rev\",
+            \n  \"type\": \"kontestan\",\n  \"namalengkap\": \"$nama\",
+            \n  \"tempatlahir\": \"Malang\",
+            \n  \"email\": \"aurakanzaaa@gmail.com\",
+            \n  \"tgllahir\": \"11  1998\",
+            \n  \"umur\": \"20\",
+            \n  \"notelp\": \"81945314191\",
+            \n  \"linkig\": \"$ig\",
+            \n  \"linkfb\": \"$fb\",
+            \n  \"linkyoutube\": \"$youtube\",
+            \n  \"kota\": \"$kota\",
+            \n  \"about\": \"$about\",
+            \n  \"image\": \"profile.png\",
+             \n  \"alasan\": \"kkk\",
+              \n\t\"_attachments\":\n 
+                { \n  \"profile.png\":\n  {
+                \n  \"content_type\": \"image/$ext\",
+                \n    \"data\": \"$image \"
+                \n  }\n}\n\t\n}",
           CURLOPT_HTTPHEADER => array(
             "content-type: application/json"
           ),
