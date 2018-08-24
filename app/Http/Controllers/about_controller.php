@@ -68,7 +68,62 @@ class about_controller extends Controller
      */
     public function update(Request $request, $notelp)
     {
-        echo "hai";
+        $image = base64_encode(file_get_contents($request->get('img')));
+        $split = explode( '.', $request->get("img") );
+        $ext = $split[4];
+        $about = $request->get('about');
+        $rev = $request->get('rev');
+        $id = $request->get('id');
+        $nama =$request->get("nama");
+        $ig = $request->get("linkig");
+        $fb= $request->get("linkfb");
+        $kota = $request->get("kota");
+        $youtube = $request->get("linkyoutube");
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_PORT => "5984",
+          CURLOPT_URL => 'http://159.65.139.254:5984/lipice/'.$id.'?rev='.$rev.'',
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "PUT",
+          CURLOPT_POSTFIELDS => "{\n  \"_id\": \"$id\",\n  \"_rev\": \"$rev\",
+            \n  \"type\": \"kontestan\",\n  \"namalengkap\": \"$nama\",
+            \n  \"tempatlahir\": \"Malang\",
+            \n  \"email\": \"aurakanzaaa@gmail.com\",
+            \n  \"tgllahir\": \"11  1998\",
+            \n  \"umur\": \"20\",
+            \n  \"notelp\": \"81945314191\",
+            \n  \"linkig\": \"$ig\",
+            \n  \"linkfb\": \"$fb\",
+            \n  \"linkyoutube\": \"$youtube\",
+            \n  \"kota\": \"$kota\",
+            \n  \"about\": \"$about\",
+            \n  \"image\": \"profile.png\",
+             \n  \"alasan\": \"kkk\",
+              \n\t\"_attachments\":\n 
+                { \n  \"profile.png\":\n  {
+                \n  \"content_type\": \"image/$ext\",
+                \n    \"data\": \"$image \"
+                \n  }\n}\n\t\n}",
+          CURLOPT_HTTPHEADER => array(
+            "content-type: application/json"
+          ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        
+        curl_close($curl);
+        
+        if ($err) {
+          echo "cURL Error #:" . $err;
+        } else {
+            
+            return redirect('/profile/'.$notelp.'/edit/');
+
+        }
     }
 
     /**

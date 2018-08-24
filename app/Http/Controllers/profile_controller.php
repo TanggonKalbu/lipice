@@ -12,11 +12,10 @@ class profile_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    function gambar() {
+    function gambar($url) {
         $curl = curl_init();
-
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "https://api.instagram.com/oembed/?url=https://www.instagram.com/p/Bk-SKN1HJW0/?taken-by=bayuharii",
+          CURLOPT_URL => 'https://api.instagram.com/oembed/?url='.$url.'',
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => "",
           CURLOPT_MAXREDIRS => 10,
@@ -113,7 +112,7 @@ class profile_controller extends Controller
         echo "cURL Error #:" . $err;
         } else {
             $data["profile"]= json_decode($response,TRUE);
-            $data["gambar"] = json_decode($this->gambar(), TRUE);
+            $data["gambar"] = json_decode($this->gambar("https://www.instagram.com/p/Bk-SKN1HJW0/?taken-by=bayuharii"), TRUE);
             return view('profile',compact('data','notelp'));
         }
 
