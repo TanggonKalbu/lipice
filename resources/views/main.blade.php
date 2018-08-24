@@ -274,6 +274,20 @@ body{
     padding-left: 100px;
 }
 
+.responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+.kanan-atas{
+    float:right;
+}
+
+.kiri-atas{
+    float:left;
+}
+
+
 /* end gambar */
 </style>
 
@@ -285,20 +299,13 @@ body{
 
 
 	<!-- buah atas -->
-            <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
-            <img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt="">
-
-
-    <!-- header -->
-     <!-- <div class="row">
-        <div class="column">
-            <img src="images/Untitled-6.png" alt="" class="kiri-logo">
-        </div>
-        <div class="column">
-            <img src="images/Untitled-7.png" alt="" class="kanan-ballon">
-        </div>
-    </div> -->
-
+    <img src="images/buah-kanan-atas.png" class="kanan-atas responsive" alt="">
+    <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="">
+    <br>
+    <div style="margin-top:100px;">
+    <img src="images/logo.png" class="kiri-atas responsive" alt="">
+    <img src="images/balon.png" class="kanan-atas responsive" alt="">
+    </div>
 
         <h2 class="textatas"><b>LOREM IPSUM DOLOR SIT <br> 
         AMET, CONSECTETUR <br> 
@@ -425,6 +432,12 @@ body{
         </div>
         </div>
     </div>
+
+    <!-- buah bawah -->
+    <img src="images/kanan.png" class="kanan-atas responsive" alt="">
+    <img src="images/timeline.png" class="kiri-atas responsive" alt="">
+    <img src="images/kiri.png" class="kiri-atas responsive" alt="">
+    
 
 </div>
 <!-- End Save for Web Slices -->
