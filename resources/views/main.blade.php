@@ -263,7 +263,7 @@ body{
     color: grey;
     font-size: 1vw;
     font-family: arial;
-    position: fixed;
+    position: absolute;
     top: 600px;
     left: 580px;
     width: 40%;
@@ -352,10 +352,10 @@ body {
     <img src="images/balon.png" class="kanan-atas responsive" alt="">
     </div>
 
-        <h2 class="textatas"><b>LOREM IPSUM DOLOR SIT <br> 
+        <!-- <h2 class="textatas"><b>LOREM IPSUM DOLOR SIT <br> 
         AMET, CONSECTETUR <br> 
         ADIPISINING ELIT. ED O <br> 
-        EIUSMOD TEMPOR INCINDINTU</b></h2>
+        EIUSMOD TEMPOR INCINDINTU</b></h2> -->
  
 
     <!-- Card -->
@@ -478,7 +478,8 @@ body {
 
     <br><br><br><br>
     <div class="samping2">
-        <p style="text-align:center; font-size:150%;"><b>#LIPICE7DAYSCHALLENGE<br>SUMMER CAMP TIMELINE</b></p>
+        <p style="text-align:center; font-size:15pt;"><b>#LIPICE7DAYSCHALLENGE</b></p>
+        <p style="text-align:center;"><b>SUMMER CAMP TIMELINE</b></p>
         <br>
         <p style="text-align:center">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod eget nunc a cursus. Vestibulum quis ipsum est. Etiam mollis scelerisque suscipit. Sed eleifend neque metus. In lacus arcu, luctus et sagittis commodo, consequat eget nisi. Duis non ex semper, ultricies nisl nec, hendrerit mauris. Sed suscipit ut sapien in vehicula. Ut lacinia bibendum rhoncus. Nam augue augue, mollis sed tincidunt quis, pellentesque eget enim. Suspendisse eleifend eu lectus in vestibulum. Nulla efficitur, elit et convallis malesuada, est nunc malesuada nulla, cursus eleifend mauris nunc id sapien. Donec condimentum nunc eget tellus imperdiet, vitae lobortis dolor suscipit. Fusce mattis, nisl vitae porttitor interdum, justo est ultricies risus, nec fermentum urna est ac lectus. Praesent varius accumsan ante eget consectetur. Suspendisse velit justo, malesuada vitae vulputate id, tincidunt ut neque. Cras sed vehicula libero.
@@ -487,10 +488,16 @@ body {
     <br><br><br>
 
     <!-- buah bawah -->
-    <div>
+    <div class="row">
+    <div class="col">
+    <img src="images/kiri.png" class="responsive" alt="" style="float:lefft; margin-top:540px; z-index:-1;">
+    </div>
+    <div class="col">
+    <img src="images/timeline.png" class="responsive" alt="" style="float:none; margin: 0 auto;width:100%; z-index:1;">
+    </div>
+    <div class="col">
     <img src="images/kanan.png" class="responsive" alt="" style="float:right; margin-top:-340px; z-index:-1;">
-    <img src="images/timeline.png" class="responsive" alt="" style=" margin-right:auto; margin-left:auto; display:block; z-index:1;">
-    <img src="images/kiri.png" class="responsive" alt="" style="float:left; margin-top:-540px; z-index:-1;">
+    </div>
     </div>
     <br><br><br><br><br>
 
