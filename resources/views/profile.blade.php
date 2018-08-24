@@ -308,7 +308,7 @@ input[type="file"] {
                              <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
                                      <i class="far fa-user-circle position"></i>
                                  </label>
-                              <input id="file-upload" type="file" name="fileToUpload"/>
+                                 <input id="file-upload" type="file" name="fileToUpload"/>
                              </div> 
                          <?php }else { ?>
                              <div class="round-border">
@@ -318,18 +318,17 @@ input[type="file"] {
                                      <i class="far fa-user-circle position"></i>
                                  </label>
                                  <input id="file-upload" type="file" name="fileToUpload"/>
+                              </div>
                              <br><br>
-
-
-                        <div class="input-group mb-3">
+                             <div class="input-group mb-3">
                             <input type="text" name="nama" id="myIg" style="border:none;text-align:center;"value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>" class="form-control inpp" placeholder="Nama" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            </div>
-                         <?php } ?>
-                 
-
-                        <div class="input-group mb-3">
-                            <input type="text" name="nama" id="input-nama" style="border:none;text-align:center;display:"value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>" class="form-control inpp" placeholder="Nama" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
+
+                         <?php } ?>
+
+
+                                
+
 
                         <div class="input-group mb-3">
                         <input name="_method" type="hidden" value="PATCH">
