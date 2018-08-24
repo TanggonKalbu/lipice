@@ -261,6 +261,7 @@ input[type="file"] {
     cursor: pointer;
 }
 
+
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content {
@@ -294,21 +295,26 @@ input[type="file"] {
                 <div class="card">
                 <div class="card-body">
                     <!-- button edit -->
-                    <button class="btn btn-outline-secondary" type="button" style="float:right"><i class="fas fa-pen"></i></button>
-                    <!-- button edit end -->
+                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama"><i class="fas fa-pen">edit</i></label>
+                   
+                    <!-- button edit end --> 
 
                 <form id="myForm" class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
-                    @csrf
-                    <?php if($data["profile"]["rows"][0]["value"]["image"] == "kosong" ){?>
+                    @csrf                
+                    <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
+                             
                              <div class="round-border">
-                             <img src="/images/lipice.png" alt="..." class="rounded-circle"> 
+                             <img src="/images/lipice_icon.png" alt="..." class="rounded-circle"> 
+                             <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
+                                     <i class="far fa-user-circle position"></i>
+                                 </label>
+                              <input id="file-upload" type="file" name="fileToUpload"/>
                              </div> 
                          <?php }else { ?>
                              <div class="round-border">
-                                 <img class="rounded-circle" src="http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>/profile.png " style="width:100%" alt="..." > 
-                             </div>
-                         <?php } ?>
-                         <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
+                                 <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
+                                 <!-- button change photo profile -->
+                                 <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
                                      <i class="far fa-user-circle position"></i>
                                  </label>
                                  <input id="file-upload" type="file" name="fileToUpload"/>
@@ -317,6 +323,12 @@ input[type="file"] {
 
                         <div class="input-group mb-3">
                             <input type="text" name="nama" id="myIg" style="border:none;text-align:center;"value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>" class="form-control inpp" placeholder="Nama" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            </div>
+                         <?php } ?>
+                 
+
+                        <div class="input-group mb-3">
+                            <input type="text" name="nama" id="input-nama" style="border:none;text-align:center;display:"value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>" class="form-control inpp" placeholder="Nama" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
                         <div class="input-group mb-3">
@@ -451,14 +463,11 @@ input[type="file"] {
                     <div class="scrollbar scrollbar-primary"><br>
                         <div class="force-overflow">
                             <div class="row">
-                                
-                                 <div class="col-md-3">
+                                <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                                         <img  src="<?php echo $data["gambar"]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                     </div> 
                                 </div>
-
-                                
                             </div>
                         </div>
                     </div>
@@ -475,25 +484,7 @@ input[type="file"] {
                         <div class="force-overflow">
                             <div class="row">
                                 
-                                <div class="col-md-3">
-                                    <div>
-                                        <blockquote class="instagram-media shadow-lg p-3 mb-4 bg-white rounded" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-                                            <div style="padding:8px;"> 
-                                                <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:62.5% 0; text-align:center; width:100%;"> 
-                                                    <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;">
-                                                    </div>
-                                                </div> 
-                                                <p style=" margin:8px 0 0 0; padding:0 4px;"> 
-                                                    <a href="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Hail satay</a>
-                                                </p> 
-                                                <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">Sebuah kiriman dibagikan oleh <a href="https://www.instagram.com/bayuharii/?utm_source=ig_embed" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Bayu Hari Saputro</a> (@bayuharii) pada 
-                                                <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-07-08T13:58:02+00:00">8 Jul 2018 jam 6:58 PDT</time>
-                                                </p>
-                                            </div>
-                                        </blockquote> 
-                                        <script async defer src="//www.instagram.com/embed.js"></script>
-                                    </div> 
-                                </div>
+                                
 
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -592,6 +583,9 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
     modal.style.display = "none";
 }
+</script>
+<script>
+    var btnedit = document.getElementById("btn-edit")
 </script>
 
 
