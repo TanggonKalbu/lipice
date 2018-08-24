@@ -44,8 +44,8 @@
                     <tr>
                         <th>Nama Lengkap</th>
                         <th>Tempat Lahir</th>
-                        <th>Email</th>
                         <th>Tanggal Lahir</th>
+                        <th>Email</th>
                         <th>Umur</th>
                         <th>No Telepon</th>
                         <th>Instagram Link</th>
@@ -54,23 +54,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>a</td>
-                        <td>b</td>
-                        <td>c</td>
-                        <td>d</td>
-                        <td>e</td>
-                        <td>f</td>
-                        <td>g</td>
-                        <td></td>
-                        <td></td>
+                <?php for($a=0;$a<=count($data["kontestan"]["rows"])-1;$a++) {?>
+                  <tr>
+                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["namalengkap"];?></td>
+                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["tempatlahir"];?></td>
+                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["tgllahir"];?></td>
+                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["email"];?></td>
+                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["umur"];?></td>
+                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["notelp"];?></td>
+                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["linkig"];?></td>
+                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["linkfb"];?></td>
+                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["alasan"];?></td>
                     </tr>
+                  
+                
+                <?php
+                }?>
+                
+                   
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
+<?php //print_r($data["kontestan"]);?>
+<?php //var_dump($data["kontestan"]);?>
 
 <script type="text/javascript"> 
 	$(document).ready(function(){
