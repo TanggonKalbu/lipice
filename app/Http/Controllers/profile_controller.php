@@ -47,9 +47,6 @@ class profile_controller extends Controller
     {
         return redirect("/votetest");
     }
-
-    
-
     /**
      * Show the form for creating a new resource.
      *
@@ -160,7 +157,7 @@ class profile_controller extends Controller
             \n  \"email\": \"aurakanzaaa@gmail.com\",
             \n  \"tgllahir\": \"11  1998\",
             \n  \"umur\": \"20\",
-            \n  \"notelp\": \"81945314191\",
+            \n  \"notelp\": \"$notelp,
             \n  \"linkig\": \"$ig\",
             \n  \"linkfb\": \"$fb\",
             \n  \"linkyoutube\": \"$youtube\",
@@ -187,11 +184,8 @@ class profile_controller extends Controller
         } else {
             
             return redirect('/profile/'.$notelp.'/edit/');
-
         }
-    
     }
-
     /**
      * Remove the specified resource from storage.
      *

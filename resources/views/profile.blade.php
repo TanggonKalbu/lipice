@@ -71,21 +71,24 @@ body{
 .rounded-circle{
     height: 70%;
     width: 70%;
-    
-    margin-top:30px;
     padding:5px;
 }
 
-.round-border{
-    border: 2px solid #00b2b2;
-}
+ .round-border{
+     border: 3px solid #00b2b2;
+     border-radius: 50%;
+     width: 72%;
+     height: 72%; 
+     float: none;
+     margin: 0 auto;
+     margin-top:40px;
+ }
 
 .button {
     background-color: #8bc3d9;
     border: none;
     color: white;
     padding: 6px 80px;    
-    
     height:auto;
     text-align: center;
     text-decoration: none;
@@ -252,6 +255,16 @@ textarea::placeholder{
   color: black;
 }
 
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content {
@@ -262,6 +275,11 @@ textarea::placeholder{
 /* image modal end */
 
 .control-label .text-info { display:inline-block; color:black }
+
+.position{
+    font-size:2.5vw;
+    z-index:3;
+}
 
 </style>
 </head>
@@ -279,24 +297,29 @@ textarea::placeholder{
             <div class="col-sm-3">
                 <div class="card">
                 <div class="card-body">
-                 <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
-                    <img src="/images/lipice_icon.png" alt="..." class="rounded-circle">  
-                 <?php }else { ?>
-                    <img style src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"] ?>/profile.png' style="width:100%" alt="..." class="rounded-circle"> 
-                 <?php } ?>
-                    <br><br>
-
-                        <label for="name" class="control-label">
-                            <h5 class="text-info"><?php echo $data["profile"]["rows"][0]["value"]["namalengkap"] ?></h5>
-                                <a href="#" id="edit" class="btn">
-                                    <i class="fas fa-pen"></i>
-                                </a>
-                        </label>
-                    
-
-                    <form id="myForm" class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
+                
+                <form id="myForm" class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
                     @csrf
-                    <input type="file" class="form-control-file" name="fileToUpload" id="exampleInputFile" aria-describedby="fileHelp">
+                    <?php if($data["profile"]["rows"][0]["value"]["image"] === "kosong" ){?>
+                             <div class="round-border">
+                             <img src="/images/lipice.png" alt="..." class="rounded-circle"> 
+                             </div> 
+                         <?php }else { ?>
+                             <div class="round-border">
+                                 <img class="rounded-circle" src="http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>/profile.png " style="width:100%" alt="..." > 
+                             </div>
+                         <?php } ?>
+                         <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
+                                     <i class="far fa-user-circle position"></i>
+                                 </label>
+                                 <input id="file-upload" type="file" name="fileToUpload"/>
+                             <br><br>
+
+                    <!-- <input type="file" class="form-control-file" name="fileToUpload" id="exampleInputFile" aria-describedby="fileHelp"> -->
+                        
+                       
+
+
                         <script> 
                             $('#edit').click(function() {
                             var text = $('.text-info').text();
@@ -308,8 +331,7 @@ textarea::placeholder{
                             $('#attribute').parent().text(text);
                             $('#attribute').remove();
                             });
-                  });
-                        
+                        });
                         </script>
                         <div class="input-group mb-3">
                         <input name="_method" type="hidden" value="PATCH">
@@ -402,9 +424,9 @@ textarea::placeholder{
                     
                     <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
                     <!-- form start -->
-                    <form method="post" action="{{action('cha_day1_controller@store')}}" enctype="multipart/form-data" class="form-inline">
+                    <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline">
                     @csrf
-                        <input name="_method" type="hidden" value="PATCH">
+                   
                         <div class="form-group mb-2">
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -422,8 +444,9 @@ textarea::placeholder{
                             </div>
                         </div>
                         <div class="form-group mx-sm-3 mb-2">
-                            <label for="linkupload" nama="upload_day1" class="sr-only">Linkupload</label>
-                            <input type="text" class="form-control" id="linkUpload" placeholder="Insert Instagram link" style="width:100%">
+                            <label for="linkupload" class="sr-only">Linkupload</label>
+                            <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
+                            <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
                         </div>
                         <button type="submit" class="btn-default mb-2 button">SAVE</button>
                     </form>
@@ -544,7 +567,17 @@ function myFfb() {
 // end change button
 
 // change text
-
+$('#edit').click(function() {
+    var text = $('.text-info').text();
+    var input = $('<input id="attribute" type="text" name="nama" value="' + text + '" />')
+    $('.text-info').text('').append(input);
+    input.select();
+    input.blur(function() {
+    var text = $('#attribute').val();
+    $('#attribute').parent().text(text);
+    $('#attribute').remove();
+    });
+});
 // end change text
 
 

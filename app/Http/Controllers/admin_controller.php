@@ -40,10 +40,11 @@ class admin_controller extends Controller
         if ($err) {
         echo "cURL Error #:" . $err;
         } else {
-        echo $response;
+        $response;
         }
-        
-        return view('daftarkontestan');
+         $data["kontestan"]=json_decode($response,TRUE);
+
+        return view('daftarkontestan', compact('data'));
     }
 
     /**
