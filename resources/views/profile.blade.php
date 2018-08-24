@@ -318,10 +318,11 @@ input[type="file"] {
                                      <i class="far fa-user-circle position"></i>
                                  </label>
                                  <input id="file-upload" type="file" name="fileToUpload"/>
+                            </div>
                              <br><br>
 
 
-                        <div class="input-group mb-3">
+                            <div class="input-group mb-3">
                             <input type="text" name="nama" id="myIg" style="border:none;text-align:center;"value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>" class="form-control inpp" placeholder="Nama" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             </div>
                          <?php } ?>

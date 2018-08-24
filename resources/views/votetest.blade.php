@@ -320,11 +320,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 <body>
 <div>
-<<<<<<< HEAD
-    <a href="{{action('profile_controller@edit', '081359868716')}}" class="btn btn-warning" style="width:auto">Edit</a>
-=======
-    <a href="{{action('profile_controller@edit', "081945314191")}}" class="btn btn-warning" style="width:auto">Edit</a>
->>>>>>> 61eb759001f62f9e8a665b82498cd220cf3a1926
+    <a href="{{action('profile_controller@edit', '081945314191')}}" class="btn btn-warning" style="width:auto">Edit</a>
 
     <!-- Button to Open the Modal -->
     <div>
