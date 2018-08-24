@@ -286,6 +286,11 @@ body{
 .kiri-atas{
     float:left;
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 
 
 /* end gambar */
@@ -358,7 +363,7 @@ body{
             </div>
             <div class="form-group col-md-2">
 
-            <select name="bulan" id="bulan" class="form-control" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a;"> 
+            <select name="bln" id="bulan" class="form-control" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a;"> 
                 <option value="1">Januari</option>
                 <option value="2">Februari</option>
                 <option value="3">Maret</option>
@@ -383,7 +388,7 @@ body{
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
             
             <div class="col-sm-9">
-            <input type="text" name="notelp" value="+62" class="form-control" id="telp" required onkeyup="capt()">
+                <input type="number" name="notelp" class="form-control" id="telp" required onkeyup="capt()">
             </div>
         </div>
 
@@ -493,7 +498,7 @@ body{
     });
 
   var submit = function(){
-    var telpv = telp.value;
+    var telpv = "+62"+telp.value;
     var appVerifier = window.recaptchaVerifier;
     firebase
     .auth()

@@ -61,8 +61,10 @@ class kontestan_controller extends Controller
              \"tempatlahir\": \"$tempatlahir\",\n 
              \"tgllahir\": \"$tgllahir\",\n 
              \"email\": \"$email\",\n 
-              \"umur\": \"$umur\", \n  \"notelp\": \"$notelp\", \n  \"linkig\": \"$linkig\",\n  
-             \"linkfb\": \"$linkfb\",\n  \"kota\": \" \",\n  \"image\": \"\",  \n  \"alasan\": \"$alasan\"\n}",
+             \"umur\": \"$umur\", \n  \"notelp\": \"$notelp\", \n  \"linkig\": \"$linkig\",\n  
+             \"linkfb\": \"$linkfb\",\n  
+             \"linkyoutube\": \"\",\n               
+             \"kota\": \" \",\n  \"image\": \"\",  \n  \"alasan\": \"$alasan\"\n}",
          CURLOPT_HTTPHEADER => array(
            "content-type: application/json"
          ),

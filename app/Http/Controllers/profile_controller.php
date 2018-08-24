@@ -161,7 +161,7 @@ class profile_controller extends Controller
             \n  \"email\": \"aurakanzaaa@gmail.com\",
             \n  \"tgllahir\": \"11  1998\",
             \n  \"umur\": \"20\",
-            \n  \"notelp\": \"81945314191\",
+            \n  \"notelp\": \"$notelp\",
             \n  \"linkig\": \"$ig\",
             \n  \"linkfb\": \"$fb\",
             \n  \"linkyoutube\": \"$youtube\",
