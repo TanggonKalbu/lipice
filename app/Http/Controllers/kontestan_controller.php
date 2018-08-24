@@ -58,8 +58,10 @@ class kontestan_controller extends Controller
          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
          CURLOPT_CUSTOMREQUEST => "POST",
          CURLOPT_POSTFIELDS => "{\n  \"type\": \"kontestan\",\n  \"namalengkap\": \"$namalengkap\",\n  
-            \"tempatlahir\": \"$tempatlahir\",\n  \"email\": \"$email\",\n 
-             \"tgllahir\": \"$tgllahir\",\n  \"umur\": \"$umur\", \n  \"notelp\": \"$notelp\", \n  \"linkig\": \"$linkig\",\n  
+             \"tempatlahir\": \"$tempatlahir\",\n 
+             \"tgllahir\": \"$tgllahir\",\n 
+             \"email\": \"$email\",\n 
+              \"umur\": \"$umur\", \n  \"notelp\": \"$notelp\", \n  \"linkig\": \"$linkig\",\n  
              \"linkfb\": \"$linkfb\",\n  \"kota\": \" \",\n  \"image\": \"\",  \n  \"alasan\": \"$alasan\"\n}",
          CURLOPT_HTTPHEADER => array(
            "content-type: application/json"
