@@ -295,7 +295,7 @@ input[type="file"] {
                 <div class="card">
                 <div class="card-body">
                     <!-- button edit -->
-                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama"><i class="fas fa-pen">edit</i></label>
+                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen">edit</i></label>
                    
                     <!-- button edit end --> 
 
@@ -321,14 +321,14 @@ input[type="file"] {
                             </div>
                              <br><br>
 
-
-                            <div class="input-group mb-3">
-                            <input type="text" name="nama" id="myIg" style="border:none;text-align:center;"value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>" class="form-control inpp" placeholder="Nama" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            </div>
                          <?php } ?>
                  
+                        
+                         <div class="input-group mb-3" id="nama">
+                            <p align="center" style="float:none;margin:0 auto"> <?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?></p>
+                        </div>
 
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3" id="input-nama-div" style="display:none">
                             <input type="text" name="nama" id="input-nama" style="border:none;text-align:center;display:"value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>" class="form-control inpp" placeholder="Nama" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
@@ -346,34 +346,34 @@ input[type="file"] {
                         <input type="hidden" id="umur" name="umur" value="<?php echo $data["profile"]["rows"][0]["value"]["umur"]?>">
 
                         
-                        <input type="text" name="kota" id="myCity" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>" placeholder="kota"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input disabled id="input-kota" type="text" name="kota" id="myCity" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>" placeholder="kota"  aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <!-- <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" onclick="myFcity()"><i class="fas fa-pen"></i></button>
                         </div> -->
                         </div>
 
                         <div class="input-group mb-3">
-                        <input type="text" name="linkig" id="myIg" value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>" class="form-control inpp" placeholder="your instagram" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input disabled id="input-ig" type="text" name="linkig" id="myIg" value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>" class="form-control inpp" placeholder="your instagram" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <!-- <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" onclick="myFig()"><i class="fas fa-pen"></i></button>
                         </div> -->
                         </div>
 
                         <div class="input-group mb-3">
-                        <input type="text" name="linkyoutube" id="myUtube" value="<?php echo $data["profile"]["rows"][0]["value"]["linkyoutube"]?>" class="form-control inpp" placeholder="your Youtube" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input disabled id="input-youtube" type="text" name="linkyoutube" id="myUtube" value="<?php echo $data["profile"]["rows"][0]["value"]["linkyoutube"]?>" class="form-control inpp" placeholder="your Youtube" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <!-- <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" onclick="myFutube()"><i class="fas fa-pen"></i></button>
                         </div> -->
                         </div>
 
                         <div class="input-group mb-3">
-                        <input type="text" id="myFb" name="linkfb" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>"  placeholder="your Facebook" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input disabled id="input-fb" type="text" id="myFb" name="linkfb" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>"  placeholder="your Facebook" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <!-- <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" onclick="myFfb()"><i class="fas fa-pen"></i></button>
                         </div> -->
                         </div>
                         
-                        <button type="submit" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
+                        <button id="save-satu" type="submit" style="display:none" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
 
                     </form>
 
@@ -420,8 +420,8 @@ input[type="file"] {
                         <input type="hidden" id="tgllahir" name="tgllahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tgllahir"]?>">
                         <input type="hidden" id="alasan" name="alasan" value="<?php echo $data["profile"]["rows"][0]["value"]["alasan"]?>">
                         <input type="hidden" id="umur" name="umur" value="<?php echo $data["profile"]["rows"][0]["value"]["umur"]?>">
-                        <textarea name="about" placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
-                        <button type="submit" class="btn-default mb-2 button" style="float:right">SAVE</button>
+                        <textarea id="input-about" onclick="editabout()" name="about" placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
+                        <button id="save-dua" type="submit"  class="btn-default mb-2 button" style="float:right;display:none">SAVE</button>
                     </form>
 
                     <br><br><br><br>
@@ -586,7 +586,31 @@ span.onclick = function() {
 }
 </script>
 <script>
-    var btnedit = document.getElementById("btn-edit")
+    var btnedit = document.getElementById("btn-edit");
+    var nama = document.getElementById("nama");
+    var inputnama = document.getElementById("input-nama-div");
+    var inputkota = document.getElementById("input-kota");
+    var inputig = document.getElementById("input-ig");
+    var inputyoutube = document.getElementById("input-youtube");
+    var inputfb = document.getElementById("input-fb");
+    var inputabout = document.getElementById("input-about");
+    var savesatu = document.getElementById("save-satu");
+    var savedua = document.getElementById("save-dua");
+
+    var editprofile = function(){
+        nama.style.display = 'none';
+        inputnama.style.display = '';
+        inputkota.disabled = false;
+        inputyoutube.disabled = false;
+        inputig.disabled = false;
+        inputfb.disabled = false;
+        savesatu.style.display = '';
+    }
+
+    var editabout = function(){
+        savedua.style.display = '';
+    }
+    
 </script>
 
 
