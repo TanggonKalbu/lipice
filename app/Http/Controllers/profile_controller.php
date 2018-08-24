@@ -137,14 +137,20 @@ class profile_controller extends Controller
         $rev = $request->get('rev');
         $id = $request->get('id');
         $nama =$request->get("nama");
+        $tempatlahir =$request->get("tempatlahir");
+        $umur =$request->get("umur");
+        $email =$request->get("email");
+        $tgllahir =$request->get("tgllahir");
+        $alasan =$request->get("alasan");
         $ig = $request->get("linkig");
         $fb= $request->get("linkfb");
         $kota = $request->get("kota");
+
         $youtube = $request->get("linkyoutube");
         $curl = curl_init();
         curl_setopt_array($curl, array(
           CURLOPT_PORT => "5984",
-          CURLOPT_URL => 'http://159.65.139.254:5984/lipice/'.$id.'?rev='.$rev.'',
+          CURLOPT_URL => 'http://admin:lipice@159.65.139.254:5984/lipice/'.$id.'?rev='.$rev.'',
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => "",
           CURLOPT_MAXREDIRS => 10,
@@ -153,18 +159,18 @@ class profile_controller extends Controller
           CURLOPT_CUSTOMREQUEST => "PUT",
           CURLOPT_POSTFIELDS => "{\n  \"_id\": \"$id\",\n  \"_rev\": \"$rev\",
             \n  \"type\": \"kontestan\",\n  \"namalengkap\": \"$nama\",
-            \n  \"tempatlahir\": \"Malang\",
-            \n  \"email\": \"aurakanzaaa@gmail.com\",
-            \n  \"tgllahir\": \"11  1998\",
-            \n  \"umur\": \"20\",
-            \n  \"notelp\": \"$notelp,
+            \n  \"tempatlahir\": \"$tempatlahir\",
+            \n  \"email\": \"$email\",
+            \n  \"tgllahir\": \"$tgllahir\",
+            \n  \"umur\": \"$umur\",
+            \n  \"notelp\": \"$notelp\",
             \n  \"linkig\": \"$ig\",
             \n  \"linkfb\": \"$fb\",
             \n  \"linkyoutube\": \"$youtube\",
             \n  \"kota\": \"$kota\",
             \n  \"about\": \"$about\",
             \n  \"image\": \"profile.png\",
-             \n  \"alasan\": \"kkk\",
+             \n  \"alasan\": \"$alasan\",
               \n\t\"_attachments\":\n 
                 { \n  \"profile.png\":\n  {
                 \n  \"content_type\": \"image/$ext\",
@@ -176,9 +182,7 @@ class profile_controller extends Controller
         ));
         $response = curl_exec($curl);
         $err = curl_error($curl);
-        
         curl_close($curl);
-        
         if ($err) {
           echo "cURL Error #:" . $err;
         } else {

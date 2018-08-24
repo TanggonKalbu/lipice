@@ -314,27 +314,9 @@ input[type="file"] {
                                  <input id="file-upload" type="file" name="fileToUpload"/>
                              <br><br>
 
-                    <!-- <input type="file" class="form-control-file" name="fileToUpload" id="exampleInputFile" aria-describedby="fileHelp"> -->
-                        
-                       
-
-
-                        <!-- <script> 
-                            $('#edit').click(function() {
-                            var text = $('.text-info').text();
-                            var input = $('<input id="attribute" type="text" name="nama" value="' + text + '" />')
-                            $('.text-info').text('').append(input);
-                            input.select();
-                            input.blur(function() {
-                            var text = $('#attribute').val();
-                            $('#attribute').parent().text(text);
-                            $('#attribute').remove();
-                            });
-                        });
-                        </script> -->
 
                         <div class="input-group mb-3">
-                            <input type="text" name="nama" id="myIg" style="border:none;text-align:center;"value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>" class="form-control inpp" placeholder="Nama" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" name="nama" id="myIg" style="border:none;text-align:center;"value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>" class="form-control inpp" placeholder="Nama" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
                         <div class="input-group mb-3">
@@ -344,6 +326,12 @@ input[type="file"] {
                         <input type="hidden" id="img" name="img" value="<?php echo ($img)?>">
                         <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
                         <input type="hidden" id="about" name="about" value="<?php echo $data["profile"]["rows"][0]["value"]["about"]?>">
+                        <input type="hidden" id="tempatlahir" name="tempatlahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tempatlahir"]?>">
+                        <input type="hidden" id="email" name="email" value="<?php echo $data["profile"]["rows"][0]["value"]["email"]?>">
+                        <input type="hidden" id="tgllahir" name="tgllahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tgllahir"]?>">
+                        <input type="hidden" id="alasan" name="alasan" value="<?php echo $data["profile"]["rows"][0]["value"]["alasan"]?>">
+                        <input type="hidden" id="umur" name="umur" value="<?php echo $data["profile"]["rows"][0]["value"]["umur"]?>">
+
                         
                         <input type="text" name="kota" id="myCity" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>" placeholder="kota"  aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <!-- <div class="input-group-append">
@@ -414,7 +402,11 @@ input[type="file"] {
                         <input type="hidden" id="linkig" name="linkig" value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>">
                         <input type="hidden" id="linkfb" name="linkfb" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>">
                         <input type="hidden" id="linkyoutube" name="linkyoutube" value="<?php echo $data["profile"]["rows"][0]["value"]["linkyoutube"]?>">
-                
+                        <input type="hidden" id="tempatlahir" name="tempatlahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tempatlahir"]?>">
+                        <input type="hidden" id="email" name="email" value="<?php echo $data["profile"]["rows"][0]["value"]["email"]?>">
+                        <input type="hidden" id="tgllahir" name="tgllahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tgllahir"]?>">
+                        <input type="hidden" id="alasan" name="alasan" value="<?php echo $data["profile"]["rows"][0]["value"]["alasan"]?>">
+                        <input type="hidden" id="umur" name="umur" value="<?php echo $data["profile"]["rows"][0]["value"]["umur"]?>">
                         <textarea name="about" placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
                         <button type="submit" class="btn-default mb-2 button" style="float:right">SAVE</button>
                     </form>

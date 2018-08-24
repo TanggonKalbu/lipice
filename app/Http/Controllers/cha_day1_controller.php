@@ -58,7 +58,7 @@ class cha_day1_controller extends Controller
         if ($err) {
           echo "cURL Error #:" . $err;
         } else {
-          echo $response;
+            return redirect('/profile/'.$notelp.'/edit/');
         }
     }
 
