@@ -192,50 +192,164 @@ a:active {
 .dsix {border-left: 25px solid #979052; background-color:  #d8cf75;} /* Day 6 */
 .dseven {border-left: 25px solid #977652; background-color: #d8a975;} /* Day 7 */
 
+/* modal login start */
+body {font-family: Arial, Helvetica, sans-serif;}
 
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  /* Set a style for all buttons */
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+  }
+
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+/* modal login end */
 
 
 </style>
 </head>
 <body>
-<a href="{{action('profile_controller@edit', 81945314191)}}" class="btn btn-warning">Edit</a>
-<!-- <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
-<img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt="">
-<img src="images/lipice_icon.png" style="width:162px; height:150px; float:left;" alt="">
-<img src="images/summercamp.png" style="width:514px; height:250px; float:right;" alt=""> -->
 <div>
+    <a href="{{action('profile_controller@edit', 81945314191)}}" class="btn btn-warning" style="width:auto">Edit</a>
 
-  <!-- Button to Open the Modal -->
-  <div>
-    <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal" style="float:right">
-        Open modal
-    </button>
-  </div>
-    
-  <!-- The Modal -->
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Kode Validasi No Telepon</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          Modal body..
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
+    <!-- Button to Open the Modal -->
+    <div>
+        <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right">Login</button>
     </div>
-  </div>
+
+    <!-- Modal Login START -->    
+    <div id="id01" class="modal">
+    
+    <form class="modal-content animate" action="/action_page.php">
+    
+        <div class="container">
+            <div style="margin-right: 40px; margin-left: 40px">
+                <label for="vercode" style="font-size:1vw"><b>Kode Validasi no Telepon</b></label>
+                <br>
+                <input type="text"  name="vercode" required>
+    
+                <button type="submit">Submit Code</button>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <div style="margin-right: 40px; margin-left: 40px">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    <!-- Modal Login END -->
 
   
     <div class="embed-responsive embed-responsive-21by9 ">   
@@ -528,5 +642,16 @@ $(document).ready(function() {
 </script>
 <!-- modal verification end -->
 
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 </body>
 </html>
