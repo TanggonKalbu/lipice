@@ -136,11 +136,7 @@ class profile_controller extends Controller
     {
         if($request->fileToUpload) {
         $image = base64_encode(file_get_contents($request->fileToUpload));
-<<<<<<< HEAD
-        echo 
-=======
         $ext = $request->fileToUpload->extension();
->>>>>>> 97c3a56658338d24bacf52f64af3f58588be3048
         $rev = $request->get('rev');
         $id = $request->get('id');
         $nama =$request->get("nama");

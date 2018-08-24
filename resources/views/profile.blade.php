@@ -438,30 +438,28 @@ $(document).on('click', '#btn-submit', function(e) {
                         </div>
                         <button type="submit" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
 
-                       
-                         <!-- <button class="btn btn-primary" type="submit">Button</button> -->
                     </form>
+                        
+                        <!-- popup berhasil edit profile -->
+                        <script> 
+                        $(document).on('click', '#btn-submit', function(e) {
+                            e.preventDefault();
+                            swal({
+                        title: "Hore!",
+                        text: "Kamu berhasil update data kamu",
+                        icon: "success",
+                        button: "oke",
+                        }).then((konfirmasi) => {
+                        if (konfirmasi) {
+                            $('#myForm').submit();
+                        } else {
+                            
+                        }
+                        });
 
-                    <script> 
-$(document).on('click', '#btn-submit', function(e) {
-    e.preventDefault();
-    swal({
-  title: "Hore!",
-  text: "Kamu berhasil update data kamu",
-  icon: "success",
-  button: "oke",
-}).then((konfirmasi) => {
-  if (konfirmasi) {
-    $('#myForm').submit();
-  } else {
-    
-  }
-});
-
-
-});
-</script>
-
+                        });
+                        </script>
+                        <!-- popup berhasil edit profile end -->
                     
                 </div>
                 </div>
