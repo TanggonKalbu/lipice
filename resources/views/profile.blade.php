@@ -306,12 +306,9 @@ $(document).on('click', '#btn-submit', function(e) {
                  <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
                     <img src="/images/lipice_icon.png" alt="..." class="rounded-circle">  
                  <?php }else { ?>
-                    <img style src='http://159.65.139.254:5984/lipice/869999ee44c2ef3202a6fa489504156d/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." class="rounded-circle"> 
+                    <img style src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"] ?>/profile.png' style="width:100%" alt="..." class="rounded-circle"> 
                  <?php } ?>
                     <br><br>
-
-
-
 
                         <label for="name" class="control-label">
                             <h5 class="text-info"><?php echo $data["profile"]["rows"][0]["value"]["namalengkap"] ?></h5>
@@ -363,10 +360,25 @@ $(document).on('click', '#btn-submit', function(e) {
                             <option value="Papua Barat">Papua Barat</option>
                         </select>
                         </div> -->
-
+                        <script> 
+                            $('#edit').click(function() {
+                            var text = $('.text-info').text();
+                            var input = $('<input id="attribute" type="text" name="nama" value="' + text + '" />')
+                            $('.text-info').text('').append(input);
+                            input.select();
+                            input.blur(function() {
+                            var text = $('#attribute').val();
+                            $('#attribute').parent().text(text);
+                            $('#attribute').remove();
+                            });
+                            });
+                        
+                        </script>
                         <div class="input-group mb-3">
                         <input name="_method" type="hidden" value="PATCH">
                         <input type="hidden" id="rev" name="rev" value="<?php echo $data["profile"]["rows"][0]["value"]["_rev"]?>">
+                        <?php $img = 'http://159.65.139.254:5984/lipice/'.$data["profile"]["rows"][0]["value"]["_id"].'/profile.png'?>
+                        <input type="hidden" id="img" name="img" value="<?php echo ($img)?>">
                         <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
                         <input type="text" name="kota" id="myCity" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>" placeholder="kota"  aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
                         <div class="input-group-append">
@@ -738,18 +750,7 @@ function myFfb() {
 // end change button
 
 // change text
-$('#edit').click(function() {
- var text = $('.text-info').text();
- var input = $('<input id="attribute" type="text" value="' + text + '" />')
- $('.text-info').text('').append(input);
- input.select();
 
- input.blur(function() {
-   var text = $('#attribute').val();
-   $('#attribute').parent().text(text);
-   $('#attribute').remove();
- });
-});
 // end change text
 
 
