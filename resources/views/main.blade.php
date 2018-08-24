@@ -292,6 +292,11 @@ body{
 .kiri-atas{
     float:left;
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 
 /* footer start */
 html {
@@ -397,20 +402,22 @@ body {
                 <input type="number" min="1" max="31"  class="form-control" name="tgl"  id="tgl" placeholder="Tgl" required onkeyup="capt()">
             </div>
             <div class="form-group col-md-2">
-                <select name="bulan" id="bulan" class="form-control" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a;"> 
-                    <option value="1">Januari</option>
-                    <option value="2">Februari</option>
-                    <option value="3">Maret</option>
-                    <option value="4">April</option>
-                    <option value="5">Mei</option>
-                    <option value="6">Juni</option>
-                    <option value="7">Juli</option>
-                    <option value="8">Agustus</option>
-                    <option value="9">September</option>
-                    <option value="10">Oktober</option>
-                    <option value="11">November</option>
-                    <option value="12">Desember</option>
-                </select>     
+
+            <select name="bln" id="bulan" class="form-control" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a;"> 
+                <option value="1">Januari</option>
+                <option value="2">Februari</option>
+                <option value="3">Maret</option>
+                <option value="4">April</option>
+                <option value="5">Mei</option>
+                <option value="6">Juni</option>
+                <option value="7">Juli</option>
+                <option value="8">Agustus</option>
+                <option value="9">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+            </select>
+                        
             </div>
             <div class="form-group col-md-2">
                 <input type="number" min="1990" max="2018" class="form-control" name="tahun" id="tahun" placeholder="Tahun" required onkeyup="capt()">
@@ -420,7 +427,7 @@ body {
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-                <input type="text" name="notelp" value="+62" class="form-control" id="telp" required onkeyup="capt()">
+                <input type="number" name="notelp" class="form-control" id="telp" required onkeyup="capt()">
             </div>
         </div>
 
@@ -547,7 +554,7 @@ body {
     });
 
   var submit = function(){
-    var telpv = telp.value;
+    var telpv = "+62"+telp.value;
     var appVerifier = window.recaptchaVerifier;
     firebase
     .auth()

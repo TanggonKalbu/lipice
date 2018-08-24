@@ -62,8 +62,14 @@ class kontestan_controller extends Controller
              \"tempatlahir\": \"$tempatlahir\",\n 
              \"tgllahir\": \"$tgllahir\",\n 
              \"email\": \"$email\",\n 
-              \"umur\": \"$umur\", \n  \"notelp\": \"$notelp\", \n  \"linkig\": \"$linkig\",\n  
-             \"linkfb\": \"$linkfb\",\n  \"kota\": \" \",\n  \"image\": \"\",  \n  \"alasan\": \"$alasan\",
+              \"umur\": \"$umur\", \n 
+               \"notelp\": \"$notelp\", \n  
+               \"linkig\": \"$linkig\",\n  
+             \"linkfb\": \"$linkfb\",
+             \n \"kota\": \" \",
+             \n \"about\": \" \",
+              \n \"image\": \"\", 
+              \n  \"alasan\": \"$alasan\",
              \n\t\"_attachments\":\n 
                 { \n  \"profile.png\":\n  {
                 \n  \"content_type\": \"image/png\",
