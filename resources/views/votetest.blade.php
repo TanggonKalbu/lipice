@@ -206,18 +206,20 @@ a:active {
 <div>
 
   <!-- Button to Open the Modal -->
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Open modal
-  </button>
-
+  <div>
+    <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal" style="float:right">
+        Open modal
+    </button>
+  </div>
+    
   <!-- The Modal -->
   <div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
+          <h4 class="modal-title">Kode Validasi No Telepon</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
@@ -409,9 +411,10 @@ a:active {
         <img src="/images/a.jpeg" alt="Avatar" class="imground">
         <br>
         <div clas="row" style="text-align:center;"> <!-- div sosmed-->
-            <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
-            <a href="" class="sosmed"><i class="fab fa-twitter"></i></a> 
             <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
+            <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
+            <a href="" class="sosmed"><i class="fab fa-facebook-square"></i></a> 
+            
         </div> <!-- div sosmed end-->
         
       </div> <!-- modal body end-->

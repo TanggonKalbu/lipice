@@ -371,7 +371,7 @@ $(document).on('click', '#btn-submit', function(e) {
                             $('#attribute').parent().text(text);
                             $('#attribute').remove();
                             });
-                            });
+                });
                         
                         </script>
                         <div class="input-group mb-3">
