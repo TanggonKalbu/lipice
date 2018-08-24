@@ -300,7 +300,7 @@ input[type="file"] {
                 
                 <form id="myForm" class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
                     @csrf
-                    <?php if($data["profile"]["rows"][0]["value"]["image"] === "kosong" ){?>
+                    <?php if($data["profile"]["rows"][0]["value"]["image"] == "kosong" ){?>
                              <div class="round-border">
                              <img src="/images/lipice.png" alt="..." class="rounded-circle"> 
                              </div> 
