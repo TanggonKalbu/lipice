@@ -318,16 +318,9 @@ input[type="file"] {
                                      <i class="far fa-user-circle position"></i>
                                  </label>
                                  <input id="file-upload" type="file" name="fileToUpload"/>
-                                 <!-- end -->
-                             </div>
+                             <br><br>
+                            </div>
                          <?php } ?>
-
-                <br><br>
-
-                        
-                        
-
-                    
                     <!-- <input type="file" class="form-control-file" name="fileToUpload" id="exampleInputFile" aria-describedby="fileHelp"> -->
                         
                         <!-- <label for="name" class="control-label">
@@ -362,6 +355,7 @@ input[type="file"] {
                         <?php $img = 'http://159.65.139.254:5984/lipice/'.$data["profile"]["rows"][0]["value"]["_id"].'/profile.png'?>
                         <input type="hidden" id="img" name="img" value="<?php echo ($img)?>">
                         <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
+                        <input type="hidden" id="about" name="about" value="<?php echo $data["profile"]["rows"][0]["value"]["about"]?>">
                         
                         <input type="text" name="kota" id="myCity" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>" placeholder="kota"  aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <!-- <div class="input-group-append">
@@ -423,7 +417,17 @@ input[type="file"] {
                     <form method="post" action="{{action('about_controller@update', $notelp)}}" enctype="multipart/form-data" >
                     @csrf
                         <input name="_method" type="hidden" value="PATCH">
-                        <textarea placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["alasan"] ?></textarea>
+                        <input type="hidden" id="rev" name="rev" value="<?php echo $data["profile"]["rows"][0]["value"]["_rev"]?>">
+                        <?php $img = 'http://159.65.139.254:5984/lipice/'.$data["profile"]["rows"][0]["value"]["_id"].'/profile.png'?>
+                        <input type="hidden" id="img" name="img" value="<?php echo ($img)?>">
+                        <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
+                        <input type="hidden" id="nama" name="nama" value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>">
+                        <input type="hidden" id="kota" name="kota" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>">
+                        <input type="hidden" id="linkig" name="linkig" value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>">
+                        <input type="hidden" id="linkfb" name="linkfb" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>">
+                        <input type="hidden" id="linkyoutube" name="linkyoutube" value="<?php echo $data["profile"]["rows"][0]["value"]["linkyoutube"]?>">
+                
+                        <textarea name="about" placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
                         <button type="submit" class="btn-default mb-2 button" style="float:right">SAVE</button>
                     </form>
 
@@ -431,7 +435,9 @@ input[type="file"] {
                     
                     <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
                     <!-- form start -->
-                    <form class="form-inline">
+                    <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline">
+                    @csrf
+                   
                         <div class="form-group mb-2">
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -449,8 +455,9 @@ input[type="file"] {
                             </div>
                         </div>
                         <div class="form-group mx-sm-3 mb-2">
-                            <label for="inputPassword2" class="sr-only">Linkupload</label>
-                            <input type="text" class="form-control" id="linkUpload" placeholder="Insert Youtube link" style="width:100%">
+                            <label for="linkupload" class="sr-only">Linkupload</label>
+                            <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
+                            <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
                         </div>
                         <button type="submit" class="btn-default mb-2 button">SAVE</button>
                     </form>

@@ -20,7 +20,7 @@ Route::resource('kontestans','kontestan_controller');
 Route::resource('profile','profile_controller');
 Route::resource('about','about_controller');
 Route::resource('admin','admin_controller');
-
+Route::resource('cha_day1','cha_day1_controller');
 
 Route::get('/form', function () {
   return view('form');
