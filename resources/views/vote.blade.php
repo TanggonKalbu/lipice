@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vote</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -19,7 +20,9 @@
 * {
     padding : 0;
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
 }
+
 body{
     background-color: #fbdee8;
     padding-right:5%;
@@ -27,38 +30,14 @@ body{
     padding-top: 200px;
 }
 
-/* scrollbar start */
-.scrollbar {
-    float: left;
-    height: 500px;
-    width: 100%;
-    background: #fff;
-  
-    overflow:auto;
-    margin-bottom: 25px;
-}
-.force-overflow {
-    max-width: 99%;
-}
-
-.scrollbar-primary::-webkit-scrollbar {
-  width: 12px;
-  background-color: #eee; }
-
-.scrollbar-primary::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  background-color: #f7c729; }
-
-/* scrollbar end */
 
 .space {
-    margin-right:15px;
-    margin-left: 15px;
+    margin-right:5px;
+    margin-left: 5px;
 }
 
 .button{
-    background-color: #e01171;
+    background-color: #fb61ca;
     border: none;
     color: white;
     padding: 12px 28px;
@@ -66,10 +45,13 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
     width: 50%;
     font-size:1vw;
+}
+
+.button:focus{
+    outline:none;
 }
 
 .label {
@@ -88,10 +70,8 @@ body{
     padding-right : 15px;
 }
 
-
-
 .love{
-    color: #e01171; 
+    color: #fb61ca; 
     font-size:1vw;
     text-align:right;
 }
@@ -100,6 +80,15 @@ body{
     font-weight:bold;
     color: grey;
     font-size:1vw;
+    margin-top:50px;
+}
+
+a:focus{
+    outline:none;
+}
+
+.vt{
+    margin-top:0;
 }
 
 
@@ -135,12 +124,10 @@ a:active {
 
 /* scrollbar start */
 .scrollbar2 {
-    padding-right:100px;
     float: left;
     height: 1000px;
     width: 100%;
     background: #fff;
-  
     overflow:auto;
     margin-bottom: 25px;
 }
@@ -149,30 +136,29 @@ a:active {
 }
 
 .scrollbar-primary::-webkit-scrollbar {
-  width: 20px;
+  width: 1%;
   border-radius: 15px;
   background-color: #eee; }
 
 .scrollbar-primary::-webkit-scrollbar-thumb {
   border-radius: 15px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  background-color: #f7c729; }
+  background-color: #f8c128; }
 
 /* scrollbar end */
 
 /* modal start */
-.modal-abt{
-    height: 200px;
+.modal-header2{
+    height: 150px;
     width: 100%;
     background-color:black;
+    padding-top:10px;
     padding-right:20px;
 }
 
-.modal-ver{
-    background-color:grey;
-}
-.modal-title{
+.modal-title2{
     color:white;
+    justify-content:center;
     style:bold;
 }
 /* modal end */
@@ -196,18 +182,208 @@ a:active {
     margin-top:-100px;
 }
 
+/* days challenge */
+.label2 {
+    color: white;
+    padding: 15px;
+    font-family: Arial;
+    width:9%;
+    font-size:1vw;
+    border: none;
+    display: inline-block;
+    text-align:right;
+}
 
+.label2:focus{
+    outline:none;
+}
+.done {border-left: 25px solid #679175; background-color: #93d0a8} /* Day 1 */
+.dtwo {border-left: 25px solid #006573; background-color: #0091a5;} /* Day 2 */
+.dthree {border-left: 25px solid #2e7e80; background-color:  #42b5b8;} /* Day 3 */
+.dfour {border-left: 25px solid #03354b; background-color: #054c6b;} /* Day 4 */
+.dfive {border-left: 25px solid  #659952; background-color: #90db75;} /* Day 5 */
+.dsix {border-left: 25px solid #979052; background-color:  #d8cf75;} /* Day 6 */
+.dseven {border-left: 25px solid #977652; background-color: #d8a975;} /* Day 7 */
 
+/* modal login start */
+body {font-family: Arial, Helvetica, sans-serif;}
+
+  /* Full-width input fields */
+  input[type=text], input[type=password], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border: 1px solid #ea8a8a;
+  }
+
+  /* Set a style for all buttons */
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight:bold;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+  }
+
+   .loginbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #ea8a8a;
+  }
+
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+
+  /* The Modal (background) */
+  .modall {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+
+  /* Modal Content/Box */
+  .modall-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+  }
+
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+    outline:none;
+  }
+
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+/* modal login end */
 
 
 </style>
 </head>
 <body>
-<!-- <img src="images/buah_kiri_atas.png" style="width:121px; height:221px; float:left;" alt="">
-<img src="images/buah_kanan_atas.png" style="width:109px; height:128px; float:right;" alt="">
-<img src="images/lipice_icon.png" style="width:162px; height:150px; float:left;" alt="">
-<img src="images/summercamp.png" style="width:514px; height:250px; float:right;" alt=""> -->
 <div>
+    <a href="{{action('profile_controller@edit', '81945314191')}}" class="btn btn-warning" style="width:auto">Edit</a>
+
+    <!-- Button to Open the Modal -->
+    <div>
+        <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right; background-color:#ea8a8a">Login</button>
+    </div>
+
+    <!-- Modal Login START -->    
+    <div id="id01" class="modall">
+    
+    <form class="modall-content animate" action="/action_page.php">
+        <div class="container" style="background-color:#f1f1f1">
+                <h3>Login</h3>
+                
+        </div>
+        
+        <div class="container">
+            <div style="margin-right:30px; margin-left:30px">
+                <div class="row">
+                    <label for="vercode"><b>Validasi no Telepon</b></label>
+                </div>
+                <div class="row">
+                    <input type="number" name="notelp"id="telp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="capt()">
+                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;">Kirim Kode Verifikasi</button>
+                </div>
+                <div class="row">
+                    <input type="text" id="verificationcode"style="width:70%; margin-right:20px" placeholder="Kode Verifikasi">
+                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;">Submit Kode</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <div style="margin-right:30px; margin-left:16px">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                <button type="button" class="loginbtn">Login</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    <!-- Modal Login END -->
+
+  
     <div class="embed-responsive embed-responsive-21by9 ">   
         <!-- <iframe class="embed-responsive-item" width="100%"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> -->
             <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -218,176 +394,142 @@ a:active {
     <div class="card-body"> <!-- card body start -->
         <br>
         <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
-
-        <a href="#">
+        <br>
+        <div class="text-center">
+            <button class="label2 done" style="margin-right:3px; margin-left:3px;">DAY <b>01</b></button>
+            <button class="label2 dtwo" style="margin-right:3px; margin-left:3px;">DAY <b>02</b></button>
+            <button class="label2 dthree" style="margin-right:3px; margin-left:3px;">DAY <b>03</b></button>
+            <button class="label2 dfour" style="margin-right:3px; margin-left:3px;">DAY <b>04</b></button>
+            <button class="label2 dfive" style="margin-right:3px; margin-left:3px;">DAY <b>05</b></button>
+            <button class="label2 dsix" style="margin-right:3px; margin-left:3px;">DAY <b>06</b></button>
+            <button class="label2 dseven" style="margin-right:3px; margin-left:3px;">DAY <b>07</b></button>
+            
+        </div>
+        <br>
+        <br>
+        <!-- <a href="#">
             <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
             &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
-        </a>
+        </a> -->
 
-        <br><br>
-
-
-
-    <div class="scrollbar2 scrollbar-primary"> <!-- div utama start -->
+        <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
         <div class="force-overflow"> 
-            <!-- nama dan kota -->
             <div class="row justify-content-md-center">
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
-                    <label for="" class="name" style="float:right">Jakarta</label>    
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
+                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
+                    </div>
+                    <blockquote class="instagram-media shadow-lg p-3 mb-4 bg-white rounded" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                        <div style="padding:8px;"> 
+                            <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:62.5% 0; text-align:center; width:100%;"> 
+                                <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;">
+                                </div>
+                            </div> 
+                            <p style=" margin:8px 0 0 0; padding:0 4px;"> 
+                                <a href="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Hail satay</a>
+                            </p> 
+                            <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">Sebuah kiriman dibagikan oleh <a href="https://www.instagram.com/bayuharii/?utm_source=ig_embed" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Bayu Hari Saputro</a> (@bayuharii) pada 
+                            <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-07-08T13:58:02+00:00">8 Jul 2018 jam 6:58 PDT</time>
+                            </p>
+                        </div>
+                    </blockquote> 
+                    <div class="row space vt">
+                        <button type="submit" class="button" onclick="document.getElementById('vote').style.display='block'">Vote</button>
+                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
                 </div>
 
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
-                    <label for="" class="name" style="float:right">Jakarta</label>    
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
+                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
+                    </div>
+                    <div class="shadow p-3 mb-5 bg-white rounded"> 
+                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
+                    </div>
+                    <div class="row space vt">
+                        <button type="submit" class="button" onclick="document.getElementById('vote').style.display='block'">Vote</button>
+                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
                 </div>
 
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
-                    <label for="" class="name" style="float:right">Jakarta</label>    
-                </div>
-            </div>
-            
-            <!-- videos -->
-            <div class="row justify-content-md-center">
-                <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <iframe class="embed-responsive-item" width="100%" height="auto" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
-                </div>
-
-                <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <iframe class="embed-responsive-item" width="100%" height="auto" src="https://www.youtube.com/embed/6okxuiiHx2w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-
-                <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <iframe class="embed-responsive-item" width="100%" height="auto" src="https://www.youtube.com/embed/mQ055hHdxbE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-            </div>
-        
-            <!-- button and vote -->
-            <div class="row justify-content-md-center">
-                <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
-                    <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                </div>
-
-                <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
-                    <span type="" class="label" >500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                </div>
-
-                <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
-                    <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                </div>
-            </div>
-
-            <br>
-
-            <!-- nama dan kota -->
-            <div class="row justify-content-md-center">
-                <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
-                    <label for="" class="name" style="float:right">Jakarta</label>    
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
+                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
+                    </div>
+                    <div class="shadow p-3 mb-5 bg-white rounded"> 
+                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
+                    </div>
+                    <div class="row space vt">
+                        <button type="submit" class="button" onclick="document.getElementById('vote').style.display='block'">Vote</button>  
+                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
                 </div>
 
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
-                    <label for="" class="name" style="float:right">Jakarta</label>    
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
+                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
+                    </div>
+                    <div class="shadow p-3 mb-5 bg-white rounded"> 
+                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
+                    </div>
+                    <div class="row space vt">
+                        <button type="submit" class="button" onclick="document.getElementById('vote').style.display='block'">Vote</button>
+                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
                 </div>
 
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
-                    <label for="" class="name" style="float:right">Jakarta</label>    
-                </div>
-            </div>
-            
-            <!-- videos -->
-            <div class="row justify-content-md-center">
-                <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <img src="/images/a.jpeg" alt="" style="width:100%">   
-                </div>
-
-                <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <img src="/images/a.jpeg" alt="" style="width:100%">
-                </div>
-
-                <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <img src="/images/a.jpeg" alt="" style="width:100%">
-                </div>
-            </div>
-        
-            <!-- button and vote -->
-            <div class="row justify-content-md-center">
-                <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
-                    <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                </div>
-
-                <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
-                    <span type="" class="label" >500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                </div>
-
-                <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
-                    <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                </div>
-            </div>
-
-            <br>
-             <!-- nama dan kota -->
-             <div class="row justify-content-md-center">
-                <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
-                    <label for="" class="name" style="float:right">Jakarta</label>    
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
+                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
+                    </div>
+                    <blockquote class="instagram-media shadow-lg p-3 mb-4 bg-white rounded" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                        <div style="padding:8px;"> 
+                            <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:62.5% 0; text-align:center; width:100%;"> 
+                                <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;">
+                                </div>
+                            </div> 
+                            <p style=" margin:8px 0 0 0; padding:0 4px;"> 
+                                <a href="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Hail satay</a>
+                            </p> 
+                            <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">Sebuah kiriman dibagikan oleh <a href="https://www.instagram.com/bayuharii/?utm_source=ig_embed" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Bayu Hari Saputro</a> (@bayuharii) pada 
+                            <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-07-08T13:58:02+00:00">8 Jul 2018 jam 6:58 PDT</time>
+                            </p>
+                        </div>
+                    </blockquote> 
+                    <script async defer src="//www.instagram.com/embed.js"></script>
+                    <div class="row space vt">
+                        <button type="submit" class="button" onclick="document.getElementById('vote').style.display='block'">Vote</button>
+                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
                 </div>
 
                 <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
-                    <label for="" class="name" style="float:right">Jakarta</label>    
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
+                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
+                    </div>
+                    <div class="shadow p-3 mb-5 bg-white rounded"> 
+                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
+                    </div>
+                    <div class="row space vt">
+                        <button type="submit" class="button" onclick="document.getElementById('vote').style.display='block'">Vote</button>
+                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
                 </div>
 
-                <div class="col-md-3 space">
-                    <label for="" class="name" style="float:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></label>
-                    <label for="" class="name" style="float:right">Jakarta</label>    
-                </div>
-            </div>
-            
-            <!-- videos -->
-            <div class="row justify-content-md-center">
-                <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <img src="/images/a.jpeg" alt="" style="width:100%">   
-                </div>
-
-                <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <img src="/images/a.jpeg" alt="" style="width:100%">
-                </div>
-
-                <div class="col-md-3 shadow p-3 mb-5 bg-white rounded space">
-                    <img src="/images/a.jpeg" alt="" style="width:100%">
-                </div>
-            </div>
-        
-            <!-- button and vote -->
-            <div class="row justify-content-md-center">
-                <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
-                    <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                </div>
-
-                <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
-                    <span type="" class="label" >500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                </div>
-
-                <div class="col-md-3 space btn-group" role="group">
-                    <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
-                    <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                </div>
+                
+                
             </div>
         </div>
-        
-    </div> <!-- div utama end -->
+        </div>
+
+
+
 
 
 
@@ -403,10 +545,10 @@ a:active {
 <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header modal-abt">
+      <div class="modal-header2">
         
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white;">&times;</span>
+          <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
         </button>
         
       </div>
@@ -415,11 +557,12 @@ a:active {
         <img src="/images/a.jpeg" alt="Avatar" class="imground">
         <br>
         <div clas="row" style="text-align:center;"> <!-- div sosmed-->
-            <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
-            <a href="" class="sosmed"><i class="fab fa-twitter"></i></a> 
             <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
+            <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
+            <a href="" class="sosmed"><i class="fab fa-facebook-square"></i></a> 
+            
         </div> <!-- div sosmed end-->
-
+        
       </div> <!-- modal body end-->
 
       <div class="modal-footer"> <!-- modal footer start-->
@@ -457,36 +600,45 @@ a:active {
 </div>
 <!-- Modal About End -->
 
+<!-- Modal Vote START -->    
+<div id="vote" class="modall">
+    
+    <form class="modall-content animate" action="/action_page.php">
+        <div class="container" style="background-color:#f1f1f1">
+                <h3>INI BUAT VOTE</h3>
+                
+        </div>
+        
+        <div class="container">
+            <div style="margin-right:30px; margin-left:30px">
+                <div class="row">
+                    <label for="vercode"><b>Validasi no Telepon</b></label>
+                </div>
+                <div class="row">
+                    <input type="number" name="notelp"id="telp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="capt()">
+                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;">Kirim Kode Verifikasi</button>
+                </div>
+                <div class="row">
+                    <input type="text" id="verificationcode"style="width:70%; margin-right:20px" placeholder="Kode Verifikasi">
+                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;">Submit Kode</button>
+                </div>
+            </div>
+        </div>
 
-<!-- Modal Verification Start -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header modal-ver">
-        <h5 class="modal-title" id="exampleModalLongTitle">Enter Verification</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white;padding-right:9px;">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- form verification start -->
-        <form align="center">
-            <input type="text" id="verificationcode" placeholder="Enter Verification" style="padding-left:10px">
-            <input type="button" value="Submit" onclick="myFunction()">
-        </form>
-        <br>
-        <div id="recaptcha-container" align="center"></div>
-        <!-- form verification end -->
-      </div>
+        <div class="container" style="background-color:#f1f1f1">
+            <div style="margin-right:30px; margin-left:16px">
+                <button type="button" onclick="document.getElementById('vote').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                <button type="button" class="loginbtn">Konfirmasi</button>
+            </div>
+        </div>
+    </form>
     </div>
-  </div>
+    <!-- Modal Vote END -->
+
+
+
+
 </div>
-<!-- Modal Verification end -->
-
-
-
-
-<!-- =========SCRIPT HERE========= -->
 
 <!-- script collapse start -->
 <script>
@@ -502,7 +654,7 @@ $(document).ready(function() {
     }
   });
 });
-</script>   
+</script>
 <!-- script collapse end -->
 
 <!-- modal verification -->
@@ -529,7 +681,25 @@ $(document).ready(function() {
 </script>
 <!-- modal verification end -->
 
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
+// Get the modal
+var modalvote = document.getElementById('vote');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modalvote) {
+        modalvote.style.display = "none";
+    }
+}
 
+</script>
 </body>
 </html>

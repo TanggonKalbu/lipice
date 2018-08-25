@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lipice</title>
 
-
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -22,9 +22,11 @@
 * {
     padding : 0;
     margin : 0;
+    font-family: 'Montserrat', sans-serif;
 }
 body{
     background-color: #fbdee8;
+    
 }
 
 /* form */
@@ -297,6 +299,9 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+.grecaptcha-badge {
+    opacity:0;
+}
 
 /* footer start */
 html {
@@ -333,6 +338,11 @@ body {
   background-color: white;
   text-align: center;
 }
+
+.ex1{
+    max-width:100%;
+    margin:auto;
+}
 /* footer end */
 </style>
 
@@ -340,7 +350,7 @@ body {
 
 <body>
 <!-- Save for Web Slices (summercamp (2).psd) -->
-<div>
+<div class="ex1">
 
 
 	<!-- buah atas -->
@@ -490,7 +500,7 @@ body {
     <!-- buah bawah -->
     <div class="row">
     <div class="col">
-    <img src="images/kiri.png" class="responsive" alt="" style="float:lefft; margin-top:540px; z-index:-1;">
+    <img src="images/kiri.png" class="responsive" alt="" style="float:left; margin-top:690px; z-index:-1;">
     </div>
     <div class="col">
     <img src="images/timeline.png" class="responsive" alt="" style="float:none; margin: 0 auto;width:100%; z-index:1;">
@@ -582,8 +592,11 @@ body {
             // Error; SMS not sent
             console.error('Terjadi Kesalahan :', error);
             window.alert('Error during signInWithPhoneNumber:\n\n'
-                + error.code + '\n\n' + error.message);
-            window.signingIn = false;
+                + error.code + '\n\n');
+            document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
+            function kirimulang(){
+                document.getElementById("button-kirim").disabled = false;
+            }
         });
   }
 

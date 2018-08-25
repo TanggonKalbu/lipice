@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile</title>
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -15,6 +16,7 @@
 {
     padding : 0;
     margin : 0;
+    font-family: 'Montserrat', sans-serif;
 }
 body{
     background-color: #fbdee8;
@@ -67,16 +69,18 @@ body{
     height: 70%;
     width: 70%;
     padding:5px;
+    z-index:-2;
 }
 
  .round-border{
      border: 3px solid #00b2b2;
      border-radius: 50%;
-     width: 72%;
-     height: 72%; 
+     width: 70%;
+     height: 70%; 
      float: none;
      margin: 0 auto;
      margin-top:40px;
+     z-index:-1;
  }
 
 .button {
@@ -91,6 +95,10 @@ body{
     font-size: 16px;
     margin: 2px 2px;
     cursor: pointer;
+}
+
+.button:focus{
+    outline:none;
 }
 
 .btn-content {
@@ -264,10 +272,7 @@ textarea::placeholder{
 
 .control-label .text-info { display:inline-block; color:black }
 
-.position{
-    font-size:2.5vw;
-    z-index:3;
-}
+
 
 </style>
 </head>
@@ -283,7 +288,7 @@ textarea::placeholder{
                 <div class="card">
                 <div class="card-body">
                     <!-- button edit -->
-                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen">edit</i></label>
+                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen"> Edit</i></label>
                    
                     <!-- button edit end --> 
 
@@ -293,26 +298,27 @@ textarea::placeholder{
                              
                              <div class="round-border">
                              <img src="/images/lipice_icon.png" alt="..." class="rounded-circle"> 
-                             <label for="file-upload" class="custom-file-upload" style="border:none; margin-top:-50px; float:right">
+                             <label for="file-upload" id="icon-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
                                      <i class="far fa-user-circle position"></i>
                                  </label>
                              <input id="file-upload" type="file" name="fileToUpload"/>
                         </div> 
                          <?php }else { ?>
                              <div class="round-border">
-                                 <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/profile.png' style="width:100%" alt="..." > 
-                                 <label for="file-upload" class=" custom-file-upload " style="border:none; margin-top:-50px; float:right">
+                                 <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
+                                 <!-- button change photo profile -->
+                                 <label for="file-upload" id="icon-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right; display:none" >
                                      <i class="far fa-user-circle position"></i>
                                  </label>
                                  <input id="file-upload" type="file" name="fileToUpload"/>
                             </div>
-                             <br><br>
+                             <br>
 
                          <?php } ?>
                  
                         
                          <div class="input-group mb-3" id="nama">
-                            <p align="center" style="float:none;margin:0 auto"> <?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?></p>
+                            <h3 align="center" style="float:none;margin:0 auto"> <?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?></h3>
                         </div>
 
                         <div class="input-group mb-3" id="input-nama-div" style="display:none">
@@ -360,7 +366,7 @@ textarea::placeholder{
                         </div> -->
                         </div>
                         
-                        <button id="save-satu" type="submit" style="display:none" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
+                        <button type="submit" style="display:none" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
 
                     </form>
 
@@ -542,8 +548,9 @@ span.onclick = function() {
     var inputyoutube = document.getElementById("input-youtube");
     var inputfb = document.getElementById("input-fb");
     var inputabout = document.getElementById("input-about");
-    var savesatu = document.getElementById("save-satu");
+    var savesatu = document.getElementById("btn-submit");
     var savedua = document.getElementById("save-dua");
+    var iconupload = document.getElementById("icon-upload");
 
     var editprofile = function(){
         nama.style.display = 'none';
@@ -553,6 +560,7 @@ span.onclick = function() {
         inputig.disabled = false;
         inputfb.disabled = false;
         savesatu.style.display = '';
+        iconupload.style.display = '';  
     }
 
     var editabout = function(){
