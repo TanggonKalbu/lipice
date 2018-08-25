@@ -449,7 +449,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
                     <div class="row space vt">
-                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <button type="submit" class="button" onclick="document.getElementById('vote').style.display='block'">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -463,7 +463,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
                     <div class="row space vt">
-                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <button type="submit" class="button" onclick="document.getElementById('vote').style.display='block'">Vote</button>  
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -477,7 +477,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
                     <div class="row space vt">
-                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <button type="submit" class="button" onclick="document.getElementById('vote').style.display='block'">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -503,7 +503,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     </blockquote> 
                     <script async defer src="//www.instagram.com/embed.js"></script>
                     <div class="row space vt">
-                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <button type="submit" class="button" onclick="document.getElementById('vote').style.display='block'">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -517,7 +517,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
                     <div class="row space vt">
-                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <button type="submit" class="button" onclick="document.getElementById('vote').style.display='block'">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
