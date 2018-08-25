@@ -356,42 +356,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div>
         <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right; background-color:#ea8a8a">Login</button>
     </div>
-
-    <!-- Modal Login START -->    
-    <div id="id01" class="modall">
-    
-    <form class="modall-content animate" action="/action_page.php">
-        <div class="container" style="background-color:#f1f1f1">
-                <h3>Login</h3>
-                
-        </div>
-        
-        <div class="container">
-            <div style="margin-right:30px; margin-left:30px">
-                <div class="row">
-                    <label for="vercode"><b>Validasi no Telepon</b></label>
-                </div>
-                <div class="row">
-                    <input type="number" name="notelp" id="input-tlp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
-                </div>
-                <div class="row">
-                    <input type="text" id="verificationcode"style="width:70%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-            <div style="margin-right:30px; margin-left:16px">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button>
-            </div>
-        </div>
-    </form>
-    </div>
-    <!-- Modal Login END -->
-
   
     <div class="embed-responsive embed-responsive-21by9 ">   
         <!-- <iframe class="embed-responsive-item" width="100%"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> -->
@@ -444,7 +408,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         </div>
                     </blockquote> 
                     <div class="row space vt">
-                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -608,43 +572,71 @@ body {font-family: Arial, Helvetica, sans-serif;}
   </div>
 </div>
 <!-- Modal About End -->
-
-
-
-<!-- Modal Verification Start -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLongTitle">Vote</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:black;float:right; margin-right:10px;">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- verification start -->
-        <form align="center">
-            <div>
-            <input type="number" id="verificationcode" placeholder="Masukkan No Hp Anda" style="padding-left:10px"> 
-            <input type="button" value="Send Code" onclick="myFunction()" class="btn btn-info" style="float:right">   
+   <!-- Modal Login START -->    
+   <div id="id01" class="modall">
+    
+    <form class="modall-content animate" action="/action_page.php">
+        <div class="container" style="background-color:#f1f1f1">
+                <h3>Login</h3>
+        </div>
+        <div class="container">
+            <div style="margin-right:30px; margin-left:30px">
+                <div class="row">
+                    <label for="vercode"><b>Validasi no Telepon</b></label>
+                </div>
+                <div class="row">
+                    <input type="number" name="notelp" id="input-tlp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
+                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
+                </div>
+                <div class="row">
+                    <input type="text" id="verificationcode"style="width:70%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
+                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
+                </div>
             </div>
-            <br>
-            <div>
-            <input type="number" id="verificationcode" placeholder="Kode Verification" style="padding-left:10px">
-            <input type="button" value="Submit Code" onclick="myFunction()" class="btn btn-success" style="float:right">
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <div style="margin-right:30px; margin-left:16px">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button>
             </div>
-        </form>
-        <br>
-        <div id="recaptcha-container" align="center"></div>
-        <!-- verification end -->
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
+        </div>
+    </form>
     </div>
-  </div>
-</div>
+    <!-- Modal Login END -->
+<!-- Modal Verification Start -->
+<div id="id02" class="modall">
+    
+    <form class="modall-content animate" action="/action_page.php">
+        <div class="container" style="background-color:#f1f1f1">
+                <h3>Vote</h3>
+                
+        </div>
+        
+        <div class="container">
+            <div style="margin-right:30px; margin-left:30px">
+                <div class="row">
+                    <label for="vercode"><b>Validasi no Telepon</b></label>
+                </div>
+                <div class="row">
+                    <input type="number" name="notelp" id="input-tlp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
+                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
+                </div>
+                <div class="row">
+                    <input type="text" id="verificationcode"style="width:70%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
+                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <div style="margin-right:30px; margin-left:16px">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Vote</button>
+            </div>
+        </div>
+    </form>
+    </div>
 <!-- Modal Verification end -->
 
 </div>
@@ -677,12 +669,13 @@ $(document).ready(function() {
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
-
+var modal2 = document.getElementById('id02');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target == modal || event.target == modal2 ) {
         modal.style.display = "none";
-    }
+        modal2.style.display = "none";
+    } 
 }
 </script>
 <script>
