@@ -616,7 +616,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Enter Ver5ification</h5>
+        <h4 class="modal-title" id="exampleModalLongTitle">Vote</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" style="color:black;float:right; margin-right:10px;">&times;</span>
         </button>
@@ -624,8 +624,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <div class="modal-body">
         <!-- verification start -->
         <form align="center">
-            <input type="text" id="verificationcode" placeholder="Enter Verification" style="padding-left:10px">
-            <input type="button" value="Submit" onclick="myFunction()">
+            <div>
+            <input type="number" id="verificationcode" placeholder="Masukkan No Hp Anda" style="padding-left:10px"> 
+            <input type="button" value="Send Code" onclick="myFunction()" class="btn btn-info" style="float:right">   
+            </div>
+            <br>
+            <div>
+            <input type="number" id="verificationcode" placeholder="Kode Verification" style="padding-left:10px">
+            <input type="button" value="Submit Code" onclick="myFunction()" class="btn btn-success" style="float:right">
+            </div>
         </form>
         <br>
         <div id="recaptcha-container" align="center"></div>
