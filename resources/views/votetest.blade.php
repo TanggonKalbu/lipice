@@ -48,6 +48,10 @@ body{
     font-size:1vw;
 }
 
+.button:focus{
+    outline:none;
+}
+
 .label {
     border: none;
     color: white;
@@ -75,6 +79,10 @@ body{
     color: grey;
     font-size:1vw;
     margin-top:50px;
+}
+
+a:focus{
+    outline:none;
 }
 
 .vt{
@@ -182,7 +190,10 @@ a:active {
     border: none;
     display: inline-block;
     text-align:right;
-    
+}
+
+.label2:focus{
+    outline:none;
 }
 .done {border-left: 25px solid #679175; background-color: #93d0a8} /* Day 1 */
 .dtwo {border-left: 25px solid #006573; background-color: #0091a5;} /* Day 2 */
@@ -196,13 +207,14 @@ a:active {
 body {font-family: Arial, Helvetica, sans-serif;}
 
   /* Full-width input fields */
-  input[type=text], input[type=password] {
+  input[type=text], input[type=password], input[type=number] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    border: 1px solid #ea8a8a;
   }
 
   /* Set a style for all buttons */
@@ -214,6 +226,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     border: none;
     cursor: pointer;
     width: 100%;
+    font-weight:bold;
   }
 
   button:hover {
@@ -224,7 +237,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
   .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: #f44336;
+  }
+
+   .loginbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #ea8a8a;
   }
 
   /* Center the image and position the close button */
@@ -249,7 +267,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 
   /* The Modal (background) */
-  .modal {
+  .modall {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -264,7 +282,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 
   /* Modal Content/Box */
-  .modal-content {
+  .modall-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
@@ -274,7 +292,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   /* The Close Button (x) */
   .close {
     position: absolute;
-    right: 25px;
+    right: 0;
     top: 0;
     color: #000;
     font-size: 35px;
@@ -285,6 +303,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   .close:focus {
     color: red;
     cursor: pointer;
+    outline:none;
   }
 
   /* Add Zoom Animation */
@@ -320,31 +339,42 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 <body>
 <div>
-    <a href="{{action('profile_controller@edit', '081945314191')}}" class="btn btn-warning" style="width:auto">Edit</a>
+    <a href="{{action('profile_controller@edit', '81945314191')}}" class="btn btn-warning" style="width:auto">Edit</a>
 
     <!-- Button to Open the Modal -->
     <div>
-        <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right">Login</button>
+        <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right; background-color:#ea8a8a">Login</button>
     </div>
 
     <!-- Modal Login START -->    
-    <div id="id01" class="modal">
+    <div id="id01" class="modall">
     
-    <form class="modal-content animate" action="/action_page.php">
-    
+    <form class="modall-content animate" action="/action_page.php">
+        <div class="container" style="background-color:#f1f1f1">
+                <h3>Login</h3>
+                
+        </div>
+        
         <div class="container">
-            <div style="margin-right: 40px; margin-left: 40px">
-                <label for="vercode" style="font-size:1vw"><b>Kode Validasi no Telepon</b></label>
-                <br>
-                <input type="text"  name="vercode" required>
-    
-                <button type="submit">Submit Code</button>
+            <div style="margin-right:30px; margin-left:30px">
+                <div class="row">
+                    <label for="vercode"><b>Validasi no Telepon</b></label>
+                </div>
+                <div class="row">
+                    <input type="number" name="notelp"id="telp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="capt()">
+                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;">Kirim Kode Verifikasi</button>
+                </div>
+                <div class="row">
+                    <input type="text" id="verificationcode"style="width:70%; margin-right:20px" placeholder="Kode Verifikasi">
+                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;">Submit Kode</button>
+                </div>
             </div>
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
-            <div style="margin-right: 40px; margin-left: 40px">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <div style="margin-right:30px; margin-left:16px">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                <button type="button" class="loginbtn">Login</button>
             </div>
         </div>
     </form>
@@ -385,7 +415,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             <div class="row justify-content-md-center">
                 <div class="col-md-3 space">
                     <div class="row">
-                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
+                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
                         <p for="" class="col name" style="text-align:right">Jakarta</p>   
                     </div>
                     <blockquote class="instagram-media shadow-lg p-3 mb-4 bg-white rounded" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
@@ -516,7 +546,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <div class="modal-header2">
         
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white; size:20px;">&times;</span>
+          <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
         </button>
         
       </div>
@@ -575,9 +605,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Enter Verification</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Enter Ver5ification</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:black;padding-right:10px;">&times;</span>
+          <span aria-hidden="true" style="color:black;float:right; margin-right:10px;">&times;</span>
         </button>
       </div>
       <div class="modal-body">

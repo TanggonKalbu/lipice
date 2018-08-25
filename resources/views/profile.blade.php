@@ -72,16 +72,18 @@ body{
     height: 70%;
     width: 70%;
     padding:5px;
+    z-index:-2;
 }
 
  .round-border{
      border: 3px solid #00b2b2;
      border-radius: 50%;
-     width: 72%;
-     height: 72%; 
+     width: 70%;
+     height: 70%; 
      float: none;
      margin: 0 auto;
      margin-top:40px;
+     z-index:-1;
  }
 
 .button {
@@ -96,6 +98,10 @@ body{
     font-size: 16px;
     margin: 2px 2px;
     cursor: pointer;
+}
+
+.button:focus{
+    outline:none;
 }
 
 .btn-content {
@@ -273,10 +279,7 @@ input[type="file"] {
 
 .control-label .text-info { display:inline-block; color:black }
 
-.position{
-    font-size:2.5vw;
-    z-index:3;
-}
+
 
 </style>
 </head>
@@ -295,7 +298,7 @@ input[type="file"] {
                 <div class="card">
                 <div class="card-body">
                     <!-- button edit -->
-                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen">edit</i></label>
+                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen"> Edit</i></label>
                    
                     <!-- button edit end --> 
 
@@ -306,7 +309,7 @@ input[type="file"] {
                              <div class="round-border">
                              <img src="/images/lipice_icon.png" alt="..." class="rounded-circle"> 
                              <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
-                                     <i class="far fa-user-circle position"></i>
+                                     <i class="far fa-user-circle"></i>
                                  </label>
                               <input id="file-upload" type="file" name="fileToUpload"/>
                              </div> 
@@ -314,18 +317,18 @@ input[type="file"] {
                              <div class="round-border">
                                  <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
                                  <!-- button change photo profile -->
-                                 <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
-                                     <i class="far fa-user-circle position"></i>
+                                 <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right; z-index:1">
+                                     <i class="far fa-user-circle" style="font-size:50pt; margin-right:-10px; "></i>
                                  </label>
                                  <input id="file-upload" type="file" name="fileToUpload"/>
                             </div>
-                             <br><br>
+                             <br>
 
                          <?php } ?>
                  
                         
                          <div class="input-group mb-3" id="nama">
-                            <p align="center" style="float:none;margin:0 auto"> <?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?></p>
+                            <h3 align="center" style="float:none;margin:0 auto"> <?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?></h3>
                         </div>
 
                         <div class="input-group mb-3" id="input-nama-div" style="display:none">

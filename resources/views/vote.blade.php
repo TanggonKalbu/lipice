@@ -208,6 +208,35 @@ a:active {
 <img src="images/lipice_icon.png" style="width:162px; height:150px; float:left;" alt="">
 <img src="images/summercamp.png" style="width:514px; height:250px; float:right;" alt=""> -->
 <div>
+ <!-- Button to Open the Modal -->
+ <div>
+        <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right">Login</button>
+    </div>
+
+    <!-- Modal Login START -->    
+    <div id="id01" class="modal">
+    
+    <form class="modal-content animate" action="/action_page.php">
+    
+        <div class="container">
+            <div style="margin-right: 40px; margin-left: 40px">
+                <label for="vercode" style="font-size:1vw"><b>Kode Validasi no Telepon</b></label>
+                <br>
+                <input type="text"  name="vercode" required>
+    
+                <button type="submit">Submit Code</button>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <div style="margin-right: 40px; margin-left: 40px">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    <!-- Modal Login END -->
+
     <div class="embed-responsive embed-responsive-21by9 ">   
         <!-- <iframe class="embed-responsive-item" width="100%"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> -->
             <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
