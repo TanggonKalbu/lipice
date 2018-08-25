@@ -159,6 +159,9 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+.grecaptcha-badge {
+    opacity:0;
+}
 
 /* footer start */
 html {
@@ -450,8 +453,11 @@ body {
             // Error; SMS not sent
             console.error('Terjadi Kesalahan :', error);
             window.alert('Error during signInWithPhoneNumber:\n\n'
-                + error.code + '\n\n' + error.message);
-            window.signingIn = false;
+                + error.code + '\n\n');
+            document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
+            function kirimulang(){
+                document.getElementById("button-kirim").disabled = false;
+            }
         });
   }
 

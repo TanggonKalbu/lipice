@@ -168,6 +168,10 @@ textarea::placeholder{
     border-color: #eeeeee; 
 }
 
+input[type="file"] {
+    display: none;
+}
+
 /* image modal */
 #myImg {
     border-radius: 5px;
@@ -254,7 +258,7 @@ textarea::placeholder{
   color: black;
 }
 
-input[type="file"] {
+#profile {
     display: none;
 }
 .custom-file-upload {
@@ -298,8 +302,8 @@ input[type="file"] {
                              
                              <div class="round-border">
                              <img src="/images/lipice_icon.png" alt="..." class="rounded-circle"> 
-                             <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
-                                     <i class="far fa-user-circle"></i>
+                             <label for="file-upload" id="icon-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
+                                     <i class="far fa-user-circle position"></i>
                                  </label>
                              <input id="file-upload" type="file" name="fileToUpload"/>
                         </div> 
@@ -307,8 +311,8 @@ input[type="file"] {
                              <div class="round-border">
                                  <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
                                  <!-- button change photo profile -->
-                                 <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right; z-index:1">
-                                     <i class="far fa-user-circle" style="font-size:50pt; margin-right:-10px; "></i>
+                                 <label for="file-upload" id="icon-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right; display:none" >
+                                     <i class="far fa-user-circle position"></i>
                                  </label>
                                  <input id="file-upload" type="file" name="fileToUpload"/>
                             </div>
@@ -366,7 +370,7 @@ input[type="file"] {
                         </div> -->
                         </div>
                         
-                        <button id="save-satu" type="submit" style="display:none" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
+                        <button type="submit" style="display:none" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
 
                     </form>
 
@@ -416,7 +420,8 @@ input[type="file"] {
                     </form>
                     <br><br><br><br>
                         <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
-                            <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline">
+                            <!-- <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline"> -->
+                              <form method="post" action="{{url('cha_video')}}" enctype="multipart/form-data" class="form-inline"> 
                     @csrf
                    
                         <div class="form-group mb-2">
@@ -438,7 +443,9 @@ input[type="file"] {
                         <div class="form-group mx-sm-3 mb-2">
                             <label for="linkupload" class="sr-only">Linkupload</label>
                             <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
-                            <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
+                            <!-- <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%"> -->
+                            <input type="file" accept="video/mp4" name="uploadVideo" />
+
                         </div>
                         <button type="submit" class="btn-default mb-2 button">SAVE</button>
                     </form>
@@ -466,17 +473,15 @@ input[type="file"] {
                     <div class="scrollbar scrollbar-primary"><br>
                         <div class="force-overflow">
                             <div class="row">
+                            <?php if($data["video"]!= "kosong"){ for($counter =0;$counter < count($data["video"]["rows"]);$counter++) { ?>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
+                                        <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
                                     </div> 
                                 </div>
+                                <?php } }?>
                                
-                                <div class="col-md-3">
-                                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
-                                    </div> 
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -547,8 +552,9 @@ span.onclick = function() {
     var inputyoutube = document.getElementById("input-youtube");
     var inputfb = document.getElementById("input-fb");
     var inputabout = document.getElementById("input-about");
-    var savesatu = document.getElementById("save-satu");
+    var savesatu = document.getElementById("btn-submit");
     var savedua = document.getElementById("save-dua");
+    var iconupload = document.getElementById("icon-upload");
 
     var editprofile = function(){
         nama.style.display = 'none';
@@ -558,6 +564,7 @@ span.onclick = function() {
         inputig.disabled = false;
         inputfb.disabled = false;
         savesatu.style.display = '';
+        iconupload.style.display = '';  
     }
 
     var editabout = function(){
