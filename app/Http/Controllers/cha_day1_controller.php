@@ -46,12 +46,11 @@ class cha_day1_controller extends Controller
           CURLOPT_TIMEOUT => 30,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS => "{\n  \"type\": \"cha_day1\",\n  \"notelp\": \"$notelp\",\n  \"link\" : \"$link\"\n}",
+          CURLOPT_POSTFIELDS => "{\n  \"type\": \"challenge\",\n  \"day\" :\"1\",\n  \"notelp\": \"$notelp\",\n  \"link\" : \"$link\"\n}",
           CURLOPT_HTTPHEADER => array(
             "content-type: application/json"
           ),
         ));
-        
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);

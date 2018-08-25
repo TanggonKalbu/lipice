@@ -260,18 +260,24 @@ body{
 }
 
 .textatas{
-    position : absolute;
     color: grey;
     font-size: 1vw;
     font-family: arial;
-    top: 380px;
-    left : 450px;
+    position: absolute;
+    top: 600px;
+    left: 580px;
+    width: 40%;
 
 }
 
 .samping{
     padding-right:100px;
     padding-left: 100px;
+}
+
+.samping2{
+    padding-right:15%;
+    padding-left: 15%;
 }
 
 .responsive {
@@ -292,8 +298,42 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; 
 }
 
+/* footer start */
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
 
-/* end gambar */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+
+
+/**
+ * Footer Styles
+ */
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.2rem;
+  background-color: white;
+  text-align: center;
+}
+/* footer end */
 </style>
 
 </head>
@@ -312,10 +352,10 @@ input[type=number]::-webkit-outer-spin-button {
     <img src="images/balon.png" class="kanan-atas responsive" alt="">
     </div>
 
-        <h2 class="textatas"><b>LOREM IPSUM DOLOR SIT <br> 
+        <!-- <h2 class="textatas"><b>LOREM IPSUM DOLOR SIT <br> 
         AMET, CONSECTETUR <br> 
         ADIPISINING ELIT. ED O <br> 
-        EIUSMOD TEMPOR INCINDINTU</b></h2>
+        EIUSMOD TEMPOR INCINDINTU</b></h2> -->
  
 
     <!-- Card -->
@@ -325,7 +365,7 @@ input[type=number]::-webkit-outer-spin-button {
         @if (\Session::has('success'))
       <div class="alert alert-success">
         <p>{{ \Session::get('success') }}</p>
-      </div><br />
+      </div><br>
      @endif
             <h2 class="card-title reg">REGISTER HERE</h2>
             <br>
@@ -341,25 +381,25 @@ input[type=number]::-webkit-outer-spin-button {
         <div class="form-group row">
             <label for="namaLengkap" class="col-sm-3 col-form-label">NAMA LENGKAP <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" id="namaLengkap" name="nama" required onkeyup="capt()">
+                <input type="text" class="form-control" id="namaLengkap" name="nama" required onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="email" name="email" class="col-sm-3 col-form-label">EMAIL <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="email" class="form-control" name="email" id="email" required onkeyup="capt()">
+                <input type="email" class="form-control" name="email" id="email" required onkeyup="capt()">
             </div>
         </div>
 
 
         <div class="form-group row">
-        <label for="ttl" class="col-sm-3 col-form-label">TEMPAT TANGGAL LAHIR <b style="color:red;">*</b></label>
+            <label for="ttl" class="col-sm-3 col-form-label">TEMPAT TANGGAL LAHIR <b style="color:red;">*</b></label>
             <div class="form-group col-md-2">
-            <input type="text" class="form-control" name="tempatlahir"  id="kota" placeholder="Kota" required onkeyup="capt()">
+                <input type="text" class="form-control" name="tempatlahir"  id="kota" placeholder="Kota" required onkeyup="capt()">
             </div>
             <div class="form-group col-md-2">
-            <input type="number" min="1" max="31"  class="form-control" name="tgl"  id="tgl" placeholder="Tgl" required onkeyup="capt()">
+                <input type="number" min="1" max="31"  class="form-control" name="tgl"  id="tgl" placeholder="Tgl" required onkeyup="capt()">
             </div>
             <div class="form-group col-md-2">
 
@@ -380,13 +420,12 @@ input[type=number]::-webkit-outer-spin-button {
                         
             </div>
             <div class="form-group col-md-2">
-            <input type="number" min="1990" max="2018" class="form-control" name="tahun" id="tahun" placeholder="Tahun" required onkeyup="capt()">
+                <input type="number" min="1990" max="2018" class="form-control" name="tahun" id="tahun" placeholder="Tahun" required onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
-            
             <div class="col-sm-9">
                 <input type="number" name="notelp" class="form-control" id="telp" required onkeyup="capt()">
             </div>
@@ -395,21 +434,21 @@ input[type=number]::-webkit-outer-spin-button {
         <div class="form-group row">
             <label for="ig" class="col-sm-3 col-form-label">LINK AKUN INSTAGRAM <b style="color:red;">*</b></label>
             <div class="col-sm-9">
-            <input type="text" name="linkig" class="form-control" id="ig" required onkeyup="capt()">
+                <input type="text" name="linkig" class="form-control" id="ig" required onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="fb" class="col-sm-3 col-form-label">LINK AKUN FACEBOOK (OPTIONAL)</label>
             <div class="col-sm-9">
-            <input type="text" name="linkfb" class="form-control" id="fb" onkeyup="capt()">
+                <input type="text" name="linkfb" class="form-control" id="fb" onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
             <label class="control-label col-sm-3" for="comment">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE</label>
             <div class="col-sm-9"> 
-            <textarea class="form-group" name="alasan" rows="5" id="alasan" onkeyup="capt()"></textarea>
+                <textarea class="form-group" name="alasan" rows="5" id="alasan" onkeyup="capt()"></textarea>
             </div>
         </div>
 
@@ -420,14 +459,13 @@ input[type=number]::-webkit-outer-spin-button {
             </div>
             <div class="col-md-2"> 
                 <button class="btn submit" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; display:none">Submit Kode</button>
-            </div>
-                       
+            </div>                    
         </div>
 
         <div class="form-group row">
             <div class="col-sm-3"></div>
             <div class="col-md-2">
-            <button class="btn btn-info" type="button" id="button-kirim" style=" float:left; display:none ">Kirim Kode Verifikasi</button> 
+                <button class="btn btn-info" type="button" id="button-kirim" style=" float:left; display:none ">Kirim Kode Verifikasi</button> 
             </div>
         </div>
         <br><br>
@@ -438,11 +476,36 @@ input[type=number]::-webkit-outer-spin-button {
         </div>
     </div>
 
+    <br><br><br><br>
+    <div class="samping2">
+        <p style="text-align:center; font-size:15pt;"><b>#LIPICE7DAYSCHALLENGE</b></p>
+        <p style="text-align:center;"><b>SUMMER CAMP TIMELINE</b></p>
+        <br>
+        <p style="text-align:center">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod eget nunc a cursus. Vestibulum quis ipsum est. Etiam mollis scelerisque suscipit. Sed eleifend neque metus. In lacus arcu, luctus et sagittis commodo, consequat eget nisi. Duis non ex semper, ultricies nisl nec, hendrerit mauris. Sed suscipit ut sapien in vehicula. Ut lacinia bibendum rhoncus. Nam augue augue, mollis sed tincidunt quis, pellentesque eget enim. Suspendisse eleifend eu lectus in vestibulum. Nulla efficitur, elit et convallis malesuada, est nunc malesuada nulla, cursus eleifend mauris nunc id sapien. Donec condimentum nunc eget tellus imperdiet, vitae lobortis dolor suscipit. Fusce mattis, nisl vitae porttitor interdum, justo est ultricies risus, nec fermentum urna est ac lectus. Praesent varius accumsan ante eget consectetur. Suspendisse velit justo, malesuada vitae vulputate id, tincidunt ut neque. Cras sed vehicula libero.
+        </p>
+    </div>
+    <br><br><br>
+
     <!-- buah bawah -->
-    <img src="images/kanan.png" class="kanan-atas responsive" alt="">
-    <img src="images/timeline.png" class="kiri-atas responsive" alt="">
-    <img src="images/kiri.png" class="kiri-atas responsive" alt="">
-    
+    <div class="row">
+    <div class="col">
+    <img src="images/kiri.png" class="responsive" alt="" style="float:lefft; margin-top:540px; z-index:-1;">
+    </div>
+    <div class="col">
+    <img src="images/timeline.png" class="responsive" alt="" style="float:none; margin: 0 auto;width:100%; z-index:1;">
+    </div>
+    <div class="col">
+    <img src="images/kanan.png" class="responsive" alt="" style="float:right; margin-top:-340px; z-index:-1;">
+    </div>
+    </div>
+    <br><br><br><br><br>
+
+    <div class="footer" style="z-index:-1;">
+    <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+    <img src="images/lipice.png" class="responsive" alt="" style=" margin-right:auto; margin-left:auto; display:block">   
+    <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+    </div>    
 
 </div>
 <!-- End Save for Web Slices -->

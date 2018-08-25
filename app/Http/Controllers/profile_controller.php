@@ -42,6 +42,35 @@ class profile_controller extends Controller
 
     }
 
+    function get_challenge($notelp) {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_PORT => "5984",
+          CURLOPT_URL => 'http://159.65.139.254:5984/lipice/_design/view/_view/challenge?key="'.$notelp.'"',
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "GET",
+          CURLOPT_POSTFIELDS => "",
+          CURLOPT_HTTPHEADER => array(
+            "content-type: application/json"
+          ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        
+        curl_close($curl);
+        
+        if ($err) {
+          echo "cURL Error #:" . $err;
+        } else {
+          return $response;
+        }
+
+    }
+
 
     public function index()
     {
@@ -87,6 +116,7 @@ class profile_controller extends Controller
      */
     public function edit($notelp)
     {
+        
         $curl = curl_init();
         curl_setopt_array($curl, array(
         CURLOPT_PORT => "5984",
@@ -109,8 +139,21 @@ class profile_controller extends Controller
         echo "cURL Error #:" . $err;
         } else {
             $data["profile"]= json_decode($response,TRUE);
-            $data["gambar"] = json_decode($this->gambar("https://www.instagram.com/p/Bk-SKN1HJW0/?taken-by=bayuharii"), TRUE);
-            return view('profile',compact('data','notelp'));
+            $challenge = json_decode($this->get_challenge($notelp), true);
+            $counter = 0;
+            //print_r(count($challenge["rows"]));`
+            if($challenge["total_rows"] != 0){
+            for($counter =0 ; $counter < count($challenge["rows"]); $counter++) {
+
+                $url = $challenge["rows"][$counter]["value"]["link"];
+                $data["gambar"][$counter] = json_decode($this->gambar($url), TRUE);
+          
+            }
+        }else {
+            $data["gambar"] = "kosong";
+        }
+          // print_r($data["gambar"]);
+             return view('profile',compact('data','notelp'));
         }
 
     }
