@@ -42,11 +42,11 @@ class profile_controller extends Controller
 
     }
 
-    function get_challenge($notelp) {
+    function get_challenge($url) {
         $curl = curl_init();
         curl_setopt_array($curl, array(
           CURLOPT_PORT => "5984",
-          CURLOPT_URL => 'http://159.65.139.254:5984/lipice/_design/view/_view/challenge?key="'.$notelp.'"',
+          CURLOPT_URL => "$url",
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => "",
           CURLOPT_MAXREDIRS => 10,
@@ -139,20 +139,20 @@ class profile_controller extends Controller
         echo "cURL Error #:" . $err;
         } else {
             $data["profile"]= json_decode($response,TRUE);
-            $challenge = json_decode($this->get_challenge($notelp), true);
+            $challenge = json_decode($this->get_challenge('http://159.65.139.254:5984/lipice/_design/view/_view/challenge?key="'.$notelp.'"'), true);
+            $data["video"] = json_decode($this->get_challenge('http://159.65.139.254:5984/lipice/_design/view/_view/challenge_video?key="'.$notelp.'"'), true);
             $counter = 0;
-            //print_r(count($challenge["rows"]));`
             if($challenge["total_rows"] != 0){
-            for($counter =0 ; $counter < count($challenge["rows"]); $counter++) {
-
-                $url = $challenge["rows"][$counter]["value"]["link"];
-                $data["gambar"][$counter] = json_decode($this->gambar($url), TRUE);
-          
+                for($counter =0 ; $counter < count($challenge["rows"]); $counter++) {
+                    $url = $challenge["rows"][$counter]["value"]["link"];
+                    $data["gambar"][$counter] = json_decode($this->gambar($url), TRUE);
+                     }
+                    }else {
+                        $data["gambar"] = "kosong";
+                    }
+            if($data["video"]["total_rows"]== 0) {
+                $data["video"] = "kosong";
             }
-        }else {
-            $data["gambar"] = "kosong";
-        }
-          // print_r($data["gambar"]);
              return view('profile',compact('data','notelp'));
         }
 
