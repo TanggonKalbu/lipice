@@ -305,7 +305,7 @@ input[type="file"] {
                              
                              <div class="round-border">
                              <img src="/images/lipice_icon.png" alt="..." class="rounded-circle"> 
-                             <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
+                             <label for="file-upload" id="icon-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
                                      <i class="far fa-user-circle position"></i>
                                  </label>
                               <input id="file-upload" type="file" name="fileToUpload"/>
@@ -314,7 +314,7 @@ input[type="file"] {
                              <div class="round-border">
                                  <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
                                  <!-- button change photo profile -->
-                                 <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
+                                 <label for="file-upload" id="icon-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right; display:none" >
                                      <i class="far fa-user-circle position"></i>
                                  </label>
                                  <input id="file-upload" type="file" name="fileToUpload"/>
@@ -596,6 +596,7 @@ span.onclick = function() {
     var inputabout = document.getElementById("input-about");
     var savesatu = document.getElementById("save-satu");
     var savedua = document.getElementById("save-dua");
+    var iconupload = document.getElementById("icon-upload");
 
     var editprofile = function(){
         nama.style.display = 'none';
@@ -605,6 +606,7 @@ span.onclick = function() {
         inputig.disabled = false;
         inputfb.disabled = false;
         savesatu.style.display = '';
+        iconupload.style.display = '';
     }
 
     var editabout = function(){
