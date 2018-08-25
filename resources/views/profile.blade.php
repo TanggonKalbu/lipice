@@ -11,10 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-
 <style>
-* {
+{
     padding : 0;
     margin : 0;
 }
@@ -24,14 +22,11 @@ body{
     padding-left: 5%;
     padding-top: 10%;
 }
-
-/* scrollbar start */
 .scrollbar {
     float: right;
     height: 800px;
     width: 100%;
-    background: #fff;
-  
+    background: #fff; 
     overflow:auto;
     margin-bottom: 95px;
 }
@@ -267,15 +262,11 @@ input[type="file"] {
     cursor: pointer;
 }
 
-
-/* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content {
         width: 100%;
     }
 }
-
-/* image modal end */
 
 .control-label .text-info { display:inline-block; color:black }
 
@@ -284,8 +275,6 @@ input[type="file"] {
 </style>
 </head>
 <body>
-
-<!-- card -->
     <div>
     @if (\Session::has('success'))
       <div class="alert alert-success">
@@ -293,7 +282,6 @@ input[type="file"] {
       </div><br />
      @endif
         <div class="row">
-        <!-- profile -->
             <div class="col-sm-3">
                 <div class="card">
                 <div class="card-body">
@@ -311,8 +299,8 @@ input[type="file"] {
                              <label for="file-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
                                      <i class="far fa-user-circle"></i>
                                  </label>
-                              <input id="file-upload" type="file" name="fileToUpload"/>
-                             </div> 
+                             <input id="file-upload" type="file" name="fileToUpload"/>
+                        </div> 
                          <?php }else { ?>
                              <div class="round-border">
                                  <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
@@ -396,18 +384,16 @@ input[type="file"] {
                                            }
                                            });
                                         });
-                                    </script>
+                             </script>
+                         </div>
+                    </div>
                 </div>
-                </div>
-            </div>
-
-            <!-- content -->
             <div class="col-sm-9">
                 <div class="card content">
                 <div class="card-body">
                     <h5 style="text-align:left;">About</h5>
-                    <form method="post" action="{{action('about_controller@update', $notelp)}}" enctype="multipart/form-data" >
-                    @csrf
+                        <form method="post" action="{{action('about_controller@update', $notelp)}}" enctype="multipart/form-data" >
+                        @csrf
                         <input name="_method" type="hidden" value="PATCH">
                         <input type="hidden" id="rev" name="rev" value="<?php echo $data["profile"]["rows"][0]["value"]["_rev"]?>">
                         <?php $img = 'http://159.65.139.254:5984/lipice/'.$data["profile"]["rows"][0]["value"]["_id"].'/profile.png'?>
@@ -426,12 +412,9 @@ input[type="file"] {
                         <textarea id="input-about" onclick="editabout()" name="about" placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
                         <button id="save-dua" type="submit"  class="btn-default mb-2 button" style="float:right;display:none">SAVE</button>
                     </form>
-
                     <br><br><br><br>
-                    
-                    <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
-                    <!-- form start -->
-                    <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline">
+                        <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
+                            <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline">
                     @csrf
                    
                         <div class="form-group mb-2">
@@ -457,76 +440,52 @@ input[type="file"] {
                         </div>
                         <button type="submit" class="btn-default mb-2 button">SAVE</button>
                     </form>
-                    <!-- form end -->
-
                     <br><br>
-             
-                    <!-- enteries photo-->
                     <div>
                     <h5 style="text-align:left;">Your Photo Enteries</h5>
                     <div class="scrollbar scrollbar-primary"><br>
                         <div class="force-overflow">
                             <div class="row">
+                            <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img  src="<?php echo $data["gambar"]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
+                                        <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                     </div> 
                                 </div>
+                            <?php } }?>
                             </div>
                         </div>
                     </div>
                         
                     </div>
-                    <!-- end photo entreries -->
-                    
                     <br><br><br>
-
-                     <!-- enteries video-->
                     <div>
                     <h5 style="text-align:left;">Your Video Enteries</h5>
                     <div class="scrollbar scrollbar-primary"><br>
                         <div class="force-overflow">
                             <div class="row">
-                                
-                                
-
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                                         <img src="/images/a.jpeg" alt="" id="myImg" style="width:100%">  
                                     </div> 
                                 </div>
-
-                                <div class="col-md-3">
-                                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <img  src="<?php echo $data["gambar"]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
-                                    </div> 
-                                </div>
-
+                               
                                 <div class="col-md-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
                                     </div> 
                                 </div>
-                                
-
-
                             </div>
                         </div>
                     </div>
-                        
-                    </div>
-                    <!-- end video entreries -->
-                     
-                
-                </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
         <br><br><br><br>
     
     </div>
-
-<!-- The Modal -->
 <div id="myModal" class="modal">
   <span class="close">&times;</span>
   <img class="modal-content" id="img01">
@@ -549,10 +508,6 @@ function myFfb() {
     document.getElementById("myFb").disabled = false;
 }
 
-
-// end change button
-
-// change text
 $('#edit').click(function() {
     var text = $('.text-info').text();
     var input = $('<input id="attribute" type="text" name="nama" value="' + text + '" />')
@@ -564,12 +519,8 @@ $('#edit').click(function() {
     $('#attribute').remove();
     });
 });
-// end change text
 
-
-// Get the modal
 var modal = document.getElementById('myModal');
-
 var imc = document.querySelectorAll("#myImg");
 var img = document.getElementById("myImg");
 var modalImg = document.getElementById("img01");
@@ -580,10 +531,7 @@ for(a=0;a<imc.length;a++){
     }
 }
 
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
     modal.style.display = "none";
 }
