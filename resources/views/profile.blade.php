@@ -366,7 +366,7 @@ input[type="file"] {
                         </div> -->
                         </div>
                         
-                        <button id="save-satu" type="submit" style="display:none" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
+                        <button type="submit" style="display:none" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
 
                     </form>
 
@@ -547,7 +547,7 @@ span.onclick = function() {
     var inputyoutube = document.getElementById("input-youtube");
     var inputfb = document.getElementById("input-fb");
     var inputabout = document.getElementById("input-about");
-    var savesatu = document.getElementById("save-satu");
+    var savesatu = document.getElementById("btn-submit");
     var savedua = document.getElementById("save-dua");
     var iconupload = document.getElementById("icon-upload");
 
@@ -559,7 +559,7 @@ span.onclick = function() {
         inputig.disabled = false;
         inputfb.disabled = false;
         savesatu.style.display = '';
-        iconupload.style.display = '';
+        iconupload.style.display = '';  
     }
 
     var editabout = function(){
