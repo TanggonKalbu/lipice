@@ -200,10 +200,7 @@ body {
   text-align: center;
 }
 
-.ex1{
-    max-width:100%;
-    margin:auto;
-}
+
 /* footer end */
 
 </style>
@@ -212,7 +209,7 @@ body {
 
 <body>
 <!-- Save for Web Slices (summercamp (2).psd) -->
-<div class="ex1">
+<div class="responsive">
 
 
 	<!-- buah atas -->
@@ -360,23 +357,32 @@ body {
     <br><br><br>
 
     <!-- buah bawah -->
-    <div class="row">
-        <div class="col">
-            <img src="images/kiri.png" class="responsive" alt="" style="float:left; margin-top:690px; z-index:-1;">
-        </div>
-        <div class="col">
-            <img src="images/timeline.png" class="responsive" alt="" style="float:none; margin: 0 auto;width:100%; z-index:1;">
-        </div>
-        <div class="col">
-            <img src="images/kanan.png" class="responsive" alt="" style="float:right; margin-top:-340px; z-index:-1;">
-        </div>
+    <div class="inline">
+        <table style="width:100%">
+            <tr>
+                <th>
+                    <img src="images/kiri.png" class="responsive" alt="" style="float:left; z-index:-1;">
+                </th>
+                <th></th>
+                <th>
+                    <img src="images/timeline.png" class="responsive" alt="" style="display:block; margin:auto;z-index:-1;">
+                </th>
+                <th>
+                    <img src="images/kanan.png" class="responsive" alt="" style="float:right; z-index:-1;">
+                </th>
+            </tr>
+        </table>
+            
+            
+            
     </div>
     <br><br><br><br><br>
 
+    
     <!-- footer -->
     <div class="footer" style="z-index:-1;">
         <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-        <img src="images/lipice.png" class="responsive" alt="" style=" margin-right:auto; margin-left:auto; display:block">   
+        <img src="images/lipice.png" class="responsive" alt="" style="margin-right:50%; margin-left:50%; display:block">   
         <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
     </div>    
 
