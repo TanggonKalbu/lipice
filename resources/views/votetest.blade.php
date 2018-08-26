@@ -241,10 +241,26 @@ body {font-family: Arial, Helvetica, sans-serif;}
     padding: 10px 18px;
   }
 
+  .cancelbtn:focus{
+    outline:none;
+  }
+
    .loginbtn {
     width: auto;
     padding: 10px 18px;
     background-color: #ea8a8a;
+  }
+
+  .loginbtn:focus{
+    outline: none;
+  }
+
+  .sendbtn{
+    float:left; width: auto; padding: 10px 18px;
+  }
+
+  .sendbtn:focus{
+    outline: none;
   }
 
   /* Center the image and position the close button */
@@ -345,47 +361,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 /* modal login end */
 
-/* footer start */
-html {
-  height: 100%;
-  box-sizing: border-box;
-}
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-body {
-  position: relative;
-  margin: 0;
-  padding-bottom: 6rem;
-  min-height: 100%;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-
-
-/**
- * Footer Styles
- */
-
-.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 0.2rem;
-  background-color: white;
-  text-align: center;
-}
-
-.ex1{
-    max-width:100%;
-    margin:auto;
-}
-/* footer end */
 </style>
 </head>
 <body>
@@ -396,9 +372,10 @@ body {
     <div>
         <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right; background-color:#ea8a8a">Login</button>
     </div>
-      
-    <div class="embed-responsive embed-responsive-21by9 ">
-        <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  
+    <div class="embed-responsive embed-responsive-21by9 ">   
+        <!-- <iframe class="embed-responsive-item" width="100%"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> -->
+            <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 
     <!-- card start -->
@@ -461,7 +438,7 @@ body {
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
                     <div class="row space vt">
-                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -475,7 +452,7 @@ body {
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
                     <div class="row space vt">
-                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -489,7 +466,7 @@ body {
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
                     <div class="row space vt">
-                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -515,7 +492,7 @@ body {
                     </blockquote> 
                     <script async defer src="//www.instagram.com/embed.js"></script>
                     <div class="row space vt">
-                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -529,7 +506,7 @@ body {
                         <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
                     </div>
                     <div class="row space vt">
-                        <button type="submit" class="button" data-toggle="modal" data-target="#exampleModalCenter">Vote</button>
+                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>  
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -549,7 +526,7 @@ body {
     </div> <!-- card body end -->
     </div> <!-- card end -->
 
-    <br><br><br><br><br><br><br>
+    <br><br><br>
 
 
 
@@ -612,8 +589,8 @@ body {
 </div>
 <!-- Modal About End -->
 
-   <!-- Modal Login START -->    
-   <div id="id01" class="modall">
+<!-- Modal Login START -->    
+<div id="id01" class="modall">
     
     <form class="modall-content animate" action="/action_page.php">
         <div class="container" style="background-color:#f1f1f1">
@@ -625,50 +602,26 @@ body {
                     <label for="vercode"><b>Validasi no Telepon</b></label>
                 </div>
                 <div class="row">
-                    <input type="number" name="notelp" id="input-tlp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
+                    <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
+                    <button class="btn-info sendbtn" type="button" id="button-kirim" style="pointer-events:none">Kirim Kode Verifikasi</button>
                 </div>
                 <div class="row">
-                    <input type="text" id="verificationcode"style="width:70%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
+                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
                     <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
                 </div>
             </div>
         </div>
 
-    <!-- Modal Login START -->    
-    <div id="id01" class="modall">
-        <form class="modall-content animate" action="/action_page.php">
-            <div class="container" style="background-color:#f1f1f1">
-                    <h3>Login</h3>
-                    
+        <div class="container" style="background-color:#f1f1f1">
+            <div style="margin-right:30px; margin-left:16px">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button>
             </div>
-            
-            <div class="container">
-                <div style="margin-right:30px; margin-left:30px">
-                    <div class="row">
-                        <label for="vercode"><b>Validasi no Telepon</b></label>
-                    </div>
-                    <div class="row">
-                        <input type="number" name="notelp"id="telp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="capt()">
-                        <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;">Kirim Kode Verifikasi</button>
-                    </div>
-                    <div class="row">
-                        <input type="text" id="verificationcode"style="width:70%; margin-right:20px" placeholder="Kode Verifikasi">
-                        <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;">Submit Kode</button>
-                    </div>
-                </div>
-            </div>
+        </div>
+    </form>
+</div>
+<!-- Modal Login END -->
 
-            <div class="container" style="background-color:#f1f1f1">
-                <div style="margin-right:30px; margin-left:16px">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                    <button type="button" class="loginbtn">Login</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <!-- Modal Login END -->
-    
 <!-- Modal Verification Start -->
 <div id="id02" class="modall">
     
@@ -684,11 +637,11 @@ body {
                     <label for="vercode"><b>Validasi no Telepon</b></label>
                 </div>
                 <div class="row">
-                    <input type="number" name="notelp" id="input-tlp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
+                    <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
                     <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
                 </div>
                 <div class="row">
-                    <input type="text" id="verificationcode"style="width:70%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
+                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
                     <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
                 </div>
             </div>
@@ -701,33 +654,10 @@ body {
             </div>
         </div>
     </form>
-    </div>
+</div>
 <!-- Modal Verification end -->
 
-<!-- buah bawah -->
-<!-- <div>
-    <div class="row">
-        <div class="col">
-            <img src="images/kiri.png" class="responsive" alt="" style="float:left; margin-top:690px; z-index:-1;">
-        </div>
-        <div class="col">
-            <img src="images/timeline.png" class="responsive" alt="" style="float:none; margin: 0 auto;width:100%; z-index:1;">
-        </div>
-        <div class="col">
-            <img src="images/kanan.png" class="responsive" alt="" style="float:right; margin-top:-340px; z-index:-1;">
-        </div>
-    </div>
-</div> -->
-    <br><br><br><br><br>
-
-    <!-- footer -->
-    <!-- <div class="footer" style="z-index:-1;">
-        <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-        <img src="images/lipice.png" class="responsive" alt="" style=" margin-right:auto; margin-left:auto; display:block">   
-        <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
-    </div>   -->
-
-</div>
+</div> <!-- end div utama -->
 
 <!-- script collapse start -->
 <script>
@@ -766,7 +696,6 @@ window.onclick = function(event) {
     } 
 }
 </script>
-
 <script>
     var btnkirim = document.getElementById("button-kirim");
     var btnlogin = document.getElementById("button-login");
