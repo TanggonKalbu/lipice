@@ -22,7 +22,7 @@ Route::resource('about','about_controller');
 Route::resource('admin','admin_controller');
 Route::resource('cha_day1','cha_day1_controller');
 Route::resource('cha_video','cha_video_controller');
-
+Route::resource('vote','vote_controller');
 Route::get('/form', function () {
   return view('form');
 });
@@ -35,17 +35,12 @@ Route::get('/heart', function () {
   return view('heart');
 });
 
-Route::get('/vote', function () {
-  return view('vote');
-});
 
 Route::get('/blank', function () {
   return view('blank');
 });
 
-Route::get('/votetest', function () {
-  return view('votetest');
-});
+
 
 // Route::post('/add_kontestan', function () {
 //     $data = json_decode(file_get_contents("php://input"), true);
