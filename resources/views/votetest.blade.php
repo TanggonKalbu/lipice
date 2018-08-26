@@ -611,6 +611,7 @@ body {
   </div>
 </div>
 <!-- Modal About End -->
+
    <!-- Modal Login START -->    
    <div id="id01" class="modall">
     
@@ -765,6 +766,7 @@ window.onclick = function(event) {
     } 
 }
 </script>
+
 <script>
     var btnkirim = document.getElementById("button-kirim");
     var btnlogin = document.getElementById("button-login");
