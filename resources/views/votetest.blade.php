@@ -366,7 +366,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 <body>
 <div>
-    <a href="{{action('profile_controller@edit', '81945314191')}}" class="btn btn-warning" style="width:auto">Edit</a>
+    <a href="profile/document.getElementById('input-tlp').value/edit" class="btn btn-warning" style="width:auto">Edit</a>
 
     <!-- Button to Open the Modal -->
     <div>
@@ -592,7 +592,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <!-- Modal Login START -->    
 <div id="id01" class="modall">
     
-    <form class="modall-content animate" action="/action_page.php">
+ 
+    <form class="modall-content animate" method="get" action="">
         <div class="container" style="background-color:#f1f1f1">
                 <h3>Login</h3>
         </div>
@@ -615,7 +616,27 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <div class="container" style="background-color:#f1f1f1">
             <div style="margin-right:30px; margin-left:16px">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button>
+                <!-- <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button> -->
+    
+                <a href="#" onclick="kirim()" class="loginbtn" style="pointer-events">Login</a>
+                <script type="text/javascript">
+             
+            </div>
+            
+            <div class="container">
+                <div style="margin-right:30px; margin-left:30px">
+                    <div class="row">
+                        <label for="vercode"><b>Validasi no Telepon</b></label>
+                    </div>
+                    <div class="row">
+                        <input type="number" name="notelp"id="telp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="capt()">
+                        <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;">Kirim Kode Verifikasi</button>
+                    </div>
+                    <div class="row">
+                        <input type="text" id="verificationcode"style="width:70%; margin-right:20px" placeholder="Kode Verifikasi">
+                        <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;">Submit Kode</button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
@@ -625,7 +646,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <!-- Modal Verification Start -->
 <div id="id02" class="modall">
     
-    <form class="modall-content animate" action="/action_page.php">
+    <form class="modall-content animate" action="">
         <div class="container" style="background-color:#f1f1f1">
                 <h3>Vote</h3>
                 
@@ -709,6 +730,9 @@ window.onclick = function(event) {
         } else{
             btnkirim.style.pointerEvents = 'none';
         }
+        var notelp = document.getElementById('input-tlp').value;
+                    // window.location.href = "/profile/"+notelp+"/edit";
+                    window.location.href = "/profile/081945314191/edit";
     }
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>

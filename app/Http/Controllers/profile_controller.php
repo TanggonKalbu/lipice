@@ -139,10 +139,11 @@ class profile_controller extends Controller
         echo "cURL Error #:" . $err;
         } else {
             $data["profile"]= json_decode($response,TRUE);
+            if($data["profile"]["rows"]!=null) {
             $challenge = json_decode($this->get_challenge('http://159.65.139.254:5984/lipice/_design/view/_view/challenge?key="'.$notelp.'"'), true);
             $data["video"] = json_decode($this->get_challenge('http://159.65.139.254:5984/lipice/_design/view/_view/challenge_video?key="'.$notelp.'"'), true);
             $counter = 0;
-            if($challenge["total_rows"] != 0){
+            if($challenge["rows"] != null){
                 for($counter =0 ; $counter < count($challenge["rows"]); $counter++) {
                     $url = $challenge["rows"][$counter]["value"]["link"];
                     $data["gambar"][$counter] = json_decode($this->gambar($url), TRUE);
@@ -153,9 +154,12 @@ class profile_controller extends Controller
             if($data["video"]["total_rows"]== 0) {
                 $data["video"] = "kosong";
             }
-             return view('profile',compact('data','notelp'));
+              return view('profile',compact('data','notelp'));
         }
-
+        else {
+            echo "anda belum terdaftar";
+        }
+    }
     }
 
     /**
