@@ -713,7 +713,7 @@ window.onclick = function(event) {
         }
         var notelp = document.getElementById('input-tlp').value;
                     // window.location.href = "/profile/"+notelp+"/edit";
-                    window.location.href = "/profile/081945314191/edit";
+                    window.location.href = "/profile/081359868716/edit";
     }
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
