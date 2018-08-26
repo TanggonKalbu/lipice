@@ -77,146 +77,6 @@ body{
     }
 /* end form */
 
-/* gambar */
-        #Table_01 {
-            position:absolute;
-            left:0px;
-            top:0px;
-            align : center;
-            width:1366px;
-            height:3100px;
-        }
-
-        #summercamp--2--01 {
-            position:absolute;
-            left:0px;
-            top:0px;
-            width:631px;
-            height:84px;
-        }
-
-        #logo-girl {
-            position:absolute;
-            left:631px;
-            top:0px;
-            width:735px;
-            height:820px;
-        }
-
-        #summercamp--2--03 {
-            position:absolute;
-            left:0px;
-            top:84px;
-            width:86px;
-            height:1383px;
-        }
-
-        #icon {
-            position:absolute;
-            left:86px;
-            top:84px;
-            width:545px;
-            height:454px;
-        }
-
-        #summercamp--2--05 {
-            position:absolute;
-            left:86px;
-            top:538px;
-            width:545px;
-            height:282px;
-        }
-
-        #card {
-            position:absolute;
-            left:86px;
-            top:820px;
-            width:1182px;
-            height:647px;
-        }
-
-        #summercamp--2--07 {
-            position:absolute;
-            left:1268px;
-            top:820px;
-            width:98px;
-            height:647px;
-        }
-
-        #girl-kiri {
-            position:absolute;
-            left:0px;
-            top:1467px;
-            width:245px;
-            height:784px;
-        }
-
-        #summercamp--2--09 {
-            position:absolute;
-            left:245px;
-            top:1467px;
-            width:935px;
-            height:141px;
-        }
-
-        #girl-kanan {
-            position:absolute;
-            left:1180px;
-            top:1467px;
-            width:186px;
-            height:99px;
-        }
-
-        #girl-kanan-1 {
-            position:absolute;
-            left:1180px;
-            top:1566px;
-            width:186px;
-            height:801px;
-        }
-
-        #timeline {
-            position:absolute;
-            left:245px;
-            top:1608px;
-            width:935px;
-            height:1299px;
-        }
-
-        #girl-kiri-1 {
-            position:absolute;
-            left:0px;
-            top:2251px;
-            width:245px;
-            height:540px;
-        }
-
-        #girl-kanan014 {
-            position:absolute;
-            left:1180px;
-            top:2367px;
-            width:186px;
-            height:540px;
-        }
-
-        #girl-kiri015 {
-            position:absolute;
-            left:0px;
-            top:2791px;
-            width:245px;
-            height:116px;
-        }
-
-        #footer {
-            position:absolute;
-            left:0px;
-            top:2907px;
-            width:1366px;
-            height:193px;
-        }
-        #buah{
-            float:right;
-        }
 
 .column {
     float: left;
@@ -499,22 +359,23 @@ body {
 
     <!-- buah bawah -->
     <div class="row">
-    <div class="col">
-    <img src="images/kiri.png" class="responsive" alt="" style="float:left; margin-top:690px; z-index:-1;">
-    </div>
-    <div class="col">
-    <img src="images/timeline.png" class="responsive" alt="" style="float:none; margin: 0 auto;width:100%; z-index:1;">
-    </div>
-    <div class="col">
-    <img src="images/kanan.png" class="responsive" alt="" style="float:right; margin-top:-340px; z-index:-1;">
-    </div>
+        <div class="col">
+            <img src="images/kiri.png" class="responsive" alt="" style="float:left; margin-top:690px; z-index:-1;">
+        </div>
+        <div class="col">
+            <img src="images/timeline.png" class="responsive" alt="" style="float:none; margin: 0 auto;width:100%; z-index:1;">
+        </div>
+        <div class="col">
+            <img src="images/kanan.png" class="responsive" alt="" style="float:right; margin-top:-340px; z-index:-1;">
+        </div>
     </div>
     <br><br><br><br><br>
 
+    <!-- footer -->
     <div class="footer" style="z-index:-1;">
-    <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-    <img src="images/lipice.png" class="responsive" alt="" style=" margin-right:auto; margin-left:auto; display:block">   
-    <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+        <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+        <img src="images/lipice.png" class="responsive" alt="" style=" margin-right:auto; margin-left:auto; display:block">   
+        <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
     </div>    
 
 </div>

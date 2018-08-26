@@ -168,6 +168,10 @@ textarea::placeholder{
     border-color: #eeeeee; 
 }
 
+input[type="file"] {
+    display: none;
+}
+
 /* image modal */
 #myImg {
     border-radius: 5px;
