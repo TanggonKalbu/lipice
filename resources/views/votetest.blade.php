@@ -361,7 +361,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 /* modal login end */
 
-/* image modal */
+/* image modal start*/
 #myImg {
     border-radius: 5px;
     cursor: pointer;
@@ -424,7 +424,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* The Close Button */
-.close {
+.closeimg {
     position: absolute;
     top: 15px;
     right: 35px;
@@ -434,8 +434,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
     transition: 0.3s;
 }
 
-.close:hover,
-.close:focus {
+.closeimg:hover,
+.closeimg:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
@@ -464,7 +464,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 .control-label .text-info { display:inline-block; color:black }
-
+/* modal image end */
 </style>
 </head>
 <body>
@@ -676,7 +676,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <!-- modal image -->
 <div id="myModal" class="modal">
-  <span class="close">&times;</span>
+  <span class="closeimg">&times;</span>
   <img class="modal-content-img" id="img01">
   <div id="caption"></div>
 </div>
@@ -754,7 +754,7 @@ for(a=0;a<imc.length;a++){
     }
 }
 
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("closeimg")[0];
 span.onclick = function() { 
     modal.style.display = "none";
 }
