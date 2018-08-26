@@ -42,6 +42,8 @@ Route::get('/blank', function () {
 
 
 
+
+
 // Route::post('/add_kontestan', function () {
 //     $data = json_decode(file_get_contents("php://input"), true);
 //     $namalengkap = $data["namalengkap"];

@@ -149,7 +149,7 @@ a:active {
 
 /* modal start */
 .modal-header2{
-    height: 150px;
+    height: 200px;
     width: 100%;
     background-color:black;
     padding-top:10px;
@@ -525,14 +525,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header2">
-        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
         </button>
-        
+        <button style="top:50px; pointer-events:none" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color:white; float:none; margin: auto 0; ">HAHAHA</span>
+        </button>
+
       </div>
       <div class="modal-body"> <!-- modal body start-->
-        
         <img src="/images/a.jpeg" alt="Avatar" class="imground">
         <br>
         <div clas="row" style="text-align:center;"> <!-- div sosmed-->
@@ -607,7 +608,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
                 <!-- <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button> -->
     
-                <!-- <a href="#" onclick="login()" class="loginbtn" style="pointer-events:">Login</a> -->
+                <a href="#" onclick="login()" class="loginbtn" style="pointer-events:">Login</a>
              
             </div>
         </div>
@@ -750,8 +751,8 @@ span.onclick = function() {
     }
     function login(){
         var notelp = document.getElementById('input-tlp').value;
-        // window.location.href = "/profile/"+notelp+"/edit";
-        window.location.href = "/profile/081945314191/edit";
+            // window.location.href = "/profile/"+notelp+"/edit";
+            window.location.href = "/profile/081359868716/edit";
     }
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
