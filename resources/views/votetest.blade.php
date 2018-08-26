@@ -350,7 +350,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 <body>
 <div>
-    <a href="{{action('profile_controller@edit', '81945314191')}}" class="btn btn-warning" style="width:auto">Edit</a>
+    <a href="profile/document.getElementById('input-tlp').value/edit" class="btn btn-warning" style="width:auto">Edit</a>
 
     <!-- Button to Open the Modal -->
     <div>
@@ -575,7 +575,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
    <!-- Modal Login START -->    
    <div id="id01" class="modall">
     
-    <form class="modall-content animate" action="/action_page.php">
+ 
+    <form class="modall-content animate" method="get" action="">
         <div class="container" style="background-color:#f1f1f1">
                 <h3>Login</h3>
         </div>
@@ -598,7 +599,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <div class="container" style="background-color:#f1f1f1">
             <div style="margin-right:30px; margin-left:16px">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button>
+                <!-- <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button> -->
+    
+                <a href="#" onclick="kirim()" class="loginbtn" style="pointer-events">Login</a>
+                <script type="text/javascript">
+             
             </div>
         </div>
     </form>
@@ -607,7 +612,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <!-- Modal Verification Start -->
 <div id="id02" class="modall">
     
-    <form class="modall-content animate" action="/action_page.php">
+    <form class="modall-content animate" action="">
         <div class="container" style="background-color:#f1f1f1">
                 <h3>Vote</h3>
                 
@@ -691,6 +696,9 @@ window.onclick = function(event) {
         } else{
             btnkirim.style.pointerEvents = 'none';
         }
+        var notelp = document.getElementById('input-tlp').value;
+                    // window.location.href = "/profile/"+notelp+"/edit";
+                    window.location.href = "/profile/081945314191/edit";
     }
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
