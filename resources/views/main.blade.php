@@ -30,51 +30,52 @@ body{
 }
 
 /* form */
-    .warn {
-      color:white;
-      border-radius:30px;
-      float:right;
-      background-color:#df930e;
+.warn {
+  color:white;
+  border-radius:30px;
+  float:right;
+  background-color:#df930e;
+}
 
-    }
-    .submit {
-      color:white;
-      border-radius:30px;
-      float:right;
-      background-color:#ea8a8a;
+.submit {
+  color:white;
+  border-radius:30px;
+  float:right;
+  background-color:#ea8a8a;
+}
 
-    }
-    .reg{
-      color:#6EBEE0;
-      font-size: 2vw;
-    }
-    .card{
-      padding:40px;
-    }
+.reg{
+  color:#6EBEE0;
+  font-size: 2vw;
+}
 
-    input[type=text], select {
-        border: 1px solid #ea8a8a;
-    }
+.card{
+  padding:40px;
+}
 
-    input[type=number], select {
-        border: 1px solid #ea8a8a;
-    }
+input[type=text], select {
+    border: 1px solid #ea8a8a;
+}
 
-    input[type=email], select {
-        border: 1px solid #ea8a8a;
-    }
+input[type=number], select {
+    border: 1px solid #ea8a8a;
+}
 
-    textarea {
-        border: 1px solid #ea8a8a;
-        width: 100%;
-        height: 150px;
-        padding: 12px 20px;
-        box-sizing: border-box;
-        border-radius: 6px;
-        background-color: white;
-        font-size: 16px;
-        resize: none;
-    }
+input[type=email], select {
+    border: 1px solid #ea8a8a;
+}
+
+textarea {
+    border: 1px solid #ea8a8a;
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 16px;
+    resize: none;
+}
 /* end form */
 
 
@@ -129,7 +130,6 @@ body{
     top: 600px;
     left: 580px;
     width: 40%;
-
 }
 
 .samping{
@@ -154,11 +154,13 @@ body{
 .kiri-atas{
     float:left;
 }
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
 }
+
 .grecaptcha-badge {
     opacity:0;
 }
@@ -184,7 +186,6 @@ body {
 }
 
 
-
 /**
  * Footer Styles
  */
@@ -204,6 +205,7 @@ body {
     margin:auto;
 }
 /* footer end */
+
 </style>
 
 </head>
@@ -236,7 +238,7 @@ body {
       <div class="alert alert-success">
         <p>{{ \Session::get('success') }}</p>
       </div><br>
-     @endif
+        @endif
             <h2 class="card-title reg">REGISTER HERE</h2>
             <br>
             <h3 class="card-title">Calling all beauty enthusiast!</h3>

@@ -168,9 +168,9 @@ textarea::placeholder{
     border-color: #eeeeee; 
 }
 
-input[type="file"] {
+/* input[type="file"] {
     display: none;
-}
+} */
 
 /* image modal */
 #myImg {
