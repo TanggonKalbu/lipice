@@ -239,12 +239,50 @@ body {font-family: Arial, Helvetica, sans-serif;}
   .cancelbtn {
     width: auto;
     padding: 10px 18px;
+    background-color: #d43f3a;
   }
+
+   .cancelbtn:focus{
+       outline:none;
+   }
+
+   .sendbtn{
+    width: auto;
+    padding: 10px 18px;
+    background-color:#46b8da;
+   }
+
+   .sendbtn:focus{
+    outline:none;
+   }
+
+   .submit{
+    width: auto;
+    padding: 10px 18px;
+    background-color:#4CAF50;
+   }
+   
+   submit:focus{
+    outline:none;
+   }
 
    .loginbtn {
     width: auto;
     padding: 10px 18px;
     background-color: #ea8a8a;
+  }
+
+  .loginbtn:focus{
+      outline:none;
+  }
+  .btnLogin{
+    width:auto; 
+    float:right; 
+    padding: 10px 18px;
+    background-color:#ea8a8a;
+  }
+  .btnLogin:focus{
+      outline:none;
   }
 
   /* Center the image and position the close button */
@@ -314,7 +352,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
   .grecaptcha-badge {
     opacity:0;
+  }
+
+
+
+button:focus{
+    outline:none;
 }
+
  
 
   /* Add Zoom Animation */
@@ -354,7 +399,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
     <!-- Button to Open the Modal -->
     <div>
-        <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right; background-color:#ea8a8a;"><b>Login</b></button>
+        <button class="btnLogin" onclick="document.getElementById('id01').style.display='block'"><b>Login</b></button>
     </div>
   
     <div class="embed-responsive embed-responsive-21by9 ">   
@@ -578,7 +623,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     
     <form class="modall-content animate" action="/action_page.php">
         <div class="container" style="background-color:#f1f1f1">
-                <h3><b>Login</b></h3>
+            <h3><b>Login</b></h3>
         </div>
         <div class="container">
             <div style="margin-right:30px; margin-left:30px">
@@ -587,18 +632,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 </div>
                 <div class="row">
                     <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
+                    <button class="sendbtn" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
                 </div>
                 <div class="row">
                     <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
+                    <button class="submit" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
                 </div>
             </div>
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
             <div style="margin-right:30px; margin-left:16px">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                 <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button>
             </div>
         </div>
@@ -611,10 +656,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
     
     <form class="modall-content animate" action="/action_page.php">
         <div class="container" style="background-color:#f1f1f1">
-                <h3><b>Vote</b></h3>
-                
+            <h3><b>Vote</b></h3>
         </div>
-        
         <div class="container">
             <div style="margin-right:30px; margin-left:30px">
                 <div class="row">
@@ -622,19 +665,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 </div>
                 <div class="row">
                     <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
+                    <button class="sendbtn" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
                 </div>
                 <div class="row">
                     <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
+                    <button class="submit" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
                 </div>
             </div>
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
             <div style="margin-right:30px; margin-left:16px">
-                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Vote</button>
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button>
             </div>
         </div>
     </form>
