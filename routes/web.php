@@ -39,7 +39,9 @@ Route::get('/vote', function () {
   return view('vote');
 });
 
-
+Route::get('/blank', function () {
+  return view('blank');
+});
 
 Route::get('/votetest', function () {
   return view('votetest');
