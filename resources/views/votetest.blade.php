@@ -149,7 +149,7 @@ a:active {
 
 /* modal start */
 .modal-header2{
-    height: 150px;
+    height: 200px;
     width: 100%;
     background-color:black;
     padding-top:10px;
@@ -361,6 +361,85 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 /* modal login end */
 
+/* Modal Content (image) */
+.modal-content-img {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content-img, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+.not-active {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: black;
+}
+
+#profile {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+    .modal-content-img {
+        width: 100%;
+    }
+}
+
+.control-label .text-info { display:inline-block; color:black }
 
 </style>
 </head>
@@ -405,109 +484,24 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
         <div class="force-overflow"> 
             <div class="row justify-content-md-center">
+            <?php if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
                 <div class="col-md-3 space">
                     <div class="row">
-                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
+                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
-                    <blockquote class="instagram-media shadow-lg p-3 mb-4 bg-white rounded" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-                        <div style="padding:8px;"> 
-                            <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:62.5% 0; text-align:center; width:100%;"> 
-                                <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;">
-                                </div>
-                            </div> 
-                            <p style=" margin:8px 0 0 0; padding:0 4px;"> 
-                                <a href="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Hail satay</a>
-                            </p> 
-                            <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">Sebuah kiriman dibagikan oleh <a href="https://www.instagram.com/bayuharii/?utm_source=ig_embed" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Bayu Hari Saputro</a> (@bayuharii) pada 
-                            <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-07-08T13:58:02+00:00">8 Jul 2018 jam 6:58 PDT</time>
-                            </p>
-                        </div>
-                    </blockquote> 
+                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                         <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
+                     </div> 
                     <div class="row space vt">
                         <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
-                <div class="col-md-3 space">
-                    <div class="row">
-                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
-                    </div>
-                    <div class="shadow p-3 mb-5 bg-white rounded"> 
-                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
-                    </div>
-                    <div class="row space vt">
-                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-                 <div class="col-md-3 space">
-                    <div class="row">
-                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
-                    </div>
-                    <div class="shadow p-3 mb-5 bg-white rounded"> 
-                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
-                    </div>
-                    <div class="row space vt">
-                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-                 <div class="col-md-3 space">
-                    <div class="row">
-                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
-                    </div>
-                    <div class="shadow p-3 mb-5 bg-white rounded"> 
-                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
-                    </div>
-                    <div class="row space vt">
-                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-                 <div class="col-md-3 space">
-                    <div class="row">
-                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
-                    </div>
-                    <blockquote class="instagram-media shadow-lg p-3 mb-4 bg-white rounded" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-                        <div style="padding:8px;"> 
-                            <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:62.5% 0; text-align:center; width:100%;"> 
-                                <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;">
-                                </div>
-                            </div> 
-                            <p style=" margin:8px 0 0 0; padding:0 4px;"> 
-                                <a href="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Hail satay</a>
-                            </p> 
-                            <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">Sebuah kiriman dibagikan oleh <a href="https://www.instagram.com/bayuharii/?utm_source=ig_embed" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Bayu Hari Saputro</a> (@bayuharii) pada 
-                            <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-07-08T13:58:02+00:00">8 Jul 2018 jam 6:58 PDT</time>
-                            </p>
-                        </div>
-                    </blockquote> 
-                    <script async defer src="//www.instagram.com/embed.js"></script>
-                    <div class="row space vt">
-                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-                 <div class="col-md-3 space">
-                    <div class="row">
-                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
-                    </div>
-                    <div class="shadow p-3 mb-5 bg-white rounded"> 
-                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
-                    </div>
-                    <div class="row space vt">
-                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>  
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                    </div>
-                </div>
+            <?php }} 
+            ?>
+
                
-                
                 
             </div>
         </div>
@@ -531,14 +525,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header2">
-        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
         </button>
-        
+        <button style="top:50px; pointer-events:none" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color:white; float:none; margin: auto 0; ">HAHAHA</span>
+        </button>
+
       </div>
       <div class="modal-body"> <!-- modal body start-->
-        
         <img src="/images/a.jpeg" alt="Avatar" class="imground">
         <br>
         <div clas="row" style="text-align:center;"> <!-- div sosmed-->
@@ -613,7 +608,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
                 <!-- <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button> -->
     
-                <!-- <a href="#" onclick="login()" class="loginbtn" style="pointer-events:">Login</a> -->
+                <a href="#" onclick="login()" class="loginbtn" style="pointer-events:">Login</a>
              
             </div>
         </div>
@@ -655,6 +650,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 <!-- Modal Verification end -->
 
+<!-- modal image -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content-img" id="img01">
+  <div id="caption"></div>
+</div>
+<!-- modal image end -->
 </div>
 
 <!-- script collapse start -->
@@ -693,6 +695,7 @@ window.onclick = function(event) {
         modal2.style.display = "none";
     } 
 }
+
 </script>
 <!-- <script>
 
@@ -715,6 +718,23 @@ window.onclick = function(event) {
 // }
 
 </script> -->
+<script>
+var modal = document.getElementById('myModal');
+var imc = document.querySelectorAll("#myImg");
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+for(a=0;a<imc.length;a++){
+    imc[a].onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    }
+}
+
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
 <script>
     var btnkirim = document.getElementById("button-kirim");
     var btnlogin = document.getElementById("button-login");
