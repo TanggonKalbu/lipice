@@ -43,7 +43,7 @@ class admin_controller extends Controller
         $response;
         }
          $data["kontestan"]=json_decode($response,TRUE);
-
+        
         return view('daftarkontestan', compact('data'));
     }
 

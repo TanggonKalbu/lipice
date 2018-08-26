@@ -366,7 +366,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 <body>
 <div>
-    <a href="profile/document.getElementById('input-tlp').value/edit" class="btn btn-warning" style="width:auto">Edit</a>
+    <a onclick="coba()" class="btn btn-warning" style="width:auto">Edit</a>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>   
 
     <!-- Button to Open the Modal -->
     <div>
@@ -428,7 +429,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
-
                 <div class="col-md-3 space">
                     <div class="row">
                         <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
@@ -442,8 +442,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
-
-                <div class="col-md-3 space">
+                 <div class="col-md-3 space">
                     <div class="row">
                         <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
                         <p for="" class="col name" style="text-align:right">Jakarta</p>   
@@ -456,8 +455,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
-
-                <div class="col-md-3 space">
+                 <div class="col-md-3 space">
                     <div class="row">
                         <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
                         <p for="" class="col name" style="text-align:right">Jakarta</p>   
@@ -470,8 +468,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
-
-                <div class="col-md-3 space">
+                 <div class="col-md-3 space">
                     <div class="row">
                         <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
                         <p for="" class="col name" style="text-align:right">Jakarta</p>   
@@ -496,8 +493,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
-
-                <div class="col-md-3 space">
+                 <div class="col-md-3 space">
                     <div class="row">
                         <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
                         <p for="" class="col name" style="text-align:right">Jakarta</p>   
@@ -510,7 +506,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                 </div>
-
+               
                 
                 
             </div>
@@ -602,7 +598,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     <label for="vercode"><b>Validasi no Telepon</b></label>
                 </div>
                 <div class="row">
-                    <input type="number" value="asdasdasdas" name="notelp" id="input-tlp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
+                    <input type="number" name="notelp" id="input-tlp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
                     <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
                 </div>
                 <div class="row">
@@ -617,7 +613,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
                 <!-- <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button> -->
     
-                <a href="#" onclick="kirim()" class="loginbtn" style="pointer-events:">Login</a>
+                <!-- <a href="#" onclick="login()" class="loginbtn" style="pointer-events:">Login</a> -->
              
             </div>
         </div>
@@ -698,6 +694,27 @@ window.onclick = function(event) {
     } 
 }
 </script>
+<!-- <script>
+
+// function coba(){
+//     var notelp = "912321812"
+//     var settings = {
+//     "async": true,
+//     "crossDomain": true,
+//     "url": 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/profile?key="'+notelp+'"',
+//     "method": "GET",
+//     "headers": {
+//     "content-type": "application/json"
+//     },
+//     "processData": false,
+//     "data": ""
+//     }
+//     $.ajax(settings).done(function (response) {
+//         console.log(response);
+// });
+// }
+
+</script> -->
 <script>
     var btnkirim = document.getElementById("button-kirim");
     var btnlogin = document.getElementById("button-login");
@@ -711,9 +728,11 @@ window.onclick = function(event) {
         } else{
             btnkirim.style.pointerEvents = 'none';
         }
+    }
+    function login(){
         var notelp = document.getElementById('input-tlp').value;
-                    // window.location.href = "/profile/"+notelp+"/edit";
-                    window.location.href = "/profile/081359868716/edit";
+            // window.location.href = "/profile/"+notelp+"/edit";
+            window.location.href = "/profile/081359868716/edit";
     }
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
@@ -739,31 +758,47 @@ window.onclick = function(event) {
     });
 
   var submit = function(){
-    var telpv = "+62"+inputtelp.value;
-    var appVerifier = window.recaptchaVerifier;
-    firebase
-    .auth()
-    .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
-    .then(function(confirmationResult) {
-        window.confirmationResult = confirmationResult;
-        console.log("good");
-        document.getElementById("button-kirim").style.pointerEvents = 'none';
-        document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
-        setTimeout(kirimulang, 5000);
-        btnsubmitkode.style.display = ''
-        inputkode.style.display = '';
-        function kirimulang(){
-            document.getElementById("button-kirim").style.pointerEvents = '';
+    var notelp = inputtelp.value;
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/profile?key="'+notelp+'"',
+    "method": "GET",
+    "headers": {
+    "content-type": "application/json"
+    },
+    "processData": false,
+    "data": ""
+    }
+    $.ajax(settings).done(function (response) {
+        if(response.rows==''){
+            window.alert('Nomor Tidak Terdaftar');
+        }else {
+            var telpv = "+62"+inputtelp.value;
+            var appVerifier = window.recaptchaVerifier;
+            firebase
+            .auth()
+            .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
+            .then(function(confirmationResult) {
+                window.confirmationResult = confirmationResult;
+                document.getElementById("button-kirim").style.pointerEvents = 'none';
+                document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
+                setTimeout(kirimulang, 5000);
+                btnsubmitkode.style.display = ''
+                inputkode.style.display = '';
+                function kirimulang(){
+                    document.getElementById("button-kirim").style.pointerEvents = '';
+                }
+            })
+            .catch(function (error) {
+                // Error; SMS not sent
+                console.error('Terjadi Kesalahan :', error);
+                window.alert('Error during signInWithPhoneNumber:\n\n'
+                    + error.code + '\n\n');
+                document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";
+            });
         }
-
-    })
-    .catch(function (error) {
-            // Error; SMS not sent
-            console.error('Terjadi Kesalahan :', error);
-            window.alert('Error during signInWithPhoneNumber:\n\n'
-                + error.code + '\n\n');
-            document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";
-        });
+    }); 
   }
 
   var myFunction = function() {
@@ -772,12 +807,17 @@ window.onclick = function(event) {
         window.alert('Konfirmasi Kode Berhasil');
         console.log("success");
         btnlogin.style.pointerEvents = '';
+        var notelp = document.getElementById('input-tlp').value;
+        // window.location.href = "/profile/"+notelp+"/edit";
+        window.location.href = "/profile/081945314191/edit";
     }, function(error) {
         window.alert('Terjadi Kesalahan :\n\n'
                 + error.code + '\n\n' + error.message);
       console.log(error);
     });
   };
+
+    
   </script>
 </body>
 </html>
