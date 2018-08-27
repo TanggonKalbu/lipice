@@ -403,10 +403,10 @@ body {
                 </th>
                 <th></th>
                 <th class="col-xs|sm|md|lg|xl-4">
-                    <img src="images/timeline.png" class="responsive" alt="" style="display:block;margin: 0 auto; z-index:-1;">
+                    <img src="images/timeline.png" class="responsive" alt="" style="display:block; margin:0 auto; z-index:-1;">
                 </th>
                 <th class="col-xs|sm|md|lg|xl-4">
-                    <img src="images/kanan.png" class="responsive" alt="" style="float:right; z-index:-1;">
+                    <img src="images/kanan.png" class="responsive" alt="" style="float:right; z-index:1;">
                 </th>
             </tr>
         </table>      
