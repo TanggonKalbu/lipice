@@ -37,7 +37,7 @@ body{
 }
 
 .button{
-    background-color: #fb61ca;
+    background-color: #d33f8d; /*#fb61ca*/
     border: none;
     color: white;
     padding: 12px 28px;
@@ -71,7 +71,7 @@ body{
 }
 
 .love{
-    color: #fb61ca; 
+    color: #d33f8d; /*#fb61ca*/
     font-size:1vw;
     text-align:right;
 }
