@@ -673,7 +673,7 @@ textarea::placeholder{
                             <div class="row">
                             <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
                                 <div class="col-md-3">
-                                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                    <div class="shadow-lg p-2 mb-5 bg-white rounded">
                                         <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                     </div> 
                                 </div>
@@ -691,7 +691,7 @@ textarea::placeholder{
                             <div class="row">
                             <?php if($data["video"]!= "kosong"){ for($counter =0;$counter < count($data["video"]["rows"]);$counter++) { ?>
                                 <div class="col-md-3">
-                                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                    <div class="shadow-lg p-2 mb-5 bg-white rounded">
                                     
                                         <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe> 
                                     </div> 
