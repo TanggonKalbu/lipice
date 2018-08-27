@@ -99,6 +99,19 @@ img {
     max-width:100%;
     margin:auto;
 }
+
+.disabled{
+    background-color:#e4e8ec;
+    color: black;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.grecaptcha-badge {
+    opacity:0;
+}
 /* footer end */
 
 
@@ -115,13 +128,13 @@ img {
     <div class="limiter">
 		<div class="container centered">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-				<form class="login100-form validate-form" >
+				<form class="login100-form validate-form" action="" method="" >
 					<span class="login100-form-title p-b-55">
 						Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Masukkan No Handphone Anda">
-						<input class="input100" type="number" name="notelp" placeholder="No Hp">
+						<input class="input100" type="number" name="notelp" placeholder="No Hp" onkeyup="nohp()" id="input-hp">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<span class="lnr lnr-phone"></span>
@@ -129,13 +142,13 @@ img {
                     </div>
                     
                     <div class="container-login100-form-btn p-t-15 p-b-35">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn disabled" style="pointer-events:none" type="button" id="btn-kirim-kode">
 							Kirim Kode Verifikasi
 						</button>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Masukkan kode Verifikasi">
-						<input class="input100" type="password" name="pass" placeholder="Kode Verifikasi">
+						<input class="input100" type="text" name="pass" placeholder="Kode Verifikasi" id="input-kode">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<span class="lnr lnr-lock"></span>
@@ -143,7 +156,7 @@ img {
                     </div>
                     
                     <div class="container-login100-form-btn p-t-15 p-b-40">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn disabled" style="pointer-events:none" type="button" id="btn-login" onclick="myFunction() ">
 							Login
 						</button>
                     </div>
@@ -209,5 +222,89 @@ img {
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="vendor/select2/select2.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+    var btnkirimkode = document.getElementById('btn-kirim-kode');
+    var btnlogin = document.getElementById('btn-login');
+    var inputhp = document.getElementById('input-hp');
+    var inputkode = document.getElementById('input-kode');
+    
+    var nohp = function(){
+        if(inputhp.value!=''){
+            btnkirimkode.classList.remove("disabled");
+            btnkirimkode.style.pointerEvents = '';
+        }else{
+            btnkirimkode.classList.add("disabled");
+            btnkirimkode.style.pointerEvents = 'none';
+        }
+
+        console.log("haha");
+    }
+</script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script type="text/javascript">
+    var config = {
+        apiKey: "AIzaSyA9q1pskVgdzJbZ3Qki_0UuYM9L5bkQF7w",
+        authDomain: "lipice-8a856.firebaseapp.com",
+        databaseURL: "https://lipice-8a856.firebaseio.com",
+        projectId: "lipice-8a856",
+        storageBucket: "lipice-8a856.appspot.com",
+        messagingSenderId: "894497846646"
+    };
+    firebase.initializeApp(config);
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('btn-kirim-kode', {
+    'size': 'invisible',
+    'callback': function(response) {
+        submit();
+    }
+    });
+    recaptchaVerifier.render().then(function(widgetId) {
+    window.recaptchaWidgetId = widgetId;
+
+    });
+
+  var submit = function(){
+    var telpv = "+62"+inputhp.value;
+    var appVerifier = window.recaptchaVerifier;
+    firebase
+    .auth()
+    .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
+    .then(function(confirmationResult) {
+        window.confirmationResult = confirmationResult;
+        console.log("good");
+        btnkirimkode.classList.add("disabled");
+        btnkirimkode.style.pointerEvents = 'none';
+        btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
+        setTimeout(kirimulang, 5000);
+        btnlogin.classList.remove("disabled");
+        btnlogin.style.pointerEvents = '';
+        function kirimulang(){
+            btnkirimkode.classList.remove("disabled");
+            btnkirimkode.style.pointerEvents = '';
+        }
+
+    })
+    .catch(function (error) {
+            // Error; SMS not sent
+            console.error('Terjadi Kesalahan :', error);
+            window.alert('Error during signInWithPhoneNumber:\n\n'
+                + error.code + '\n\n');
+            btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
+            btnkirimkode.classList.remove("disabled");
+        });
+  }
+
+  var myFunction = function() {
+    window.confirmationResult.confirm(document.getElementById("input-kode").value)
+    .then(function(result) {
+        window.alert('Konfirmasi Kode Berhasil');
+        console.log("success");
+        //langsung halaman login ee ndek kene url e!!!!!!!!!!!!!
+    }, function(error) {
+        window.alert('Terjadi Kesalahan :\n\n'
+                + error.code + '\n\n' + error.message);
+      console.log(error);
+    });
+  };
+  </script>
 </body>
 </html>
