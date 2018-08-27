@@ -922,7 +922,7 @@ pre code {
 	margin-left: 91.666667%
 }
 
-@media (min-width:950px) {
+@media (min-width:980px) {
 	.col-sm {
 		-ms-flex-preferred-size: 0;
 		flex-basis: 0;
@@ -1094,7 +1094,7 @@ pre code {
 	}
 }
 
-@media (min-width:950px) {
+@media (min-width:1290px) {
 	.col-md {
 		-ms-flex-preferred-size: 0;
 		flex-basis: 0;
@@ -1265,8 +1265,8 @@ pre code {
 		margin-left: 91.666667%
 	}
 }
-
-@media (min-width:992px) {
+/* iki */
+@media (min-width:1630px) {
 	.col-lg {
 		-ms-flex-preferred-size: 0;
 		flex-basis: 0;

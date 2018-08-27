@@ -515,7 +515,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                         <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
+                         <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%;">  
                      </div> 
                     <div class="row space vt">
                         <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
@@ -642,12 +642,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <!-- Modal Verification Start -->
 <div id="id02" class="modall">
     
-    <form class="modall-content animate" action="">
+    <form class="modall-content animate">
         <div class="container" style="background-color:#f1f1f1">
                 <h3>Vote</h3>
-                
         </div>
-        
         <div class="container">
             <div style="margin-right:30px; margin-left:30px">
                 <div class="row">
@@ -663,11 +661,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 </div>
             </div>
         </div>
-
         <div class="container" style="background-color:#f1f1f1">
             <div style="margin-right:30px; margin-left:16px">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Vote</button>
+                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:">Vote</button>
             </div>
         </div>
     </form>
