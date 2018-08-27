@@ -643,8 +643,11 @@ $('#edit').click(function() {
 
 var modal = document.getElementById('myModal');
 var imc = document.querySelectorAll("#myImg");
+
+
 var img = document.getElementById("myImg");
 var modalImg = document.getElementById("img01");
+
 for(a=0;a<imc.length;a++){
     imc[a].onclick = function(){
     modal.style.display = "block";

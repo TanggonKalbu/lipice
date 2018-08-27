@@ -12,7 +12,7 @@
     <title>Lipice</title>
 
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -189,7 +189,31 @@ body {
   min-height: 100%;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
+@media screen and (max-width: 1100px) {
+  .medq {
+    font-size: 17px;
+    display:block;
+  }
+  .medqInput{
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .medq {
+    font-size: 16px;
+  }
+}@media screen and (max-width: 900px) {
+  .medq {
+    font-size: 15px;
+  }
 
+  
+}
+@media screen and (max-width: 800px) {
+  .medq {
+    font-size: 12px;
+  }
+}
 
 /**
  * Footer Styles
@@ -250,43 +274,43 @@ body {
         <p>{{ \Session::get('success') }}</p>
       </div><br>
         @endif
-            <h2 class="card-title reg">REGISTER HERE</h2>
+            <h2 class="card-title reg medq">REGISTER HERE</h2>
             <br>
-            <h3 class="card-title">Calling all beauty enthusiast!</h3>
-            <h3 class="card-title">Submission are available to anyone  and everyone with a passion</h3>
-            <h3 class="card-title">for make-up artistry.</h3>
+            <h3 class="card-title medq">Calling all beauty enthusiast!</h3>
+            <h3 class="card-title medq">Submission are available to anyone  and everyone with a passion</h3>
+            <h3 class="card-title medq">for make-up artistry.</h3>
         <br>
-            <label class="card-subtitle mb-2 text-muted">REGISTRATION FIELDS :</label>
+            <label class="card-subtitle mb-2 text-muted  medq">REGISTRATION FIELDS :</label>
         <br><br>
         <form class="form-horizontal" method="post" action="{{url('kontestans')}}" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group row">
-            <label for="namaLengkap" class="col-sm-3 col-form-label">NAMA LENGKAP <b style="color:red;">*</b></label>
+            <label for="namaLengkap" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">NAMA LENGKAP  <b style="color:red;">*</b></p></label>
             <div class="col-sm-9">
                 <input type="text" class="form-control" id="namaLengkap" name="nama" required onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="email" name="email" class="col-sm-3 col-form-label">EMAIL <b style="color:red;">*</b></label>
-            <div class="col-sm-9">
+            <label for="email" name="email" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">EMAIL<b style="color:red;">*</b></p></label>
+            <div class="col-sm-9">  
                 <input type="email" class="form-control" name="email" id="email" required onkeyup="capt()">
             </div>
         </div>
 
 
         <div class="form-group row">
-            <label for="ttl" class="col-sm-3 col-form-label">TEMPAT TANGGAL LAHIR <b style="color:red;">*</b></label>
-            <div class="form-group col-md-2">
-                <input type="text" class="form-control" name="tempatlahir"  id="kota" placeholder="Kota" required onkeyup="capt()">
+            <label for="ttl" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">TEMPAT TANGGAL LAHIR<b style="color:red;">*</b></p></label>
+            <div class="form-group col-md-3">
+                <input type="text" class="form-control medqInput" name="tempatlahir"  id="kota" placeholder="Kota" required onkeyup="capt()">
             </div>
             <div class="form-group col-md-2">
-                <input type="number" min="1" max="31"  class="form-control" name="tgl"  id="tgl" placeholder="Tgl" required onkeyup="capt()">
+                <input type="number" min="1" max="31"  class="form-control medqInput" name="tgl"  id="tgl" placeholder="Tgl" required onkeyup="capt()">
             </div>
             <div class="form-group col-md-2">
 
-            <select name="bln" id="bulan" class="form-control" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a;"> 
+            <select name="bln" id="bulan" class="form-control medqInput" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a;"> 
                 <option value="1">Januari</option>
                 <option value="2">Februari</option>
                 <option value="3">Maret</option>
@@ -303,40 +327,40 @@ body {
                         
             </div>
             <div class="form-group col-md-2">
-                <input type="number" min="1990" max="2018" class="form-control" name="tahun" id="tahun" placeholder="Tahun" required onkeyup="capt()">
+                <input type="number" min="1990" max="2018" class="form-control medqInput" name="tahun" id="tahun" placeholder="Tahun" required onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
+            <label for="telp" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">NO TELEPON<b style="color:red;">*</b></p></label>
             <div class="col-sm-9">
                 <input type="number" name="notelp" class="form-control" id="telp" required onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="ig" class="col-sm-3 col-form-label">LINK AKUN INSTAGRAM <b style="color:red;">*</b></label>
+            <label for="ig" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">LINK AKUN INSTAGRAM<b style="color:red;">*</b></p></label>
             <div class="col-sm-9">
                 <input type="text" name="linkig" class="form-control" id="ig" required onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="fb" class="col-sm-3 col-form-label">LINK AKUN FACEBOOK (OPTIONAL)</label>
+            <label for="fb" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">LINK AKUN FACEBOOK</p></label>
             <div class="col-sm-9">
                 <input type="text" name="linkfb" class="form-control" id="fb" onkeyup="capt()">
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-3" for="comment">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE</label>
+            <label class="control-label col-sm-3 medqInput" for="comment"><p style="display:inline-block">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE</p> </label>
             <div class="col-sm-9"> 
                 <textarea class="form-group" name="alasan" rows="5" id="alasan" onkeyup="capt()"></textarea>
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-3" for="comment">Kode Validasi Nomor Telepon <b style="color:red;">*</b></label>
+            <label class="control-label col-sm-3 medqInput" for="comment">Kode Validasi Nomor Telepon <b style="color:red;">*</b></label>
             <div class="col-md-2"> 
                 <input class="form-control" type="text" id="verificationcode" >
             </div>
@@ -348,11 +372,11 @@ body {
         <div class="form-group row">
             <div class="col-sm-3"></div>
             <div class="col-md-2">
-                <button class="btn btn-info" type="button" id="button-kirim" style=" float:left; display:none ">Kirim Kode Verifikasi</button> 
+                <button class="btn btn-info medqInput" type="button" id="button-kirim" style=" float:left; display:none ">Kirim Kode Verifikasi</button> 
             </div>
         </div>
         <br><br>
-        <button type="submit" id="btnSubmit" class="btn warn btn-lg" disabled>Submit</button>           
+        <button type="submit" id="btnSubmit" class="btn warn btn-lg medqInput" disabled>Submit</button>           
         </form>
 
         </div>
