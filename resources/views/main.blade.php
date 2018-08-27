@@ -142,6 +142,11 @@ textarea {
     padding-left: 15%;
 }
 
+.samping3{
+    padding-right:15%;
+    padding-left: 35%;
+}
+
 .responsive {
     max-width: 100%;
     height: auto;
@@ -220,6 +225,15 @@ body {
     <img src="images/logo.png" class="kiri-atas responsive" alt="">
     <img src="images/balon.png" class="kanan-atas responsive" alt="">
     </div>
+
+<!-- <div class="container-fluid">
+<div class="row">
+        <div class="samping3">
+        <p style="text-align:center">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod eget nunc a cursus. Vestibulum quis ipsum est. Etiam mollis scelerisque suscipit. Sed eleifend neque metus. In lacus arcu, luctus et sagittis commodo, consequat eget nisi. Duis non ex semper, ultricies nisl nec, hendrerit mauris. Sed suscipit ut sapien in vehicula. Ut lacinia bibendum rhoncus. Nam augue augue, mollis sed tincidunt quis, pellentesque eget enim. Suspendisse eleifend eu lectus in vestibulum. Nulla efficitur, elit et convallis malesuada, est nunc malesuada nulla, cursus eleifend mauris nunc id sapien. Donec condimentum nunc eget tellus imperdiet, vitae lobortis dolor suscipit. Fusce mattis, nisl vitae porttitor interdum, justo est ultricies risus, nec fermentum urna est ac lectus. Praesent varius accumsan ante eget consectetur. Suspendisse velit justo, malesuada vitae vulputate id, tincidunt ut neque. Cras sed vehicula libero.
+        </p>
+    </div>
+    </div></div> -->
 
         <!-- <h2 class="textatas"><b>LOREM IPSUM DOLOR SIT <br> 
         AMET, CONSECTETUR <br> 
@@ -357,32 +371,42 @@ body {
     <br><br><br>
 
     <!-- buah bawah -->
-    <div class="inline">
-        <table style="width:100%">
+    <div class="inline-block">
+        <table style="width:100%; z-index:-1;">
             <tr>
-                <th>
-                    <img src="images/kiri.png" class="responsive" alt="" style="float:left; z-index:-1;">
+                <th class="col-xs|sm|md|lg|xl-4">
+                    <img src="images/kiri.png" class="responsive" alt="" style=" z-index:-1;">
                 </th>
                 <th></th>
-                <th>
-                    <img src="images/timeline.png" class="responsive" alt="" style="display:block; margin:auto;z-index:-1;">
+                <th class="col-xs|sm|md|lg|xl-4">
+                    <img src="images/timeline.png" class="responsive" alt="" style="display:block;margin: 0 auto; z-index:-1;">
                 </th>
-                <th>
+                <th class="col-xs|sm|md|lg|xl-4">
                     <img src="images/kanan.png" class="responsive" alt="" style="float:right; z-index:-1;">
                 </th>
             </tr>
-        </table>
-            
-            
-            
+        </table>      
     </div>
+    <!-- <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs|sm|md|lg|xl-4">
+                <img src="images/kiri.png" class="responsive" alt="" style="float:left; z-index:-1;">
+            </div>
+            <div class="col-xs|sm|md|lg|xl-4" style="align:center; width:auto">
+                <img src="images/timeline.png" class="responsive" alt="" style="display:block; margin:auto;z-index:-1;">
+            </div>
+            <div class="col-xs|sm|md|lg|xl-4">
+                <img src="images/kanan.png" class="responsive" alt="" style="float:right; z-index:-1;">
+            </div>
+        </div>
+    </div> -->
     <br><br><br><br><br>
 
     
     <!-- footer -->
     <div class="footer" style="z-index:-1;">
         <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-        <img src="images/lipice.png" class="responsive" alt="" style="margin-right:50%; margin-left:50%; display:block">   
+        <img src="images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
         <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
     </div>    
 

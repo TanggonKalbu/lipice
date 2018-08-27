@@ -293,7 +293,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow: hidden; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding-top: 60px;
@@ -677,7 +677,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <!-- modal image -->
 <div id="myModal" class="modal">
   <span class="closeimg">&times;</span>
-  <img class="modal-content-img" id="img01">
+  <img class="modal-content-img" id="img01" >
   <div id="caption"></div>
 </div>
 <!-- modal image end -->
