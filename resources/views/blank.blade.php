@@ -97,7 +97,7 @@ h1{
     <!-- footer -->
     <div class="footer" style="z-index:-1;">
         <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-        <img src="images/lipice.png" class="responsive" alt="" style=" margin-right:auto; margin-left:auto; display:block">   
+        <img src="images/lipice.png" class="responsive" alt="" style=" margin-right:auto; margin-left:auto; display:block;">   
         <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
     </div>   
 </div>
