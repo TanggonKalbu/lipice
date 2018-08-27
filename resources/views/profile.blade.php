@@ -492,7 +492,7 @@ textarea::placeholder{
                 <div class="card">
                 <div class="card-body">
                     <!-- button edit -->
-                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen"> Edit</i></label>
+                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen">&nbsp; Edit</i></label>
                    
                     <!-- button edit end --> 
 
@@ -636,6 +636,9 @@ textarea::placeholder{
                             <button class="btn btn-secondary dropdown-toggle dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Day 1
                             </button>
+                            <div>
+                            
+                            </div>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#">Day 1</a>
                                 <a class="dropdown-item" href="#">Day 2</a>
@@ -648,11 +651,7 @@ textarea::placeholder{
                             </div>
                         </div>
                         <div class="form-group mx-sm-4 mb-1">
-                            <!-- <label for="linkupload" class="sr-only">Linkupload</label> -->
-                            <!-- <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%"> -->
-                            <!-- <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%"> -->
-                            <!-- <input type="file" accept="video/mp4" name="uploadVideo" /> -->
-
+                        
                             <!-- button upload video -->
                             <div class="file-upload2">
                             <div class="file-select2">
@@ -674,7 +673,7 @@ textarea::placeholder{
                             <div class="row">
                             <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
                                 <div class="col-md-3">
-                                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                    <div class="shadow-lg p-2 mb-5 bg-white rounded">
                                         <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                     </div> 
                                 </div>

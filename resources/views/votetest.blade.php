@@ -206,7 +206,6 @@ a:active {
 .dseven {border-left: 25px solid #977652; background-color: #d8a975;} /* Day 7 */
 
 /* modal login start */
-body {font-family: Arial, Helvetica, sans-serif;}
 
   /* Full-width input fields */
   input[type=text], input[type=password], input[type=number] {
