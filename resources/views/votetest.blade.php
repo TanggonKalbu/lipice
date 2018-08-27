@@ -469,7 +469,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 <body>
 <div>
-    <a onclick="coba()" class="btn btn-warning" style="width:auto">Edit</a>
+    <!-- <a onclick="coba()" class="btn btn-warning" style="width:auto">Edit</a> -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>   
 
     <!-- Button to Open the Modal -->
