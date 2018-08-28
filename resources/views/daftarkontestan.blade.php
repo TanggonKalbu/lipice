@@ -15,7 +15,7 @@
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <div class="navbar-header"> 
       <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <ul class="nav navbar-nav">
@@ -80,7 +80,13 @@
 
 <?php //print_r($data["kontestan"]);?>
 <?php //var_dump($data["kontestan"]);?>
+<style>
 
+  body{
+    background-color: #fbdee8;
+    
+}
+</style>
 <script type="text/javascript"> 
 	$(document).ready(function(){
 		$('#example').DataTable();

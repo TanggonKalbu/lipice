@@ -313,7 +313,6 @@ input[type=number]::-webkit-outer-spin-button {
         window.alert('Konfirmasi Kode Berhasil');
         console.log("success");
         window.location.href = "/profile/"+inputhp.value+"/edit";
-        //langsung halaman login ee ndek kene url e!!!!!!!!!!!!!
     }, function(error) {
         window.alert('Terjadi Kesalahan :\n\n'
                 + error.code + '\n\n' + error.message);
