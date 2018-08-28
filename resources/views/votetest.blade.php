@@ -536,10 +536,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
                      <input type="hidden" id="voter" value="{{ Session::get('vote') }}">
                         <input type="hidden" id="kontestan" value="<?php echo $data["profile_cha_1"][$counter]["notelp"] ?>">
                         <input type="hidden" id="post" value="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>">
-                        <input type="hidden" id="day" value="1">
+                        <input type="hidden" id="day" value="28">
                         <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
                               $kontestan = $data["profile_cha_1"][$counter]["notelp"];
-                              $day = 1;
+                              $day = 28;
                         ?>
                         <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>' )" >Vote(sess)</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>

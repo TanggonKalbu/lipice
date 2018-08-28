@@ -7,7 +7,7 @@
     <title>Profile</title>
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-    <link rel="stylesheet" href="css/bootstrap-profile.min.css">
+    <link rel="stylesheet" href="/css/bootstrapprofile.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -510,7 +510,7 @@ textarea::placeholder{
                     <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
                              
                              <div class="round-border">
-                             <img src="/images/lipice_icon.png" alt="..." class="rounded-circle"> 
+                             <img src="images/lipice_icon.png" alt="..." class="rounded-circle"> 
                              <!-- button change photo profile -->
                             <div class="file-upload input-group mb-3" style="display:none" id="uploadbtn">
                                 <div class="file-select">
