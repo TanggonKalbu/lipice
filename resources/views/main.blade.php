@@ -230,7 +230,7 @@ body {
     padding-left: 15%;
     }
 .a{
-    float:right; margin-top:-400px; z-index:1;
+    float:right; margin-top:-100px; z-index:1;
     }
 }
 </style>
@@ -400,16 +400,14 @@ body {
         <table style="width:100%; z-index:-1;">
             <tr>
                 <th class="col-xs|sm|md|lg|xl-4">
-                    <img src="images/kiri.png" class="responsive" alt="" style="float:left;margin-bottom:-280px; z-index:-1;">
+                    <img src="images/kiri.png" class="responsive" alt="" style="float:left;margin-top:260px; z-index:-1;">
                 </th>
                 <th></th>
                 <th class="col-xs|sm|md|lg|xl-4">
                     <img src="images/timeline.png" class="responsive" alt="" style="display:block; margin:0 auto; z-index:-1;">
                 </th>
                 <th class="col-xs|sm|md|lg|xl-4">
-                    <div style="width:100%">
-                    <img src="images/kanan.png" class="responsive a" alt="" style="">
-                    </div>
+                    <img src="images/kanan.png" class="responsive" alt="" style="float:right; margin-top:-520px;">
                 </th>
             </tr>
         </table>      
