@@ -408,7 +408,7 @@ body {
                 </th>
                 <th class="col-xs|sm|md|lg|xl-4">
                     <div style="width:100%">
-                    <img src="images/kanan.png" class="responsive a" alt="" style="">
+                    <img src="images/kanan.png" class="responsive a" alt="" style="float:right;margin-bottom:-280px; z-index:-1;">
                     </div>
                 </th>
             </tr>
