@@ -479,7 +479,6 @@ a:active {
         <!-- <iframe class="embed-responsive-item" width="100%"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> -->
             <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
-
     <!-- card start -->
     <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 100%">
     <div class="card-body"> <!-- card body start -->
@@ -502,7 +501,6 @@ a:active {
             <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
             &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
         </a> -->
-       
         <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
         <div class="force-overflow"> 
             <div class="row justify-content-md-center">
@@ -515,53 +513,35 @@ a:active {
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                          <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%;">  
                      </div> 
+                     <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
+                              $kontestan = $data["profile_cha_1"][$counter]["notelp"];
+                              $day = date("j");
+                        ?>
                      @if(Session::has('vote'))
-
-                     
                      <div class="row space vt">
                      <input type="hidden" id="voter" value="{{ Session::get('vote') }}">
-                        <input type="hidden" id="kontestan" value="<?php echo $data["profile_cha_1"][$counter]["notelp"] ?>">
-                        <input type="hidden" id="post" value="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>">
-                        <input type="hidden" id="day" value="1">
-                        <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
-                              $kontestan = $data["profile_cha_1"][$counter]["notelp"];
-                              $day = 1;
-                        ?>
-                        <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>' )" >Ada session loh</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                        <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>', '<?php echo "jumlah".$counter ?>' )" >Ada session loh</button>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                     <?php $post[$counter] = "post".($counter+1)?>
-                   
                         @else
                         <div class="row space vt">
                         <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                       @endif
+                    
     
                 </div>
             <?php }} 
             ?>
-
-               
-                
+    
             </div>
         </div>
-        </div>
-
-
-
-
-
-
-        
+    </div>   
     </div> <!-- card body end -->
     </div> <!-- card end -->
-
-    <br><br><br>
-
-
-
+  <br><br><br>
 <!-- Modal About-->
 <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -669,6 +649,7 @@ a:active {
 
 <!-- script collapse start -->
 <script>
+
 $(document).ready(function() {
   $("#toggle").click(function() {
     var elem = $("#toggle").text();
@@ -705,27 +686,7 @@ window.onclick = function(event) {
 }
 
 </script>
-<!-- <script>
 
-// function coba(){
-//     var notelp = "912321812"
-//     var settings = {
-//     "async": true,
-//     "crossDomain": true,
-//     "url": 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/profile?key="'+notelp+'"',
-//     "method": "GET",
-//     "headers": {
-//     "content-type": "application/json"
-//     },
-//     "processData": false,
-//     "data": ""
-//     }
-//     $.ajax(settings).done(function (response) {
-//         console.log(response);
-// });
-// }
-
-</script> -->
 <script>
 var modal = document.getElementById('myModal');
 var imc = document.querySelectorAll("#myImg");
@@ -739,20 +700,26 @@ for(a=0;a<imc.length;a++){
     }
 }
 
-
-
 var span = document.getElementsByClassName("closeimg")[0];
 span.onclick = function() { 
     modal.style.display = "none";
 }
 </script>
 
+
+
+    
+   
+
+
 <script> 
 var post;
 var voter;
 var kontestan;
 var day;
- function vote(post,kontestan,voter,day){
+var jumlah;
+
+ function vote(post,kontestan,voter,day,jumlah){
             var settings = {
             "async": true,
             "crossDomain": true,
@@ -778,8 +745,21 @@ var day;
                     "data": '{\n\t\"type\" :\"vote\",\n\t\"voter\" : \"'+voter+'\",\n\t\"kontestan\" :\"'+kontestan+'\",\n\t\"day\" : \"'+day+'\",\n\t\"konten\": \"'+post+'\"\n}'
             }
             $.ajax(settings).done(function (response) {
-                window.location.href = '/remove';
-            
+                var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/jumlah_vote?key=["'+kontestan+'","'+day+'"]',
+                "method": "GET",
+                "headers": {
+                "content-type": "application/json"
+                },
+                "processData": false,
+                "data": ""
+                }
+                $.ajax(settings).done(function (response) {
+                document.getElementById(jumlah).innerHTML = response.rows[0].value + " " + '<i class="fa fa-heart love" aria-hidden="true"></i>' ;
+                });
+                
              });
             }
             else {
@@ -787,7 +767,10 @@ var day;
             }
          });
     }
+
     </script>
+
+
 
     
 <script>
