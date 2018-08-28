@@ -7,7 +7,7 @@
     <title>Profile</title>
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-profile.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -72,6 +72,12 @@ body{
     z-index:-2;
 }
 
+.size{
+    object-fit:cover;
+    width: 300px;
+    height: 300px;
+}
+
  .round-border{
      border: 3px solid #00b2b2;
      border-radius: 50%;
@@ -101,6 +107,9 @@ body{
     outline:none;
 }
 
+button:focus{
+    outline:none;
+}
 .btn-content {
     background-color: #8bc3d9;
     border: none;
@@ -324,14 +333,14 @@ textarea::placeholder{
     -o-transition:all .2s ease-in-out;
     }
 .file-upload.active .file-select{
-    border-color:#3fa46a;
+    border-color:#3fa46a; /*ijo*/
     transition:all .2s ease-in-out;
     -moz-transition:all .2s ease-in-out;
     -webkit-transition:all .2s ease-in-out;
     -o-transition:all .2s ease-in-out;
 }
 .file-upload.active .file-select .file-select-button{
-    background:#3fa46a;
+    background:#3fa46a; /*ijo*/
     color:#FFFFFF;
     transition:all .2s ease-in-out;
     -moz-transition:all .2s ease-in-out;
@@ -377,6 +386,107 @@ textarea::placeholder{
     display:inline-block;
     padding:0 10px;
     }
+
+/****** CODE CHOOSE VIDEO ******/
+
+.file-upload2{
+    display:block;
+    text-align:center;
+    font-size: 12px;
+}
+.file-upload2 .file-select2{
+    display:block;
+    border: 2px solid #dce4ec;
+    color: #34495e;
+    cursor:pointer;
+    height:40px;
+    line-height:40px;
+    text-align:left;
+    background:#FFFFFF;
+    overflow:hidden;
+    position:relative;
+}
+.file-upload2 .file-select2 .file-select-button2{
+    background:#dce4ec;
+    padding:0 10px;
+    display:inline-block;
+    height:40px;
+    line-height:40px;
+}
+.file-upload2 .file-select2 .file-select-name2{
+    line-height:40px;
+    display:inline-block;
+    padding:0 10px;
+}
+.file-upload2 .file-select2:hover{
+    border-color:#34495e;
+    transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    -webkit-transition:all .2s ease-in-out;
+    -o-transition:all .2s ease-in-out;
+}
+.file-upload2 .file-select2:hover .file-select-button2{
+    background:#34495e;
+    color:#FFFFFF;
+    transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    -webkit-transition:all .2s ease-in-out;
+    -o-transition:all .2s ease-in-out;
+    }
+.file-upload2.active .file-select2{
+    border-color:#3fa46a; /*ijo*/
+    transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    -webkit-transition:all .2s ease-in-out;
+    -o-transition:all .2s ease-in-out;
+}
+.file-upload2.active .file-select2 .file-select-button2{
+    background:#3fa46a; /*ijo*/
+    color:#FFFFFF;
+    transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    -webkit-transition:all .2s ease-in-out;
+    -o-transition:all .2s ease-in-out;
+    }
+.file-upload2 .file-select2 input[type=file]{
+    z-index:100;
+    cursor:pointer;
+    position:absolute;
+    height:100%;width:100%;
+    top:0;left:
+    0;opacity:
+    0;filter:alpha(opacity=0);
+    }
+.file-upload2 .file-select2.file-select-disabled{
+    opacity:0.65;
+    }
+.file-upload2 .file-select2.file-select-disabled:hover{
+    cursor:default;
+    display:block;
+    border: 2px solid #dce4ec;
+    color: #34495e;
+    cursor:pointer;
+    height:40px;
+    line-height:40px;
+    margin-top:5px;
+    text-align:left;
+    background:#FFFFFF;
+    overflow:hidden;
+    position:relative;
+    }
+.file-upload2 .file-select2.file-select-disabled:hover .file-select-button2{
+    background:#dce4ec;
+    color:#666666;
+    padding:0 10px;
+    display:inline-block;
+    height:40px;
+    line-height:40px;
+    }
+.file-upload2 .file-select2.file-select-disabled:hover .file-select-name2{
+    line-height:40px;
+    display:inline-block;
+    padding:0 10px;
+    }
 </style>
 </head>
 <body>
@@ -391,7 +501,7 @@ textarea::placeholder{
                 <div class="card">
                 <div class="card-body">
                     <!-- button edit -->
-                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen"> Edit</i></label>
+                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen">&nbsp; Edit</i></label>
                    
                     <!-- button edit end --> 
 
@@ -401,10 +511,14 @@ textarea::placeholder{
                              
                              <div class="round-border">
                              <img src="/images/lipice_icon.png" alt="..." class="rounded-circle"> 
-                             <label for="file-upload" id="icon-upload" class=" custom-file-upload" style="border:none; margin-top:-50px; float:right">
-                                     <i class="far fa-user-circle position"></i>
-                                 </label>
-                             <input id="file-upload" type="file" name="fileToUpload"/>
+                             <!-- button change photo profile -->
+                            <div class="file-upload input-group mb-3" style="display:none" id="uploadbtn">
+                                <div class="file-select">
+                                <div class="file-select-button" id="fileName">Choose File</div>
+                                <div class="file-select-name" id="noFile">No file chosen...</div> 
+                                <input type="file" name="fileToUpload" id="chooseFile">
+                                </div>
+                            </div>
                         </div> 
                          <?php }else { ?>
                              <div class="round-border">
@@ -531,6 +645,9 @@ textarea::placeholder{
                             <button class="btn btn-secondary dropdown-toggle dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Day 1
                             </button>
+                            <div>
+                            
+                            </div>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#">Day 1</a>
                                 <a class="dropdown-item" href="#">Day 2</a>
@@ -543,20 +660,15 @@ textarea::placeholder{
                             </div>
                         </div>
                         <div class="form-group mx-sm-4 mb-1">
-                            <!-- <label for="linkupload" class="sr-only">Linkupload</label>
-                            <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%"> -->
-                            <!-- <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%"> -->
-                            <!-- <input type="file" accept="video/mp4" name="uploadVideo" /> -->
-
+                        
                             <!-- button upload video -->
-                            <div class="file-upload" id="uploadbtn">
-                                <div class="file-select">
-                                    <div class="file-select-button" id="fileName">Choose File</div>
-                                    <div class="file-select-name" id="noFile">No file chosen...</div> 
-                                    <label for="linkupload" class="sr-only">Linkupload</label>
-                                    <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
-                                    <input type="file" name="uploadVideo" accept="video/mp4" id="chooseFile">
-                                </div>
+                            <div class="file-upload2">
+                            <div class="file-select2">
+                                <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
+                                <div class="file-select-button2" id="fileName">Choose File</div>
+                                <div class="file-select-name2" id="noFile2">No file chosen...</div> 
+                                <input type="file" name="uploadVideo" accept="video/mp4" id="chooseVideo">
+                            </div>
                             </div>
 
                         </div>
@@ -570,7 +682,7 @@ textarea::placeholder{
                             <div class="row">
                             <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
                                 <div class="col-md-3">
-                                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                    <div class="shadow-lg p-2 mb-5 bg-white rounded">
                                         <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                     </div> 
                                 </div>
@@ -587,9 +699,8 @@ textarea::placeholder{
                         <div class="force-overflow">
                             <div class="row">
                             <?php if($data["video"]!= "kosong"){ for($counter =0;$counter < count($data["video"]["rows"]);$counter++) { ?>
-                                <div class="col-md-3">
+                                <div class="col-sm-6 col-md-4 col-lg-3">
                                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                    
                                         <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe> 
                                     </div> 
                                 </div>
@@ -701,6 +812,18 @@ $('#chooseFile').bind('change', function () {
   else {
     $(".file-upload").addClass('active');
     $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
+  }
+});
+
+$('#chooseVideo').bind('change', function () {
+  var filename = $("#chooseVideo").val();
+  if (/^\s*$/.test(filename)) {
+    $(".file-upload2").removeClass('active');
+    $("#noFile2").text("No file chosen..."); 
+  }
+  else {
+    $(".file-upload2").addClass('active');
+    $("#noFile2").text(filename.replace("C:\\fakepath\\", "")); 
   }
 });
 

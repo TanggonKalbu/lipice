@@ -42,6 +42,10 @@ Route::get('/blank', function () {
   return view('blank');
 });
 
+Route::get('/login', function () {
+  return view('login');
+});
+
 
 
 
