@@ -531,7 +531,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                      </div> 
                      <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
                               $kontestan = $data["profile_cha_1"][$counter]["notelp"];
-                              $day = date("j");
+                              $day = 29;
                         ?>
                      @if(Session::has('vote'))
                      <div class="row space vt">
