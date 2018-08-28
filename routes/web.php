@@ -23,6 +23,8 @@ Route::resource('admin','admin_controller');
 Route::resource('cha_day1','cha_day1_controller');
 Route::resource('cha_video','cha_video_controller');
 Route::resource('vote','vote_controller');
+Route::resource('votesession','votesession_controller');
+Route::get('/remove','votesession_controller@delete');
 Route::get('/form', function () {
   return view('form');
 });

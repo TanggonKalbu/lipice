@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vote</title>
-
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -323,6 +322,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
     cursor: pointer;
     outline:none;
   }
+  .close2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close2:hover,
+  .close2:focus {
+    color: red;
+    cursor: pointer;
+    outline:none;
+  }
   input[type=number]::-webkit-inner-spin-button, 
   input[type=number]::-webkit-outer-spin-button { 
      -webkit-appearance: none; 
@@ -474,7 +488,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
     <!-- Button to Open the Modal -->
     <div>
-        <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right; background-color:#ea8a8a">Login</button>
+        <a  href="/remove" style="width:auto; float:right; background-color:#ea8a8a">Login</a>
     </div>
   
     <div class="embed-responsive embed-responsive-21by9 ">   
@@ -504,7 +518,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
             &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
         </a> -->
-
+       
         <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
         <div class="force-overflow"> 
             <div class="row justify-content-md-center">
@@ -517,10 +531,27 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                          <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%; max-height:300px">  
                      </div> 
-                    <div class="row space vt">
+                     @if(Session::has('vote'))                   
+                     <div class="row space vt">
+                     <input type="hidden" id="voter" value="{{ Session::get('vote') }}">
+                        <input type="hidden" id="kontestan" value="<?php echo $data["profile_cha_1"][$counter]["notelp"] ?>">
+                        <input type="hidden" id="post" value="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>">
+                        <input type="hidden" id="day" value="1">
+                        <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
+                              $kontestan = $data["profile_cha_1"][$counter]["notelp"];
+                              $day = 1;
+                        ?>
+                        <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>' )" >Vote(sess)</button>
+                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
+                    <?php $post[$counter] = "post".($counter+1)?>
+                        @else
+                        <div class="row space vt">
                         <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
                         <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
+                      @endif
+    
                 </div>
             <?php }} 
             ?>
@@ -552,8 +583,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
         </button>
-        <button style="top:50px; pointer-events:none" type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white; float:none; margin: auto 0; ">HAHAHA</span>
+
+        <button style="top:50px;" type="button" class="close" style="color:white">
+          <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none">HAHAHA</span>
         </button>
 
       </div>
@@ -578,8 +610,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS 
                 is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces 
                 for many mobile applications.
-            </p>    
-            <div class="collapse" id="collapseExample">
+            
                 CSS is designed primarily to enable the separation of document content from document presentation, including aspects such as the layout, 
                 colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, 
                 enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.
@@ -591,8 +622,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 calculated and assigned to rules, so that the results are predictable.
                 The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS 
                 validation service for CSS documents.
-            </div>
-            <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
+            </p>
+                <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
                     Read More
             </a>
             <br><br>
@@ -604,45 +635,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 <!-- Modal About End -->
    <!-- Modal Login START -->    
-   <div id="id01" class="modall">
-    
- 
-    <form class="modall-content animate" method="get" action="">
-        <div class="container" style="background-color:#f1f1f1">
-                <h3>Login</h3>
-        </div>
-        <div class="container">
-            <div style="margin-right:30px; margin-left:30px">
-                <div class="row">
-                    <label for="vercode"><b>Validasi no Telepon</b></label>
-                </div>
-                <div class="row">
-                    <input type="number" name="notelp" id="input-tlp" style="width:70%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
-                </div>
-                <div class="row">
-                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-            <div style="margin-right:30px; margin-left:16px">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <!-- <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button> -->
-    
-                <a href="#" onclick="login()" class="loginbtn" style="pointer-events:">Login</a>
-             
-            </div>
-        </div>
-    </form>
-    </div>
+   
     <!-- Modal Login END -->
 <!-- Modal Verification Start -->
+
 <div id="id02" class="modall">
     
-    <form class="modall-content animate" action="">
+    <form class="modall-content animate" method="post" action="{{url('votesession')}}" enctype="multipart/form-data" >
+    @csrf
         <div class="container" style="background-color:#f1f1f1">
                 <h3>Vote</h3>
                 
@@ -655,7 +655,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 </div>
                 <div class="row">
                     <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
+                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
                 </div>
                 <div class="row">
                     <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
@@ -667,7 +667,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <div class="container" style="background-color:#f1f1f1">
             <div style="margin-right:30px; margin-left:16px">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Vote</button>
+                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Mulai Vote</button>
+                <!-- <button  type="submit" style="pointer-events">Vote</button> -->
             </div>
         </div>
     </form>
@@ -745,6 +746,7 @@ window.onclick = function(event) {
 <script>
 var modal = document.getElementById('myModal');
 var imc = document.querySelectorAll("#myImg");
+var posts = document.querySelectorAll("#post");
 var img = document.getElementById("myImg");
 var modalImg = document.getElementById("img01");
 for(a=0;a<imc.length;a++){
@@ -754,29 +756,73 @@ for(a=0;a<imc.length;a++){
     }
 }
 
+
+
 var span = document.getElementsByClassName("closeimg")[0];
 span.onclick = function() { 
     modal.style.display = "none";
 }
 </script>
+
+<script> 
+var post;
+var voter;
+var kontestan;
+var day;
+ function vote(post,kontestan,voter,day){
+            var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": 'http://159.65.139.254:5984/lipice/_design/view/_view/vote?key=["'+day+'","'+voter+'"]',
+            "method": "GET",
+            "headers": {
+            "content-type": "application/json"
+            },
+            "processData": false,
+            "data": ""
+            }
+            $.ajax(settings).done(function (response) {
+                if(response.rows ==''){
+                    var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "http://admin:lipice@159.65.139.254:5984/lipice/",
+                    "method": "POST",
+                    "headers": {
+                    "content-type": "application/json"
+                },
+                    "processData": false,
+                    "data": '{\n\t\"type\" :\"vote\",\n\t\"voter\" : \"'+voter+'\",\n\t\"kontestan\" :\"'+kontestan+'\",\n\t\"day\" : \"'+day+'\",\n\t\"konten\": \"'+post+'\"\n}'
+            }
+            $.ajax(settings).done(function (response) {
+                            
+             });
+            }
+            else {
+                console.log("wes vote sampeyan");
+            }
+         });
+    }
+    </script>
+
+    
 <script>
     var btnkirim = document.getElementById("button-kirim");
     var btnlogin = document.getElementById("button-login");
     var btnsubmitkode = document.getElementById("button-submit-kode");
     var inputkode = document.getElementById("verificationcode");
     var inputtelp = document.getElementById("input-tlp");
-
-    function kirim(){
+     function kirim(){
         if(inputtelp.value!=''){
             btnkirim.style.pointerEvents = '';
         } else{
             btnkirim.style.pointerEvents = 'none';
         }
     }
-    function login(){
-        var notelp = document.getElementById('input-tlp').value;
-            // window.location.href = "/profile/"+notelp+"/edit";
-            window.location.href = "/profile/081359868716/edit";
+ 
+    function logout(){
+        
+        window.location.href = 'votesession/remove';
     }
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
@@ -853,7 +899,7 @@ span.onclick = function() {
         btnlogin.style.pointerEvents = '';
         var notelp = document.getElementById('input-tlp').value;
         // window.location.href = "/profile/"+notelp+"/edit";
-        window.location.href = "/profile/081945314191/edit";
+        //window.location.href = "/votesession/store";
     }, function(error) {
         window.alert('Terjadi Kesalahan :\n\n'
                 + error.code + '\n\n' + error.message);
