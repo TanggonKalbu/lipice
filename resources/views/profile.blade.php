@@ -72,6 +72,12 @@ body{
     z-index:-2;
 }
 
+.size{
+    object-fit:cover;
+    width: 300px;
+    height: 300px;
+}
+
  .round-border{
      border: 3px solid #00b2b2;
      border-radius: 50%;
@@ -101,6 +107,9 @@ body{
     outline:none;
 }
 
+button:focus{
+    outline:none;
+}
 .btn-content {
     background-color: #8bc3d9;
     border: none;
@@ -331,7 +340,7 @@ textarea::placeholder{
     -o-transition:all .2s ease-in-out;
 }
 .file-upload.active .file-select .file-select-button{
-    background:#3fa46a;
+    background:#3fa46a; /*ijo*/
     color:#FFFFFF;
     transition:all .2s ease-in-out;
     -moz-transition:all .2s ease-in-out;

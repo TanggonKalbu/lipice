@@ -222,9 +222,17 @@ body {
   text-align: center;
 }
 
-
 /* footer end */
 
+@media (max-width: 480px) {
+.samping2{
+    padding-right:15%;
+    padding-left: 15%;
+    }
+.a{
+    float:right; margin-top:-400px; z-index:1;
+    }
+}
 </style>
 
 </head>
@@ -346,7 +354,7 @@ body {
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-3 medqInput" for="comment"><p style="display:inline-block">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE</p> </label>
+            <label class="control-label col-sm-3 medqInput" for="comment"><p style="display:inline-block;">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE</p> </label>
             <div class="col-sm-9"> 
                 <textarea class="form-group" name="alasan" rows="5" id="alasan" onkeyup="capt()"></textarea>
             </div>
@@ -378,10 +386,10 @@ body {
 
     <br><br><br><br>
     <div class="samping2">
-        <p style="text-align:center; font-size:15pt;"><b>#LIPICE7DAYSCHALLENGE</b></p>
-        <p style="text-align:center;"><b>SUMMER CAMP TIMELINE</b></p>
+        <p style="text-align:center; font-size:20pt;" ><b>#LIPICE7DAYSCHALLENGE</b></p>
+        <p style="text-align:center;font-size: 18pt;"><b>SUMMER CAMP TIMELINE</b></p>
         <br>
-        <p style="text-align:center">
+        <p style="text-align:center; font-size:15pt;">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod eget nunc a cursus. Vestibulum quis ipsum est. Etiam mollis scelerisque suscipit. Sed eleifend neque metus. In lacus arcu, luctus et sagittis commodo, consequat eget nisi. Duis non ex semper, ultricies nisl nec, hendrerit mauris. Sed suscipit ut sapien in vehicula. Ut lacinia bibendum rhoncus. Nam augue augue, mollis sed tincidunt quis, pellentesque eget enim. Suspendisse eleifend eu lectus in vestibulum. Nulla efficitur, elit et convallis malesuada, est nunc malesuada nulla, cursus eleifend mauris nunc id sapien. Donec condimentum nunc eget tellus imperdiet, vitae lobortis dolor suscipit. Fusce mattis, nisl vitae porttitor interdum, justo est ultricies risus, nec fermentum urna est ac lectus. Praesent varius accumsan ante eget consectetur. Suspendisse velit justo, malesuada vitae vulputate id, tincidunt ut neque. Cras sed vehicula libero.
         </p>
     </div>
@@ -392,14 +400,16 @@ body {
         <table style="width:100%; z-index:-1;">
             <tr>
                 <th class="col-xs|sm|md|lg|xl-4">
-                    <img src="images/kiri.png" class="responsive" alt="" style=" z-index:-1;">
+                    <img src="images/kiri.png" class="responsive" alt="" style="float:left;margin-bottom:-280px; z-index:-1;">
                 </th>
                 <th></th>
                 <th class="col-xs|sm|md|lg|xl-4">
                     <img src="images/timeline.png" class="responsive" alt="" style="display:block; margin:0 auto; z-index:-1;">
                 </th>
                 <th class="col-xs|sm|md|lg|xl-4">
-                    <img src="images/kanan.png" class="responsive" alt="" style="float:right; z-index:1;">
+                    <div style="width:100%">
+                    <img src="images/kanan.png" class="responsive a" alt="" style="">
+                    </div>
                 </th>
             </tr>
         </table>      
