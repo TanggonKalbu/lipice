@@ -575,52 +575,52 @@ body {
 
         <!-- card start -->
         <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 100%;">
-        <div class="card-body"> <!-- card body start -->
-            <br>
-            <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
-            <br>
-            <div class="text-center">
-                <button class="label2 done" style="margin-right:3px; margin-left:3px;">DAY <b>01</b></button>
-                <button class="label2 dtwo" style="margin-right:3px; margin-left:3px;">DAY <b>02</b></button>
-                <button class="label2 dthree" style="margin-right:3px; margin-left:3px;">DAY <b>03</b></button>
-                <button class="label2 dfour" style="margin-right:3px; margin-left:3px;">DAY <b>04</b></button>
-                <button class="label2 dfive" style="margin-right:3px; margin-left:3px;">DAY <b>05</b></button>
-                <button class="label2 dsix" style="margin-right:3px; margin-left:3px;">DAY <b>06</b></button>
-                <button class="label2 dseven" style="margin-right:3px; margin-left:3px;">DAY <b>07</b></button>
-                
-            </div>
-            <br>
-            <br>
-            <!-- <a href="#">
-                <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
-                &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
-            </a> -->
-
-            <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
-            <div class="force-overflow"> 
-                <div class="row justify-content-md-center">
-                <?php if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
-                    <div class="col-md-3 space">
-                        <div class="row">
-                            <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
-                            <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
-                        </div>
-                        <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                            <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%;">  
-                        </div> 
-                        <div class="row space vt">
-                            <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                            <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                        </div>
-                    </div>
-                <?php }} 
-                ?>
-    
+            <div class="card-body"> <!-- card body start -->
+                <br>
+                <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
+                <br>
+                <div class="text-center">
+                    <button class="label2 done" style="margin-right:3px; margin-left:3px;">DAY <b>01</b></button>
+                    <button class="label2 dtwo" style="margin-right:3px; margin-left:3px;">DAY <b>02</b></button>
+                    <button class="label2 dthree" style="margin-right:3px; margin-left:3px;">DAY <b>03</b></button>
+                    <button class="label2 dfour" style="margin-right:3px; margin-left:3px;">DAY <b>04</b></button>
+                    <button class="label2 dfive" style="margin-right:3px; margin-left:3px;">DAY <b>05</b></button>
+                    <button class="label2 dsix" style="margin-right:3px; margin-left:3px;">DAY <b>06</b></button>
+                    <button class="label2 dseven" style="margin-right:3px; margin-left:3px;">DAY <b>07</b></button>
+                    
                 </div>
-            </div>
-            </div>
-            
-        </div> <!-- card body end -->
+                <br>
+                <br>
+                <!-- <a href="#">
+                    <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
+                    &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
+                </a> -->
+
+                <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
+                <div class="force-overflow"> 
+                    <div class="row justify-content-md-center">
+                    <?php if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
+                        <div class="col-md-3 space">
+                            <div class="row">
+                                <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                                <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
+                            </div>
+                            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%;">  
+                            </div> 
+                            <div class="row space vt">
+                                <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
+                                <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    <?php }} 
+                    ?>
+        
+                    </div>
+                </div>
+                </div>
+                
+            </div> <!-- card body end -->
         </div> <!-- card end -->
     </div> <!-- end body-spacing -->
 
