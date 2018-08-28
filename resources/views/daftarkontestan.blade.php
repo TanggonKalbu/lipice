@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Lipice Admin</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,8 +15,8 @@
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+    <div class="navbar-header"> 
+      <a class="navbar-brand" href="#">Lipice</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
@@ -80,7 +80,24 @@
 
 <?php //print_r($data["kontestan"]);?>
 <?php //var_dump($data["kontestan"]);?>
-
+<style>
+.navbar-inverse {
+    background-color: #d33f8d;
+    border: none;
+    color: white;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #ffffff;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #a20d5c;
+    border: none;
+}
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+</style>
 <script type="text/javascript"> 
 	$(document).ready(function(){
 		$('#example').DataTable();

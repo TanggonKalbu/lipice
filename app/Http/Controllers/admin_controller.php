@@ -13,10 +13,7 @@ class admin_controller extends Controller
      */
     public function index()
     {
-        
-        
         $curl = curl_init();
-
         curl_setopt_array($curl, array(
         CURLOPT_PORT => "5984",
         CURLOPT_URL => "http://159.65.139.254:5984/lipice/_design/view/_view/profile?include_docs=true",

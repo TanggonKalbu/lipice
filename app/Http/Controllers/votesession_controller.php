@@ -64,7 +64,7 @@ class votesession_controller extends Controller
                 return redirect('/vote/');
             }
             else {
-                echo "wes mari ngevote cok nyadaro";
+                echo "wes mari ngevote nyadaro";
             }
         }   
       

@@ -36,7 +36,7 @@ body{
 }
 
 .button{
-    background-color: #d33f8d; /*#fb61ca*/
+    background-color: #fb61ca;
     border: none;
     color: white;
     padding: 12px 28px;
@@ -70,7 +70,7 @@ body{
 }
 
 .love{
-    color: #d33f8d; /*#fb61ca*/
+    color: #fb61ca; 
     font-size:1vw;
     text-align:right;
 }
@@ -205,6 +205,7 @@ a:active {
 .dseven {border-left: 25px solid #977652; background-color: #d8a975;} /* Day 7 */
 
 /* modal login start */
+body {font-family: Arial, Helvetica, sans-serif;}
 
   /* Full-width input fields */
   input[type=text], input[type=password], input[type=number] {
@@ -317,6 +318,21 @@ a:active {
 
   .close:hover,
   .close:focus {
+    color: red;
+    cursor: pointer;
+    outline:none;
+  }
+  .close2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close2:hover,
+  .close2:focus {
     color: red;
     cursor: pointer;
     outline:none;
@@ -511,7 +527,7 @@ a:active {
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                         <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%;">  
+                         <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%; max-height:300px">  
                      </div> 
                      <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
                               $kontestan = $data["profile_cha_1"][$counter]["notelp"];
@@ -550,8 +566,9 @@ a:active {
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
         </button>
-        <button style="top:50px; pointer-events:none" type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white; float:none; margin: auto 0; ">HAHAHA</span>
+
+        <button style="top:50px;" type="button" class="close" style="color:white">
+          <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none">HAHAHA</span>
         </button>
 
       </div>
@@ -576,8 +593,7 @@ a:active {
                 XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS 
                 is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces 
                 for many mobile applications.
-            </p>    
-            <div class="collapse" id="collapseExample">
+            
                 CSS is designed primarily to enable the separation of document content from document presentation, including aspects such as the layout, 
                 colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, 
                 enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.
@@ -589,8 +605,8 @@ a:active {
                 calculated and assigned to rules, so that the results are predictable.
                 The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS 
                 validation service for CSS documents.
-            </div>
-            <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
+            </p>
+                <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
                     Read More
             </a>
             <br><br>
@@ -612,7 +628,9 @@ a:active {
     @csrf
         <div class="container" style="background-color:#f1f1f1">
                 <h3>Vote</h3>
+                
         </div>
+        
         <div class="container">
             <div style="margin-right:30px; margin-left:30px">
                 <div class="row">
@@ -620,18 +638,20 @@ a:active {
                 </div>
                 <div class="row">
                     <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
+                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
                 </div>
                 <div class="row">
                     <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
+                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
                 </div>
             </div>
         </div>
+
         <div class="container" style="background-color:#f1f1f1">
             <div style="margin-right:30px; margin-left:16px">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" style="pointer-events">Vote</button>
+                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Mulai Vote</button>
+                <!-- <button  type="submit" style="pointer-events">Vote</button> -->
             </div>
         </div>
     </form>
