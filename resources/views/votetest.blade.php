@@ -560,19 +560,16 @@ body {
     <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="">
     </div>
     <!-- Button to Open the Modal -->
-    <!-- <div>
+    <div>
         <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right; background-color:#ea8a8a">Login</button>
-    </div> -->
+    </div>
     
     <div class="body-spacing"> <!-- body-spacing start -->
     
         <div>
-        <img src="images/balon.png" class="responsive" style="width:300px; height:auto; z-index:-1;" alt="">
-            <div style="position: absoute; left:60px;right:60px; top:-60px">
             <div class="embed-responsive embed-responsive-21by9">   
                 <!-- <iframe class="embed-responsive-item" width="100%"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> -->
                     <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
             </div>
         </div>
 

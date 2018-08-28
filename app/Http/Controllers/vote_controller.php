@@ -111,7 +111,7 @@ class vote_controller extends Controller
                     $data["cha_1"] = "kosong";
                 }
                 //  print_r($data["profile_cha_1"]);
-                 return view('votetest',compact('data'));
+                  return view('votetest',compact('data'));
     }
 
     /**
