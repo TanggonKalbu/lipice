@@ -623,76 +623,97 @@ body {
         <div class="embed-responsive embed-responsive-21by9 ">   
             <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-        <!-- card start -->
         <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 100%">
-            <div class="card-body"> <!-- card body start -->
-                <br>
-                <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
-                <br>
-                <div class="text-center">
-                    <button class="label2 done" style="margin-right:3px; margin-left:3px;">DAY <b>01</b></button>
-                    <button class="label2 dtwo" style="margin-right:3px; margin-left:3px;">DAY <b>02</b></button>
-                    <button class="label2 dthree" style="margin-right:3px; margin-left:3px;">DAY <b>03</b></button>
-                    <button class="label2 dfour" style="margin-right:3px; margin-left:3px;">DAY <b>04</b></button>
-                    <button class="label2 dfive" style="margin-right:3px; margin-left:3px;">DAY <b>05</b></button>
-                    <button class="label2 dsix" style="margin-right:3px; margin-left:3px;">DAY <b>06</b></button>
-                    <button class="label2 dseven" style="margin-right:3px; margin-left:3px;">DAY <b>07</b></button>
-                    
-                </div>
-                <br>
-                <br>
-                <!-- <a href="#">
-                    <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
-                    &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
-                </a> -->
-                <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
-                <div class="force-overflow"> 
-                    <div class="row justify-content-md-center">
-                    <?php if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
-                        <div class="col-md-3 space">
-                            <div class="row">
-                                <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
-                                <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
-                            </div>
-                            <div class="shadow-lg p-3 mb-4 bg-white rounded">
-                                <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%; max-height:300px">  
-                            </div> 
-                            <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
-                                    $kontestan = $data["profile_cha_1"][$counter]["notelp"];
-                                    $day = 29;
-                                ?>
-                            @if(Session::has('vote'))
-                            <div class="row space vt shadow-lg">
-                                <input type="hidden" id="voter" value="{{ Session::get('vote') }}">
-                                <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>', '<?php echo "jumlah".$counter ?>' )" >Ada session loh</button>
-                                <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                            </div>
-                            <?php $post[$counter] = "post".($counter+1)?>
-                                @else
-                                <div class="row space vt shadow-lg">
-                                <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                                <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                            </div>
-                            @endif
-                            
+    <div class="card-body"> <!-- card body start -->
+        <br>
+        <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
+        <br>
+        <div class="text-center">
+            <button class="label2 done" style="margin-right:3px; margin-left:3px;">DAY <b>01</b></button>
+            <button class="label2 dtwo" style="margin-right:3px; margin-left:3px;">DAY <b>02</b></button>
+            <button class="label2 dthree" style="margin-right:3px; margin-left:3px;">DAY <b>03</b></button>
+            <button class="label2 dfour" style="margin-right:3px; margin-left:3px;">DAY <b>04</b></button>
+            <button class="label2 dfive" style="margin-right:3px; margin-left:3px;">DAY <b>05</b></button>
+            <button class="label2 dsix" style="margin-right:3px; margin-left:3px;">DAY <b>06</b></button>
+            <button class="label2 dseven" style="margin-right:3px; margin-left:3px;">DAY <b>07</b></button>
             
-                        </div>
-                    <?php }} 
-                    ?>
-            
+        </div>
+        <br>
+        <br>
+        <!-- <a href="#">
+            <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
+            &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
+        </a> -->
+        <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
+        <div class="force-overflow"> 
+            <div class="row justify-content-md-center">
+            <?php $day = 2 ?>
+            <?php if($day!=28 && $day!=2) {
+                if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
+                <div class="col-md-3 space">
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
+                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                         <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%; max-height:300px">  
+                     </div> 
+                     <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
+                              $kontestan = $data["profile_cha_1"][$counter]["notelp"];
+                        ?>
+                     @if(Session::has('vote'))
+                     <div class="row space vt">
+                        <input type="hidden" id="voter" value="{{ Session::get('vote') }}">
+                        <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>', '<?php echo "jumlah".$counter ?>' )" >Ada session loh</button>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
+                    <?php $post[$counter] = "post".($counter+1)?>
+                        @else
+                        <div class="row space vt">
+                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
+                      @endif
                 </div>
-            </div>   
-            </div> <!-- card body end -->
-        </div> <!-- card end -->
-
- 
-
-
-    </div> <!-- body space end -->
-    <br><br><br>
-
-<!-- ===========MODAL============   -->
+            <?php }} }
+            else {  
+                if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
+                 <div class="col-md-3 space">
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
+                    </div>
+                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                    <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["cha_1"][$counter]["value"]["_id"] ?>/boomerang.mp4" frameborder="0" allowfullscreen></iframe>
+                     </div> 
+                     <?php $post = $data["cha_1"][$counter]["value"]["video"];
+                            $kontestan = $data["profile_cha_1"][$counter]["notelp"];
+                        ?>
+                     @if(Session::has('vote'))
+                     <div class="row space vt shadow-lg">
+                     <input type="hidden" id="voter" value="{{ Session::get('vote') }}">
+                        <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>', '<?php echo "jumlah".$counter ?>' )" >Ada session loh</button>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
+                    <?php $post[$counter] = "post".($counter+1)?>
+                        @else
+                        <div class="row space vt shadow-lg">
+                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
+                      @endif
+                </div>
+                <?php
+            }}
+            }
+            ?>
+    
+            </div>
+        </div>
+    </div>   
+    </div> <!-- card body end -->
+    </div> <!-- card end -->
+  <br><br><br>
 <!-- Modal About-->
 <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
