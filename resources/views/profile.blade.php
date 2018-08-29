@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile</title>
+    <link rel="icon" href="images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <link rel="stylesheet" href="/css/bootstrap-profile.min.css">
@@ -13,7 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
-{
+*{
     padding : 0;
     margin : 0;
     font-family: 'Montserrat', sans-serif;
@@ -24,6 +25,31 @@ body{
     padding-left: 5%;
     padding-top: 10%;
 }
+
+/* MAIN SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fb61ca; 
+    border-radius:15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+/* MAIN SCROLLBAR END */
+
+/* scrollbar start */
 .scrollbar {
     float: right;
     height: 800px;
@@ -487,6 +513,9 @@ textarea::placeholder{
     display:inline-block;
     padding:0 10px;
     }
+
+
+
 </style>
 </head>
 <body>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="images/callout-lipice.png">
     <title>Vote</title>
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -24,9 +25,11 @@
 
 body{
     background-color: #fbdee8;
-    padding-right:5%;
-    padding-left: 5%;
-    padding-top: 200px;
+}
+
+.body-space{
+    padding-right:3%;
+    padding-left: 3%;
 }
 
 
@@ -184,7 +187,7 @@ a:active {
 /* days challenge */
 .label2 {
     color: white;
-    padding: 15px;
+    padding: 10px;
     font-family: Arial;
     width:9%;
     font-size:1vw;
@@ -394,9 +397,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow: hidden; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    
 }
 
 /* Modal Content (image) */
@@ -479,37 +483,134 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .control-label .text-info { display:inline-block; color:black }
 /* modal image end */
+
+.responsive {
+    max-width: 100%;
+    height: auto;
+}
+.kanan-atas{
+    float:right;
+}
+
+.kiri-atas{
+    float:left;
+}
+
+.pdg-bottom{
+    padding-bottom: 2rem;
+}
+
+/* footer start */
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+@media screen and (max-width: 1100px) {
+  .medq {
+    font-size: 17px;
+    display:block;
+  }
+  .medqInput{
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .medq {
+    font-size: 16px;
+  }
+}@media screen and (max-width: 900px) {
+  .medq {
+    font-size: 15px;
+  }
+ 
+}
+@media screen and (max-width: 800px) {
+  .medq {
+    font-size: 12px;
+  }
+}
+
+/**
+ * Footer Styles
+ */
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.2rem;
+  background-color: white;
+  text-align: center;
+}
+
+/* footer end */
+
+/* MAIN SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fb61ca; 
+    border-radius:15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+/* MAIN SCROLLBAR END */
+
+.position-balon{
+    display:block; position:absolute; z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover; backgroud-position:right;
+}
 </style>
 </head>
 <body>
-<div>
-    <!-- <a onclick="coba()" class="btn btn-warning" style="width:auto">Edit</a> -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>   
+<div class="responsive"> <!-- =====START===== -->
 
-    <!-- Button to Open the Modal -->
-    <div>
-        <a  href="/remove" style="width:auto; float:right; background-color:#ea8a8a">Login</a>
-    </div>
-  
-    <div class="embed-responsive embed-responsive-21by9 ">   
-        <!-- <iframe class="embed-responsive-item" width="100%"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> -->
+    <!-- buah atas -->
+    
+        <img src="images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:-1">
+        <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:-1">
+        <!-- <div style="margin-top:70px;"> -->
+        <img src="images/callout-lipice.png" class="responsive" alt="" style="" style="width:300px; padding-top:100px">
+        <img src="images/summercamp.png" class="responsive" alt="" style="width:300px;">
+    <!-- </div> -->
+    <img src="images/balon.png" class="responsive position-balon" alt="" style="">
+    
+    <!-- <a onclick="coba()" class="btn btn-warning" style="width:auto">Edit</a> -->
+
+    <div class="body-space pdg-bottom"> <!-- body space start -->
+        <!-- Button to Open the Modal -->
+        <div>
+            <a  href="/remove" style="width:auto; float:right; background-color:#ea8a8a">Login</a>
+        </div>
+    
+        <div class="embed-responsive embed-responsive-21by9 ">   
             <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-    <!-- card start -->
-    <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 100%">
-    <div class="card-body"> <!-- card body start -->
-        <br>
-        <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
-        <br>
-        <div class="text-center">
-            <button class="label2 done" style="margin-right:3px; margin-left:3px;">DAY <b>01</b></button>
-            <button class="label2 dtwo" style="margin-right:3px; margin-left:3px;">DAY <b>02</b></button>
-            <button class="label2 dthree" style="margin-right:3px; margin-left:3px;">DAY <b>03</b></button>
-            <button class="label2 dfour" style="margin-right:3px; margin-left:3px;">DAY <b>04</b></button>
-            <button class="label2 dfive" style="margin-right:3px; margin-left:3px;">DAY <b>05</b></button>
-            <button class="label2 dsix" style="margin-right:3px; margin-left:3px;">DAY <b>06</b></button>
-            <button class="label2 dseven" style="margin-right:3px; margin-left:3px;">DAY <b>07</b></button>
-            
         </div>
         <br>
         <br>
@@ -637,7 +738,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </p>
                 <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
                     Read More
-            </a>
+                </a>
             <br><br>
         </div> <!-- div about end-->
       </div><!-- modal footer start-->
@@ -646,11 +747,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
   </div>
 </div>
 <!-- Modal About End -->
-   <!-- Modal Login START -->    
-   
-    <!-- Modal Login END -->
-<!-- Modal Verification Start -->
 
+<!-- Modal Verification Start -->
 <div id="id02" class="modall">
     
     <form class="modall-content animate" method="post" action="{{url('votesession')}}" enctype="multipart/form-data" >
@@ -694,7 +792,45 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div id="caption"></div>
 </div>
 <!-- modal image end -->
-</div>
+<!-- ===========MODAL END============   -->
+
+    <div class="pdg-bottom" style="">
+        <p style="text-align:center; font-size:20pt;" ><b>#LIPICE7DAYSCHALLENGE</b></p>
+        <p style="text-align:center;font-size: 18pt;"><b>SUMMER CAMP TIMELINE</b></p>
+        <br>
+        <p style="text-align:center; font-size:15pt; padding-right:10%; padding-left:10%;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod eget nunc a cursus. Vestibulum quis ipsum est. Etiam mollis scelerisque suscipit. Sed eleifend neque metus. In lacus arcu, luctus et sagittis commodo, consequat eget nisi. Duis non ex semper, ultricies nisl nec, hendrerit mauris. Sed suscipit ut sapien in vehicula. Ut lacinia bibendum rhoncus. Nam augue augue, mollis sed tincidunt quis, pellentesque eget enim. Suspendisse eleifend eu lectus in vestibulum. Nulla efficitur, elit et convallis malesuada, est nunc malesuada nulla, cursus eleifend mauris nunc id sapien. Donec condimentum nunc eget tellus imperdiet, vitae lobortis dolor suscipit. Fusce mattis, nisl vitae porttitor interdum, justo est ultricies risus, nec fermentum urna est ac lectus. Praesent varius accumsan ante eget consectetur. Suspendisse velit justo, malesuada vitae vulputate id, tincidunt ut neque. Cras sed vehicula libero.
+        </p>
+    </div>
+
+    <div class="inline-block pdg-bottom"> <!-- timeline start -->
+        <table style="width:100%; z-index:-1;">
+            <tr>
+                <th class="col-xs|sm|md|lg|xl-4">
+                    <img src="images/kiri.png" class="responsive" alt="" style="float:left;margin-top:300px; z-index:-1;">
+                </th>
+                <th></th>
+                <th class="col-xs|sm|md|lg|xl-4">
+                    <img src="images/timeline.png" class="responsive" alt="" style="display:block; margin:0 auto; z-index:-1;">
+                </th>
+                <th class="col-xs|sm|md|lg|xl-4">
+                    <div style="width:100%">
+                    <img src="images/kanan.png" class="responsive a" alt="" style="float:right;margin-top:-520px; z-index:-1;">
+                    </div>
+                </th>
+            </tr>
+        </table>      
+    </div> <!-- timeline end -->
+   
+
+<!-- footer -->
+<div class="footer" style="z-index:-1; padding-bottom:15px">
+    <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+    <img src="images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
+    <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+</div>  
+<br>
+</div> <!-- =====END===== -->
 
 <!-- script collapse start -->
 <script>
