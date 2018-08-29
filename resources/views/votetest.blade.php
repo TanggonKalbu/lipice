@@ -612,6 +612,22 @@ body {
         <div class="embed-responsive embed-responsive-21by9 ">   
             <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
+
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 100%">
+    <div class="card-body"> <!-- card body start -->
+        <br>
+        <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
+        <br>
+        <div class="text-center">
+            <button class="label2 done" style="margin-right:3px; margin-left:3px;" onclick="cekday()">DAY <b>01</b></button>
+            <button class="label2 dtwo" style="margin-right:3px; margin-left:3px;" onclick="cekday()">DAY <b>02</b></button>
+            <button class="label2 dthree" style="margin-right:3px; margin-left:3px;" onclick="cekday()">DAY <b>03</b></button>
+            <button class="label2 dfour" style="margin-right:3px; margin-left:3px;" onclick="cekday()">DAY <b>04</b></button>
+            <button class="label2 dfive" style="margin-right:3px; margin-left:3px;" onclick="cekday()">DAY <b>05</b></button>
+            <button class="label2 dsix" style="margin-right:3px; margin-left:3px;" onclick="cekday()">DAY <b>06</b></button>
+            <button class="label2 dseven" style="margin-right:3px; margin-left:3px;" onclick="cekday()">DAY <b>07</b></button>
+            
+        </div>
         <br>
         <br>
         <!-- <a href="#">
@@ -736,9 +752,6 @@ body {
                 The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS 
                 validation service for CSS documents.
             </p>
-                <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
-                    Read More
-                </a>
             <br><br>
         </div> <!-- div about end-->
       </div><!-- modal footer start-->
@@ -1058,7 +1071,10 @@ var jumlah;
       console.log(error);
     });
   };
+ 
+ var cekday = function(){
 
+ }
     
   </script>
 </body>

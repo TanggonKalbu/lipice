@@ -27,10 +27,75 @@ limitations under the License.
 </head>
 <body>
 <div>
-<video width="320" height="240" controls loop autoplay>
-  <source src="http://159.65.139.254:5984/lipice/869999ee44c2ef3202a6fa489504156d/profile.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+  <!-- Header section containing title -->
+  <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
+    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+      <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-desktop">
+        <a href="/"><h3>Firebase Authentication</h3></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="mdl-layout__content mdl-color--grey-100">
+    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+
+      <!-- Container for the demo -->
+      <div id="sign-in-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+        <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
+          <h2 class="mdl-card__title-text">Phone number authentication with invisible ReCaptcha</h2>
+        </div>
+        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <p>Sign in with your phone number below.</p>
+
+          <form id="sign-in-form" action="#">
+            <!-- Input to enter the phone number -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" pattern="\+[0-9\s\-\(\)]+" id="phone-number">
+              <label class="mdl-textfield__label" for="phone-number">Enter your phone number...</label>
+              <span class="mdl-textfield__error">Input is not an international phone number!</span>
+            </div>
+
+            <!-- Sign-in button -->
+            <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="sign-in-button">Sign-in</button>
+          </form>
+
+          <!-- Button that handles sign-out -->
+          <button class="mdl-button mdl-js-button mdl-button--raised" id="sign-out-button">Sign-out</button>
+
+          <form id="verification-code-form" action="#">
+            <!-- Input to enter the verification code -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="verification-code">
+              <label class="mdl-textfield__label" for="verification-code">Enter the verification code...</label>
+            </div>
+
+            <!-- Button that triggers code verification -->
+            <input type="submit" class="mdl-button mdl-js-button mdl-button--raised" id="verify-code-button" value="Verify Code"/>
+            <!-- Button to cancel code verification -->
+            <button class="mdl-button mdl-js-button mdl-button--raised" id="cancel-verify-code-button">Cancel</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Container for the sign in status and user info -->
+      <div  id="user-details-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+        <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
+          <h2 class="mdl-card__title-text">User sign-in status</h2>
+        </div>
+        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <!-- Container where we'll display the user details -->
+          <div class="user-details-container">
+            Firebase sign-in status: <span id="sign-in-status">Unknown</span>
+            <div>Firebase auth <code>currentUser</code> object value:</div>
+            <pre><code id="account-details">null</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>>
 </div>
 
 <!-- Import and configure the Firebase SDK -->
