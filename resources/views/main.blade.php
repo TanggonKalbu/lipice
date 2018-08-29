@@ -5,6 +5,7 @@
     <link rel="icon" href="images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>   
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -29,8 +30,9 @@ body{
   border-radius:30px;
   float:right;
   background-color:#df930e;
-}
-
+  width: auto;
+  padding: 10px 18px;
+  }
 .submit {
   color:white;
   border-radius:30px;
@@ -259,6 +261,178 @@ body {
     float:right; margin-top:-100px; z-index:1;
     }
 }
+
+/* modal login start */
+body {font-family: Arial, Helvetica, sans-serif;}
+
+  /* Full-width input fields */
+  input[type=text], input[type=password], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border: 1px solid #ea8a8a;
+  }
+
+  /* Set a style for all buttons */
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight:bold;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+  }
+
+  .cancelbtn:focus{
+    outline:none;
+  }
+
+   .loginbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #ea8a8a;
+  }
+
+  .loginbtn:focus{
+    outline: none;
+  }
+
+  .sendbtn{
+    float:left; width: auto; padding: 10px 18px;
+  }
+
+  .sendbtn:focus{
+    outline: none;
+  }
+
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+
+  /* The Modal (background) */
+  .modall {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+
+  /* Modal Content/Box */
+  .modall-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+  }
+
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+    outline:none;
+  }
+  .close2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close2:hover,
+  .close2:focus {
+    color: red;
+    cursor: pointer;
+    outline:none;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+     -webkit-appearance: none; 
+     margin: 0; 
+  }
+  .grecaptcha-badge {
+    opacity:0;
+}
+ 
+
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+/* modal login end */
+
 </style>
 
 </head>
@@ -386,7 +560,7 @@ body {
             </div>
         </div>
 
-        <div class="form-group row">
+        <!-- <div class="form-group row">
             <label class="control-label col-sm-3 medqInput" for="comment">Kode Validasi Nomor Telepon <b style="color:red;">*</b></label>
             <div class="col-md-3"> 
                 <input class="form-control" type="text" id="verificationcode" >
@@ -394,16 +568,16 @@ body {
             <div class="col-md-2"> 
                 <button class="btn submit" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; display:none">Submit Kode</button>
             </div>                    
-        </div>
+        </div> -->
 
-        <div class="form-group row">
+        <!-- <div class="form-group row">
             <div class="col-sm-3"></div>
             <div class="col-md-2">
                 <button class="btn btn-info medqInput" type="button" id="button-kirim" style=" float:left; display:none ">Kirim Kode Verifikasi</button> 
             </div>
-        </div>
-        <br><br>
-        <button type="submit" id="btnSubmit" class="btn warn btn-lg medqInput" onclick="document.getElementById('id02').style.display='block'" disabled>Submit</button>           
+        </div> -->
+        <br>
+        <button type="button" id="btnSubmit" class="btn warn btn-lg medqInput" onclick="document.getElementById('id02').style.display='block'" >Submit</button>           
         </form>
 
         </div>
@@ -448,28 +622,29 @@ body {
     <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
 </div>  
 <br>
+
 <!-- Modal Verification Start -->
 <div id="id02" class="modall">
     
     <form class="modall-content animate" method="post" action="{{url('votesession')}}" enctype="multipart/form-data" >
     @csrf
         <div class="container" style="background-color:#f1f1f1">
-                <h3>Vote</h3>
+                <h3>Register</h3>
                 
         </div>
         
         <div class="container">
             <div style="margin-right:30px; margin-left:30px">
                 <div class="row">
-                    <label for="vercode"><b>Validasi no Telepon</b></label>
+                    <label for="vercode"><b>Masukkan kode validasi</b></label>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
                     <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
-                </div>
+                </div> -->
                 <div class="row">
-                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
+                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;" placeholder="Kode Verifikasi">
+                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;">Submit Kode</button>
                 </div>
             </div>
         </div>
@@ -477,18 +652,31 @@ body {
         <div class="container" style="background-color:#f1f1f1">
             <div style="margin-right:30px; margin-left:16px">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Mulai Vote</button>
+                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Register</button>
                 <!-- <button  type="submit" style="pointer-events">Vote</button> -->
             </div>
         </div>
     </form>
 </div>
 <!-- Modal Verification end -->
+
+
 </div> <!-- Div Utama END -->
 
 
 
 <!-- ==========SCRIPT========== -->
+<script>
+// Get the modal
+var modal = document.getElementById('id02');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal ) {
+        modal.style.display = "none";
+    } 
+}
+
+</script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>

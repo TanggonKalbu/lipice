@@ -589,8 +589,12 @@ body {
 
 
 .logo{
-    width:160px; padding-top:50px; margin-right:1%;
+    width:160px; padding-top:40px; margin-right:1%;margin-bottom:10px;
 }
+.summercamp{
+    width:290px; padding-top:40px; margin-bottom:10px;
+}
+
 .position-balon{
     display:block; position:absolute; 
     z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
@@ -607,8 +611,9 @@ body {
         <img src="images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:-1">
         <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:-1">
         <!-- <div style="margin-top:70px;"> -->
-        <img src="images/callout-lipice.png" class="responsive logo" alt="" style="">
-        <img src="images/summercamp.png" class="responsive" alt="" style="width:300px;">
+        <img src="/images/callout-lipice.png" class="responsive logo" alt="">
+        &nbsp;&nbsp;
+        <img src="/images/summercamp.png" class="responsive summercamp" alt="">
     <!-- </div> -->
     <img src="images/balon.png" class="responsive position-balon" alt="" style="">
     
@@ -640,10 +645,7 @@ body {
         </div>
         <br>
         <br>
-        <!-- <a href="#">
-            <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
-            &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
-        </a> -->
+
         <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
         <div class="force-overflow"> 
             <div class="row justify-content-md-center">
@@ -710,115 +712,117 @@ body {
     
             </div>
         </div>
+        </div>
     </div>   
     </div> <!-- card body end -->
     </div> <!-- card end -->
-  <br><br><br>
-<!-- Modal About-->
-<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header2">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
-        </button>
+  <br><br><br>  
 
-        <button style="top:50px;" type="button" class="close" style="color:white">
-          <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none">HAHAHA</span>
-        </button>
+    <!-- Modal About-->
+    <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header2">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
+            </button>
 
-      </div>
-      <div class="modal-body"> <!-- modal body start-->
-        <img src="/images/a.jpeg" alt="Avatar" class="imground">
-        <br>
-        <div clas="row" style="text-align:center;"> <!-- div sosmed-->
-            <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
-            <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
-            <a href="" class="sosmed"><i class="fab fa-facebook-square"></i></a> 
-            
-        </div> <!-- div sosmed end-->
-        
-      </div> <!-- modal body end-->
+            <button style="top:50px;" type="button" class="close" style="color:white">
+            <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none">HAHAHA</span>
+            </button>
 
-      <div class="modal-footer"> <!-- modal footer start-->
-         <div class="abt"> <!-- div about-->
-            <p>
-            <h1>What is CSS?</h1>
-                Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.
-                Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any 
-                XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS 
-                is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces 
-                for many mobile applications.
-            
-                CSS is designed primarily to enable the separation of document content from document presentation, including aspects such as the layout, 
-                colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, 
-                enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.
-                Separation of formatting and content makes it possible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, 
-                by voice (via speech-based browser or screen reader), and on Braille-based tactile devices. It can also display the web page differently depending on the screen size or viewing device. 
-                Readers can also specify a different style sheet, such as a CSS file stored on their own computer, to override the one the author specified.
-                Changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in the CSS file they use, rather than by changing markup in the documents.
-                The CSS specification describes a priority scheme to determine which style rules apply if more than one rule matches against a particular element. In this so-called cascade, priorities (or weights) are 
-                calculated and assigned to rules, so that the results are predictable.
-                The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS 
-                validation service for CSS documents.
-            </p>
-                <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
-                    Read More
-                </a>
-            <br><br>
-        </div> <!-- div about end-->
-      </div><!-- modal footer start-->
-
-    </div>
-  </div>
-</div>
-<!-- Modal About End -->
-
-<!-- Modal Verification Start -->
-<div id="id02" class="modall">
-    
-    <form class="modall-content animate" method="post" action="{{url('votesession')}}" enctype="multipart/form-data" >
-    @csrf
-        <div class="container" style="background-color:#f1f1f1">
-                <h3>Vote</h3>
+        </div>
+        <div class="modal-body"> <!-- modal body start-->
+            <img src="/images/a.jpeg" alt="Avatar" class="imground">
+            <br>
+            <div clas="row" style="text-align:center;"> <!-- div sosmed-->
+                <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
+                <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
+                <a href="" class="sosmed"><i class="fab fa-facebook-square"></i></a> 
                 
+            </div> <!-- div sosmed end-->
+            
+        </div> <!-- modal body end-->
+
+        <div class="modal-footer"> <!-- modal footer start-->
+            <div class="abt"> <!-- div about-->
+                <p>
+                <h1>What is CSS?</h1>
+                    Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.
+                    Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any 
+                    XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS 
+                    is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces 
+                    for many mobile applications.
+                
+                    CSS is designed primarily to enable the separation of document content from document presentation, including aspects such as the layout, 
+                    colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, 
+                    enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.
+                    Separation of formatting and content makes it possible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, 
+                    by voice (via speech-based browser or screen reader), and on Braille-based tactile devices. It can also display the web page differently depending on the screen size or viewing device. 
+                    Readers can also specify a different style sheet, such as a CSS file stored on their own computer, to override the one the author specified.
+                    Changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in the CSS file they use, rather than by changing markup in the documents.
+                    The CSS specification describes a priority scheme to determine which style rules apply if more than one rule matches against a particular element. In this so-called cascade, priorities (or weights) are 
+                    calculated and assigned to rules, so that the results are predictable.
+                    The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS 
+                    validation service for CSS documents.
+                </p>
+                    <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
+                        Read More
+                    </a>
+                <br><br>
+            </div> <!-- div about end-->
+        </div><!-- modal footer start-->
+
         </div>
+    </div>
+    </div>
+    <!-- Modal About End -->
+
+    <!-- Modal Verification Start -->
+    <div id="id02" class="modall">
         
-        <div class="container">
-            <div style="margin-right:30px; margin-left:30px">
-                <div class="row">
-                    <label for="vercode"><b>Validasi no Telepon</b></label>
-                </div>
-                <div class="row">
-                    <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
-                </div>
-                <div class="row">
-                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
+        <form class="modall-content animate" method="post" action="{{url('votesession')}}" enctype="multipart/form-data" >
+        @csrf
+            <div class="container" style="background-color:#f1f1f1">
+                    <h3>Vote</h3>
+                    
+            </div>
+            
+            <div class="container">
+                <div style="margin-right:30px; margin-left:30px">
+                    <div class="row">
+                        <label for="vercode"><b>Validasi no Telepon</b></label>
+                    </div>
+                    <div class="row">
+                        <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
+                        <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
+                    </div>
+                    <div class="row">
+                        <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
+                        <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container" style="background-color:#f1f1f1">
-            <div style="margin-right:30px; margin-left:16px">
-                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Mulai Vote</button>
-                <!-- <button  type="submit" style="pointer-events">Vote</button> -->
+            <div class="container" style="background-color:#f1f1f1">
+                <div style="margin-right:30px; margin-left:16px">
+                    <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                    <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Mulai Vote</button>
+                    <!-- <button  type="submit" style="pointer-events">Vote</button> -->
+                </div>
             </div>
-        </div>
-    </form>
-</div>
-<!-- Modal Verification end -->
+        </form>
+    </div>
+    <!-- Modal Verification end -->
 
-<!-- modal image -->
-<div id="myModal" class="modal">
-  <span class="closeimg">&times;</span>
-  <img class="modal-content-img" id="img01" >
-  <div id="caption"></div>
-</div>
-<!-- modal image end -->
-<!-- ===========MODAL END============   -->
+    <!-- modal image -->
+    <div id="myModal" class="modal">
+    <span class="closeimg">&times;</span>
+    <img class="modal-content-img" id="img01" >
+    <div id="caption"></div>
+    </div>
+    <!-- modal image end -->
+    <!-- ===========MODAL END============   -->
 
     <div class="pdg-bottom" style="">
         <p style="text-align:center; font-size:20pt;" ><b>#LIPICE7DAYSCHALLENGE</b></p>
