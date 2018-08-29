@@ -37,8 +37,9 @@
                 <thead>
                     <tr>
                         <th>Day</th>
-                        <th>Date</th>
                         <th>Challenge</th>
+                        <th>Status Post</th>
+                        <th>Status Vote</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -47,22 +48,15 @@
                 <?php for($a=0;$a<count($data["challenge"]);$a++){?>
                     <tr>
                         <td>Day <?php echo $a+1 ?></td>
-                        <td>
-                            <?php echo $data["challenge"][$a]["value"]["tgl"];?> 
-                        </td>
-                        <td>
-                        <?php echo $data["challenge"][$a]["value"]["konten "];
-                        $id = $data["challenge"][$a]["value"]["day"];
-                        ?> 
-                            <!-- <select class="form-control" name="challenge_<?php echo $a ?>" id="">
-                                <option value="1">Video</option>
-                                <option value="2">Gambar</option>
-                            </select> -->
-                            
-                        </td>
-                        <td>
-                            <a href="{{action('adminchallenge_controller@edit', $id)}}" class="btn btn-info" > Edit
-                        </td>
+                        <td><?php echo $data["challenge"][$a]["value"]["konten"];?></td>
+                        <td><?php echo $data["challenge"][$a]["value"]["stat_post"];
+                             $day = $data["challenge"][$a]["value"]["day"];
+                        ?></td>
+                        <td><?php echo $data["challenge"][$a]["value"]["stat_vote"];?></td>
+                        <td><a href="/confirm_post/{{$day}}" class="btn btn-info" > post</a>
+                        <a href="/confirm_vote/{{$day}}" class="btn btn-primary" > vote</a>
+                        <a href="/reset_confirm/{{$day}}" class="btn btn-danger" > reset</a>
+                         </td>
                     </tr>
                 <?php }?>
                 </tbody>
