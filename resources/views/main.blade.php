@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    
 
 </head>
  <body>
@@ -388,7 +389,7 @@ body {
 
         <div class="form-group row">
             <label class="control-label col-sm-3 medqInput" for="comment">Kode Validasi Nomor Telepon <b style="color:red;">*</b></label>
-            <div class="col-md-2"> 
+            <div class="col-md-3"> 
                 <input class="form-control" type="text" id="verificationcode" >
             </div>
             <div class="col-md-2"> 
@@ -403,13 +404,13 @@ body {
             </div>
         </div>
         <br><br>
-        <button type="submit" id="btnSubmit" class="btn warn btn-lg medqInput" disabled>Submit</button>           
+        <button type="submit" id="btnSubmit" class="btn warn btn-lg medqInput" onclick="document.getElementById('id02').style.display='block'" disabled>Submit</button>           
         </form>
 
         </div>
         </div>
     </div>
-    <br><br><br>
+    <br><br><br><br><br>
 
 
     <div class="pdg-bottom" style="">
@@ -448,8 +449,43 @@ body {
     <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
 </div>  
 <br>
+<!-- Modal Verification Start -->
+<div id="id02" class="modall">
+    
+    <form class="modall-content animate" method="post" action="{{url('votesession')}}" enctype="multipart/form-data" >
+    @csrf
+        <div class="container" style="background-color:#f1f1f1">
+                <h3>Vote</h3>
+                
+        </div>
+        
+        <div class="container">
+            <div style="margin-right:30px; margin-left:30px">
+                <div class="row">
+                    <label for="vercode"><b>Validasi no Telepon</b></label>
+                </div>
+                <div class="row">
+                    <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
+                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
+                </div>
+                <div class="row">
+                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
+                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <div style="margin-right:30px; margin-left:16px">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Mulai Vote</button>
+                <!-- <button  type="submit" style="pointer-events">Vote</button> -->
+            </div>
+        </div>
+    </form>
 </div>
-<!-- End Save for Web Slices -->
+<!-- Modal Verification end -->
+</div> <!-- Div Utama END -->
 
 
 

@@ -48,6 +48,9 @@ Route::get('/login', function () {
   return view('login');
 });
 
+Route::get('/berhasil', function () {
+  return view('berhasil');
+});
 
 
 

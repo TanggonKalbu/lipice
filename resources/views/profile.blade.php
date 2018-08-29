@@ -21,9 +21,33 @@
 }
 body{
     background-color: #fbdee8;
+   
+}
+
+.space-body{
     padding-right: 5%;
     padding-left: 5%;
-    padding-top: 10%;
+}
+
+
+.position-balon{
+    display:block; position:absolute; z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover; backgroud-position:right;
+}
+
+.responsive {
+    max-width: 100%;
+    height: auto;
+}
+.kanan-atas{
+    float:right;
+}
+
+.kiri-atas{
+    float:left;
+}
+
+.pdg-bottom{
+    padding-bottom: 2rem;
 }
 
 /* MAIN SCROLLBAR */
@@ -515,26 +539,111 @@ textarea::placeholder{
     }
 
 
+/* footer start */
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+@media screen and (max-width: 1100px) {
+  .medq {
+    font-size: 17px;
+    display:block;
+  }
+  .medqInput{
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .medq {
+    font-size: 16px;
+  }
+}@media screen and (max-width: 900px) {
+  .medq {
+    font-size: 15px;
+  }
+ 
+}
+@media screen and (max-width: 800px) {
+  .medq {
+    font-size: 12px;
+  }
+}
+
+/**
+ * Footer Styles
+ */
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.2rem;
+  background-color: white;
+  text-align: center;
+}
+
+.logo{
+    width:160px; padding-top:40px; margin-right:1%;margin-bottom:10px;
+}
+.summercamp{
+    width:290px; padding-top:40px; margin-bottom:10px;
+}
+}
+.position-balon{
+    display:block; position:absolute; 
+    z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
+    margin-top:-110px;
+    margin-left:100px;
+}
+/* footer end */
 </style>
 </head>
 <body>
-    <div>
+<div class="responsive"> <!-- start -->
+
+
+    
+         <!-- buah atas -->
+        <img src="/images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:1; margin:20px;">
+        <img src="/images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:1">
+        <!-- <div style="margin-top:70px;"> -->
+        <img src="/images/callout-lipice.png" class="responsive logo" alt="">
+        &nbsp;&nbsp;
+        <img src="/images/summercamp.png" class="responsive summercamp" alt="">
+        <!-- </div> -->
+        <img src="/images/balon.png" class="responsive position-balon" alt="" style="">
+
+    <div class="space-body">
     @if (\Session::has('success'))
       <div class="alert alert-success">
         <p>{{ \Session::get('success') }}</p>
       </div><br />
      @endif
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="card">
-                <div class="card-body">
+    <div class="row"> <!-- row start -->
+
+        <div class="col-sm-3"> <!-- col-sm-3 start -->
+            <div class="card"> <!-- card start -->
+                <div class="card-body"> <!-- card body -->
                     <!-- button edit -->
                     <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen">&nbsp; Edit</i></label>
-                   
                     <!-- button edit end --> 
 
-                <form id="myForm" class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
+                    <form id="myForm" class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
                     @csrf                
                     <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
                              
@@ -543,9 +652,9 @@ textarea::placeholder{
                              <!-- button change photo profile -->
                             <div class="file-upload input-group mb-3" style="display:none" id="uploadbtn">
                                 <div class="file-select">
-                                <div class="file-select-button" id="fileName">Choose File</div>
-                                <div class="file-select-name" id="noFile">No file chosen...</div> 
-                                <input type="file" name="fileToUpload" id="chooseFile">
+                                    <div class="file-select-button" id="fileName">Choose File</div>
+                                    <div class="file-select-name" id="noFile">No file chosen...</div> 
+                                    <input type="file" name="fileToUpload" id="chooseFile">
                                 </div>
                             </div>
                         </div> 
@@ -571,48 +680,34 @@ textarea::placeholder{
                         </div>
 
                         <div class="input-group mb-3" id="input-nama-div" style="display:none">
-                            <input type="text" name="nama" id="input-nama" style="border:none;text-align:center;display:"value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>" class="form-control inpp" placeholder="Nama" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <input type="text" name="nama" id="input-nama" style="text-align:center;"value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>" class="form-control inpp" placeholder="Nama" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
                         <div class="input-group mb-3">
-                        <input name="_method" type="hidden" value="PATCH">
-                        <input type="hidden" id="rev" name="rev" value="<?php echo $data["profile"]["rows"][0]["value"]["_rev"]?>">
-                        <?php $img = 'http://159.65.139.254:5984/lipice/'.$data["profile"]["rows"][0]["value"]["_id"].'/profile.png'?>
-                        <input type="hidden" id="img" name="img" value="<?php echo ($img)?>">
-                        <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
-                        <input type="hidden" id="about" name="about" value="<?php echo $data["profile"]["rows"][0]["value"]["about"]?>">
-                        <input type="hidden" id="tempatlahir" name="tempatlahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tempatlahir"]?>">
-                        <input type="hidden" id="email" name="email" value="<?php echo $data["profile"]["rows"][0]["value"]["email"]?>">
-                        <input type="hidden" id="tgllahir" name="tgllahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tgllahir"]?>">
-                        <input type="hidden" id="alasan" name="alasan" value="<?php echo $data["profile"]["rows"][0]["value"]["alasan"]?>">
-                        <input type="hidden" id="umur" name="umur" value="<?php echo $data["profile"]["rows"][0]["value"]["umur"]?>">
-
-                        
-                        <input disabled id="input-kota" type="text" name="kota" id="myCity" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>" placeholder="kota"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <!-- <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" onclick="myFcity()"><i class="fas fa-pen"></i></button>
-                        </div> -->
+                            <input name="_method" type="hidden" value="PATCH">
+                            <input type="hidden" id="rev" name="rev" value="<?php echo $data["profile"]["rows"][0]["value"]["_rev"]?>">
+                            <?php $img = 'http://159.65.139.254:5984/lipice/'.$data["profile"]["rows"][0]["value"]["_id"].'/profile.png'?>
+                            <input type="hidden" id="img" name="img" value="<?php echo ($img)?>">
+                            <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
+                            <input type="hidden" id="about" name="about" value="<?php echo $data["profile"]["rows"][0]["value"]["about"]?>">
+                            <input type="hidden" id="tempatlahir" name="tempatlahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tempatlahir"]?>">
+                            <input type="hidden" id="email" name="email" value="<?php echo $data["profile"]["rows"][0]["value"]["email"]?>">
+                            <input type="hidden" id="tgllahir" name="tgllahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tgllahir"]?>">
+                            <input type="hidden" id="alasan" name="alasan" value="<?php echo $data["profile"]["rows"][0]["value"]["alasan"]?>">
+                            <input type="hidden" id="umur" name="umur" value="<?php echo $data["profile"]["rows"][0]["value"]["umur"]?>">
+                            <input disabled id="input-kota" type="text" name="kota" id="myCity" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>" placeholder="kota"  aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
                         <div class="input-group mb-3">
-                        <input disabled id="input-ig" type="text" name="linkig" id="myIg" value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>" class="form-control inpp" placeholder="your instagram" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <!-- <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" onclick="myFig()"><i class="fas fa-pen"></i></button>
-                        </div> -->
+                            <input disabled id="input-ig" type="text" name="linkig" id="myIg" value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>" class="form-control inpp" placeholder="your instagram" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
                         <div class="input-group mb-3">
-                        <input disabled id="input-youtube" type="text" name="linkyoutube" id="myUtube" value="<?php echo $data["profile"]["rows"][0]["value"]["linkyoutube"]?>" class="form-control inpp" placeholder="your Youtube" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <!-- <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" onclick="myFutube()"><i class="fas fa-pen"></i></button>
-                        </div> -->
+                            <input disabled id="input-youtube" type="text" name="linkyoutube" id="myUtube" value="<?php echo $data["profile"]["rows"][0]["value"]["linkyoutube"]?>" class="form-control inpp" placeholder="your Youtube" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
 
                         <div class="input-group mb-3">
-                        <input disabled id="input-fb" type="text" id="myFb" name="linkfb" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>"  placeholder="your Facebook" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <!-- <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" onclick="myFfb()"><i class="fas fa-pen"></i></button>
-                        </div> -->
+                            <input disabled id="input-fb" type="text" id="myFb" name="linkfb" class="form-control inpp" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>"  placeholder="your Facebook" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         </div>
                         
                         <button type="submit" style="display:none" id="btn-submit" class="btn-default mb-2 button">SAVE</button>
@@ -629,151 +724,156 @@ textarea::placeholder{
                              button: "oke",
                             }).then((konfirmasi) => {
                                 if (konfirmasi) {
-                                     $('#myForm').submit();
-                                        } else {  
-                                            $('#myForm').submit();
-                                           }
-                                           });
-                                        });
-                             </script>
-                         </div>
+                                    $('#myForm').submit();
+                                } else {  
+                                    $('#myForm').submit();
+                                }
+                                   });
+                            });
+                    </script>
+                </div> <!-- card body end -->
+            </div> <!-- card end -->
+        </div> <!-- col-sm-3 start -->
+
+        <div class="col-sm-9"> <!-- col-sm-9 start -->
+            <div class="card content"> <!-- card content start -->
+            <div class="card-body">
+                <h5 style="text-align:left;">About</h5>
+                <form method="post" action="{{action('about_controller@update', $notelp)}}" enctype="multipart/form-data" >
+                    @csrf
+                    <input name="_method" type="hidden" value="PATCH">
+                    <input type="hidden" id="rev" name="rev" value="<?php echo $data["profile"]["rows"][0]["value"]["_rev"]?>">
+                    <?php $img = 'http://159.65.139.254:5984/lipice/'.$data["profile"]["rows"][0]["value"]["_id"].'/profile.png'?>
+                    <input type="hidden" id="img" name="img" value="<?php echo ($img)?>">
+                    <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
+                    <input type="hidden" id="nama" name="nama" value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>">
+                    <input type="hidden" id="kota" name="kota" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>">
+                    <input type="hidden" id="linkig" name="linkig" value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>">
+                    <input type="hidden" id="linkfb" name="linkfb" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>">
+                    <input type="hidden" id="linkyoutube" name="linkyoutube" value="<?php echo $data["profile"]["rows"][0]["value"]["linkyoutube"]?>">
+                    <input type="hidden" id="tempatlahir" name="tempatlahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tempatlahir"]?>">
+                    <input type="hidden" id="email" name="email" value="<?php echo $data["profile"]["rows"][0]["value"]["email"]?>">
+                    <input type="hidden" id="tgllahir" name="tgllahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tgllahir"]?>">
+                    <input type="hidden" id="alasan" name="alasan" value="<?php echo $data["profile"]["rows"][0]["value"]["alasan"]?>">
+                    <input type="hidden" id="umur" name="umur" value="<?php echo $data["profile"]["rows"][0]["value"]["umur"]?>">
+                    <textarea id="input-about" onclick="editabout()" name="about" placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
+                    <button id="save-dua" type="submit"  class="btn-default mb-2 button" style="float:right;display:none">SAVE</button>
+                </form>
+                <br><br><br><br>
+                    <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
+                        <!-- <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline"> -->
+            <?php 
+            $day = 28;
+            
+            if($day == 28 || $day == 31) { ?>
+            <form method="post" action="{{url('cha_video')}}" enctype="multipart/form-data" class="form-inline"> 
+                @csrf
+               
+                <div class="form-group mb-2">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Day 1
+                        </button>
                     </div>
                 </div>
-            <div class="col-sm-9">
-                <div class="card content">
-                <div class="card-body">
-                    <h5 style="text-align:left;">About</h5>
-                        <form method="post" action="{{action('about_controller@update', $notelp)}}" enctype="multipart/form-data" >
-                        @csrf
-                        <input name="_method" type="hidden" value="PATCH">
-                        <input type="hidden" id="rev" name="rev" value="<?php echo $data["profile"]["rows"][0]["value"]["_rev"]?>">
-                        <?php $img = 'http://159.65.139.254:5984/lipice/'.$data["profile"]["rows"][0]["value"]["_id"].'/profile.png'?>
-                        <input type="hidden" id="img" name="img" value="<?php echo ($img)?>">
-                        <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
-                        <input type="hidden" id="nama" name="nama" value="<?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?>">
-                        <input type="hidden" id="kota" name="kota" value="<?php echo $data["profile"]["rows"][0]["value"]["kota"]?>">
-                        <input type="hidden" id="linkig" name="linkig" value="<?php echo $data["profile"]["rows"][0]["value"]["linkig"]?>">
-                        <input type="hidden" id="linkfb" name="linkfb" value="<?php echo $data["profile"]["rows"][0]["value"]["linkfb"]?>">
-                        <input type="hidden" id="linkyoutube" name="linkyoutube" value="<?php echo $data["profile"]["rows"][0]["value"]["linkyoutube"]?>">
-                        <input type="hidden" id="tempatlahir" name="tempatlahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tempatlahir"]?>">
-                        <input type="hidden" id="email" name="email" value="<?php echo $data["profile"]["rows"][0]["value"]["email"]?>">
-                        <input type="hidden" id="tgllahir" name="tgllahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tgllahir"]?>">
-                        <input type="hidden" id="alasan" name="alasan" value="<?php echo $data["profile"]["rows"][0]["value"]["alasan"]?>">
-                        <input type="hidden" id="umur" name="umur" value="<?php echo $data["profile"]["rows"][0]["value"]["umur"]?>">
-                        <textarea id="input-about" onclick="editabout()" name="about" placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
-                        <button id="save-dua" type="submit"  class="btn-default mb-2 button" style="float:right;display:none">SAVE</button>
-                    </form>
-                    <br><br><br><br>
-                        <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
-                            <!-- <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline"> -->
-                <?php 
-                $day = 28;
-                
-                if($day == 28 || $day == 31) { ?>
-                <form method="post" action="{{url('cha_video')}}" enctype="multipart/form-data" class="form-inline"> 
-                    @csrf
-                   
-                        <div class="form-group mb-2">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Day 1
-                            </button>
-                            <div>
-                            </div>
-                            <div class="" aria-labelledby="dropdownMenuButton">
-                         
-                            </div>
-                        </div>
-                    </div>
+              
                 <div class="form-group mx-sm-4 mb-1">
-                            <!-- button upload video -->    
-                        <div class="file-upload2">
-                            <div class="file-select2">
-                                <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
-                                <div class="file-select-button2" id="fileName">Choose File</div>
-                                <div class="file-select-name2" id="noFile2">No file chosen...</div> 
-                                <input type="file" name="uploadVideo" accept="video/mp4" id="chooseVideo">
-                            </div>
-                        </div>
-
-                        </div>
-                        <button type="submit" class="btn-default mb-2 button">SAVE</button>
-                    </form>
-                <?php } else{?>
-                    <form method="post" action="/add/{{$day}}" enctype="multipart/form-data" class="form-inline"> 
-                    @csrf
-                   
-                    <div class="form-group mb-2">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Day <?php echo $day - 26 ;?>
-                            </button>
-                            <div>
-                            </div>
-                            <div class="" aria-labelledby="dropdownMenuButton">
-                         
-                            </div>
+                        <!-- button upload video -->    
+                    <div class="file-upload2">
+                        <div class="file-select2">
+                            <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
+                            <div class="file-select-button2" id="fileName">Choose File</div>
+                            <div class="file-select-name2" id="noFile2">No file chosen...</div> 
+                            <input type="file" name="uploadVideo" accept="video/mp4" id="chooseVideo">
                         </div>
                     </div>
+                </div>
+
+                <button type="submit" class="btn-default mb-2 button">SAVE</button>
+            </form>
+            <?php } else{?>
+            <form method="post" action="/add/{{$day}}" enctype="multipart/form-data" class="form-inline"> 
+                @csrf
+                
+                <div class="form-group mb-2">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Day <?php echo $day - 26 ;?>
+                        </button>
+                    </div>
+                </div>
                 <div class="form-group mx-sm-4 mb-1">
                 <!-- button upload video -->    
-                        <label for="linkupload" class="sr-only">Linkupload</label>
-                        <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
-                        <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
+                    <label for="linkupload" class="sr-only">Linkupload</label>
+                    <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
+                    <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
                 </div>
-                        <button type="submit" class="btn-default mb-2 button">SAVE</button>
-                    </form>
-                <?php }; ?>
+                    <button type="submit" class="btn-default mb-2 button">SAVE</button>
+            </form>
+            <?php }; ?>
+                <br><br>
+                <div> <!-- photo entry start -->
+                <h5 style="text-align:left;">Your Photo Enteries</h5>
+                <div class="scrollbar scrollbar-primary"><br>
+                    <div class="force-overflow">
+                        <div class="row">
+                        <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
+                            <div class="col-md-3">
+                                <div class="shadow-lg p-2 mb-5 bg-white rounded">
+                                    <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
+                                </div> 
+                            </div>
+                        <?php } }?>
+                        </div>
+                    </div>
+                </div>   
+                </div>
 
-                    <br><br>
-                    <div>
-                    <h5 style="text-align:left;">Your Photo Enteries</h5>
-                    <div class="scrollbar scrollbar-primary"><br>
-                        <div class="force-overflow">
-                            <div class="row">
-                            <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
-                                <div class="col-md-3">
-                                    <div class="shadow-lg p-2 mb-5 bg-white rounded">
-                                        <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
-                                    </div> 
-                                </div>
+                <br><br><br>
+
+                <div> <!-- video entry start -->
+                <h5 style="text-align:left;">Your Video Enteries</h5>
+                <div class="scrollbar scrollbar-primary"><br>
+                    <div class="force-overflow">
+                        <div class="row">
+                        <?php if($data["video"]!= "kosong"){ for($counter =0;$counter < count($data["video"]["rows"]);$counter++) { ?>
+                            <div class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                    <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe> 
+                                </div> 
+                            </div>
                             <?php } }?>
-                            </div>
                         </div>
                     </div>
-                        
-                    </div>
-                    <br><br><br>
-                    <div>
-                    <h5 style="text-align:left;">Your Video Enteries</h5>
-                    <div class="scrollbar scrollbar-primary"><br>
-                        <div class="force-overflow">
-                            <div class="row">
-                            <?php if($data["video"]!= "kosong"){ for($counter =0;$counter < count($data["video"]["rows"]);$counter++) { ?>
-                                <div class="col-sm-6 col-md-4 col-lg-3">
-                                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                                        <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe> 
-                                    </div> 
-                                </div>
-                                <?php } }?>
-                               
-                                
-                            </div>
-                        </div>
-                    </div>
+                </div>
                 </div>
             </div>
-        </div>
+            </div> <!-- card content start -->
+        </div> <!-- col-sm-9 end -->
+        
+    </div><!-- row end -->
     </div>
-</div>
-        <br><br><br><br>
-    
+        <br><br><br><br><br><br>
+
+<!-- footer -->
+<div class="footer" style="z-index:-1; padding-bottom:15px">
+    <img src="/images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+    <img src="/images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
+    <img src="/images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+</div>  
+
+
+<!-- modal image -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
     </div>
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01">
-  <div id="caption"></div>
+<!-- modal image end -->
+
+
 </div>
+
 
 <script>
 // change button

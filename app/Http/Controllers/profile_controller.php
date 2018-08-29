@@ -74,7 +74,7 @@ class profile_controller extends Controller
 
     public function index()
     {
-        return redirect("/votetest");
+        return redirect("/vote");
     }
     /**
      * Show the form for creating a new resource.

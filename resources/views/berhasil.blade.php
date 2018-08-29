@@ -85,7 +85,7 @@ h1{
     
     <div class="col">
         <div class="centered">
-            <h1>Maaf, kamu belum terdaftar.</h1>
+            <h1>Selamat, Registrasi telah berhasil.<br> Nantikan event kita selanjutnya.</h1>
         </div>
     </div>
    
