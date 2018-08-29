@@ -322,6 +322,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
     cursor: pointer;
     outline:none;
   }
+  .close2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close2:hover,
+  .close2:focus {
+    color: red;
+    cursor: pointer;
+    outline:none;
+  }
   input[type=number]::-webkit-inner-spin-button, 
   input[type=number]::-webkit-outer-spin-button { 
      -webkit-appearance: none; 
@@ -481,7 +496,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <!-- <iframe class="embed-responsive-item" width="100%"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> -->
             <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
-
     <!-- card start -->
     <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 100%">
     <div class="card-body"> <!-- card body start -->
@@ -504,7 +518,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
             <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
             &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
         </a> -->
-       
         <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
         <div class="force-overflow"> 
             <div class="row justify-content-md-center">
@@ -517,53 +530,35 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                          <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%; max-height:300px">  
                      </div> 
+                     <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
+                              $kontestan = $data["profile_cha_1"][$counter]["notelp"];
+                              $day = 29;
+                        ?>
                      @if(Session::has('vote'))
-
-                     
                      <div class="row space vt">
                      <input type="hidden" id="voter" value="{{ Session::get('vote') }}">
-                        <input type="hidden" id="kontestan" value="<?php echo $data["profile_cha_1"][$counter]["notelp"] ?>">
-                        <input type="hidden" id="post" value="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>">
-                        <input type="hidden" id="day" value="1">
-                        <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
-                              $kontestan = $data["profile_cha_1"][$counter]["notelp"];
-                              $day = 1;
-                        ?>
-                        <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>' )" >Ada session loh</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                        <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>', '<?php echo "jumlah".$counter ?>' )" >Ada session loh</button>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                     <?php $post[$counter] = "post".($counter+1)?>
-                   
                         @else
                         <div class="row space vt">
                         <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                       @endif
+                    
     
                 </div>
             <?php }} 
             ?>
-
-               
-                
+    
             </div>
         </div>
-        </div>
-
-
-
-
-
-
-        
+    </div>   
     </div> <!-- card body end -->
     </div> <!-- card end -->
-
-    <br><br><br>
-
-
-
+  <br><br><br>
 <!-- Modal About-->
 <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -573,8 +568,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
           <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
         </button>
 
-        <button style="top:50px; pointer-events:none" type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white; float:none; margin: auto 0; ">HAHAHA</span>
+        <button style="top:50px;" type="button" class="close" style="color:white">
+          <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none">HAHAHA</span>
         </button>
 
       </div>
@@ -647,8 +642,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
                 </div>
                 <div class="row">
-                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="" style="float:left; width: auto; padding: 10px 18px;display:">Submit Kode</button>
+                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
+                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
                 </div>
             </div>
         </div>
@@ -656,8 +651,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <div class="container" style="background-color:#f1f1f1">
             <div style="margin-right:30px; margin-left:16px">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Vote</button>
-                <button  type="submit" style="pointer-events">Vote</button>
+                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Mulai Vote</button>
+                <!-- <button  type="submit" style="pointer-events">Vote</button> -->
             </div>
         </div>
     </form>
@@ -675,6 +670,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <!-- script collapse start -->
 <script>
+
 $(document).ready(function() {
   $("#toggle").click(function() {
     var elem = $("#toggle").text();
@@ -711,27 +707,7 @@ window.onclick = function(event) {
 }
 
 </script>
-<!-- <script>
 
-// function coba(){
-//     var notelp = "912321812"
-//     var settings = {
-//     "async": true,
-//     "crossDomain": true,
-//     "url": 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/profile?key="'+notelp+'"',
-//     "method": "GET",
-//     "headers": {
-//     "content-type": "application/json"
-//     },
-//     "processData": false,
-//     "data": ""
-//     }
-//     $.ajax(settings).done(function (response) {
-//         console.log(response);
-// });
-// }
-
-</script> -->
 <script>
 var modal = document.getElementById('myModal');
 var imc = document.querySelectorAll("#myImg");
@@ -745,20 +721,26 @@ for(a=0;a<imc.length;a++){
     }
 }
 
-
-
 var span = document.getElementsByClassName("closeimg")[0];
 span.onclick = function() { 
     modal.style.display = "none";
 }
 </script>
 
+
+
+    
+   
+
+
 <script> 
 var post;
 var voter;
 var kontestan;
 var day;
- function vote(post,kontestan,voter,day){
+var jumlah;
+
+ function vote(post,kontestan,voter,day,jumlah){
             var settings = {
             "async": true,
             "crossDomain": true,
@@ -784,8 +766,21 @@ var day;
                     "data": '{\n\t\"type\" :\"vote\",\n\t\"voter\" : \"'+voter+'\",\n\t\"kontestan\" :\"'+kontestan+'\",\n\t\"day\" : \"'+day+'\",\n\t\"konten\": \"'+post+'\"\n}'
             }
             $.ajax(settings).done(function (response) {
-                window.location.href = '/remove';
-            
+                var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/jumlah_vote?key=["'+kontestan+'","'+day+'"]',
+                "method": "GET",
+                "headers": {
+                "content-type": "application/json"
+                },
+                "processData": false,
+                "data": ""
+                }
+                $.ajax(settings).done(function (response) {
+                document.getElementById(jumlah).innerHTML = response.rows[0].value + " " + '<i class="fa fa-heart love" aria-hidden="true"></i>' ;
+                });
+                
              });
             }
             else {
@@ -793,7 +788,10 @@ var day;
             }
          });
     }
+
     </script>
+
+
 
     
 <script>

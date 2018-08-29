@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <title>LIPICE</title>
-    <link rel="icon" href="/images/callout-lipice.png">
+    <link rel="icon" href="images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -366,7 +366,7 @@ body {
                 <input class="form-control" type="text" id="verificationcode" >
             </div>
             <div class="col-md-2"> 
-                <button class="btn submit" type="button" id="button-kode" onclick="myFunction()" style="float:left; display:none">Submit Kode</button>
+                <button class="btn submit" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; display:none">Submit Kode</button>
             </div>                    
         </div>
 
@@ -407,7 +407,9 @@ body {
                     <img src="images/timeline.png" class="responsive" alt="" style="display:block; margin:0 auto; z-index:-1;">
                 </th>
                 <th class="col-xs|sm|md|lg|xl-4">
-                    <img src="images/kanan.png" class="responsive" alt="" style="float:right; margin-top:-520px;">
+                    <div style="width:100%">
+                    <img src="images/kanan.png" class="responsive a" alt="" style="float:right;margin-top:-580px; z-index:-1;">
+                    </div>
                 </th>
             </tr>
         </table>      

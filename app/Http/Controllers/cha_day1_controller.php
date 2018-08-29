@@ -34,6 +34,11 @@ class cha_day1_controller extends Controller
      */
     public function store(Request $request)
     {
+
+    }
+
+
+    public function add_cha(Request $request, $day) {
         $notelp = $request->get('notelp');
         $link = $request->get('upload');
         $curl = curl_init();
@@ -46,7 +51,7 @@ class cha_day1_controller extends Controller
           CURLOPT_TIMEOUT => 30,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS => "{\n  \"type\": \"challenge\",\n  \"day\" :\"1\",\n  \"notelp\": \"$notelp\",\n  \"link\" : \"$link\"\n}",
+          CURLOPT_POSTFIELDS => "{\n  \"type\": \"challenge\",\n  \"day\" :\"$day\",\n  \"notelp\": \"$notelp\",\n  \"link\" : \"$link\"\n}",
           CURLOPT_HTTPHEADER => array(
             "content-type: application/json"
           ),
@@ -59,8 +64,10 @@ class cha_day1_controller extends Controller
         } else {
             return redirect('/profile/'.$notelp.'/edit/');
         }
+       
     }
 
+   
     /**
      * Display the specified resource.
      *

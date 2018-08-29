@@ -41,6 +41,34 @@ class vote_controller extends Controller
 
     }
 
+    public function jumlah_vote($kontestan, $day) {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+        CURLOPT_PORT => "5984",
+        CURLOPT_URL => 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/jumlah_vote?key=["'.$kontestan.'","'.$day.'"]',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_POSTFIELDS => "",
+        CURLOPT_HTTPHEADER => array(
+        "content-type: application/json"
+        ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            return $response;
+        }
+
+
+    }
+
     public function challenge($day) {
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -95,23 +123,29 @@ class vote_controller extends Controller
     }
 
     public function index()
-    {
-        
-        for($day =1 ;$day<=7;$day++) {
-            $data[$day] = json_decode($this->challenge($day),TRUE)["rows"];
-        }
-        if($data[1] != null){
-            for($counter =0 ; $counter < count($data[1]); $counter++) {
-                $url = $data[1][$counter]["value"]["link"];
-                $telp = $data[1][$counter]["value"]["notelp"];
-                $data["cha_1"][$counter] = json_decode($this->gambar($url), TRUE);
-                $data["profile_cha_1"][$counter] = json_decode($this->profile($telp),TRUE)["rows"][0]["value"]; 
+    {   
+        $day = 29;
+       ($data[1] = json_decode($this->challenge($day),TRUE)["rows"]);
+        if($data[1] == null){
+            $data["cha_1"] = "kosong";
+         }
+            else {
+                for($counter =0 ; $counter < count($data[1]); $counter++) {
+
+                    $url = $data[1][$counter]["value"]["link"];
+                    $telp = $data[1][$counter]["value"]["notelp"];
+                    $data["cha_1"][$counter] = json_decode($this->gambar($url), TRUE);
+                    $data["profile_cha_1"][$counter] = json_decode($this->profile($telp),TRUE)["rows"][0]["value"];
+                    if(json_decode($this->jumlah_vote($telp,$day),TRUE)["rows"]==null) {
+                        $data["jumlahvote"][$counter] = 0;
+                    }
+                    else {
+                        $data["jumlahvote"][$counter]  = json_decode($this->jumlah_vote($telp,$day),TRUE)["rows"][0]["value"];
+                    }
                  }
-                }else {
-                    $data["cha_1"] = "kosong";
-                }
-                //  print_r($data["profile_cha_1"]);
-                  return view('votetest',compact('data'));
+            
+            }
+            return view('votetest',compact('data'));
     }
 
     /**
@@ -152,9 +186,29 @@ class vote_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($day)
     {
-        //
+        ($data[1] = json_decode($this->challenge($day),TRUE)["rows"]);
+        if($data[1] == null){
+            $data["cha_1"] = "kosong";
+         }
+            else {
+                for($counter =0 ; $counter < count($data[1]); $counter++) {
+
+                    $url = $data[1][$counter]["value"]["link"];
+                    $telp = $data[1][$counter]["value"]["notelp"];
+                    $data["cha_1"][$counter] = json_decode($this->gambar($url), TRUE);
+                    $data["profile_cha_1"][$counter] = json_decode($this->profile($telp),TRUE)["rows"][0]["value"];
+                    if(json_decode($this->jumlah_vote($telp,$day),TRUE)["rows"]==null) {
+                        $data["jumlahvote"][$counter] = 0;
+                    }
+                    else {
+                        $data["jumlahvote"][$counter]  = json_decode($this->jumlah_vote($telp,$day),TRUE)["rows"][0]["value"];
+                    }
+                 }
+            
+            }
+            return view('votetest',compact('data'));
     }
 
     /**

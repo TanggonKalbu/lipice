@@ -25,6 +25,7 @@ Route::resource('cha_video','cha_video_controller');
 Route::resource('vote','vote_controller');
 Route::resource('votesession','votesession_controller');
 Route::get('/remove','votesession_controller@delete');
+Route::post('/add/{day}','cha_day1_controller@add_cha');
 Route::get('/form', function () {
   return view('form');
 });

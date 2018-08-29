@@ -637,43 +637,65 @@ textarea::placeholder{
                     <br><br><br><br>
                         <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
                             <!-- <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline"> -->
-                              <form method="post" action="{{url('cha_video')}}" enctype="multipart/form-data" class="form-inline"> 
+                <?php 
+                $day = 28;
+                
+                if($day == 28 || $day == 31) { ?>
+                <form method="post" action="{{url('cha_video')}}" enctype="multipart/form-data" class="form-inline"> 
                     @csrf
                    
                         <div class="form-group mb-2">
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btn-secondary dropdown dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Day 1
                             </button>
                             <div>
-                            
                             </div>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Day 1</a>
-                                <a class="dropdown-item" href="#">Day 2</a>
-                                <a class="dropdown-item" href="#">Day 3</a>
-                                <a class="dropdown-item" href="#">Day 4</a>
-                                <a class="dropdown-item" href="#">Day 5</a>
-                                <a class="dropdown-item" href="#">Day 6</a>
-                                <a class="dropdown-item" href="#">Day 7</a>
-                            </div>
+                            <div class="" aria-labelledby="dropdownMenuButton">
+                         
                             </div>
                         </div>
-                        <div class="form-group mx-sm-4 mb-1">
-                        
-                            <!-- button upload video -->
-                            <div class="file-upload2">
+                    </div>
+                <div class="form-group mx-sm-4 mb-1">
+                            <!-- button upload video -->    
+                        <div class="file-upload2">
                             <div class="file-select2">
                                 <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
                                 <div class="file-select-button2" id="fileName">Choose File</div>
                                 <div class="file-select-name2" id="noFile2">No file chosen...</div> 
                                 <input type="file" name="uploadVideo" accept="video/mp4" id="chooseVideo">
                             </div>
-                            </div>
+                        </div>
 
                         </div>
                         <button type="submit" class="btn-default mb-2 button">SAVE</button>
                     </form>
+                <?php } else{?>
+                    <form method="post" action="/add/{{$day}}" enctype="multipart/form-data" class="form-inline"> 
+                    @csrf
+                   
+                    <div class="form-group mb-2">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Day <?php echo $day - 26 ;?>
+                            </button>
+                            <div>
+                            </div>
+                            <div class="" aria-labelledby="dropdownMenuButton">
+                         
+                            </div>
+                        </div>
+                    </div>
+                <div class="form-group mx-sm-4 mb-1">
+                <!-- button upload video -->    
+                        <label for="linkupload" class="sr-only">Linkupload</label>
+                        <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
+                        <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
+                </div>
+                        <button type="submit" class="btn-default mb-2 button">SAVE</button>
+                    </form>
+                <?php }; ?>
+
                     <br><br>
                     <div>
                     <h5 style="text-align:left;">Your Photo Enteries</h5>

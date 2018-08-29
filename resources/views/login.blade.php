@@ -236,8 +236,6 @@ input[type=number]::-webkit-outer-spin-button {
             btnkirimkode.classList.add("disabled");
             btnkirimkode.style.pointerEvents = 'none';
         }
-
-        console.log("haha");
     }
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
@@ -259,38 +257,54 @@ input[type=number]::-webkit-outer-spin-button {
     });
     recaptchaVerifier.render().then(function(widgetId) {
     window.recaptchaWidgetId = widgetId;
-
     });
 
-  var submit = function(){
-    var telpv = "+62"+inputhp.value;
-    var appVerifier = window.recaptchaVerifier;
-    firebase
-    .auth()
-    .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
-    .then(function(confirmationResult) {
-        window.confirmationResult = confirmationResult;
-        console.log("good");
-        btnkirimkode.classList.add("disabled");
-        btnkirimkode.style.pointerEvents = 'none';
-        btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
-        setTimeout(kirimulang, 5000);
-        btnlogin.classList.remove("disabled");
-        btnlogin.style.pointerEvents = '';
-        function kirimulang(){
-            btnkirimkode.classList.remove("disabled");
-            btnkirimkode.style.pointerEvents = '';
-        }
+    var submit = function(){
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/profile?key="'+inputhp.value+'"',
+    "method": "GET",
+    "headers": {
+    "content-type": "application/json"
+    },
+    "processData": false,
+    "data": ""
+    }
+    $.ajax(settings).done(function (response) {
+        if(response.rows==''){
+            window.alert('Nomor Tidak Terdaftar');
+        }else {
+            var telpv = "+62"+inputhp.value;
+            var appVerifier = window.recaptchaVerifier;
+            firebase
+            .auth()
+            .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
+            .then(function(confirmationResult) {
+                window.confirmationResult = confirmationResult;
+                console.log("good");
+                btnkirimkode.classList.add("disabled");
+                btnkirimkode.style.pointerEvents = 'none';
+                btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
+                setTimeout(kirimulang, 5000);
+                btnlogin.classList.remove("disabled");
+                btnlogin.style.pointerEvents = '';
+                function kirimulang(){
+                    btnkirimkode.classList.remove("disabled");
+                    btnkirimkode.style.pointerEvents = '';
+                }
 
-    })
-    .catch(function (error) {
-            // Error; SMS not sent
-            console.error('Terjadi Kesalahan :', error);
-            window.alert('Error during signInWithPhoneNumber:\n\n'
-                + error.code + '\n\n');
-            btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
-            btnkirimkode.classList.remove("disabled");
-        });
+            })
+            .catch(function (error) {
+                    // Error; SMS not sent
+                    console.error('Terjadi Kesalahan :', error);
+                    window.alert('Error during signInWithPhoneNumber:\n\n'
+                        + error.code + '\n\n');
+                    btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
+                    btnkirimkode.classList.remove("disabled");
+            });
+        }
+    }); 
   }
 
   var myFunction = function() {
@@ -298,7 +312,7 @@ input[type=number]::-webkit-outer-spin-button {
     .then(function(result) {
         window.alert('Konfirmasi Kode Berhasil');
         console.log("success");
-        //langsung halaman login ee ndek kene url e!!!!!!!!!!!!!
+        window.location.href = "/profile/"+inputhp.value+"/edit";
     }, function(error) {
         window.alert('Terjadi Kesalahan :\n\n'
                 + error.code + '\n\n' + error.message);
