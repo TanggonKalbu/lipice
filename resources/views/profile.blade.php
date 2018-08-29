@@ -31,7 +31,10 @@ body{
 
 
 .position-balon{
-    display:block; position:absolute; z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover; backgroud-position:right;
+    display:block; position:absolute; 
+    z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
+    margin-top:-110px;
+    margin-left:100px;
 }
 
 .responsive {
@@ -603,7 +606,7 @@ body {
 .summercamp{
     width:290px; padding-top:40px; margin-bottom:10px;
 }
-}
+
 .position-balon{
     display:block; position:absolute; 
     z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
@@ -619,7 +622,7 @@ body {
 
     
          <!-- buah atas -->
-        <img src="/images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:1; margin:20px;">
+        <img src="/images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:1;">
         <img src="/images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:1">
         <!-- <div style="margin-top:70px;"> -->
         <img src="/images/callout-lipice.png" class="responsive logo" alt="">

@@ -5,10 +5,12 @@
     <link rel="icon" href="images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>    
 
 </head>
  <body>
@@ -30,8 +32,9 @@ body{
   border-radius:30px;
   float:right;
   background-color:#df930e;
-}
-
+  width: auto;
+  padding: 10px 18px;
+  }
 .submit {
   color:white;
   border-radius:30px;
@@ -260,6 +263,178 @@ body {
     float:right; margin-top:-100px; z-index:1;
     }
 }
+
+/* modal login start */
+body {font-family: Arial, Helvetica, sans-serif;}
+
+  /* Full-width input fields */
+  input[type=text], input[type=password], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border: 1px solid #ea8a8a;
+  }
+
+  /* Set a style for all buttons */
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight:bold;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+  }
+
+  .cancelbtn:focus{
+    outline:none;
+  }
+
+   .loginbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #ea8a8a;
+  }
+
+  .loginbtn:focus{
+    outline: none;
+  }
+
+  .sendbtn{
+    float:left; width: auto; padding: 10px 18px;
+  }
+
+  .sendbtn:focus{
+    outline: none;
+  }
+
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+
+  /* The Modal (background) */
+  .modall {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+
+  /* Modal Content/Box */
+  .modall-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+  }
+
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+    outline:none;
+  }
+  .close2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close2:hover,
+  .close2:focus {
+    color: red;
+    cursor: pointer;
+    outline:none;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+     -webkit-appearance: none; 
+     margin: 0; 
+  }
+  .grecaptcha-badge {
+    opacity:0;
+}
+ 
+
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+/* modal login end */
+
 </style>
 
 </head>
@@ -338,7 +513,7 @@ body {
             </div>
             <div class="form-group col-md-2">
 
-            <select name="bln" id="bulan" class="form-control medqInput" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a;"> 
+            <select name="bln" id="bulan" class="form-control medqInput" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a; margin-top:7px;"> 
                 <option value="1">Januari</option>
                 <option value="2">Februari</option>
                 <option value="3">Maret</option>
@@ -369,25 +544,28 @@ body {
         <div class="form-group row">
             <label for="ig" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">LINK AKUN INSTAGRAM<b style="color:red;">*</b></p></label>
             <div class="col-sm-9">
-                <input type="text" name="linkig" class="form-control" id="ig" required onkeyup="capt()">
+                <input type="text" name="linkig" class="form-control" id="ig" required onkeyup="capt(); cekig()">
+                <span class="fa fa-check-circle" style="color:green; display:none" id="icon-aktif"> Link Instagram Aktif</span>
+                <span class="fa fa-times-circle" style="color:red; display:none" id="icon-nonaktif"> Link Instagram Tidak Aktif</span>
+
             </div>
         </div>
 
         <div class="form-group row">
             <label for="fb" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">LINK AKUN FACEBOOK</p></label>
             <div class="col-sm-9">
-                <input type="text" name="linkfb" class="form-control" id="fb" onkeyup="capt()">
+                <input type="text" name="linkfb" class="form-control" id="fb" >
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-3 medqInput" for="comment"><p style="display:inline-block;">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE</p> </label>
-            <div class="col-sm-9"> 
-                <textarea class="form-group" name="alasan" rows="5" id="alasan" onkeyup="capt()"></textarea>
+            <label class="control-label col-sm-3 medqInput" for="comment"><p style="display:inline-block;">ALASAN MENGIKUTI <br> #LIPICE7DAYSCHALLENGE<b style="color:red;">*</b></p></label>
+            <div class="col-sm-9" style="display:block"> 
+                <textarea class="form-group" name="alasan" rows="5" id="alasan" required onkeyup="capt()"></textarea>
             </div>
         </div>
 
-        <div class="form-group row">
+        <!-- <div class="form-group row">
             <label class="control-label col-sm-3 medqInput" for="comment">Kode Validasi Nomor Telepon <b style="color:red;">*</b></label>
             <div class="col-md-3"> 
                 <input class="form-control" type="text" id="verificationcode" >
@@ -395,16 +573,50 @@ body {
             <div class="col-md-2"> 
                 <button class="btn submit" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; display:none">Submit Kode</button>
             </div>                    
-        </div>
+        </div> -->
 
-        <div class="form-group row">
+        <!-- <div class="form-group row">
             <div class="col-sm-3"></div>
             <div class="col-md-2">
                 <button class="btn btn-info medqInput" type="button" id="button-kirim" style=" float:left; display:none ">Kirim Kode Verifikasi</button> 
             </div>
+        </div> -->
+        <br>
+        <button type="button" id="button-kirim" class="btn warn btn-lg medqInput" onclick="document.getElementById('id02').style.display='block'" style="pointer-events:none">Submit</button>           
+        <div id="id02" class="modall">
+    
+    <div class="modall-content animate">
+        <div class="container" style="background-color:#f1f1f1">
+                <h3>Register</h3>
+                
         </div>
-        <br><br>
-        <button type="submit" id="btnSubmit" class="btn warn btn-lg medqInput" onclick="document.getElementById('id02').style.display='block'" disabled>Submit</button>           
+        
+        <div class="container">
+            <div style="margin-right:30px; margin-left:30px">
+                <div class="row">
+                    <label for="vercode"><b>Masukkan kode validasi</b></label>
+                </div>
+                <!-- <div class="row">
+                    <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
+                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
+                </div> -->
+                <div class="row">
+                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;" placeholder="Kode Verifikasi">
+                    <button class="btn-success" type="button" id="btn-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;">Submit Kode</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <div style="margin-right:30px; margin-left:16px">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                <button  type="submit" id="button-register" class="loginbtn" style="display:none">Register</button>
+                <!-- <button  type="submit" style="pointer-events">Vote</button> -->
+            </div>
+        </div>
+    </div>
+    
+</div>
         </form>
 
         </div>
@@ -449,49 +661,30 @@ body {
     <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
 </div>  
 <br>
-<!-- Modal Verification Start -->
-<div id="id02" class="modall">
-    
-    <form class="modall-content animate" method="post" action="{{url('votesession')}}" enctype="multipart/form-data" >
-    @csrf
-        <div class="container" style="background-color:#f1f1f1">
-                <h3>Vote</h3>
-                
-        </div>
-        
-        <div class="container">
-            <div style="margin-right:30px; margin-left:30px">
-                <div class="row">
-                    <label for="vercode"><b>Validasi no Telepon</b></label>
-                </div>
-                <div class="row">
-                    <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
-                </div>
-                <div class="row">
-                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
-                </div>
-            </div>
-        </div>
 
-        <div class="container" style="background-color:#f1f1f1">
-            <div style="margin-right:30px; margin-left:16px">
-                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Mulai Vote</button>
-                <!-- <button  type="submit" style="pointer-events">Vote</button> -->
-            </div>
-        </div>
-    </form>
-</div>
+<!-- Modal Verification Start -->
+
 <!-- Modal Verification end -->
+
+
 </div> <!-- Div Utama END -->
 
 
 
 <!-- ==========SCRIPT========== -->
+<script>
+// Get the modal
+var modal = document.getElementById('id02');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal ) {
+        modal.style.display = "none";
+    } 
+}
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+</script>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script>
@@ -499,19 +692,20 @@ body {
         var email = document.getElementById("email");
         var kota = document.getElementById("kota");
         var tgl = document.getElementById("tgl");
+        var bulan = document.getElementById("bulan");
         var tahun = document.getElementById("tahun");
         var telp = document.getElementById("telp");
         var ig = document.getElementById("ig");
-        var fb = document.getElementById("fb");
         var alasan = document.getElementById("alasan");
-        var buttons = document.getElementById("btnSubmit");
+        var buttonkirim = document.getElementById("button-kirim");
         var buttonkode = document.getElementById("button-submit-kode");
+        var buttonregister = document.getElementById("button-register");
 
     function capt() {
-        if(nama.value!='' && email.value!='' && kota.value!='' && tgl.value!='' && tahun.value!='' && telp.value!='' && ig.value!='' && fb.value!=''&& alasan.value!=''){
-            document.getElementById("button-kirim").style.display = '';
+        if(nama.value!='' && email.value!='' && kota.value!='' && tgl.value!='' && tahun.value!='' && telp.value!='' && ig.value!='' && alasan.value!=''){
+            buttonkirim.style.pointerEvents = '';
         }else{
-            buttons.disabled= true;
+            buttonkirim.style.pointerEvents = 'none';
         } 
     }
 </script>
@@ -549,7 +743,6 @@ body {
         document.getElementById("button-kirim").disabled = true;
         document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
         setTimeout(kirimulang, 5000);
-        buttonkode.style.display = '';
         function kirimulang(){
             document.getElementById("button-kirim").disabled = false;
         }
@@ -572,7 +765,7 @@ body {
     .then(function(result) {
         window.alert('Konfirmasi Kode Berhasil');
         console.log("success");
-        buttons.disabled = false;
+        buttonregister.style.display = "";
     }, function(error) {
         window.alert('Terjadi Kesalahan :\n\n'
                 + error.code + '\n\n' + error.message);
@@ -580,6 +773,40 @@ body {
       console.log(error);
     });
   };
+  </script>
+  <script>
+
+
+var cekig = function(){
+var namaig = ig.value;
+var length = ig.value.length;
+var usernameig = namaig.substring(1, length);
+var alamatig = 'https://www.instagram.com/';
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": alamatig+usernameig,
+    "method": "GET",
+    "headers": {
+        "cookie": "rur=PRN; urlgen=%22%7B%5C%22203.128.93.3%5C%22%3A%2018103%7D%3A1fv2Ch%3AzBNbW49WSECQlVjpPoDz2FbcUtk%22; mid=W4TWhwAEAAH9JLkMVVB2649o6bMN; mcd=3; csrftoken=uVzzs61ysBrBt3tMUge36pSbhhd7rMhi"
+    }
+}
+console.log(usernameig)
+$.ajax(settings).done(function (response) {
+  if(response !=''){
+      if(ig.value!=''){
+            document.getElementById("icon-nonaktif").style.display = 'none';
+            document.getElementById("icon-aktif").style.display = '';
+      }
+    document.getElementById("icon-nonaktif").style.display = 'none';
+  }
+}).fail(function(response){
+  if(response !=''){
+    document.getElementById("icon-aktif").style.display = 'none';
+    document.getElementById("icon-nonaktif").style.display = '';
+  }
+});
+};
   </script>
 </body>
 </html>

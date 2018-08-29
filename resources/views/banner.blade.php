@@ -19,7 +19,7 @@
       <a class="navbar-brand" href="#">Lipice</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="{{URL('admin')}}">Kontestan</a></li>
+      <li><a href="{{URL('admin')}}">Kontestan</a></li>
       <li><a href="{{URL('adminchallenge')}}">Challenge</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Approval
@@ -34,7 +34,7 @@
           <li><a href="{{URL('adminapproval')}}">Day 7</a></li>
         </ul>
       </li>
-     <li><a href="{{URL('adminbanner')}}">Banner</a></li>
+     <li class="active"><a href="{{URL('adminbanner')}}">Banner</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
@@ -48,44 +48,8 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="table-responsive">
             <table class="table table-hover" id="example">
-                <thead>
-                    <tr>
-                        <th>Nama Lengkap</th>
-                        <th>Tempat Lahir</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Email</th>
-                        <th>Umur</th>
-                        <th>No Telepon</th>
-                        <th>Instagram Link</th>
-                        <th>Facebook Link</th>
-                        <th>Alasan</th>
-                        <th>Link Profile</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php for ($a = 0; $a <= count($data["kontestan"]["rows"]) - 1; $a++) { ?>
-                  <tr>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["namalengkap"]; ?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["tempatlahir"]; ?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["tgllahir"]; ?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["email"]; ?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["umur"]; ?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["notelp"]; ?></td>
-                        <td><a href="<?php echo 'https://www.instagram.com/' . substr($data["kontestan"]["rows"][$a]["value"]["linkig"], 1, strlen($data["kontestan"]["rows"][$a]["value"]["linkig"])); ?>">
-                            <?php echo 'https://www.instagram.com/' . substr($data["kontestan"]["rows"][$a]["value"]["linkig"], 1, strlen($data["kontestan"]["rows"][$a]["value"]["linkig"])); ?>
-                        </a></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["linkfb"]; ?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["alasan"]; ?></td>
-                        <td> <a href="<?php echo '/profile/' . $data["kontestan"]["rows"][$a]["value"]["notelp"] . '/edit/' ?>"><?php echo '/profile/' . $data["kontestan"]["rows"][$a]["value"]["notelp"] . '/edit/' ?></a></td>
-                    </tr>
-                  
-                
-                <?php
-
-            } ?>
-                
-                   
-                </tbody>
+                <thead></thead>
+                <tbody></tbody>
             </table>
         </div>
     </div>
