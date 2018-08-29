@@ -632,11 +632,7 @@ body {
         <img src="/images/balon.png" class="responsive position-balon" alt="" style="">
 
     <div class="space-body">
-    @if (\Session::has('success'))
-      <div class="alert alert-success">
-        <p>{{ \Session::get('success') }}</p>
-      </div><br />
-     @endif
+
     <div class="row"> <!-- row start -->
 
         <div class="col-sm-3"> <!-- col-sm-3 start -->
@@ -651,7 +647,7 @@ body {
                     <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
                              
                              <div class="round-border">
-                             <img src="images/lipice_icon.png" alt="..." class="rounded-circle"> 
+                             <img src="/images/lipice.png" alt="..." class="rounded-circle"> 
                              <!-- button change photo profile -->
                             <div class="file-upload input-group mb-3" style="display:none" id="uploadbtn">
                                 <div class="file-select">

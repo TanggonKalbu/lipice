@@ -154,7 +154,7 @@ a:active {
 .modal-header2{
     height: 200px;
     width: 100%;
-    background-color:black;
+    background-color:#ea8a8a;
     padding-top:10px;
     padding-right:20px;
 }
@@ -656,7 +656,7 @@ body {
                 if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
                  <div class="col-md-3 space">
                     <div class="row">
-                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-backdrop="false" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -679,6 +679,43 @@ body {
                     </div>
                       @endif
                 </div>
+                <!-- Modal About-->
+                <div class="modal" id="largeModal<?php echo $counter ?>" tabindex="-1" role="dialog" aria-labelledby="basicModal" >
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header2">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
+            </button>
+
+            <button style="top:50px;" type="button" class="close" style="color:white">
+            <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></span>
+            </button>
+        </div>
+        <div class="modal-body"> <!-- modal body start-->
+            <img src="http://159.65.139.254:5984/lipice/<?php echo $data["profile_cha_1"][$counter]["_id"]?>/profile.png" alt="Avatar" class="imground">
+            <br>
+            <div clas="row" style="text-align:center;"> <!-- div sosmed-->
+                <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
+                <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
+                <a href="" class="sosmed"><i class="fab fa-facebook-square"></i></a>   
+            </div> <!-- div sosmed end-->
+        </div> <!-- modal body end-->
+
+        <div class="modal-footer"> <!-- modal footer start-->
+            <div class="abt"> <!-- div about-->
+                <p>
+                <h1>What is CSS?</h1>
+                  
+                </p>
+                <br><br>
+            </div> <!-- div about end-->
+        </div><!-- modal footer start-->
+
+        </div>
+    </div>
+    </div>
+    <!-- Modal About End -->
                 <?php
                 }
             }
@@ -687,7 +724,7 @@ body {
           <?php if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
                 <div class="col-md-3 space">
                     <div class="row">
-                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -755,65 +792,7 @@ body {
     </div> <!-- card end -->
   <br><br><br>  
 
-    <!-- Modal About-->
-    <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-        <div class="modal-header2">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
-            </button>
-
-            <button style="top:50px;" type="button" class="close" style="color:white">
-            <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none">HAHAHA</span>
-            </button>
-
-        </div>
-        <div class="modal-body"> <!-- modal body start-->
-            <img src="/images/a.jpeg" alt="Avatar" class="imground">
-            <br>
-            <div clas="row" style="text-align:center;"> <!-- div sosmed-->
-                <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
-                <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
-                <a href="" class="sosmed"><i class="fab fa-facebook-square"></i></a> 
-                
-            </div> <!-- div sosmed end-->
-            
-        </div> <!-- modal body end-->
-
-        <div class="modal-footer"> <!-- modal footer start-->
-            <div class="abt"> <!-- div about-->
-                <p>
-                <h1>What is CSS?</h1>
-                    Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.
-                    Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any 
-                    XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS 
-                    is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces 
-                    for many mobile applications.
-                
-                    CSS is designed primarily to enable the separation of document content from document presentation, including aspects such as the layout, 
-                    colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, 
-                    enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.
-                    Separation of formatting and content makes it possible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, 
-                    by voice (via speech-based browser or screen reader), and on Braille-based tactile devices. It can also display the web page differently depending on the screen size or viewing device. 
-                    Readers can also specify a different style sheet, such as a CSS file stored on their own computer, to override the one the author specified.
-                    Changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in the CSS file they use, rather than by changing markup in the documents.
-                    The CSS specification describes a priority scheme to determine which style rules apply if more than one rule matches against a particular element. In this so-called cascade, priorities (or weights) are 
-                    calculated and assigned to rules, so that the results are predictable.
-                    The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS 
-                    validation service for CSS documents.
-                </p>
-                    <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
-                        Read More
-                    </a>
-                <br><br>
-            </div> <!-- div about end-->
-        </div><!-- modal footer start-->
-
-        </div>
-    </div>
-    </div>
-    <!-- Modal About End -->
+    
 
     <!-- Modal Verification Start -->
     <div id="id02" class="modall">
@@ -848,6 +827,7 @@ body {
                 <!-- <button  type="submit" style="pointer-events">Vote</button> -->
             </div>
         </form>
+        </div>
     </div>
     <!-- Modal Verification end -->
 
@@ -891,6 +871,7 @@ body {
 
 <!-- footer -->
 <div class="footer" style="z-index:-1; padding-bottom:15px">
+
     <img src="/images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
     <img src="/images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
     <img src="/images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
@@ -938,7 +919,9 @@ window.onclick = function(event) {
 
 </script>
 
+
 <script>
+
 var modal = document.getElementById('myModal');
 var imc = document.querySelectorAll("#myImg");
 var posts = document.querySelectorAll("#post");
