@@ -32,8 +32,7 @@ class kontestan_controller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $image = base64_encode(file_get_contents("/private/var/folders/2q/hypc_2xs33xdcn3ngtgx67th0000gn/T/php29RGGM"));
+    {  
        $tgl = $request->get('tgl')." ".$request->get('bln')." ".$request->get('tahun'); 
        if(date("n")>=$request->get('bln')){
        $umur = date("Y") - $request->get('tahun');
@@ -64,17 +63,13 @@ class kontestan_controller extends Controller
              \"email\": \"$email\",\n 
               \"umur\": \"$umur\", \n 
                \"notelp\": \"$notelp\", \n  
-               \"linkig\": \"$linkig\",\n  
-             \"linkfb\": \"$linkfb\",
+               \"linkig\": \"$linkig\",
+               \n  \"linkfb\": \"$linkfb\",
              \n \"kota\": \" \",
              \n \"about\": \" \",
               \n \"image\": \"\", 
-              \n  \"alasan\": \"$alasan\",
-             \n\t\"_attachments\":\n 
-                { \n  \"profile.png\":\n  {
-                \n  \"content_type\": \"image/png\",
-                \n    \"data\": \"$image \"
-                \n  }\n}\n\t\n}}",
+              \n  \"alasan\": \"$alasan\"
+              \n}",
          CURLOPT_HTTPHEADER => array(
            "content-type: application/json"
          ),
@@ -86,6 +81,7 @@ class kontestan_controller extends Controller
        if ($err) {
          echo "cURL Error #:" . $err;
        } else {
+           echo $response;
         return redirect('kontestans')->with('success', 'Information has been added');
        }
 

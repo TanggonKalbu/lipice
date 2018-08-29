@@ -366,7 +366,7 @@ body {
                 <input class="form-control" type="text" id="verificationcode" >
             </div>
             <div class="col-md-2"> 
-                <button class="btn submit" type="button" id="button-kode" onclick="myFunction()" style="float:left; display:none">Submit Kode</button>
+                <button class="btn submit" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; display:none">Submit Kode</button>
             </div>                    
         </div>
 
