@@ -25,13 +25,13 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active" > Approval
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="{{URL('adminapproval')}}">Day 1</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 2</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 3</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 4</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 5</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 6</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 7</a></li>
+          <li><a onclick="location.href='/adminapproval/day1/edit'">Day 1</a></li>
+          <li><a onclick="location.href='/adminapproval/day2/edit'">Day 2</a></li>
+          <li><a onclick="location.href='/adminapproval/day3/edit'">Day 3</a></li>
+          <li><a onclick="location.href='/adminapproval/day4/edit'">Day 4</a></li>
+          <li><a onclick="location.href='/adminapproval/day5/edit'">Day 5</a></li>
+          <li><a onclick="location.href='/adminapproval/day6/edit'">Day 6</a></li>
+          <li><a onclick="location.href='/adminapproval/day7/edit'">Day 7</a></li>
         </ul>
       </li>
      <li><a href="{{URL('adminbanner')}}">Banner</a></li>
@@ -49,10 +49,74 @@
         <div class="table-responsive">
             <table class="table table-hover" id="example">
                 <thead>
-
+                    <tr>
+                        <td>
+                            Nama
+                        </td>
+                        <td>
+                            Konten
+                        </td>
+                        <td>
+                            Status
+                        </td>
+                        <td>
+                            Action
+                        </td>
+                    </tr>
                 </thead>
                 <tbody>
-                
+                    <?php 
+                    $day = $data["day"]["day"];
+                    if ($data["day"]["konten"] == "youtube") {
+                        if ($data["cha_1"] != "kosong") {
+                            for ($counter = 0; $counter < count($data["cha_1"]); $counter++) { ?>
+                    <tr>
+                        <td>
+                            <?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?>
+                        </td>
+                        <td>
+                            <iframe class="embed-responsive-item" width="100%" height="300px" src="<?php echo $data["cha_1"][$counter] ?>" frameborder="0" allowfullscreen></iframe>
+                        </td>
+                        <td>
+                            ndek day e ditambah i status a gawe approval?
+                        </td>
+                        <td>
+                            <a href="" class="btn btn-danger"> Delete</a>
+                            <a href="" class="btn btn-info">Approve</a>
+
+                        </td>
+                    </tr>   
+
+                    <?php
+
+                }
+            }
+        } else if ($data["day"]["konten"] == "gambar") { ?>
+                    <?php if ($data["cha_1"] != "kosong") {
+                        for ($counter = 0; $counter < count($data["cha_1"]); $counter++) { ?>
+                                    
+                           <tr>
+                        <td>
+                            <?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?>
+                        </td>
+                        <td>
+                            <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:150px; max-height:300px">  
+                        </td>
+                        <td>
+                            ndek day e ditambah i status a gawe approval?                            
+                        </td>
+                        <td>
+                            <a href="" class="btn btn-danger"> Delete</a>
+                            <a href="" class="btn btn-info">Approve</a>
+
+                        </td>
+                        <?php
+
+                    }
+                }
+            }
+            ?>
+                    </tr>   
                 </tbody>
             </table>
         </div>
@@ -83,6 +147,25 @@
 	$(document).ready(function(){
 		$('#example').DataTable();
 		});
-	</script>
+    </script>
+    <script>
+
+var modal = document.getElementById('myModal');
+var imc = document.querySelectorAll("#myImg");
+var posts = document.querySelectorAll("#post");
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+for(a=0;a<imc.length;a++){
+    imc[a].onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    }
+}
+
+var span = document.getElementsByClassName("closeimg")[0];
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
 </body>
 </html>

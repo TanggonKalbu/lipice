@@ -537,7 +537,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">NO TELEPON<b style="color:red;">*</b></p></label>
             <div class="col-sm-9">
-                <input type="number" name="notelp" class="form-control" id="telp" required onkeyup="capt()">
+                <input type="number" name="notelp" class="form-control" id="telp" required onkeyup="">
             </div>
         </div>
 
@@ -582,7 +582,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </div>
         </div> -->
         <br>
-        <button type="button" id="button-kirim" class="btn warn btn-lg medqInput" onclick="document.getElementById('id02').style.display='block'" style="pointer-events:none">Submit</button>           
+        <button type="button" id="button-kirim" class="btn warn btn-lg medqInput" onclick="" style="pointer-events:">Submit</button>           
         <div id="id02" class="modall">
     
     <div class="modall-content animate">
@@ -728,36 +728,56 @@ window.onclick = function(event) {
     });
     recaptchaVerifier.render().then(function(widgetId) {
     window.recaptchaWidgetId = widgetId;
-
     });
 
   var submit = function(){
-    var telpv = "+62"+telp.value;
-    var appVerifier = window.recaptchaVerifier;
-    firebase
-    .auth()
-    .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
-    .then(function(confirmationResult) {
-        window.confirmationResult = confirmationResult;
-        console.log("good");
-        document.getElementById("button-kirim").disabled = true;
-        document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
-        setTimeout(kirimulang, 5000);
-        function kirimulang(){
-            document.getElementById("button-kirim").disabled = false;
-        }
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/profile?key="'+telp.value+'"',
+    "method": "GET",
+    "headers": {
+    "content-type": "application/json"
+    },
+    "processData": false,
+    "data": ""
+    }
+    $.ajax(settings).done(function (response) {
+        if(response.rows==''){
+            var telpv = "+62"+telp.value;
+            var appVerifier = window.recaptchaVerifier;
+            firebase
+            .auth()
+            .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
+            .then(function(confirmationResult) {
+                window.confirmationResult = confirmationResult;
+                console.log("good");
+                document.getElementById('id02').style.display='block';
+                document.getElementById("button-kirim").disabled = true;
+                document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
+                setTimeout(kirimulang, 5000);
+                function kirimulang(){
+                    document.getElementById("button-kirim").disabled = false;
+                }
 
-    })
-    .catch(function (error) {
-            // Error; SMS not sent
-            console.error('Terjadi Kesalahan :', error);
-            window.alert('Error during signInWithPhoneNumber:\n\n'
-                + error.code + '\n\n');
-            document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
-            function kirimulang(){
-                document.getElementById("button-kirim").disabled = false;
-            }
-        });
+            })
+            .catch(function (error) {
+                    // Error; SMS not sent
+                    console.error('Terjadi Kesalahan :', error);
+                    window.alert('Error during signInWithPhoneNumber:\n\n'
+                        + error.code + '\n\n');
+                    document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
+                    function kirimulang(){
+                        document.getElementById("button-kirim").disabled = false;
+                    }
+            });
+        }else {
+            window.alert('Nomor Sudah Terdaftar');
+            
+        }
+    }); 
+    
+    
   }
 
   var myFunction = function() {
