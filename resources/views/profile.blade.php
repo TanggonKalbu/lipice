@@ -24,6 +24,11 @@ body{
    
 }
 
+.space {
+    margin-right:5px;
+    margin-left: 5px;
+}
+
 .space-body{
     padding-right: 5%;
     padding-left: 5%;
@@ -53,6 +58,23 @@ body{
     padding-bottom: 2rem;
 }
 
+.label {
+    border:none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    color: grey;
+    font-size:20pt;
+    padding: 5px;
+}
+
+.love{
+    color: #fb61ca; 
+    font-size:20pt;
+}
+
 /* MAIN SCROLLBAR */
 /* width */
 ::-webkit-scrollbar {
@@ -79,7 +101,7 @@ body{
 /* scrollbar start */
 .scrollbar {
     float: right;
-    height: 800px;
+    height: 600px;
     width: 100%;
     background: #fff; 
     overflow:auto;
@@ -862,11 +884,16 @@ body {
                         <div class="row">
                         <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
                             <div class="col-md-3">
-                                <div class="shadow-lg p-2 mb-5 bg-white rounded">
+                                <div class="shadow p-2 mb-4 bg-white rounded">
                                     <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                 </div> 
+                                <div class="row space vt shadow">
+                                    <span type="" id=""  class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                                </div>
                             </div>
+
                         <?php } }?>
+                            
                         </div>
                     </div>
                 </div>   
@@ -892,6 +919,9 @@ body {
                                     }
                                     ?>
                                 </div> 
+                                <div class="row space vt shadow">
+                                    <span type="" id=""  class="label">500 &nbsp;&nbsp;<i class="fa fa-heart love" aria-hidden="true"></i></span>
+                                </div>
                             </div>
                             <?php } }?>
                         </div>

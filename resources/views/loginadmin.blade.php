@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Login Admin</title>
     <link rel="icon" href="images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -48,6 +48,11 @@ h1{
   transform: translate(-50%, -50%);
 }
 
+.container{
+    padding-right:100px;
+    padding-left: 100px;
+}
+
 .responsive {
     max-width: 100%;
     height: auto;
@@ -79,7 +84,8 @@ img {
 }
 
 .container {
-    padding: 2px 16px;
+    margin-right:10px;
+    margin-left:10px;
 }
 /* card login end */
 /**
@@ -131,86 +137,33 @@ input[type=number]::-webkit-outer-spin-button {
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
 				<form class="login100-form validate-form" action="" method="" >
 					<span class="login100-form-title p-b-55">
-						Login
+						Login Admin
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Masukkan No Handphone Anda">
-						<input class="input100" type="number" name="notelp" placeholder="No Hp" onkeyup="nohp()" id="input-hp">
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
+						<input class="input100" type="text" name="username" placeholder="Username">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<span class="lnr lnr-phone"></span>
+							<span class="lnr lnr-envelope"></span>
 						</span>
-                    </div>
-                    
-                    <div class="container-login100-form-btn p-t-15 p-b-35">
-						<button class="login100-form-btn disabled" style="pointer-events:none" type="button" id="btn-kirim-kode">
-							Kirim Kode Verifikasi
-						</button>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Masukkan kode Verifikasi">
-						<input class="input100" type="text" name="pass" placeholder="Kode Verifikasi" id="input-kode">
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<input class="input100" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<span class="lnr lnr-lock"></span>
 						</span>
-                    </div>
-                    
-                    <div class="container-login100-form-btn p-t-15 p-b-40">
-						<button class="login100-form-btn disabled" style="pointer-events:none" type="button" id="btn-login" onclick="myFunction() ">
+					</div>
+
+					
+					<div class="container-login100-form-btn p-t-25 p-b-40">
+						<button class="login100-form-btn">
 							Login
 						</button>
-                    </div>
-
-                    <!-- <div class="container-login100-form-btn p-t-15 p-b-40">
-						<button class="login100-form-btn green"  type="button" id="btn-kirimulang" onclick="myFunction() ">
-							Kirim Ulang
-						</button>
-                    </div> -->
-
-                    <a href="#" class="btn-kirim cb m-b-10">
-						<i class="fa fa-refresh"></i>
-						&nbsp;&nbsp;Kirim Ulang
-                    </a> 
-
-                   
-
-                    
-                    
-
-					<!-- <div class="contact100-form-checkbox m-l-4">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>
-					
-					
-
-					<div class="text-center w-full p-t-42 p-b-22">
-						<span class="txt1">
-							Or login with
-						</span>
 					</div>
 
-					<a href="#" class="btn-face m-b-10">
-						<i class="fa fa-facebook-official"></i>
-						Facebook
-                    </a> -->
-                    
-                     
-
 					
-
-					<!-- <div class="text-center w-full p-t-115">
-						<span class="txt1">
-							Not a member?
-						</span>
-
-						<a class="txt1 bo1 hov1" href="#">
-							Sign up now							
-						</a>
-					</div> -->
 				</form>
 			</div>
 		</div>

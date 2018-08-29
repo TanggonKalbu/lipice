@@ -59,6 +59,10 @@ Route::get('/berhasil', function () {
   return view('berhasil');
 });
 
+Route::get('/loginadmin', function () {
+  return view('loginadmin');
+});
+
 
 
 

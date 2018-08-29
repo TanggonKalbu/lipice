@@ -40,7 +40,7 @@ body{
     background-color: #fb61ca;
     border: none;
     color: white;
-    padding: 12px 28px;
+    /* padding: 12px 28px; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -55,21 +55,19 @@ body{
 }
 
 .label {
-    border: none;
+
+     border:none;
     color: white;
-    padding: 12px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     width: 50%;
-    text-align:right;
     color: grey;
-    font-family: Arial;
-    font-weight: bold;
     font-size:1vw;
-    padding-right : 15px;
+    padding: 2px;
 }
-
+.shadow{
+}
 .love{
     color: #fb61ca; 
     font-size:1vw;
@@ -423,7 +421,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     </div>
                     <div class="row space vt">
                         <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                        <span type="" class="label shadow">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                        
                     </div>
                 </div>
 
