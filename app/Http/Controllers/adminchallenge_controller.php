@@ -13,8 +13,32 @@ class adminchallenge_controller extends Controller
      */
     public function index()
     {
-        //$data["challenge"]=json_decode($response,TRUE);
-        return view('adminchallenge');
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+        CURLOPT_PORT => "5984",
+        CURLOPT_URL => "http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/day",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_POSTFIELDS => "",
+        CURLOPT_HTTPHEADER => array(
+        "content-type: application/json"
+        ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        if ($err) {
+        echo "cURL Error #:" . $err;
+        } else {
+        ($data["challenge"]=json_decode($response,TRUE)["rows"]);
+        }
+        
+        
+         return view('adminchallenge',compact('data'));
     }
 
     /**
@@ -57,7 +81,31 @@ class adminchallenge_controller extends Controller
      */
     public function edit($id)
     {
-        //
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+        CURLOPT_PORT => "5984",
+        CURLOPT_URL => 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/day?key="'.$id.'"',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_POSTFIELDS => "",
+        CURLOPT_HTTPHEADER => array(
+        "content-type: application/json"
+        ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        if ($err) {
+        echo "cURL Error #:" . $err;
+        } else {
+        print_r(($data["challenge"]=json_decode($response,TRUE)["rows"]));
+        }
+        
+        //return view('adminedit',compact('data','id'));
     }
 
     /**

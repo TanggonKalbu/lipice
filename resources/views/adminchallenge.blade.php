@@ -44,21 +44,24 @@
                 </thead>
                 <tbody>
 
-                <?php for($a=1;$a<=7;$a++){?>
+                <?php for($a=0;$a<count($data["challenge"]);$a++){?>
                     <tr>
-                        <td>Day <?php echo$a ?></td>
+                        <td>Day <?php echo $a+1 ?></td>
                         <td>
-                            <input type="date" name="tanggal_<?php echo $a ?>" id="input" class="form-control" value="tanggal_<?php echo $a ?>" required="required" pattern="" title="">
+                            <?php echo $data["challenge"][$a]["value"]["tgl"];?> 
                         </td>
                         <td>
-                            <select class="form-control" name="challenge_<?php echo $a ?>" id="">
+                        <?php echo $data["challenge"][$a]["value"]["konten "];
+                        $id = $data["challenge"][$a]["value"]["day"];
+                        ?> 
+                            <!-- <select class="form-control" name="challenge_<?php echo $a ?>" id="">
                                 <option value="1">Video</option>
                                 <option value="2">Gambar</option>
-                            </select>
+                            </select> -->
                             
                         </td>
                         <td>
-                            <button type="button" class="btn btn-info">Edit </button>
+                            <a href="{{action('adminchallenge_controller@edit', $id)}}" class="btn btn-info" > Edit
                         </td>
                     </tr>
                 <?php }?>
