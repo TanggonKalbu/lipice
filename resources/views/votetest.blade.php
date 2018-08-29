@@ -686,7 +686,7 @@ body {
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                    <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["cha_1"][$counter]["value"]["_id"] ?>/boomerang.mp4" frameborder="0" allowfullscreen></iframe>
+                        <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["cha_1"][$counter]["value"]["_id"] ?>/boomerang.mp4" frameborder="0" allowfullscreen></iframe>
                      </div> 
                      <?php $post = $data["cha_1"][$counter]["value"]["video"];
                             $kontestan = $data["profile_cha_1"][$counter]["notelp"];
@@ -699,7 +699,7 @@ body {
                     </div>
                     <?php $post[$counter] = "post".($counter+1)?>
                         @else
-                        <div class="row space vt shadow-lg">
+                    <div class="row space vt shadow-lg">
                         <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
                         <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>

@@ -77,6 +77,11 @@ a:hover {
   color: #d33f8d;
 }
 
+.cb:hover{
+  text-decoration: none;
+  color: green;
+}
+
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
@@ -185,11 +190,11 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #0250c5;
+  /* background: #0250c5;
   background: -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
   background: -o-linear-gradient(bottom, #0250c5, #d43f8d);
   background: -moz-linear-gradient(bottom, #0250c5, #d43f8d);
-  background: linear-gradient(bottom, #0250c5, #d43f8d);
+  background: linear-gradient(bottom, #0250c5, #d43f8d); */
   position: relative;
   z-index: 1;
 }
@@ -203,10 +208,10 @@ iframe {
   height: 100%;
   top: 0;
   left: 0;
-  background-image: url('../images/img-01.png');
+  /* background-image: url('../images/img-01.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 }
 
 .wrap-login100 {
@@ -430,7 +435,7 @@ iframe {
 /*------------------------------------------------------------------
 [ Button sign in with ]*/
 .btn-face,
-.btn-google {
+.btn-google, .btn-kirim {
   font-family: Raleway-Bold;
   font-size: 16px;
   line-height: 1.2;
@@ -469,6 +474,10 @@ iframe {
   color: #555555;
 }
 
+.btn-kirim {
+  color: #555555;
+}
+
 .btn-google img {
   width: 19px;
   margin-right: 10px;
@@ -476,9 +485,14 @@ iframe {
 }
 
 
+
 .btn-face:hover,
 .btn-google:hover {
   border-color: #d33f8d;
+}
+
+.btn-kirim:hover {
+  border-color:green;
 }
 
 

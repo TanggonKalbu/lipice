@@ -24,6 +24,11 @@ body{
    
 }
 
+.space {
+    margin-right:5px;
+    margin-left: 5px;
+}
+
 .space-body{
     padding-right: 5%;
     padding-left: 5%;
@@ -51,6 +56,23 @@ body{
 
 .pdg-bottom{
     padding-bottom: 2rem;
+}
+
+.label {
+    border:none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    color: grey;
+    font-size:20pt;
+    padding: 5px;
+}
+
+.love{
+    color: #fb61ca; 
+    font-size:20pt;
 }
 
 /* MAIN SCROLLBAR */
@@ -822,11 +844,16 @@ body {
                         <div class="row">
                         <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
                             <div class="col-md-3">
-                                <div class="shadow-lg p-2 mb-5 bg-white rounded">
+                                <div class="shadow p-2 mb-4 bg-white rounded">
                                     <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                 </div> 
+                                <div class="row space vt shadow">
+                                    <span type="" id=""  class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                                </div>
                             </div>
+
                         <?php } }?>
+                            
                         </div>
                     </div>
                 </div>   
@@ -841,9 +868,12 @@ body {
                         <div class="row">
                         <?php if($data["video"]!= "kosong"){ for($counter =0;$counter < count($data["video"]["rows"]);$counter++) { ?>
                             <div class="col-sm-6 col-md-4 col-lg-3">
-                                <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                <div class="shadow p-3 mb-4 bg-white rounded">
                                     <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe> 
                                 </div> 
+                                <div class="row space vt shadow">
+                                    <span type="" id=""  class="label">500 &nbsp;&nbsp;<i class="fa fa-heart love" aria-hidden="true"></i></span>
+                                </div>
                             </div>
                             <?php } }?>
                         </div>
