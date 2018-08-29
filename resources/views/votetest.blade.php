@@ -528,10 +528,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                          <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%; max-height:300px">  
-                     </div> 
+                        </div> 
                      <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
                               $kontestan = $data["profile_cha_1"][$counter]["notelp"];
-                              $day = date("j");
+                              $day = 29;
                         ?>
                      @if(Session::has('vote'))
                      <div class="row space vt">
@@ -593,7 +593,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS 
                 is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces 
                 for many mobile applications.
-            
+                
                 CSS is designed primarily to enable the separation of document content from document presentation, including aspects such as the layout, 
                 colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, 
                 enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.

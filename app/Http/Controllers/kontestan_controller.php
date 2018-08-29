@@ -65,6 +65,7 @@ class kontestan_controller extends Controller
                \"notelp\": \"$notelp\", \n  
                \"linkig\": \"$linkig\",
                \n  \"linkfb\": \"$linkfb\",
+               \n  \"linkyoutube\": \"\",
              \n \"kota\": \" \",
              \n \"about\": \" \",
               \n \"image\": \"\", 

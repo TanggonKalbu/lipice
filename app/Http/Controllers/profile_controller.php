@@ -157,7 +157,7 @@ class profile_controller extends Controller
               return view('profile',compact('data','notelp'));
         }
         else {
-            echo "anda belum terdaftar";
+                return view('blank',compact('data','notelp'));
         }
     }
     }
