@@ -124,12 +124,13 @@ class vote_controller extends Controller
 
     public function index()
     {   
-        $day = 29;
+        $day = 2;
        ($data[1] = json_decode($this->challenge($day),TRUE)["rows"]);
         if($data[1] == null){
             $data["cha_1"] = "kosong";
          }
             else {
+                if ($day != 28 && $day != 2) {
                 for($counter =0 ; $counter < count($data[1]); $counter++) {
 
                     $url = $data[1][$counter]["value"]["link"];
@@ -143,9 +144,25 @@ class vote_controller extends Controller
                         $data["jumlahvote"][$counter]  = json_decode($this->jumlah_vote($telp,$day),TRUE)["rows"][0]["value"];
                     }
                  }
+                }else{
+                    for($counter =0 ; $counter < count($data[1]); $counter++) {
+                        $url = $data[1][$counter];
+                        $telp = $data[1][$counter]["value"]["notelp"];
+                        $data["cha_1"][$counter] = $url;
+                        $data["profile_cha_1"][$counter] = json_decode($this->profile($telp),TRUE)["rows"][0]["value"];
+                        if(json_decode($this->jumlah_vote($telp,$day),TRUE)["rows"]==null) {
+                            $data["jumlahvote"][$counter] = 0;
+                        }
+                        else {
+                            $data["jumlahvote"][$counter]  = json_decode($this->jumlah_vote($telp,$day),TRUE)["rows"][0]["value"];
+                        }
+                     }
+                }
+                
             
             }
-            return view('votetest',compact('data'));
+            //print_r($data["cha_1"]);
+             return view('votetest',compact('data'));
     }
 
     /**
@@ -193,6 +210,7 @@ class vote_controller extends Controller
             $data["cha_1"] = "kosong";
          }
             else {
+                if($day != 28 || $day != 1) {
                 for($counter =0 ; $counter < count($data[1]); $counter++) {
 
                     $url = $data[1][$counter]["value"]["link"];
@@ -208,6 +226,23 @@ class vote_controller extends Controller
                  }
             
             }
+            else {
+                for($counter =0 ; $counter < count($data[1]); $counter++) {
+                    $url = $data[1][$counter]["value"]["link"];
+                    $telp = $data[1][$counter]["value"]["notelp"];
+                    $data["cha_1"][$counter] = json_decode($this->gambar($url), TRUE);
+                    $data["profile_cha_1"][$counter] = json_decode($this->profile($telp),TRUE)["rows"][0]["value"];
+                    if(json_decode($this->jumlah_vote($telp,$day),TRUE)["rows"]==null) {
+                        $data["jumlahvote"][$counter] = 0;
+                    }
+                    else {
+                        $data["jumlahvote"][$counter]  = json_decode($this->jumlah_vote($telp,$day),TRUE)["rows"][0]["value"];
+                    }
+                 }
+
+            }
+        }
+
             return view('votetest',compact('data'));
     }
 

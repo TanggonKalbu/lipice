@@ -520,7 +520,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
         <div class="force-overflow"> 
             <div class="row justify-content-md-center">
-            <?php if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
+            <?php $day = 2 ?>
+            <?php if($day!=28 && $day!=2) {
+                if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
                 <div class="col-md-3 space">
                     <div class="row">
                         <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
@@ -531,7 +533,34 @@ body {font-family: Arial, Helvetica, sans-serif;}
                      </div> 
                      <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
                               $kontestan = $data["profile_cha_1"][$counter]["notelp"];
-                              $day = 29;
+                        ?>
+                     @if(Session::has('vote'))
+                     <div class="row space vt">
+                        \<input type="hidden" id="voter" value="{{ Session::get('vote') }}">
+                        <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>', '<?php echo "jumlah".$counter ?>' )" >Ada session loh</button>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
+                    <?php $post[$counter] = "post".($counter+1)?>
+                        @else
+                        <div class="row space vt">
+                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
+                      @endif
+                </div>
+            <?php }} }
+            else {  
+                if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
+                 <div class="col-md-3 space">
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
+                    </div>
+                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                    <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["cha_1"][$counter]["value"]["_id"] ?>/boomerang.mp4" frameborder="0" allowfullscreen></iframe>
+                     </div> 
+                     <?php $post = $data["cha_1"][$counter]["value"]["video"];
+                            $kontestan = $data["profile_cha_1"][$counter]["notelp"];
                         ?>
                      @if(Session::has('vote'))
                      <div class="row space vt">
@@ -546,10 +575,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                       @endif
-                    
-    
                 </div>
-            <?php }} 
+                <?php
+            }}
+            }
             ?>
     
             </div>
