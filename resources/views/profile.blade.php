@@ -647,32 +647,40 @@ body {
                     <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
                              
                              <div class="round-border">
-                             <img src="/images/lipice.png" alt="..." class="rounded-circle"> 
+                             <img id="blah" class="rounded-circle"  src="/images/lipice.png" alt="..." style="width:100%" class="rounded-circle"> 
                              <!-- button change photo profile -->
-                            <div class="file-upload input-group mb-3" style="display:none" id="uploadbtn">
-                                <div class="file-select">
-                                    <div class="file-select-button" id="fileName">Choose File</div>
-                                    <div class="file-select-name" id="noFile">No file chosen...</div> 
-                                    <input type="file" name="fileToUpload" id="chooseFile">
-                                </div>
-                            </div>
+
                         </div> 
                          <?php }else { ?>
                              <div class="round-border">
-                                 <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
+                                 <img id="blah" class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
                             </div>
                              <br>
 
                          <?php } ?>
-                 
+                            
                         <!-- button change photo profile -->
                         <div class="file-upload input-group mb-3" style="display:none" id="uploadbtn">
                             <div class="file-select">
                                <div class="file-select-button" id="fileName">Choose File</div>
                                <div class="file-select-name" id="noFile">No file chosen...</div> 
-                               <input type="file" name="fileToUpload" id="chooseFile">
+                               <input  type="file" name="fileToUpload" id="chooseFile" >
                             </div>
-                        </div>
+                            </div>
+                        <script> 
+                        function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                         $('#blah').attr('src', e.target.result);
+                        }
+                    reader.readAsDataURL(input.files[0]);
+                    }
+                    }
+                    $("#chooseFile").change(function() {
+                    readURL(this);  
+                    });
+                        </script>
 
                          <div class="input-group mb-3" id="nama">
                             <h3 align="center" style="float:none;margin:0 auto"> <?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?></h3>

@@ -693,7 +693,11 @@ body {
             </button>
         </div>
         <div class="modal-body"> <!-- modal body start-->
+            <?php if($data["profile_cha_1"][$counter]["image"]!= "") { ?>
             <img src="http://159.65.139.254:5984/lipice/<?php echo $data["profile_cha_1"][$counter]["_id"]?>/profile.png" alt="Avatar" class="imground">
+            <?php } else { ?>
+                <img src="/images/lipice.png" alt="Avatar" class="imground">
+            <?php } ?>
             <br>
             <div clas="row" style="text-align:center;"> <!-- div sosmed-->
                 <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
@@ -701,11 +705,10 @@ body {
                 <a href="" class="sosmed"><i class="fab fa-facebook-square"></i></a>   
             </div> <!-- div sosmed end-->
         </div> <!-- modal body end-->
-
         <div class="modal-footer"> <!-- modal footer start-->
             <div class="abt"> <!-- div about-->
                 <p>
-                <h1>What is CSS?</h1>
+                <h1><?php echo $data["profile_cha_1"][$counter]["about"] ?></h1>
                   
                 </p>
                 <br><br>
