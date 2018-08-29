@@ -38,6 +38,10 @@ body{
     margin-left: 5px;
 }
 
+.shadow-lg{
+    margin:0 auto;
+    padding:0 auto;
+}
 .button{
     background-color: #fb61ca;
     border: none;
@@ -46,10 +50,9 @@ body{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 16pt;
     cursor: pointer;
     width: 50%;
-    font-size:1vw;
 }
 
 .button:focus{
@@ -57,24 +60,22 @@ body{
 }
 
 .label {
-    border: none;
+    border:none;
     color: white;
-    padding: 12px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     width: 50%;
     text-align:right;
     color: grey;
-    font-family: Arial;
-    font-weight: bold;
-    font-size:1vw;
+    font-size:20pt;
     padding-right : 15px;
+    padding-top: 17px;
 }
 
 .love{
     color: #fb61ca; 
-    font-size:1vw;
+    font-size:20pt;
     text-align:right;
 }
 
@@ -560,6 +561,9 @@ body {
 
 /* footer end */
 
+.shadow{
+    padding:0;
+}
 /* MAIN SCROLLBAR */
 /* width */
 ::-webkit-scrollbar {
@@ -583,8 +587,15 @@ body {
 }
 /* MAIN SCROLLBAR END */
 
+
+.logo{
+    width:160px; padding-top:50px; margin-right:1%;
+}
 .position-balon{
-    display:block; position:absolute; z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover; backgroud-position:right;
+    display:block; position:absolute; 
+    z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
+    margin-top:-110px;
+    margin-left:100px;
 }
 </style>
 </head>
@@ -596,7 +607,7 @@ body {
         <img src="images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:-1">
         <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:-1">
         <!-- <div style="margin-top:70px;"> -->
-        <img src="images/callout-lipice.png" class="responsive" alt="" style="" style="width:300px; padding-top:100px">
+        <img src="images/callout-lipice.png" class="responsive logo" alt="" style="">
         <img src="images/summercamp.png" class="responsive" alt="" style="width:300px;">
     <!-- </div> -->
     <img src="images/balon.png" class="responsive position-balon" alt="" style="">
@@ -643,7 +654,7 @@ body {
                                 <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
                                 <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                             </div>
-                            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="shadow-lg p-3 mb-4 bg-white rounded">
                                 <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%; max-height:300px">  
                             </div> 
                             <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
@@ -651,14 +662,14 @@ body {
                                     $day = 29;
                                 ?>
                             @if(Session::has('vote'))
-                            <div class="row space vt">
-                            <input type="hidden" id="voter" value="{{ Session::get('vote') }}">
+                            <div class="row space vt shadow-lg">
+                                <input type="hidden" id="voter" value="{{ Session::get('vote') }}">
                                 <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>', '<?php echo "jumlah".$counter ?>' )" >Ada session loh</button>
                                 <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                             </div>
                             <?php $post[$counter] = "post".($counter+1)?>
                                 @else
-                                <div class="row space vt">
+                                <div class="row space vt shadow-lg">
                                 <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
                                 <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                             </div>
