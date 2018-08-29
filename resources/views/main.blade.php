@@ -5,10 +5,12 @@
     <link rel="icon" href="images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>   
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>    
 
 </head>
  <body>
@@ -511,7 +513,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </div>
             <div class="form-group col-md-2">
 
-            <select name="bln" id="bulan" class="form-control medqInput" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a;"> 
+            <select name="bln" id="bulan" class="form-control medqInput" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a; margin-top:7px;"> 
                 <option value="1">Januari</option>
                 <option value="2">Februari</option>
                 <option value="3">Maret</option>
@@ -535,28 +537,31 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <div class="form-group row">
             <label for="telp" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">NO TELEPON<b style="color:red;">*</b></p></label>
             <div class="col-sm-9">
-                <input type="number" name="notelp" class="form-control" id="telp" required onkeyup="capt()">
+                <input type="number" name="notelp" class="form-control" id="telp" required onkeyup="">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="ig" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">LINK AKUN INSTAGRAM<b style="color:red;">*</b></p></label>
             <div class="col-sm-9">
-                <input type="text" name="linkig" class="form-control" id="ig" required onkeyup="capt()">
+                <input type="text" name="linkig" class="form-control" id="ig" required onkeyup="capt(); cekig()">
+                <span class="fa fa-check-circle" style="color:green; display:none" id="icon-aktif"> Link Instagram Aktif</span>
+                <span class="fa fa-times-circle" style="color:red; display:none" id="icon-nonaktif"> Link Instagram Tidak Aktif</span>
+
             </div>
         </div>
 
         <div class="form-group row">
             <label for="fb" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">LINK AKUN FACEBOOK</p></label>
             <div class="col-sm-9">
-                <input type="text" name="linkfb" class="form-control" id="fb" onkeyup="capt()">
+                <input type="text" name="linkfb" class="form-control" id="fb" >
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-3 medqInput" for="comment"><p style="display:inline-block;">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE</p> </label>
-            <div class="col-sm-9"> 
-                <textarea class="form-group" name="alasan" rows="5" id="alasan" onkeyup="capt()"></textarea>
+            <label class="control-label col-sm-3 medqInput" for="comment"><p style="display:inline-block;">ALASAN MENGIKUTI <br> #LIPICE7DAYSCHALLENGE<b style="color:red;">*</b></p></label>
+            <div class="col-sm-9" style="display:block"> 
+                <textarea class="form-group" name="alasan" rows="5" id="alasan" required onkeyup="capt()"></textarea>
             </div>
         </div>
 
@@ -577,7 +582,41 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </div>
         </div> -->
         <br>
-        <button type="button" id="btnSubmit" class="btn warn btn-lg medqInput" onclick="document.getElementById('id02').style.display='block'" >Submit</button>           
+        <button type="button" id="button-kirim" class="btn warn btn-lg medqInput" onclick="" style="pointer-events:">Submit</button>           
+        <div id="id02" class="modall">
+    
+    <div class="modall-content animate">
+        <div class="container" style="background-color:#f1f1f1">
+                <h3>Register</h3>
+                
+        </div>
+        
+        <div class="container">
+            <div style="margin-right:30px; margin-left:30px">
+                <div class="row">
+                    <label for="vercode"><b>Masukkan kode validasi</b></label>
+                </div>
+                <!-- <div class="row">
+                    <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
+                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
+                </div> -->
+                <div class="row">
+                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;" placeholder="Kode Verifikasi">
+                    <button class="btn-success" type="button" id="btn-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;">Submit Kode</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <div style="margin-right:30px; margin-left:16px">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                <button  type="submit" id="button-register" class="loginbtn" style="display:none">Register</button>
+                <!-- <button  type="submit" style="pointer-events">Vote</button> -->
+            </div>
+        </div>
+    </div>
+    
+</div>
         </form>
 
         </div>
@@ -624,40 +663,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <br>
 
 <!-- Modal Verification Start -->
-<div id="id02" class="modall">
-    
-    <form class="modall-content animate" method="post" action="{{url('votesession')}}" enctype="multipart/form-data" >
-    @csrf
-        <div class="container" style="background-color:#f1f1f1">
-                <h3>Register</h3>
-                
-        </div>
-        
-        <div class="container">
-            <div style="margin-right:30px; margin-left:30px">
-                <div class="row">
-                    <label for="vercode"><b>Masukkan kode validasi</b></label>
-                </div>
-                <!-- <div class="row">
-                    <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
-                </div> -->
-                <div class="row">
-                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;">Submit Kode</button>
-                </div>
-            </div>
-        </div>
 
-        <div class="container" style="background-color:#f1f1f1">
-            <div style="margin-right:30px; margin-left:16px">
-                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Register</button>
-                <!-- <button  type="submit" style="pointer-events">Vote</button> -->
-            </div>
-        </div>
-    </form>
-</div>
 <!-- Modal Verification end -->
 
 
@@ -678,7 +684,7 @@ window.onclick = function(event) {
 
 </script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script>
@@ -686,19 +692,20 @@ window.onclick = function(event) {
         var email = document.getElementById("email");
         var kota = document.getElementById("kota");
         var tgl = document.getElementById("tgl");
+        var bulan = document.getElementById("bulan");
         var tahun = document.getElementById("tahun");
         var telp = document.getElementById("telp");
         var ig = document.getElementById("ig");
-        var fb = document.getElementById("fb");
         var alasan = document.getElementById("alasan");
-        var buttons = document.getElementById("btnSubmit");
+        var buttonkirim = document.getElementById("button-kirim");
         var buttonkode = document.getElementById("button-submit-kode");
+        var buttonregister = document.getElementById("button-register");
 
     function capt() {
-        if(nama.value!='' && email.value!='' && kota.value!='' && tgl.value!='' && tahun.value!='' && telp.value!='' && ig.value!='' && fb.value!=''&& alasan.value!=''){
-            document.getElementById("button-kirim").style.display = '';
+        if(nama.value!='' && email.value!='' && kota.value!='' && tgl.value!='' && tahun.value!='' && telp.value!='' && ig.value!='' && alasan.value!=''){
+            buttonkirim.style.pointerEvents = '';
         }else{
-            buttons.disabled= true;
+            buttonkirim.style.pointerEvents = 'none';
         } 
     }
 </script>
@@ -721,37 +728,56 @@ window.onclick = function(event) {
     });
     recaptchaVerifier.render().then(function(widgetId) {
     window.recaptchaWidgetId = widgetId;
-
     });
 
   var submit = function(){
-    var telpv = "+62"+telp.value;
-    var appVerifier = window.recaptchaVerifier;
-    firebase
-    .auth()
-    .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
-    .then(function(confirmationResult) {
-        window.confirmationResult = confirmationResult;
-        console.log("good");
-        document.getElementById("button-kirim").disabled = true;
-        document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
-        setTimeout(kirimulang, 5000);
-        buttonkode.style.display = '';
-        function kirimulang(){
-            document.getElementById("button-kirim").disabled = false;
-        }
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/profile?key="'+telp.value+'"',
+    "method": "GET",
+    "headers": {
+    "content-type": "application/json"
+    },
+    "processData": false,
+    "data": ""
+    }
+    $.ajax(settings).done(function (response) {
+        if(response.rows==''){
+            var telpv = "+62"+telp.value;
+            var appVerifier = window.recaptchaVerifier;
+            firebase
+            .auth()
+            .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
+            .then(function(confirmationResult) {
+                window.confirmationResult = confirmationResult;
+                console.log("good");
+                document.getElementById('id02').style.display='block';
+                document.getElementById("button-kirim").disabled = true;
+                document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
+                setTimeout(kirimulang, 5000);
+                function kirimulang(){
+                    document.getElementById("button-kirim").disabled = false;
+                }
 
-    })
-    .catch(function (error) {
-            // Error; SMS not sent
-            console.error('Terjadi Kesalahan :', error);
-            window.alert('Error during signInWithPhoneNumber:\n\n'
-                + error.code + '\n\n');
-            document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
-            function kirimulang(){
-                document.getElementById("button-kirim").disabled = false;
-            }
-        });
+            })
+            .catch(function (error) {
+                    // Error; SMS not sent
+                    console.error('Terjadi Kesalahan :', error);
+                    window.alert('Error during signInWithPhoneNumber:\n\n'
+                        + error.code + '\n\n');
+                    document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
+                    function kirimulang(){
+                        document.getElementById("button-kirim").disabled = false;
+                    }
+            });
+        }else {
+            window.alert('Nomor Sudah Terdaftar');
+            
+        }
+    }); 
+    
+    
   }
 
   var myFunction = function() {
@@ -759,7 +785,7 @@ window.onclick = function(event) {
     .then(function(result) {
         window.alert('Konfirmasi Kode Berhasil');
         console.log("success");
-        buttons.disabled = false;
+        buttonregister.style.display = "";
     }, function(error) {
         window.alert('Terjadi Kesalahan :\n\n'
                 + error.code + '\n\n' + error.message);
@@ -767,6 +793,40 @@ window.onclick = function(event) {
       console.log(error);
     });
   };
+  </script>
+  <script>
+
+
+var cekig = function(){
+var namaig = ig.value;
+var length = ig.value.length;
+var usernameig = namaig.substring(1, length);
+var alamatig = 'https://www.instagram.com/';
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": alamatig+usernameig,
+    "method": "GET",
+    "headers": {
+        "cookie": "rur=PRN; urlgen=%22%7B%5C%22203.128.93.3%5C%22%3A%2018103%7D%3A1fv2Ch%3AzBNbW49WSECQlVjpPoDz2FbcUtk%22; mid=W4TWhwAEAAH9JLkMVVB2649o6bMN; mcd=3; csrftoken=uVzzs61ysBrBt3tMUge36pSbhhd7rMhi"
+    }
+}
+console.log(usernameig)
+$.ajax(settings).done(function (response) {
+  if(response !=''){
+      if(ig.value!=''){
+            document.getElementById("icon-nonaktif").style.display = 'none';
+            document.getElementById("icon-aktif").style.display = '';
+      }
+    document.getElementById("icon-nonaktif").style.display = 'none';
+  }
+}).fail(function(response){
+  if(response !=''){
+    document.getElementById("icon-aktif").style.display = 'none';
+    document.getElementById("icon-nonaktif").style.display = '';
+  }
+});
+};
   </script>
 </body>
 </html>
