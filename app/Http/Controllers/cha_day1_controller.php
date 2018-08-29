@@ -67,6 +67,34 @@ class cha_day1_controller extends Controller
        
     }
 
+    public function add_cha_youtube(Request $request, $day) {
+        $notelp = $request->get('notelp');
+        $link = $request->get('upload');
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_PORT => "5984",
+          CURLOPT_URL => "http://159.65.139.254:5984/lipice",
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "POST",
+          CURLOPT_POSTFIELDS => "{\n  \"type\": \"youtube challenge\",\n  \"day\" :\"$day\",\n  \"notelp\": \"$notelp\",\n  \"link\" : \"$link\"\n}",
+          CURLOPT_HTTPHEADER => array(
+            "content-type: application/json"
+          ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        if ($err) {
+          echo "cURL Error #:" . $err;
+        } else {
+            return redirect('/profile/'.$notelp.'/edit/');
+        }
+       
+    }
    
     /**
      * Display the specified resource.

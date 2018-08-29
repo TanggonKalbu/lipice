@@ -61,7 +61,7 @@ class votesession_controller extends Controller
             if(json_decode($response,TRUE)["rows"]==null){
                 $request->session()->put('vote',$request->get('notelp'));
                 echo $request->session()->get('vote');
-                return redirect('/vote/');
+                return redirect('/vote/day1/edit');
             }
             else {
                 echo "wes mari ngevote nyadaro";
@@ -73,7 +73,7 @@ class votesession_controller extends Controller
 
     public function delete(Request $request){
         $request->session()->forget('vote');
-        return redirect('/vote/');
+        return redirect('/vote/day1/edit');
      }
 
     /**

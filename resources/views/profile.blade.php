@@ -762,17 +762,20 @@ body {
                 <br><br><br><br>
                     <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
                         <!-- <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline"> -->
-            <?php 
-            $day = 28;
             
-            if($day == 28 || $day == 31) { ?>
-            <form method="post" action="{{url('cha_video')}}" enctype="multipart/form-data" class="form-inline"> 
+            <?php for($counter = 0 ;$counter<$data["day"]["total_rows"]; $counter++) { ?>
+                 <?php if($data["day"]["rows"][$counter]["value"]["konten"] == "video"){ ?>
+                    <?php if($data["day"]["rows"][$counter]["value"]["stat_post"] == "1"){
+                        $day = $data["day"]["rows"][$counter]["value"]["day"];
+                        ?>
+
+            <form method="post" action="/add_video/{day}" enctype="multipart/form-data" class="form-inline"> 
                 @csrf
                
                 <div class="form-group mb-2">
                     <div class="dropdown">
                         <button class="btn btn-secondary dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Day 1
+                            Day <?php echo $counter + 1 ?>
                         </button>
                     </div>
                 </div>
@@ -791,14 +794,17 @@ body {
 
                 <button type="submit" class="btn-default mb-2 button">SAVE</button>
             </form>
-            <?php } else{?>
-            <form method="post" action="/add/{{$day}}" enctype="multipart/form-data" class="form-inline"> 
-                @csrf
-                
+                 <?php } }elseif($data["day"]["rows"][$counter]["value"]["konten"] == "gambar") { ?>
+                    <?php if($data["day"]["rows"][$counter]["value"]["stat_post"] == "1"){ 
+                        $day = $data["day"]["rows"][$counter]["value"]["day"];
+                        ?>
+
+                        <form method="post" action="/add/{{$day}}" enctype="multipart/form-data" class="form-inline"> 
+                     @csrf
                 <div class="form-group mb-2">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Day <?php echo $day - 26 ;?>
+                        Day <?php echo $counter + 1 ?>
                         </button>
                     </div>
                 </div>
@@ -810,7 +816,37 @@ body {
                 </div>
                     <button type="submit" class="btn-default mb-2 button">SAVE</button>
             </form>
-            <?php }; ?>
+      
+                <?php } ?>
+                 <?php } else { ?>
+                    <?php if($data["day"]["rows"][$counter]["value"]["stat_post"] == "1"){ 
+                         $day = $data["day"]["rows"][$counter]["value"]["day"];
+                         ?>
+ 
+                         <form method="post" action="/add_youtube/{{$day}}" enctype="multipart/form-data" class="form-inline"> 
+                      @csrf
+                 <div class="form-group mb-2">
+                     <div class="dropdown">
+                         <button class="btn btn-secondary dropdown dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         Day <?php echo $counter + 1 ?>
+                         </button>
+                     </div>
+                 </div>
+                 <div class="form-group mx-sm-4 mb-1">
+                 <!-- button upload video -->    
+                     <label for="linkupload" class="sr-only">Linkupload</label>
+                     <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
+                     <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
+                 </div>
+                     <button type="submit" class="btn-default mb-2 button">SAVE</button>
+             </form>
+                    
+                    
+            <?php } ?>   
+              <?php } ?>
+                <?php }?>
+
+
                 <br><br>
                 <div> <!-- photo entry start -->
                 <h5 style="text-align:left;">Your Photo Enteries</h5>
@@ -839,7 +875,15 @@ body {
                         <?php if($data["video"]!= "kosong"){ for($counter =0;$counter < count($data["video"]["rows"]);$counter++) { ?>
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                    <?php if($data["video"]["rows"][$counter]["value"]["type"]=="video challenge") {?>
                                     <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe> 
+                                    <?php }
+                                    else { ?>
+                                    <iframe class="embed-responsive-item" width="100%" height="300px" src="<?php echo $data["video"]["rows"][$counter]["value"]["link"];?>" frameborder="0" allowfullscreen></iframe> 
+                                
+                                    <?php
+                                    }
+                                    ?>
                                 </div> 
                             </div>
                             <?php } }?>

@@ -13,7 +13,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 
-
+<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -604,13 +604,13 @@ body {
 
     <!-- buah atas -->
     
-        <img src="images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:-1">
-        <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:-1">
+        <img src="/images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:-1">
+        <img src="/images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:-1">
         <!-- <div style="margin-top:70px;"> -->
-        <img src="images/callout-lipice.png" class="responsive logo" alt="" style="">
-        <img src="images/summercamp.png" class="responsive" alt="" style="width:300px;">
+        <img src="/images/callout-lipice.png" class="responsive logo" alt="" style="">
+        <img src="/images/summercamp.png" class="responsive" alt="" style="width:300px;">
     <!-- </div> -->
-    <img src="images/balon.png" class="responsive position-balon" alt="" style="">
+    <img src="/images/balon.png" class="responsive position-balon" alt="" style="">
     
     <!-- <a onclick="coba()" class="btn btn-warning" style="width:auto">Edit</a> -->
 
@@ -629,27 +629,57 @@ body {
         <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
         <br>
         <div class="text-center">
-            <button class="label2 done" style="margin-right:3px; margin-left:3px;">DAY <b>01</b></button>
-            <button class="label2 dtwo" style="margin-right:3px; margin-left:3px;">DAY <b>02</b></button>
-            <button class="label2 dthree" style="margin-right:3px; margin-left:3px;">DAY <b>03</b></button>
-            <button class="label2 dfour" style="margin-right:3px; margin-left:3px;">DAY <b>04</b></button>
-            <button class="label2 dfive" style="margin-right:3px; margin-left:3px;">DAY <b>05</b></button>
-            <button class="label2 dsix" style="margin-right:3px; margin-left:3px;">DAY <b>06</b></button>
-            <button class="label2 dseven" style="margin-right:3px; margin-left:3px;">DAY <b>07</b></button>
+        
+            <button <?php if($data["dayall"][0]["value"]["stat_vote"] == "1") { ?> onclick="location.href='/vote/day1/edit'" <?php } ?>  class="label2 done" style="margin-right:3px; margin-left:3px;">DAY <b>01</b></button>
+            <button <?php if($data["dayall"][1]["value"]["stat_vote"] == "1") { ?> onclick="location.href='/vote/day2/edit'" <?php } ?>  class="label2 dtwo" style="margin-right:3px; margin-left:3px;">DAY <b>02</b></button>
+            <button <?php if($data["dayall"][2]["value"]["stat_vote"] == "1") { ?> onclick="location.href='/vote/day3/edit'" <?php } ?>  class="label2 dthree" style="margin-right:3px; margin-left:3px;">DAY <b>03</b></button>
+            <button <?php if($data["dayall"][3]["value"]["stat_vote"] == "1") { ?> onclick="location.href='/vote/day4/edit'" <?php } ?>  class="label2 dfour" style="margin-right:3px; margin-left:3px;">DAY <b>04</b></button>
+            <button <?php if($data["dayall"][4]["value"]["stat_vote"] == "1") { ?> onclick="location.href='/vote/day5/edit'" <?php } ?>  class="label2 dfive" style="margin-right:3px; margin-left:3px;">DAY <b>05</b></button>
+            <button <?php if($data["dayall"][5]["value"]["stat_vote"] == "1") { ?> onclick="location.href='/vote/day6/edit'" <?php } ?>  class="label2 dsix" style="margin-right:3px; margin-left:3px;">DAY <b>06</b></button>
+            <button <?php if($data["dayall"][6]["value"]["stat_vote"] == "1") { ?> onclick="location.href='/vote/day7/edit'" <?php } ?>  class="label2 dseven" style="margin-right:3px; margin-left:3px;">DAY <b>07</b></button>
             
         </div>
         <br>
         <br>
-        <!-- <a href="#">
-            <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
-            &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
-        </a> -->
         <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
         <div class="force-overflow"> 
             <div class="row justify-content-md-center">
-            <?php $day = 2 ?>
-            <?php if($day!=28 && $day!=2) {
+            <?php  
+            $day = $data["day"]["day"];
+            if($data["day"]["stat_vote"]!= "0") {
+            if($data["day"]["konten"]== "youtube") {
                 if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
+                 <div class="col-md-3 space">
+                    <div class="row">
+                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
+                    </div>
+                    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                    <iframe class="embed-responsive-item" width="100%" height="300px" src="<?php echo $data["cha_1"][$counter]?>" frameborder="0" allowfullscreen></iframe>
+                     </div> 
+                     <?php $post = $data["cha_1"][$counter];
+                            $kontestan = $data["profile_cha_1"][$counter]["notelp"];
+                        ?>
+                     @if(Session::has('vote'))
+                     <div class="row space vt shadow-lg">
+                     <input type="hidden" id="voter" value="{{ Session::get('vote') }}">
+                        <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>', '<?php echo "jumlah".$counter ?>' )" >Ada session loh</button>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
+                    <?php $post[$counter] = "post".($counter+1)?>
+                        @else
+                        <div class="row space vt shadow-lg">
+                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
+                        <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                    </div>
+                      @endif
+                </div>
+                <?php
+                }
+            }
+           }
+           elseif($data["day"]["konten"]== "gambar") {?>
+          <?php if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
                 <div class="col-md-3 space">
                     <div class="row">
                         <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
@@ -675,18 +705,21 @@ body {
                     </div>
                       @endif
                 </div>
-            <?php }} }
-            else {  
-                if($data["cha_1"]!= "kosong"){ for($counter =0;$counter < count($data["cha_1"]);$counter++) { ?>
-                 <div class="col-md-3 space">
+               <?php
+           }
+        }}
+           
+           else {
+               ?>
+               <div class="col-md-3 space">
                     <div class="row">
                         <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                    <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["cha_1"][$counter]["value"]["_id"] ?>/boomerang.mp4" frameborder="0" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe>
                      </div> 
-                     <?php $post = $data["cha_1"][$counter]["value"]["video"];
+                     <?php $post = $data["cha_1"][$counter];
                             $kontestan = $data["profile_cha_1"][$counter]["notelp"];
                         ?>
                      @if(Session::has('vote'))
@@ -703,9 +736,10 @@ body {
                     </div>
                       @endif
                 </div>
-                <?php
-            }}
-            }
+
+               <?php
+           }
+        }
             ?>
     
             </div>
@@ -803,7 +837,7 @@ body {
         <div class="container" style="background-color:#f1f1f1">
             <div style="margin-right:30px; margin-left:16px">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Mulai Vote</button>
+                <button  type="submit" id="button-login" class="loginbtn" style="display:none">Mulai Vote</button>
                 <!-- <button  type="submit" style="pointer-events">Vote</button> -->
             </div>
         </div>
@@ -833,15 +867,15 @@ body {
         <table style="width:100%; z-index:-1;">
             <tr>
                 <th class="col-xs|sm|md|lg|xl-4">
-                    <img src="images/kiri.png" class="responsive" alt="" style="float:left;margin-top:300px; z-index:-1;">
+                    <img src="/images/kiri.png" class="responsive" alt="" style="float:left;margin-top:300px; z-index:-1;">
                 </th>
                 <th></th>
                 <th class="col-xs|sm|md|lg|xl-4">
-                    <img src="images/timeline.png" class="responsive" alt="" style="display:block; margin:0 auto; z-index:-1;">
+                    <img src="/images/timeline.png" class="responsive" alt="" style="display:block; margin:0 auto; z-index:-1;">
                 </th>
                 <th class="col-xs|sm|md|lg|xl-4">
                     <div style="width:100%">
-                    <img src="images/kanan.png" class="responsive a" alt="" style="float:right;margin-top:-520px; z-index:-1;">
+                    <img src="/images/kanan.png" class="responsive a" alt="" style="float:right;margin-top:-520px; z-index:-1;">
                     </div>
                 </th>
             </tr>
@@ -851,9 +885,9 @@ body {
 
 <!-- footer -->
 <div class="footer" style="z-index:-1; padding-bottom:15px">
-    <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-    <img src="images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
-    <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+    <img src="/images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+    <img src="/images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
+    <img src="/images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
 </div>  
 <br>
 </div> <!-- =====END===== -->
@@ -1074,10 +1108,11 @@ var jumlah;
     .then(function(result) {
         window.alert('Konfirmasi Kode Berhasil');
         console.log("success");
-        btnlogin.style.pointerEvents = '';
-        var notelp = document.getElementById('input-tlp').value;
+        btnlogin.style.display='';
+        //var notelp = document.getElementById('input-tlp').value;
         // window.location.href = "/profile/"+notelp+"/edit";
         //window.location.href = "/votesession/store";
+
     }, function(error) {
         window.alert('Terjadi Kesalahan :\n\n'
                 + error.code + '\n\n' + error.message);
