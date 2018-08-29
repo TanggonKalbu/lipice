@@ -146,6 +146,10 @@ textarea {
     height: auto;
 }
 
+.pdg-bottom{
+    padding-bottom: 2rem;
+}
+
 .kanan-atas{
     float:right;
 }
@@ -224,13 +228,35 @@ body {
 
 /* footer end */
 
+/* MAIN SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fb61ca; 
+    border-radius:15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+/* MAIN SCROLLBAR END */
 @media (max-width: 480px) {
 .samping2{
     padding-right:15%;
     padding-left: 15%;
     }
 .a{
-    float:right; margin-top:-400px; z-index:1;
+    float:right; margin-top:-100px; z-index:1;
     }
 }
 </style>
@@ -267,7 +293,7 @@ body {
  
 
     <!-- Card -->
-    <div class="samping">
+    <div class="samping pdg-bottom">
         <div class="card">
         <div class="card-body">
         @if (\Session::has('success'))
@@ -383,24 +409,23 @@ body {
         </div>
         </div>
     </div>
+    <br><br><br>
 
-    <br><br><br><br>
-    <div class="samping2">
+
+    <div class="pdg-bottom" style="">
         <p style="text-align:center; font-size:20pt;" ><b>#LIPICE7DAYSCHALLENGE</b></p>
         <p style="text-align:center;font-size: 18pt;"><b>SUMMER CAMP TIMELINE</b></p>
         <br>
-        <p style="text-align:center; font-size:15pt;">
+        <p style="text-align:center; font-size:15pt; padding-right:10%; padding-left:10%;">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod eget nunc a cursus. Vestibulum quis ipsum est. Etiam mollis scelerisque suscipit. Sed eleifend neque metus. In lacus arcu, luctus et sagittis commodo, consequat eget nisi. Duis non ex semper, ultricies nisl nec, hendrerit mauris. Sed suscipit ut sapien in vehicula. Ut lacinia bibendum rhoncus. Nam augue augue, mollis sed tincidunt quis, pellentesque eget enim. Suspendisse eleifend eu lectus in vestibulum. Nulla efficitur, elit et convallis malesuada, est nunc malesuada nulla, cursus eleifend mauris nunc id sapien. Donec condimentum nunc eget tellus imperdiet, vitae lobortis dolor suscipit. Fusce mattis, nisl vitae porttitor interdum, justo est ultricies risus, nec fermentum urna est ac lectus. Praesent varius accumsan ante eget consectetur. Suspendisse velit justo, malesuada vitae vulputate id, tincidunt ut neque. Cras sed vehicula libero.
         </p>
     </div>
-    <br><br><br>
 
-    <!-- buah bawah -->
-    <div class="inline-block">
+    <div class="inline-block pdg-bottom"> <!-- timeline start -->
         <table style="width:100%; z-index:-1;">
             <tr>
                 <th class="col-xs|sm|md|lg|xl-4">
-                    <img src="images/kiri.png" class="responsive" alt="" style="float:left;margin-bottom:-280px; z-index:-1;">
+                    <img src="images/kiri.png" class="responsive" alt="" style="float:left;margin-top:300px; z-index:-1;">
                 </th>
                 <th></th>
                 <th class="col-xs|sm|md|lg|xl-4">
@@ -408,35 +433,21 @@ body {
                 </th>
                 <th class="col-xs|sm|md|lg|xl-4">
                     <div style="width:100%">
-                    <img src="images/kanan.png" class="responsive a" alt="" style="float:right;margin-bottom:-280px; z-index:-1;">
+                    <img src="images/kanan.png" class="responsive a" alt="" style="float:right;margin-top:-520px; z-index:-1;">
                     </div>
                 </th>
             </tr>
         </table>      
-    </div>
-    <!-- <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs|sm|md|lg|xl-4">
-                <img src="images/kiri.png" class="responsive" alt="" style="float:left; z-index:-1;">
-            </div>
-            <div class="col-xs|sm|md|lg|xl-4" style="align:center; width:auto">
-                <img src="images/timeline.png" class="responsive" alt="" style="display:block; margin:auto;z-index:-1;">
-            </div>
-            <div class="col-xs|sm|md|lg|xl-4">
-                <img src="images/kanan.png" class="responsive" alt="" style="float:right; z-index:-1;">
-            </div>
-        </div>
-    </div> -->
-    <br><br><br><br><br>
+    </div> <!-- timeline end -->
+   
 
-    
-    <!-- footer -->
-    <div class="footer" style="z-index:-1;">
-        <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-        <img src="images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
-        <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
-    </div>    
-
+<!-- footer -->
+<div class="footer" style="z-index:-1; padding-bottom:15px">
+    <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+    <img src="images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
+    <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+</div>  
+<br>
 </div>
 <!-- End Save for Web Slices -->
 

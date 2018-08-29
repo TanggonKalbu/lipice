@@ -527,7 +527,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                         <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%; max-height:300px">  
+                         <!-- <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%; max-height:300px">   -->
+                         <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe>                      
                         </div> 
                      <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
                               $kontestan = $data["profile_cha_1"][$counter]["notelp"];
