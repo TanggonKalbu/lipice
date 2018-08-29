@@ -26,13 +26,13 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" > Approval
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="{{URL('adminapproval')}}">Day 1</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 2</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 3</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 4</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 5</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 6</a></li>
-          <li><a href="{{URL('adminapproval')}}">Day 7</a></li>
+          <li><a onclick="location.href='/adminapproval/day1/edit'">Day 1</a></li>
+          <li><a onclick="location.href='/adminapproval/day2/edit'">Day 2</a></li>
+          <li><a onclick="location.href='/adminapproval/day3/edit'">Day 3</a></li>
+          <li><a onclick="location.href='/adminapproval/day4/edit'">Day 4</a></li>
+          <li><a onclick="location.href='/adminapproval/day5/edit'">Day 5</a></li>
+          <li><a onclick="location.href='/adminapproval/day6/edit'">Day 6</a></li>
+          <li><a onclick="location.href='/adminapproval/day7/edit'">Day 7</a></li>
         </ul>
       </li>
      <li><a href="{{URL('adminbanner')}}">Banner</a></li>
