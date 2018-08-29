@@ -19,8 +19,8 @@
       <a class="navbar-brand" href="#">Lipice</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="{{URL('admin')}}">Kontestan</a></li>
-      <li><a href="{{URL('adminchallenge')}}">Challenge</a></li>
+      <li><a href="{{URL('admin')}}">Kontestan</a></li>
+      <li class="active"><a href="{{URL('adminchallenge')}}">Challenge</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -30,45 +30,43 @@
 </nav>
   
 <div class="container">
+
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="table-responsive">
-            <table class="table table-hover" id="example">
+            <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Nama Lengkap</th>
-                        <th>Tempat Lahir</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Email</th>
-                        <th>Umur</th>
-                        <th>No Telepon</th>
-                        <th>Instagram Link</th>
-                        <th>Facebook Link</th>
-                        <th>Alasan</th>
+                        <th>Day</th>
+                        <th>Date</th>
+                        <th>Challenge</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php for($a=0;$a<=count($data["kontestan"]["rows"])-1;$a++) {?>
-                  <tr>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["namalengkap"];?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["tempatlahir"];?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["tgllahir"];?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["email"];?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["umur"];?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["notelp"];?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["linkig"];?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["linkfb"];?></td>
-                        <td><?php echo $data["kontestan"]["rows"][$a]["value"]["alasan"];?></td>
+
+                <?php for($a=1;$a<=7;$a++){?>
+                    <tr>
+                        <td>Day <?php echo$a ?></td>
+                        <td>
+                            <input type="date" name="tanggal_<?php echo $a ?>" id="input" class="form-control" value="tanggal_<?php echo $a ?>" required="required" pattern="" title="">
+                        </td>
+                        <td>
+                            <select class="form-control" name="challenge_<?php echo $a ?>" id="">
+                                <option value="1">Video</option>
+                                <option value="2">Gambar</option>
+                            </select>
+                            
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-info">Edit </button>
+                        </td>
                     </tr>
-                  
-                
-                <?php
-                }?>
-                
-                   
+                <?php }?>
                 </tbody>
             </table>
         </div>
     </div>
+
 </div>
 
 <?php //print_r($data["kontestan"]);?>
@@ -95,6 +93,7 @@
 	$(document).ready(function(){
 		$('#example').DataTable();
 		});
-	</script>
+</script>
+
 </body>
 </html>

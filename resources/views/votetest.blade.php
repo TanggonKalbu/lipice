@@ -637,7 +637,7 @@ body {
                         ?>
                      @if(Session::has('vote'))
                      <div class="row space vt">
-                        \<input type="hidden" id="voter" value="{{ Session::get('vote') }}">
+                        <input type="hidden" id="voter" value="{{ Session::get('vote') }}">
                         <button type="submit" class="button" onclick="vote('<?php echo $post ?>','<?php echo $kontestan ?>', '{{ Session::get('vote') }}', '<?php echo $day ?>', '<?php echo "jumlah".$counter ?>' )" >Ada session loh</button>
                         <span type="" id="<?php echo "jumlah".$counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
