@@ -21,7 +21,22 @@
     <ul class="nav navbar-nav">
       <li><a href="{{URL('admin')}}">Kontestan</a></li>
       <li class="active"><a href="{{URL('adminchallenge')}}">Challenge</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" > Approval
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{{URL('adminapproval')}}">Day 1</a></li>
+          <li><a href="{{URL('adminapproval')}}">Day 2</a></li>
+          <li><a href="{{URL('adminapproval')}}">Day 3</a></li>
+          <li><a href="{{URL('adminapproval')}}">Day 4</a></li>
+          <li><a href="{{URL('adminapproval')}}">Day 5</a></li>
+          <li><a href="{{URL('adminapproval')}}">Day 6</a></li>
+          <li><a href="{{URL('adminapproval')}}">Day 7</a></li>
+        </ul>
+      </li>
+     <li><a href="{{URL('adminbanner')}}">Banner</a></li>
     </ul>
+
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -37,34 +52,29 @@
                 <thead>
                     <tr>
                         <th>Day</th>
-                        <th>Date</th>
                         <th>Challenge</th>
+                        <th>Status Post</th>
+                        <th>Status Vote</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                <?php for($a=0;$a<count($data["challenge"]);$a++){?>
+                <?php for ($a = 0; $a < count($data["challenge"]); $a++) { ?>
                     <tr>
-                        <td>Day <?php echo $a+1 ?></td>
-                        <td>
-                            <?php echo $data["challenge"][$a]["value"]["tgl"];?> 
-                        </td>
-                        <td>
-                        <?php echo $data["challenge"][$a]["value"]["konten "];
-                        $id = $data["challenge"][$a]["value"]["day"];
-                        ?> 
-                            <!-- <select class="form-control" name="challenge_<?php echo $a ?>" id="">
-                                <option value="1">Video</option>
-                                <option value="2">Gambar</option>
-                            </select> -->
-                            
-                        </td>
-                        <td>
-                            <a href="{{action('adminchallenge_controller@edit', $id)}}" class="btn btn-info" > Edit
-                        </td>
+                        <td>Day <?php echo $a + 1 ?></td>
+                        <td><?php echo $data["challenge"][$a]["value"]["konten"]; ?></td>
+                        <td><?php echo $data["challenge"][$a]["value"]["stat_post"];
+                            $day = $data["challenge"][$a]["value"]["day"];
+                            ?></td>
+                        <td><?php echo $data["challenge"][$a]["value"]["stat_vote"]; ?></td>
+                        <td><a href="/confirm_post/{{$day}}" class="btn btn-info" > post</a>
+                        <a href="/confirm_vote/{{$day}}" class="btn btn-primary" > vote</a>
+                        <a href="/reset_confirm/{{$day}}" class="btn btn-danger" > reset</a>
+                         </td>
                     </tr>
-                <?php }?>
+                <?php 
+            } ?>
                 </tbody>
             </table>
         </div>
