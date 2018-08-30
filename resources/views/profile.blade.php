@@ -716,8 +716,7 @@ body {
                         </div> 
                          <?php }else { ?>
                              <div class="round-border">
-                                 <!-- <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%; height:auto;" alt="..." >  -->
-                                 <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>'  alt="..." > 
+                                 <img id="blah" class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
                             </div>
                              <br>
 
@@ -923,30 +922,6 @@ body {
                 <?php }?>
                 
                 <br><br>
-                <div> <!-- photo entry start -->
-                <h5 style="text-align:left;">Your Photo Enteries</h5>
-                <div class="scrollbar scrollbar-primary"><br>
-                    <div class="force-overflow">
-                        <div class="row">
-                        <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
-                            <div class="col-md-3">
-                                <div class="shadow p-2 mb-4 bg-white rounded">
-                                    <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
-                                </div> 
-                                <div class="row space vt shadow">
-                                    <span type="" id=""  class="label"><?php echo ($data["vote"][$counter]["rows"][0]["value"]) ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                                </div>
-                            </div>
-
-                        <?php } }?>
-                            
-                        </div>
-                    </div>
-                </div>   
-                </div>
-
-                <br><br><br>
-
                 <div> <!-- video entry start -->
                 <h5 style="text-align:left;">Your Video Enteries</h5>
                 <div class="scrollbar scrollbar-primary"><br>
