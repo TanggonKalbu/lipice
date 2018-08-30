@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile</title>
-    <link rel="icon" href="images/callout-lipice.png">
+    <link rel="icon" href="/images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <link rel="stylesheet" href="/css/bootstrapprofile.min.css">
@@ -112,7 +112,7 @@ body{
 }
 
 .scrollbar-primary::-webkit-scrollbar {
-  width: 15px;
+  width: 10px;
   border-radius: 15px;
   background-color: #eee; }
 
@@ -636,16 +636,9 @@ body {
     margin-left:100px;
 }
 /* footer end */
-/* @media screen and (max-width: 800px) {
-    .mqvote{
-        font-size:20pt;
-    }
-    .name{
-        font-weight:bold;
-        color: grey;
-        font-size:15pt;
-        margin-top:50px;
-    }
+
+@media screen and (max-width: 800px) {
+
     .position-balon{
         display:block; position:absolute; 
         z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
@@ -654,15 +647,12 @@ body {
     .logo{
         width:80px;
         float:left;
-        padding-top:10px;
     }
     .summercamp{
-        width:120px; 
-        padding-top:10px; 
-        float:right;
+        width:120px;
     }
     
-} */
+}
 
 </style>
 </head>
@@ -672,13 +662,11 @@ body {
 
     
          <!-- buah atas -->
-        <img src="/images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:1;">
-        <img src="/images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:1">
-        <!-- <div style="margin-top:70px;"> -->
+        <img src="/images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:-1;">
+        <img src="/images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:-1">
         <img src="/images/callout-lipice.png" class="responsive logo" alt="">
         &nbsp;&nbsp;
         <img src="/images/summercamp.png" class="responsive summercamp" alt="">
-        <!-- </div> -->
         <img src="/images/balon.png" class="responsive position-balon" alt="" style="">
 
     <div class="space-body">
@@ -787,7 +775,7 @@ body {
         <div class="col-sm-9"> <!-- col-sm-9 start -->
             <div class="card content"> <!-- card content start -->
             <div class="card-body">
-                <h5 style="text-align:left;">About</h5>
+                <h5 style="text-align:left;">Ceritakan tentang dirimu :</h5>
                 <form method="post" action="{{action('about_controller@update', $notelp)}}" enctype="multipart/form-data" >
                     @csrf
                     <input name="_method" type="hidden" value="PATCH">
@@ -928,7 +916,7 @@ body {
                         <div class="row">
                         <?php if($data["video"]!= "kosong"){ for($counter =0;$counter < count($data["video"]["rows"]);$counter++) { ?>
                             <div class="col-sm-6 col-md-4 col-lg-3">
-                                <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                <div class="shadow p-3 mb-3 bg-white rounded">
                                     <?php if($data["video"]["rows"][$counter]["value"]["type"]=="video challenge") {?>
                                     <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe> 
                                     <?php }
