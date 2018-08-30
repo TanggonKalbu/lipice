@@ -544,7 +544,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <div class="form-group row">
             <label for="ig" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">LINK AKUN INSTAGRAM<b style="color:red;">*</b></p></label>
             <div class="col-sm-9">
-                <input type="text" name="linkig" class="form-control" id="ig" required onkeyup="capt(); cekig()">
+                <input type="text" value="@" name="linkig" class="form-control" id="ig" required onkeyup="capt(); cekig()">
                 <span class="fa fa-check-circle" style="color:green; display:none" id="icon-aktif"> Link Instagram Aktif</span>
                 <span class="fa fa-times-circle" style="color:red; display:none" id="icon-nonaktif"> Link Instagram Tidak Aktif</span>
 

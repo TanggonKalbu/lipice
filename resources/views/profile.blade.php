@@ -67,7 +67,7 @@ body{
     width: 100%;
     color: grey;
     font-size:20pt;
-    padding: 5px;
+    padding: 7px;
 }
 
 .love{
@@ -636,6 +636,34 @@ body {
     margin-left:100px;
 }
 /* footer end */
+/* @media screen and (max-width: 800px) {
+    .mqvote{
+        font-size:20pt;
+    }
+    .name{
+        font-weight:bold;
+        color: grey;
+        font-size:15pt;
+        margin-top:50px;
+    }
+    .position-balon{
+        display:block; position:absolute; 
+        z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
+        margin-top:50px;
+    }
+    .logo{
+        width:80px;
+        float:left;
+        padding-top:10px;
+    }
+    .summercamp{
+        width:120px; 
+        padding-top:10px; 
+        float:right;
+    }
+    
+} */
+
 </style>
 </head>
 <body>
@@ -669,7 +697,7 @@ body {
                     <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
                              
                              <div class="round-border">
-                             <img src="/images/lipice.png" alt="..." class="rounded-circle"> 
+                             <img src="/images/user.png" alt="..." class="rounded-circle"> 
                              <!-- button change photo profile -->
                             <div class="file-upload input-group mb-3" style="display:none" id="uploadbtn">
                                 <div class="file-select">

@@ -125,7 +125,7 @@ input[type=number]::-webkit-outer-spin-button {
 </style>
 </head>
 <body>
-<div>
+<div class="responsive">
     <div class="ex1">
         <img src="images/buah-kanan-atas.png" class="kanan-atas responsive" alt="">
         <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="">
@@ -133,7 +133,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     
     <div class="limiter">
-		<div class="centered">
+		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
 				<form class="login100-form validate-form" action="" method="" >
 					<span class="login100-form-title p-b-55">
