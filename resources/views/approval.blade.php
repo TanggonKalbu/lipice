@@ -78,7 +78,7 @@
                             <iframe class="embed-responsive-item" width="100%" height="300px" src="<?php echo $data["cha_1"][$counter] ?>" frameborder="0" allowfullscreen></iframe>
                         </td>
                         <td>
-                            ndek day e ditambah i status a gawe approval?
+                            ndek day e ditambah i status a gawe approval? gak ngubah akeh a?
                         </td>
                         <td>
                             <a href="" class="btn btn-danger"> Delete</a>
@@ -103,7 +103,7 @@
                             <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:150px; max-height:300px">  
                         </td>
                         <td>
-                            ndek day e ditambah i status a gawe approval?                            
+                            ndek day e ditambah i status a gawe approval? gak ngubah akeh a?                            
                         </td>
                         <td>
                             <a href="" class="btn btn-danger"> Delete</a>
