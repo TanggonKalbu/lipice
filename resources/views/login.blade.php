@@ -157,7 +157,7 @@ input[type=number]::-webkit-outer-spin-button {
                     </div>
                     
                     <div class="container-login100-form-btn p-t-15 p-b-40">
-						<button class="login100-form-btn disabled" style="pointer-events:none" type="button" id="btn-login" onclick="myFunction() ">
+						<button class="login100-form-btn " style="pointer-events:none" type="button" id="btn-login" onclick="myFunction() ">
 							Login
 						</button>
                     </div>
@@ -327,7 +327,8 @@ input[type=number]::-webkit-outer-spin-button {
     .then(function(result) {
         window.alert('Konfirmasi Kode Berhasil');
         console.log("success");
-        window.location.href = "/profile/"+inputhp.value+"/edit";
+       // window.location.href = "/profile/"+inputhp.value+"/edit";
+       window.location.href = '/sess_kons/'+inputhp.value+'';
     }, function(error) {
         window.alert('Terjadi Kesalahan :\n\n'
                 + error.code + '\n\n' + error.message);

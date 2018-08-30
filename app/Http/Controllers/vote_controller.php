@@ -262,6 +262,27 @@ class vote_controller extends Controller
                      }    
                 }
         }
+        else {
+            if($data[1] == null){
+                $data["cha_1"] = "kosong";
+             }
+                else {
+                    for($counter =0 ; $counter < count($data[1]); $counter++) {
+                        $url = $data[1][$counter]["value"];
+                        $telp = $data[1][$counter]["value"]["notelp"];
+                        $data["cha_1"][$counter] = $url;
+                        $data["profile_cha_1"][$counter] = json_decode($this->profile($telp),TRUE)["rows"][0]["value"];
+                        if(json_decode($this->jumlah_vote($telp,$day),TRUE)["rows"]==null) {
+                            $data["jumlahvote"][$counter] = 0;
+                        }
+                        else {
+                            $data["jumlahvote"][$counter]  = json_decode($this->jumlah_vote($telp,$day),TRUE)["rows"][0]["value"];
+                        }
+                     }    
+                }
+
+
+        }
             //  echo $day;
             // print_r($telp);
             // echo "<br>";

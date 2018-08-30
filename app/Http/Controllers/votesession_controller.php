@@ -64,7 +64,7 @@ class votesession_controller extends Controller
                 return redirect('/vote/day1/edit');
             }
             else {
-                echo "wes mari ngevote nyadaro";
+                echo "sudah vote";
             }
         }   
       
@@ -73,6 +73,12 @@ class votesession_controller extends Controller
 
     public function delete(Request $request){
         $request->session()->forget('vote');
+        return redirect('/vote/day1/edit');
+     }
+
+
+    public function delete_kontestan(Request $request){
+        $request->session()->forget('kontestan');
         return redirect('/vote/day1/edit');
      }
 
@@ -109,6 +115,13 @@ class votesession_controller extends Controller
     {
         //
     }
+
+    public function sess_kontestan(Request $request, $notelp)
+    {
+        $request->session()->put('kontestan',$notelp);
+        return redirect('/profile/'.$notelp.'/edit');
+    }
+
 
     /**
      * Remove the specified resource from storage.

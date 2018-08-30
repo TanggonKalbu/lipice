@@ -236,7 +236,7 @@ class adminapproval_controller extends Controller
                 $data["cha_1"] = "kosong";
             } else {
                 for ($counter = 0; $counter < count($data[1]); $counter++) {
-                    $url = $data[1][$counter]["value"]["link"];
+                    $url = $data[1][$counter]["value"];
                     $telp = $data[1][$counter]["value"]["notelp"];
                     $data["cha_1"][$counter] = $url;
                     $data["profile_cha_1"][$counter] = json_decode($this->profile($telp), true)["rows"][0]["value"];
@@ -297,4 +297,58 @@ class adminapproval_controller extends Controller
     {
         //
     }
+    public function delete($id)
+    {
+        $rev = (json_decode($this->post_kons($id), true)["rows"][0]["value"]["_rev"]);
+        $day = (json_decode($this->post_kons($id), true)["rows"][0]["value"]["day"]);
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+        CURLOPT_PORT => "5984",
+        CURLOPT_URL => 'http://admin:lipice@159.65.139.254:5984/lipice/'.$id.'?rev='.$rev.'',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "DELETE",
+        CURLOPT_POSTFIELDS => "",
+        CURLOPT_HTTPHEADER => array(
+        "content-type: application/json"
+        ),  
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        if ($err) {
+        echo "cURL Error #:" . $err;
+        } else {
+        redirect("adminapproval/".$day."edit");
+        }
+        }
+
+public function post_kons($id) {
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+    CURLOPT_PORT => "5984",
+    CURLOPT_URL => 'http://159.65.139.254:5984/lipice/_design/view/_view/challenge_admin?key="'.$id.'"',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_POSTFIELDS => "",
+    CURLOPT_HTTPHEADER => array(
+        "content-type: application/json"
+      ),
+    ));  
+    $response = curl_exec($curl);
+    $err = curl_error($curl); 
+    curl_close($curl);
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      return $response;
+    }
+}   
 }

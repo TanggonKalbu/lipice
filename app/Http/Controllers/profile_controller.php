@@ -108,6 +108,32 @@ class profile_controller extends Controller
         
     }
 
+    public function jumlah_vote($id){
+      $curl = curl_init();
+      curl_setopt_array($curl, array(
+      CURLOPT_PORT => "5984",
+      CURLOPT_URL => 'http://159.65.139.254:5984/lipice/_design/view/_view/jumlah_vote_profile?key="'.$id.'"',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "GET",
+      CURLOPT_POSTFIELDS => "",
+      CURLOPT_HTTPHEADER => array(
+    "content-type: application/json"
+  ),
+));
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    curl_close($curl);
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+    return $response;
+    }
+}
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -116,7 +142,10 @@ class profile_controller extends Controller
      */
     public function edit($notelp)
     {
-        
+        // if(session('kontestan') !=null || session('admin') != null) {
+        //  if(session('kontestan')!=$notelp) {
+        //   return redirect('/profile/'.session('kontestan').'/edit');
+        //  }
         $curl = curl_init();
         curl_setopt_array($curl, array(
         CURLOPT_PORT => "5984",
@@ -148,19 +177,44 @@ class profile_controller extends Controller
                 for($counter =0 ; $counter < count($challenge["rows"]); $counter++) {
                     $url = $challenge["rows"][$counter]["value"]["link"];
                     $data["gambar"][$counter] = json_decode($this->gambar($url), TRUE);
+                     if(json_decode($this->jumlah_vote($data["gambar"][$counter]["thumbnail_url"]), TRUE)==null) {
+                      $data["vote"][$counter] =0;
+                    }else {
+                      $data["vote"][$counter] = json_decode($this->jumlah_vote($data["gambar"][$counter]["thumbnail_url"]), TRUE);
+                    }
+                    // 
                      }
                     }else {
-                        $data["gambar"] = "kosong";
+                    $data["gambar"] = "kosong";
                     }
-            if($data["video"]["total_rows"]== 0) {
+                 if($data["video"]["total_rows"]!= 0) {
+                  for($counter =0 ; $counter < ($data["video"]["total_rows"]); $counter++) {
+                $url = $data["video"]["rows"][$counter]["value"]["_id"];
+                 if(json_decode($this->jumlah_vote($url), TRUE)["rows"]==null) {
+                  
+                   $data["vote_video"][$counter] =0;
+                 }else {
+                  $data["vote_video"][$counter] =json_decode($this->jumlah_vote($url), TRUE)["rows"][0]["value"];
+
+                 }
+              
+                // print_r($data["vote"][$counter]);
+                  }
+               }
+                 else {
+
                 $data["video"] = "kosong";
-            }
+                 }
+           
+
             return view('profile',compact('data','notelp'));
         }
         else {
-                return view('blank',compact('data','notelp'));
+              return view('blank');
         }
     }
+  
+    return redirect('/vote/day1/edit');
     }
 
     /**

@@ -765,8 +765,14 @@ body {
         </div> <!-- col-sm-3 start -->
 
         <div class="col-sm-9"> <!-- col-sm-9 start -->
+        
             <div class="card content"> <!-- card content start -->
+            <div class="col-md-12">
+            <a href="/remove_kont/" class="btn btn-warning" style="float:right;">Logout</a>
+
+            </div>
             <div class="card-body">
+                
                 <h5 style="text-align:left;">About</h5>
                 <form method="post" action="{{action('about_controller@update', $notelp)}}" enctype="multipart/form-data" >
                     @csrf
@@ -798,7 +804,7 @@ body {
                         $day = $data["day"]["rows"][$counter]["value"]["day"];
                         ?>
 
-            <form method="post" action="/add_video/{day}" enctype="multipart/form-data" class="form-inline"> 
+            <form method="post" action="/add_video/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline"> 
                 @csrf
                
                 <div class="form-group mb-2">
@@ -814,21 +820,21 @@ body {
                     <div class="file-upload2">
                         <div class="file-select2">
                             <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
-                            <div class="file-select-button2" id="fileName">Choose File</div>
+                            <div class="file-select-button2" id="fileName">Pilih Video Kamu</div>
                             <div class="file-select-name2" id="noFile2">No file chosen...</div> 
-                            <input type="file" name="uploadVideo" accept="video/mp4" id="chooseVideo">
+                            <input type="file" name="uploadVideo" accept="video/*" id="chooseVideo">
                         </div>
                     </div>
                 </div>
 
                 <button type="submit" class="btn-default mb-2 button">SAVE</button>
+            
             </form>
                  <?php } }elseif($data["day"]["rows"][$counter]["value"]["konten"] == "gambar") { ?>
                     <?php if($data["day"]["rows"][$counter]["value"]["stat_post"] == "1"){ 
                         $day = $data["day"]["rows"][$counter]["value"]["day"];
                         ?>
-
-                        <form method="post" action="/add/{{$day}}" enctype="multipart/form-data" class="form-inline"> 
+                        <form method="post" action="/add/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline"> 
                      @csrf
                 <div class="form-group mb-2">
                     <div class="dropdown">
@@ -839,7 +845,7 @@ body {
                 </div>
                 <div class="form-group mx-sm-4 mb-1">
                 <!-- button upload video -->    
-                    <label for="linkupload" class="sr-only">Linkupload</label>
+                    <label for="linkupload" class="sr-only">Upload Foto kamu</label>
                     <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
                     <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
                 </div>
@@ -852,7 +858,7 @@ body {
                          $day = $data["day"]["rows"][$counter]["value"]["day"];
                          ?>
  
-                         <form method="post" action="/add_youtube/{{$day}}" enctype="multipart/form-data" class="form-inline"> 
+                         <form method="post" action="/add_youtube/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline"> 
                       @csrf
                  <div class="form-group mb-2">
                      <div class="dropdown">
@@ -863,9 +869,9 @@ body {
                  </div>
                  <div class="form-group mx-sm-4 mb-1">
                  <!-- button upload video -->    
-                     <label for="linkupload" class="sr-only">Linkupload</label>
+                     <label for="linkupload" class="sr-only">Upload Video</label>
                      <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
-                     <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
+                     <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Link Youtube" style="width:100%">
                  </div>
                      <button type="submit" class="btn-default mb-2 button">SAVE</button>
              </form>
@@ -888,7 +894,7 @@ body {
                                     <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                 </div> 
                                 <div class="row space vt shadow">
-                                    <span type="" id=""  class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                                    <span type="" id=""  class="label"><?php echo ($data["vote"][$counter]["rows"][0]["value"]) ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                                 </div>
                             </div>
 
@@ -920,7 +926,7 @@ body {
                                     ?>
                                 </div> 
                                 <div class="row space vt shadow">
-                                    <span type="" id=""  class="label">500 &nbsp;&nbsp;<i class="fa fa-heart love" aria-hidden="true"></i></span>
+                                    <span type="" id=""  class="label"><?php echo $data["vote_video"][$counter] ?> &nbsp;&nbsp;<i class="fa fa-heart love" aria-hidden="true"></i></span>
                                 </div>
                             </div>
                             <?php } }?>
@@ -929,7 +935,9 @@ body {
                 </div>
                 </div>
             </div>
+           
             </div> <!-- card content start -->
+         
         </div> <!-- col-sm-9 end -->
         
     </div><!-- row end -->
