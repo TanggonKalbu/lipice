@@ -143,9 +143,12 @@ input[type=number]::-webkit-outer-spin-button {
                     </div>
                     
                     <div class="container-login100-form-btn p-t-15 p-b-35">
-						<button class="login100-form-btn disabled" style="pointer-events:none" type="button" id="btn-kirim-kode">
+						<button class="login100-form-btn disabled" style="pointer-events:none;display:" type="button" id="btn-kirim-kode">
 							Kirim Kode Verifikasi
 						</button>
+                        <span id="span-terkirim" style="display:none">
+                            Kode Terkirim! Periksa Kode di HP Kamu
+                        </span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Masukkan kode Verifikasi">
@@ -168,7 +171,7 @@ input[type=number]::-webkit-outer-spin-button {
 						</button>
                     </div> -->
 
-                    <a href="#" class="btn-kirim cb m-b-10">
+                    <a href="#" class="btn-kirim cb m-b-10" id="btn-kirim-ulang" onclick="submit()" style="display:none">
 						<i class="fa fa-refresh"></i>
 						&nbsp;&nbsp;Kirim Ulang
                     </a> 
@@ -242,6 +245,8 @@ input[type=number]::-webkit-outer-spin-button {
     var btnlogin = document.getElementById('btn-login');
     var inputhp = document.getElementById('input-hp');
     var inputkode = document.getElementById('input-kode');
+    var spankirim = document.getElementById('span-terkirim');
+    var btnkirimulang = document.getElementById('btn-kirim-ulang')
     
     var nohp = function(){
         if(inputhp.value!=''){
@@ -298,15 +303,18 @@ input[type=number]::-webkit-outer-spin-button {
             .then(function(confirmationResult) {
                 window.confirmationResult = confirmationResult;
                 console.log("good");
-                btnkirimkode.classList.add("disabled");
-                btnkirimkode.style.pointerEvents = 'none';
-                btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
+                // btnkirimkode.classList.add("disabled");
+                // btnkirimkode.style.pointerEvents = 'none';
+                // btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";  
+                spankirim.style.display = ''; 
+                btnkirimkode.style.display = 'none';     
                 setTimeout(kirimulang, 5000);
                 btnlogin.classList.remove("disabled");
                 btnlogin.style.pointerEvents = '';
                 function kirimulang(){
-                    btnkirimkode.classList.remove("disabled");
-                    btnkirimkode.style.pointerEvents = '';
+                    // btnkirimkode.classList.remove("disabled");
+                    // btnkirimkode.style.pointerEvents = '';
+                    btnkirimulang.style.display = '';
                 }
 
             })
@@ -315,8 +323,9 @@ input[type=number]::-webkit-outer-spin-button {
                     console.error('Terjadi Kesalahan :', error);
                     window.alert('Error during signInWithPhoneNumber:\n\n'
                         + error.code + '\n\n');
-                    btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
-                    btnkirimkode.classList.remove("disabled");
+                    // btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
+                    // btnkirimkode.classList.remove("disabled");
+                    btnkirimulang.style.display = '';
             });
         }
     }); 
