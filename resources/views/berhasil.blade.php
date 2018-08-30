@@ -24,11 +24,12 @@ body{
     background-color: #fbdee8;
     
 }
-h1{
+h1, h2, h3, h4, h5{
     color:grey;
     text-align:center;
     letter-spacing: 3px; 
     word-spacing: 10px;
+    /* font-size:2vw; */
 
 }
 .centered {
@@ -85,7 +86,8 @@ h1{
     
     <div class="col">
         <div class="centered">
-            <h1>Selamat, Registrasi telah berhasil.<br> Nantikan event kita selanjutnya.</h1>
+            <h1>Selamat! Registrasi kamu berhasil.<br> Nantikan 30 orang pilihan <b>Lip Ice</b> pada tanggal <b>4 Oktober 2018</b>.</h1>
+            <h2>Stay tune di Instagram <b>@lipice_id</b> ya, Dear!</h2>
         </div>
     </div>
    

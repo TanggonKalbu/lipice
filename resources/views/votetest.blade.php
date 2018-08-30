@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="images/callout-lipice.png">
     <title>Vote</title>
+    <link rel="icon" href="/images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -82,7 +83,7 @@ body{
 .name{
     font-weight:bold;
     color: grey;
-    font-size:1vw;
+    font-size:15pt; /*1vw*/
     margin-top:50px;
 }
 
@@ -188,6 +189,16 @@ a:active {
 /* days challenge */
 .label2 {
     color: white;
+    padding: 8px;
+    width:135px;
+    font-size:15pt;
+    border: none;
+    display: inline-block;
+    text-align:right;
+}
+
+/* .label2 {
+    color: white;
     padding: 10px;
     font-family: Arial;
     width:9%;
@@ -195,7 +206,7 @@ a:active {
     border: none;
     display: inline-block;
     text-align:right;
-}
+} */
 
 .label2:focus{
     outline:none;
@@ -520,30 +531,7 @@ body {
   min-height: 100%;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
-@media screen and (max-width: 1100px) {
-  .medq {
-    font-size: 17px;
-    display:block;
-  }
-  .medqInput{
-    font-size: 12px;
-  }
-}
-@media screen and (max-width: 1000px) {
-  .medq {
-    font-size: 16px;
-  }
-}@media screen and (max-width: 900px) {
-  .medq {
-    font-size: 15px;
-  }
- 
-}
-@media screen and (max-width: 800px) {
-  .medq {
-    font-size: 12px;
-  }
-}
+
 
 /**
  * Footer Styles
@@ -601,6 +589,75 @@ body {
     margin-top:-110px;
     margin-left:100px;
 }
+
+.modal-nama{
+    color:white; float:none; margin: auto 0; pointer-events:none; cursor:default;
+}
+
+.mqvote{
+    font-size:3vw;
+}
+
+@media screen and (max-width: 1100px) {
+    .mqvote{
+        font-size:3vw;
+    }
+    .name{
+        font-weight:bold;
+        color: grey;
+        font-size:15pt;
+        margin-top:50px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .mqvote{
+        font-size:3vw;
+    }
+    .name{
+        font-weight:bold;
+        color: grey;
+        font-size:15pt;
+        margin-top:50px;
+    }
+}
+}@media screen and (max-width: 900px) {
+    .mqvote{
+        font-size:3vw;
+    }
+    .name{
+        font-weight:bold;
+        color: grey;
+        font-size:15pt;
+        margin-top:50px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .mqvote{
+        font-size:20pt;
+    }
+    .name{
+        font-weight:bold;
+        color: grey;
+        font-size:15pt;
+        margin-top:50px;
+    }
+    .position-balon{
+        display:block; position:absolute; 
+        z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
+        margin-top:50px;
+    }
+    .logo{
+        width:80px;
+        float:left;
+        padding-top:10px;
+    }
+    .summercamp{
+        width:120px; 
+        padding-top:10px; 
+        float:right;
+    }
+    
+}
 </style>
 </head>
 <body>
@@ -610,20 +667,18 @@ body {
     
         <img src="/images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:-1">
         <img src="/images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:-1">
-        <!-- <div style="margin-top:70px;"> -->
         <img src="/images/callout-lipice.png" class="responsive logo" alt="">
         &nbsp;&nbsp;
         <img src="/images/summercamp.png" class="responsive summercamp" alt="">
-    <!-- </div> -->
-    <img src="/images/balon.png" class="responsive position-balon" alt="" style="">
+        <img src="/images/balon.png" class="responsive position-balon" alt="" style="">
     
     <!-- <a onclick="coba()" class="btn btn-warning" style="width:auto">Edit</a> -->
 
     <div class="body-space pdg-bottom"> <!-- body space start -->
         <!-- Button to Open the Modal -->
-        <div>
+        <!-- <div>
             <a  href="/remove" style="width:auto; float:right; background-color:#ea8a8a">Login</a>
-        </div>
+        </div> -->
     
         <div class="embed-responsive embed-responsive-21by9 ">   
             <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -632,7 +687,7 @@ body {
         <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 100%">
     <div class="card-body"> <!-- card body start -->
         <br>
-        <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
+        <h1 class="card-title text-center mqvote">VOTE YOUR FAVORITE</h1>
         <br>
         <div class="text-center">
         
@@ -665,7 +720,7 @@ body {
                         for ($counter = 0; $counter < count($data["cha_1"]); $counter++) { ?>
                  <div class="col-md-3 space">
                     <div class="row">
-                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-backdrop="false" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:left;"><a href="" style="font-size:15pt" data-toggle="modal" data-backdrop="false" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -693,9 +748,9 @@ body {
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                 <div class="modal-header2">
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
-            </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
+                    </button>
 
             <button style="top:50px;" type="button" class="close" style="color:white">
             <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></span>
@@ -724,10 +779,30 @@ body {
             </div> <!-- div about end-->
         </div><!-- modal footer start-->
 
-        </div>
-    </div>
-    </div>
-    <!-- Modal About End -->
+                    <div class="modal-body"> <!-- modal body start-->
+                        <img src="http://159.65.139.254:5984/lipice/<?php echo $data["profile_cha_1"][$counter]["_id"] ?>/profile.png" alt="Avatar" class="imground">
+                        <br>
+                        <div clas="row" style="text-align:center;"> <!-- div sosmed-->
+                            <a href="" class="sosmed" style="font-size:23px;"><i class="fab fa-youtube"></i></a> 
+                            <a href="" class="sosmed" style="font-size:23px;"><i class="fab fa-instagram"></i></a>
+                            <a href="" class="sosmed" style="font-size:23px;"><i class="fab fa-facebook-square"></i></a>   
+                        </div> <!-- div sosmed end-->
+                    </div> <!-- modal body end-->
+
+                    <div class="modal-footer"> <!-- modal footer start-->
+                        <div class="abt"> <!-- div about-->
+                            <p>
+                            <h1>What is CSS?</h1>
+                            
+                            </p>
+                            <br><br>
+                        </div> <!-- div about end-->
+                    </div><!-- modal footer start-->
+
+                    </div>
+                </div>
+                </div>
+                <!-- Modal About End -->
                 <?php
 
             }
@@ -737,7 +812,7 @@ body {
                 for ($counter = 0; $counter < count($data["cha_1"]); $counter++) { ?>
                 <div class="col-md-3 space">
                     <div class="row">
-                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:left;"><a href="" style="font-size:15pt" data-toggle="modal" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -810,7 +885,7 @@ body {
                 for ($counter = 0; $counter < count($data["cha_1"]); $counter++) { ?>
                <div class="col-md-3 space">
                     <div class="row">
-                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:left;"><a href="" style="font-size:15px" data-toggle="modal" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">

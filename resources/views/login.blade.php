@@ -127,7 +127,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     
     <div class="limiter">
-		<div class="centered">
+		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
 				<form class="login100-form validate-form" action="" method="" >
 					<span class="login100-form-title p-b-55">
@@ -143,9 +143,12 @@ input[type=number]::-webkit-outer-spin-button {
                     </div>
                     
                     <div class="container-login100-form-btn p-t-15 p-b-35">
-						<button class="login100-form-btn disabled" style="pointer-events:none" type="button" id="btn-kirim-kode">
+						<button class="login100-form-btn disabled" style="pointer-events:none;display:" type="button" id="btn-kirim-kode">
 							Kirim Kode Verifikasi
 						</button>
+                        <span id="span-terkirim" style="display:none">
+                            Kode Terkirim! Periksa Kode di HP Kamu
+                        </span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Masukkan kode Verifikasi">
@@ -168,66 +171,27 @@ input[type=number]::-webkit-outer-spin-button {
 						</button>
                     </div> -->
 
-                    <a href="#" class="btn-kirim cb m-b-10">
+                    <a href="#" class="btn-kirim cb m-b-10" id="btn-kirim-ulang" onclick="submit()" style="display:none">
 						<i class="fa fa-refresh"></i>
 						&nbsp;&nbsp;Kirim Ulang
                     </a> 
-
-                   
-
-                    
-                    
-
-					<!-- <div class="contact100-form-checkbox m-l-4">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>
-					
-					
-
-					<div class="text-center w-full p-t-42 p-b-22">
-						<span class="txt1">
-							Or login with
-						</span>
-					</div>
-
-					<a href="#" class="btn-face m-b-10">
-						<i class="fa fa-facebook-official"></i>
-						Facebook
-                    </a> -->
-                    
-                     
-
-					
-
-					<!-- <div class="text-center w-full p-t-115">
-						<span class="txt1">
-							Not a member?
-						</span>
-
-						<a class="txt1 bo1 hov1" href="#">
-							Sign up now							
-						</a>
-					</div> -->
 				</form>
 			</div>
 		</div>
 	</div>
    
     
-
-        
-
-
-
     <!-- footer -->
     <div class="footer" style="z-index:-1; padding-bottom:15px">
         <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
         <img src="images/lipice.png" class="responsive" alt="" style=" margin-right:auto; margin-left:auto; display:block;">   
         <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
-    </div>   
+    </div> 
+
+        
+
+
+  
 </div>
 
 
@@ -242,6 +206,8 @@ input[type=number]::-webkit-outer-spin-button {
     var btnlogin = document.getElementById('btn-login');
     var inputhp = document.getElementById('input-hp');
     var inputkode = document.getElementById('input-kode');
+    var spankirim = document.getElementById('span-terkirim');
+    var btnkirimulang = document.getElementById('btn-kirim-ulang')
     
     var nohp = function(){
         if(inputhp.value!=''){
@@ -298,15 +264,18 @@ input[type=number]::-webkit-outer-spin-button {
             .then(function(confirmationResult) {
                 window.confirmationResult = confirmationResult;
                 console.log("good");
-                btnkirimkode.classList.add("disabled");
-                btnkirimkode.style.pointerEvents = 'none';
-                btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
+                // btnkirimkode.classList.add("disabled");
+                // btnkirimkode.style.pointerEvents = 'none';
+                // btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";  
+                spankirim.style.display = ''; 
+                btnkirimkode.style.display = 'none';     
                 setTimeout(kirimulang, 5000);
                 btnlogin.classList.remove("disabled");
                 btnlogin.style.pointerEvents = '';
                 function kirimulang(){
-                    btnkirimkode.classList.remove("disabled");
-                    btnkirimkode.style.pointerEvents = '';
+                    // btnkirimkode.classList.remove("disabled");
+                    // btnkirimkode.style.pointerEvents = '';
+                    btnkirimulang.style.display = '';
                 }
 
             })
@@ -315,8 +284,9 @@ input[type=number]::-webkit-outer-spin-button {
                     console.error('Terjadi Kesalahan :', error);
                     window.alert('Error during signInWithPhoneNumber:\n\n'
                         + error.code + '\n\n');
-                    btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
-                    btnkirimkode.classList.remove("disabled");
+                    // btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
+                    // btnkirimkode.classList.remove("disabled");
+                    btnkirimulang.style.display = '';
             });
         }
     }); 

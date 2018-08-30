@@ -125,7 +125,7 @@ input[type=number]::-webkit-outer-spin-button {
 </style>
 </head>
 <body>
-<div>
+<div class="responsive">
     <div class="ex1">
         <img src="images/buah-kanan-atas.png" class="kanan-atas responsive" alt="">
         <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="">
@@ -133,7 +133,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     
     <div class="limiter">
-		<div class="centered">
+		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
 				<form class="login100-form validate-form" action="" method="" >
 					<span class="login100-form-title p-b-55">
@@ -141,7 +141,7 @@ input[type=number]::-webkit-outer-spin-button {
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" placeholder="Username">
+						<input class="input100" type="text" name="username" placeholder="Username" id="username">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<span class="lnr lnr-envelope"></span>
@@ -149,7 +149,7 @@ input[type=number]::-webkit-outer-spin-button {
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="pass" placeholder="Password" id="password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<span class="lnr lnr-lock"></span>
@@ -158,7 +158,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 					
 					<div class="container-login100-form-btn p-t-25 p-b-40">
-						<button class="login100-form-btn">
+						<button type="button" class="login100-form-btn" id="btn-login" onclick=loginadmin()>
 							Login
 						</button>
 					</div>
@@ -191,102 +191,33 @@ input[type=number]::-webkit-outer-spin-button {
 <script src="vendor/select2/select2.min.js"></script>
 <script src="js/main.js"></script>
 <script>
-    var btnkirimkode = document.getElementById('btn-kirim-kode');
     var btnlogin = document.getElementById('btn-login');
-    var inputhp = document.getElementById('input-hp');
-    var inputkode = document.getElementById('input-kode');
-    
-    var nohp = function(){
-        if(inputhp.value!=''){
-            btnkirimkode.classList.remove("disabled");
-            btnkirimkode.style.pointerEvents = '';
-        }else{
-            btnkirimkode.classList.add("disabled");
-            btnkirimkode.style.pointerEvents = 'none';
-        }
-    }
+    var username = document.getElementById('username');
+    var password = document.getElementById('password');
+    var a = 1; var b = 2;
+    // var kunci = username.value+password.value;
+    var kunci = username.value + password.value;
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-<script type="text/javascript">
-    var config = {
-        apiKey: "AIzaSyA9q1pskVgdzJbZ3Qki_0UuYM9L5bkQF7w",
-        authDomain: "lipice-8a856.firebaseapp.com",
-        databaseURL: "https://lipice-8a856.firebaseio.com",
-        projectId: "lipice-8a856",
-        storageBucket: "lipice-8a856.appspot.com",
-        messagingSenderId: "894497846646"
-    };
-    firebase.initializeApp(config);
-    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('btn-kirim-kode', {
-    'size': 'invisible',
-    'callback': function(response) {
-        submit();
-    }
-    });
-    recaptchaVerifier.render().then(function(widgetId) {
-    window.recaptchaWidgetId = widgetId;
-    });
-
-    var submit = function(){
+<script>
+var loginadmin = function(){    
     var settings = {
     "async": true,
     "crossDomain": true,
-    "url": 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/profile?key="'+inputhp.value+'"',
+    "url": 'http://159.65.139.254:5984/lipice/_design/view/_view/admin?key=["'+username.value+'","'+password.value+'"]',
     "method": "GET",
-    "headers": {
-    "content-type": "application/json"
-    },
-    "processData": false,
-    "data": ""
+    "headers": {}
     }
     $.ajax(settings).done(function (response) {
-        if(response.rows==''){
-            window.alert('Nomor Tidak Terdaftar');
-        }else {
-            var telpv = "+62"+inputhp.value;
-            var appVerifier = window.recaptchaVerifier;
-            firebase
-            .auth()
-            .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
-            .then(function(confirmationResult) {
-                window.confirmationResult = confirmationResult;
-                console.log("good");
-                btnkirimkode.classList.add("disabled");
-                btnkirimkode.style.pointerEvents = 'none';
-                btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
-                setTimeout(kirimulang, 5000);
-                btnlogin.classList.remove("disabled");
-                btnlogin.style.pointerEvents = '';
-                function kirimulang(){
-                    btnkirimkode.classList.remove("disabled");
-                    btnkirimkode.style.pointerEvents = '';
-                }
-
-            })
-            .catch(function (error) {
-                    // Error; SMS not sent
-                    console.error('Terjadi Kesalahan :', error);
-                    window.alert('Error during signInWithPhoneNumber:\n\n'
-                        + error.code + '\n\n');
-                    btnkirimkode.textContent = "Kirim Ulang Kode Verifikasi";        
-                    btnkirimkode.classList.remove("disabled");
-            });
+        if(response["rows"].length==0){
+            window.alert('Username atau Password Salah!');        
+        }else if(response["rows"].length>0){
+            window.location.href = "/admin";        
         }
-    }); 
-  }
+        
 
-  var myFunction = function() {
-    window.confirmationResult.confirm(document.getElementById("input-kode").value)
-    .then(function(result) {
-        window.alert('Konfirmasi Kode Berhasil');
-        console.log("success");
-        window.location.href = "/profile/"+inputhp.value+"/edit";
-    }, function(error) {
-        window.alert('Terjadi Kesalahan :\n\n'
-                + error.code + '\n\n' + error.message);
-      console.log(error);
     });
-  };
-  </script>
+}
+</script>
 </body>
 </html>

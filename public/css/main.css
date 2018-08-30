@@ -178,7 +178,7 @@ iframe {
   margin: 0 auto;
 }
 
-.container-login100 {
+/* .container-login100 {
   width: 100%;  
   min-height: 100vh;
   display: -webkit-box;
@@ -190,13 +190,34 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  /* background: #0250c5;
+  background: #0250c5;
   background: -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
   background: -o-linear-gradient(bottom, #0250c5, #d43f8d);
   background: -moz-linear-gradient(bottom, #0250c5, #d43f8d);
-  background: linear-gradient(bottom, #0250c5, #d43f8d); */
+  background: linear-gradient(bottom, #0250c5, #d43f8d);
   position: relative;
   z-index: 1;
+} */
+
+.container-login100 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  z-index: 1;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
 }
 
 .container-login100::before {

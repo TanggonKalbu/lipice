@@ -542,11 +542,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
         </div>
 
         <div class="form-group row">
-            <label for="ig" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">LINK AKUN INSTAGRAM<b style="color:red;">*</b></p></label>
+            <label for="ig" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">USERNAME AKUN INSTAGRAM<b style="color:red;">*</b></p></label>
             <div class="col-sm-9">
                 <input type="text" name="linkig" class="form-control" id="ig" required onkeyup="capt(); cekig()">
-                <span class="fa fa-check-circle" style="color:green; display:none" id="icon-aktif"> Link Instagram Aktif</span>
-                <span class="fa fa-times-circle" style="color:red; display:none" id="icon-nonaktif"> Link Instagram Tidak Aktif</span>
+                <span class="fa fa-check-circle" style="color:green; display:none" id="icon-aktif"> Username Instagram Aktif</span>
+                <span class="fa fa-times-circle" style="color:red; display:none" id="icon-nonaktif">Username Instagram Tidak Aktif (tanpa '@')</span>
 
             </div>
         </div>
@@ -800,7 +800,7 @@ window.onclick = function(event) {
 var cekig = function(){
 var namaig = ig.value;
 var length = ig.value.length;
-var usernameig = namaig.substring(1, length);
+var usernameig = namaig.substring(0, length);
 var alamatig = 'https://www.instagram.com/';
     var settings = {
     "async": true,
@@ -811,7 +811,7 @@ var alamatig = 'https://www.instagram.com/';
         "cookie": "rur=PRN; urlgen=%22%7B%5C%22203.128.93.3%5C%22%3A%2018103%7D%3A1fv2Ch%3AzBNbW49WSECQlVjpPoDz2FbcUtk%22; mid=W4TWhwAEAAH9JLkMVVB2649o6bMN; mcd=3; csrftoken=uVzzs61ysBrBt3tMUge36pSbhhd7rMhi"
     }
 }
-console.log(usernameig)
+console.log(ig.value);
 $.ajax(settings).done(function (response) {
   if(response !=''){
       if(ig.value!=''){

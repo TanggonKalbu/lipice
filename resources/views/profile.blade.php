@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile</title>
-    <link rel="icon" href="images/callout-lipice.png">
+    <link rel="icon" href="/images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <link rel="stylesheet" href="/css/bootstrapprofile.min.css">
@@ -67,7 +67,7 @@ body{
     width: 100%;
     color: grey;
     font-size:20pt;
-    padding: 5px;
+    padding: 7px;
 }
 
 .love{
@@ -112,7 +112,7 @@ body{
 }
 
 .scrollbar-primary::-webkit-scrollbar {
-  width: 15px;
+  width: 10px;
   border-radius: 15px;
   background-color: #eee; }
 
@@ -140,11 +140,20 @@ body{
     text-align:center;
 }
 
-.rounded-circle{
+/* .rounded-circle{
     height: 70%;
     width: 70%;
     padding:5px;
     z-index:-2;
+} */
+
+.rounded-circle{
+    height: 150px;
+    width: 150px;
+    padding-top:2px;
+    padding-bottom:4px;
+    padding-left:4px;
+    padding-right:4px;
 }
 
 .size{
@@ -158,8 +167,14 @@ body{
      border-radius: 50%;
      width: 70%;
      height: 70%; 
-     float: none;
-     margin: 0 auto;
+     /* float: none;
+     align:center;
+     width:auto;
+     margin: 0 auto; */
+
+     display:block;
+     margin-right:auto;
+     margin-left:auto;
      margin-top:40px;
      z-index:-1;
  }
@@ -206,6 +221,16 @@ textarea {
     border-radius: 0;       
     font-size: 16px;
     resize: none;
+}
+
+.imgprofile{
+    border-radius: 50%;
+    width:150px;
+    height:150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:-100px;
 }
 
 .inpt {
@@ -636,6 +661,24 @@ body {
     margin-left:100px;
 }
 /* footer end */
+
+@media screen and (max-width: 800px) {
+
+    .position-balon{
+        display:block; position:absolute; 
+        z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
+        margin-top:50px;
+    }
+    .logo{
+        width:80px;
+        float:left;
+    }
+    .summercamp{
+        width:120px;
+    }
+    
+}
+
 </style>
 </head>
 <body>
@@ -644,13 +687,11 @@ body {
 
     
          <!-- buah atas -->
-        <img src="/images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:1;">
-        <img src="/images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:1">
-        <!-- <div style="margin-top:70px;"> -->
+        <img src="/images/buah-kanan-atas.png" class="kanan-atas responsive" alt="" style="z-index:-1;">
+        <img src="/images/buah-kiri-atas.png" class="kiri-atas responsive" alt="" style="z-index:-1">
         <img src="/images/callout-lipice.png" class="responsive logo" alt="">
         &nbsp;&nbsp;
         <img src="/images/summercamp.png" class="responsive summercamp" alt="">
-        <!-- </div> -->
         <img src="/images/balon.png" class="responsive position-balon" alt="" style="">
 
     <div class="space-body">
@@ -675,7 +716,8 @@ body {
                         </div> 
                          <?php }else { ?>
                              <div class="round-border">
-                                 <img id="blah" class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
+                                 <!-- <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%; height:auto;" alt="..." >  -->
+                                 <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>'  alt="..." > 
                             </div>
                              <br>
 
@@ -772,8 +814,7 @@ body {
 
             </div>
             <div class="card-body">
-                
-                <h5 style="text-align:left;">About</h5>
+                <h5 style="text-align:left;">Ceritakan tentang dirimu :</h5>
                 <form method="post" action="{{action('about_controller@update', $notelp)}}" enctype="multipart/form-data" >
                     @csrf
                     <input name="_method" type="hidden" value="PATCH">
@@ -880,8 +921,7 @@ body {
             <?php } ?>   
               <?php } ?>
                 <?php }?>
-
-
+                
                 <br><br>
                 <div> <!-- photo entry start -->
                 <h5 style="text-align:left;">Your Photo Enteries</h5>
@@ -914,7 +954,7 @@ body {
                         <div class="row">
                         <?php if($data["video"]!= "kosong"){ for($counter =0;$counter < count($data["video"]["rows"]);$counter++) { ?>
                             <div class="col-sm-6 col-md-4 col-lg-3">
-                                <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                                <div class="shadow p-3 mb-3 bg-white rounded">
                                     <?php if($data["video"]["rows"][$counter]["value"]["type"]=="video challenge") {?>
                                     <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe> 
                                     <?php }
@@ -933,7 +973,34 @@ body {
                         </div>
                     </div>
                 </div>
+                </div> <!-- video entry end -->
+
+
+                <br><br><br>
+                <div> <!-- photo entry start -->
+                <h5 style="text-align:left;">Your Photo Enteries</h5>
+                <div class="scrollbar scrollbar-primary"><br>
+                    <div class="force-overflow">
+                        <div class="row">
+                        <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
+                            <div class="col-md-3">
+                                <div class="shadow p-2 mb-4 bg-white rounded">
+                                    <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
+                                </div> 
+                                <div class="row space vt shadow">
+                                    <span type="" id=""  class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+
+                        <?php } }?>
+                            
+                        </div>
+                    </div>
+                </div>   
                 </div>
+
+
+
             </div>
            
             </div> <!-- card content start -->

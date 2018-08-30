@@ -104,7 +104,7 @@
                             <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:150px; max-height:300px">  
                         </td>
                         <td>
-                            ndek day e ditambah i status a gawe approval?                            
+                            ndek day e ditambah i status a gawe approval? gak ngubah akeh a?                            
                         </td>
                         <td>
                             <button class="btn btn-danger"> Delete</button>
