@@ -711,6 +711,7 @@ body {
                              
                              <div class="round-border">
                              <img src="/images/user.png" alt="..." class="rounded-circle"> 
+                             </div>
                              <!-- button change photo profile -->
                             <div class="file-upload input-group mb-3" style="display:none" id="uploadbtn">
                                 <div class="file-select">
@@ -719,11 +720,11 @@ body {
                                     <input type="file" name="fileToUpload" id="chooseFile">
                                 </div>
                             </div>
-                        </div> 
+                         
                          <?php }else { ?>
                              <div class="round-border">
-                                 <!-- <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%; height:auto;" alt="..." >  -->
-                                 <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>'  alt="..." > 
+                                 <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%; height:auto;" alt="..." > 
+                                 <!-- <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>'  alt="..." >  -->
                             </div>
                              <br>
 
