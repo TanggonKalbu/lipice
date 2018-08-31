@@ -154,11 +154,11 @@ textarea {
     padding-bottom: 2rem;
 }
 
-.kanan-atas{
+.kanan-atas, .camp{
     float:right;
 }
 
-.kiri-atas{
+.kiri-atas, .logo{
     float:left;
 }
 
@@ -233,27 +233,27 @@ body {
 /* footer end */
 
 /* MAIN SCROLLBAR */
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* Track */
 ::-webkit-scrollbar-track {
-    background: transparent; 
-}
- 
-/* Handle */
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); */
+  background-color: transparent;
+  border-radius: 10px; }
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent; }
+
 ::-webkit-scrollbar-thumb {
-    background: #fb61ca; 
-    border-radius:15px;
-}
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #f093fb 0%, #f5576c 100%);
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
 /* MAIN SCROLLBAR END */
+
 @media (max-width: 480px) {
 .samping2{
     padding-right:15%;
@@ -435,6 +435,42 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 /* modal login end */
 
+.position-balon{
+    display:block; 
+    position:absolute; 
+    z-index:-1; 
+    top:0; 
+    right:0; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    margin-top:-110px;
+    margin-left:100px;
+}
+
+.m-t{
+    margin-top:100px;
+}
+
+@media screen and (max-width: 800px) {
+
+    .kanan-atas, .kiri-atas, .foo{
+        width:15%;
+        height:auto;
+        }
+    .logo{
+        width:25%;
+        height:auto;
+    }
+    .camp{
+        width:35%;
+        height:auto;
+        margin-top:10px;
+    }
+    .m-t{
+        margin-top:10px;
+    }
+}
+
 </style>
 
 </head>
@@ -448,9 +484,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <img src="images/buah-kanan-atas.png" class="kanan-atas responsive" alt="">
     <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="">
     <br>
-    <div style="margin-top:100px;">
-    <img src="images/logo.png" class="kiri-atas responsive" alt="">
-    <img src="images/balon.png" class="kanan-atas responsive" alt="">
+    <div>
+    <img src="images/logo.png" class="logo responsive m-t" alt="">
+    <img src="images/balon.png" class="camp responsive m-t" alt="">
     </div>
 
 <!-- <div class="container-fluid">
@@ -656,9 +692,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <!-- footer -->
 <div class="footer" style="z-index:-1; padding-bottom:15px">
-    <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-    <img src="images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
-    <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+    <img src="images/buah-kiri-bawah.png" class="responsive foo" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+    <img src="images/lipice.png" class="responsive foo" alt="" style=" margin:0 auto;">   
+    <img src="images/buah-kanan-bawah.png" class="responsive foo" alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
 </div>  
 <br>
 

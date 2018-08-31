@@ -134,6 +134,7 @@ a:active {
     background: #fff;
     overflow:auto;
     margin-bottom: 25px;
+    overflow-x: visible;
 }
 .force-overflow {
     max-width: 99%;
@@ -552,22 +553,23 @@ body {
 .shadow{
     padding:0;
 }
-/* MAIN SCROLLBAR */
-/* width */
-::-webkit-scrollbar {
-    width: 8px;
-}
 
-/* Track */
+/* MAIN SCROLLBAR */
 ::-webkit-scrollbar-track {
-    background: transparent; 
-}
- 
-/* Handle */
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); */
+  background-color: transparent;
+  border-radius: 10px; }
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent; }
+
 ::-webkit-scrollbar-thumb {
-    background: #fb61ca; 
-    border-radius:15px;
-}
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #f093fb 0%, #f5576c 100%);
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); }
+
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
@@ -645,19 +647,24 @@ body {
         display:block; position:absolute; 
         z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
         margin-top:50px;
+        width:50%;
+        height:auto;
     }
     .logo{
-        width:80px;
+        width:20%;
         float:left;
-        padding-top:10px;
     }
     .summercamp{
-        width:120px; 
-        padding-top:10px; 
-        float:right;
+        width:120px;
+    }
+    .kanan-atas, .kiri-atas, .foo{
+        width:15%;
+        height:auto;
     }
     
 }
+
+
 </style>
 </head>
 <body>
@@ -724,9 +731,9 @@ body {
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                        <iframe class="embed-responsive-item" width="100%" height="300px" src="<?php echo $data["cha_1"][$counter] ?>" frameborder="0" allowfullscreen></iframe>
-                    </div> 
-                     <?php $post = $data["cha_1"][$counter];
+                    <iframe class="embed-responsive-item" width="100%" height="300px" src="<?php echo $data["cha_1"][$counter]["link"] ?>" frameborder="0" allowfullscreen></iframe>
+                     </div> 
+                     <?php $post = $data["cha_1"][$counter]["_id"];
                     $kontestan = $data["profile_cha_1"][$counter]["notelp"];
                     ?>
                      @if(Session::has('vote'))
@@ -752,10 +759,32 @@ body {
                         <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
                     </button>
 
-                    <button style="top:50px;" type="button" class="close" disabled="disabled">
-                        <span aria-hidden="true" class="modal-nama"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></span>
-                    </button>
-                    </div>
+            <button style="top:50px;" type="button" class="close" style="color:white">
+            <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></span>
+            </button>
+        </div>
+        <div class="modal-body"> <!-- modal body start-->
+            <?php if($data["profile_cha_1"][$counter]["image"]!= "") { ?>
+            <img src="http://159.65.139.254:5984/lipice/<?php echo $data["profile_cha_1"][$counter]["_id"]?>/profile.png" alt="Avatar" class="imground">
+            <?php } else { ?>
+                <img src="/images/lipice.png" alt="Avatar" class="imground">
+            <?php } ?>
+            <br>
+            <div clas="row" style="text-align:center;"> <!-- div sosmed-->
+                <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
+                <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
+                <a href="" class="sosmed"><i class="fab fa-facebook-square"></i></a>   
+            </div> <!-- div sosmed end-->
+        </div> <!-- modal body end-->
+        <div class="modal-footer"> <!-- modal footer start-->
+            <div class="abt"> <!-- div about-->
+                <p>
+                <h1><?php echo $data["profile_cha_1"][$counter]["about"] ?></h1>
+                  
+                </p>
+                <br><br>
+            </div> <!-- div about end-->
+        </div><!-- modal footer start-->
 
                     <div class="modal-body"> <!-- modal body start-->
                         <img src="http://159.65.139.254:5984/lipice/<?php echo $data["profile_cha_1"][$counter]["_id"] ?>/profile.png" alt="Avatar" class="imground">
@@ -796,7 +825,7 @@ body {
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                          <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%; max-height:300px">  
                      </div> 
-                     <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
+                     <?php $post = $data["cha_1"][$counter]["_id"];
                     $kontestan = $data["profile_cha_1"][$counter]["notelp"];
                     ?>
                      @if(Session::has('vote'))
@@ -813,21 +842,63 @@ body {
                     </div>
                       @endif
                 </div>
+                 <!-- Modal About-->
+                 <div class="modal" id="largeModal<?php echo $counter ?>" tabindex="-1" role="dialog" aria-labelledby="basicModal" >
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header2">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
+            </button>
+
+            <button style="top:50px;" type="button" class="close" style="color:white">
+            <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></span>
+            </button>
+        </div>
+        <div class="modal-body"> <!-- modal body start-->
+            <?php if($data["profile_cha_1"][$counter]["image"]!= "") { ?>
+            <img src="http://159.65.139.254:5984/lipice/<?php echo $data["profile_cha_1"][$counter]["_id"]?>/profile.png" alt="Avatar" class="imground">
+            <?php } else { ?>
+                <img src="/images/lipice.png" alt="Avatar" class="imground">
+            <?php } ?>
+            <br>
+            <div clas="row" style="text-align:center;"> <!-- div sosmed-->
+                <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
+                <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
+                <a href="" class="sosmed"><i class="fab fa-facebook-square"></i></a>   
+            </div> <!-- div sosmed end-->
+        </div> <!-- modal body end-->
+        <div class="modal-footer"> <!-- modal footer start-->
+            <div class="abt"> <!-- div about-->
+                <p>
+                <h1><?php echo $data["profile_cha_1"][$counter]["about"] ?></h1>
+                  
+                </p>
+                <br><br>
+            </div> <!-- div about end-->
+        </div><!-- modal footer start-->
+
+        </div>
+    </div>
+    </div>
+    <!-- Modal About End -->
                <?php
 
             }
         }
     } else {
         ?>
+          <?php if ($data["cha_1"] != "kosong") {
+                for ($counter = 0; $counter < count($data["cha_1"]); $counter++) { ?>
                <div class="col-md-3 space">
                     <div class="row">
                         <p for="" class="col name" style="text-align:left;"><a href="" style="font-size:15px" data-toggle="modal" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-                    <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"]; ?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["cha_1"][$counter]["_id"]; ?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe>
                      </div> 
-                     <?php $post = $data["cha_1"][$counter];
+                     <?php $post = $data["cha_1"][$counter]["_id"];
                     $kontestan = $data["profile_cha_1"][$counter]["notelp"];
                     ?>
                      @if(Session::has('vote'))
@@ -844,9 +915,50 @@ body {
                     </div>
                       @endif
                 </div>
+                 <!-- Modal About-->
+                 <div class="modal" id="largeModal<?php echo $counter ?>" tabindex="-1" role="dialog" aria-labelledby="basicModal" >
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header2">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
+            </button>
+
+            <button style="top:50px;" type="button" class="close" style="color:white">
+            <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></span>
+            </button>
+        </div>
+        <div class="modal-body"> <!-- modal body start-->
+            <?php if($data["profile_cha_1"][$counter]["image"]!= "") { ?>
+            <img src="http://159.65.139.254:5984/lipice/<?php echo $data["profile_cha_1"][$counter]["_id"]?>/profile.png" alt="Avatar" class="imground">
+            <?php } else { ?>
+                <img src="/images/lipice.png" alt="Avatar" class="imground">
+            <?php } ?>
+            <br>
+            <div clas="row" style="text-align:center;"> <!-- div sosmed-->
+                <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
+                <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
+                <a href="" class="sosmed"><i class="fab fa-facebook-square"></i></a>   
+            </div> <!-- div sosmed end-->
+        </div> <!-- modal body end-->
+        <div class="modal-footer"> <!-- modal footer start-->
+            <div class="abt"> <!-- div about-->
+                <p>
+                <h1><?php echo $data["profile_cha_1"][$counter]["about"] ?></h1>
+                  
+                </p>
+                <br><br>
+            </div> <!-- div about end-->
+        </div><!-- modal footer start-->
+
+        </div>
+    </div>
+    </div>
+    <!-- Modal About End -->
 
                <?php
-
+                }
+            }
             }
         }
         ?>
@@ -939,9 +1051,9 @@ body {
 <!-- footer -->
 <div class="footer" style="z-index:-1; padding-bottom:15px">
 
-    <img src="/images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-    <img src="/images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
-    <img src="/images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+    <img src="/images/buah-kiri-bawah.png" class="responsive foo" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+    <img src="/images/lipice.png" class="responsive foo" alt="" style=" margin:0 auto;">   
+    <img src="/images/buah-kanan-bawah.png" class="responsive foo" alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
 </div>  
 <br>
 </div> <!-- =====END===== -->

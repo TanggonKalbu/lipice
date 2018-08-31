@@ -25,8 +25,8 @@ body{
 }
 
 .space {
-    margin-right:5px;
-    margin-left: 5px;
+    margin-right:3px;
+    margin-left: 3px;
 }
 
 .space-body{
@@ -66,31 +66,30 @@ body{
     display: inline-block;
     width: 100%;
     color: grey;
-    font-size:20pt;
-    padding: 7px;
+    font-size:15pt;
+    padding: 5px;
 }
 
 .love{
     color: #fb61ca; 
-    font-size:20pt;
+    font-size:15pt;
 }
 
 /* MAIN SCROLLBAR */
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* Track */
 ::-webkit-scrollbar-track {
-    background: transparent; 
-}
- 
-/* Handle */
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); */
+  background-color: transparent;
+  border-radius: 10px; }
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent; }
+
 ::-webkit-scrollbar-thumb {
-    background: #fb61ca; 
-    border-radius:15px;
-}
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #f093fb 0%, #f5576c 100%);
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
@@ -104,23 +103,28 @@ body{
     height: 600px;
     width: 100%;
     background: #fff; 
-    overflow:auto;
+    overflow: auto;
     margin-bottom: 95px;
+    overflow-x: hidden;
 }
 .force-overflow {
     max-width: 99%;
 }
 
-.scrollbar-primary::-webkit-scrollbar {
-  width: 10px;
-  border-radius: 15px;
-  background-color: #eee; }
-
-.scrollbar-primary::-webkit-scrollbar-thumb {
-  border-radius: 15px;
+.scrollbar-sunny-morning::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  background-color: #f8c128;  }
+  background-color: #F5F5F5;
+  border-radius: 10px; }
 
+.scrollbar-sunny-morning::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5; }
+
+.scrollbar-sunny-morning::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #f6d365 0%, #fda085 100%);
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); }
 /* scrollbar end */
 
 .card{
@@ -668,13 +672,19 @@ body {
         display:block; position:absolute; 
         z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
         margin-top:50px;
+        width:50%;
+        height:auto;
     }
     .logo{
-        width:80px;
+        width:20%;
         float:left;
     }
     .summercamp{
         width:120px;
+    }
+    .kanan-atas, .kiri-atas, .foo{
+        width:15%;
+        height:auto;
     }
     
 }
@@ -702,7 +712,7 @@ body {
             <div class="card"> <!-- card start -->
                 <div class="card-body"> <!-- card body -->
                     <!-- button edit -->
-                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen">&nbsp; Edit</i></label>
+                    <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right;" for="input-nama" onclick="editprofile()"><i class="fas fa-pen">&nbsp; Edit</i></label>
                     <!-- button edit end --> 
 
                     <form id="myForm" class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
@@ -710,34 +720,40 @@ body {
                     <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
                              
                              <div class="round-border">
-                             <img src="/images/user.png" alt="..." class="rounded-circle"> 
-                             </div>
+                             <img id="blah" class="rounded-circle"  src="/images/lipice.png" alt="..." style="width:100%" class="rounded-circle"> 
                              <!-- button change photo profile -->
-                            <div class="file-upload input-group mb-3" style="display:none" id="uploadbtn">
-                                <div class="file-select">
-                                    <div class="file-select-button" id="fileName">Choose File</div>
-                                    <div class="file-select-name" id="noFile">No file chosen...</div> 
-                                    <input type="file" name="fileToUpload" id="chooseFile">
-                                </div>
-                            </div>
-                         
+
+                        </div> 
                          <?php }else { ?>
                              <div class="round-border">
-                                 <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%; height:auto;" alt="..." > 
-                                 <!-- <img class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>'  alt="..." >  -->
+                                 <img id="blah" class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%; height:auto;" alt="..." > 
                             </div>
                              <br>
 
                          <?php } ?>
-                 
+                            
                         <!-- button change photo profile -->
                         <div class="file-upload input-group mb-3" style="display:none" id="uploadbtn">
                             <div class="file-select">
                                <div class="file-select-button" id="fileName">Choose File</div>
                                <div class="file-select-name" id="noFile">No file chosen...</div> 
-                               <input type="file" name="fileToUpload" id="chooseFile">
+                               <input  type="file" name="fileToUpload" id="chooseFile" >
                             </div>
-                        </div>
+                            </div>
+                        <script> 
+                        function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                         $('#blah').attr('src', e.target.result);
+                        }
+                    reader.readAsDataURL(input.files[0]);
+                    }
+                    }
+                    $("#chooseFile").change(function() {
+                    readURL(this);  
+                    });
+                        </script>
 
                          <div class="input-group mb-3" id="nama">
                             <h3 align="center" style="float:none;margin:0 auto"> <?php echo $data["profile"]["rows"][0]["value"]["namalengkap"]?></h3>
@@ -800,9 +816,14 @@ body {
         </div> <!-- col-sm-3 start -->
 
         <div class="col-sm-9"> <!-- col-sm-9 start -->
+        
             <div class="card content"> <!-- card content start -->
+            <div class="col-md-12">
+            <a href="/remove_kont/" class="btn btn-danger button" style="float:right;">Logout</a>
+
+            </div>
             <div class="card-body">
-                <h5 style="text-align:left;">Ceritakan tentang dirimu :</h5>
+                <h5 style="text-align:left;">Ceritakan tentang dirimu...</h5>
                 <form method="post" action="{{action('about_controller@update', $notelp)}}" enctype="multipart/form-data" >
                     @csrf
                     <input name="_method" type="hidden" value="PATCH">
@@ -820,7 +841,7 @@ body {
                     <input type="hidden" id="tgllahir" name="tgllahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tgllahir"]?>">
                     <input type="hidden" id="alasan" name="alasan" value="<?php echo $data["profile"]["rows"][0]["value"]["alasan"]?>">
                     <input type="hidden" id="umur" name="umur" value="<?php echo $data["profile"]["rows"][0]["value"]["umur"]?>">
-                    <textarea id="input-about" onclick="editabout()" name="about" placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
+                    <textarea id="input-about" onclick="editabout()" name="about" placeholder="Ceritakan tentang dirimu..."><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
                     <button id="save-dua" type="submit"  class="btn-default mb-2 button" style="float:right;display:none">SAVE</button>
                 </form>
                 <br><br><br><br>
@@ -833,7 +854,7 @@ body {
                         $day = $data["day"]["rows"][$counter]["value"]["day"];
                         ?>
 
-            <form method="post" action="/add_video/{day}" enctype="multipart/form-data" class="form-inline"> 
+            <form method="post" action="/add_video/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline"> 
                 @csrf
                
                 <div class="form-group mb-2">
@@ -849,21 +870,21 @@ body {
                     <div class="file-upload2">
                         <div class="file-select2">
                             <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
-                            <div class="file-select-button2" id="fileName">Choose File</div>
+                            <div class="file-select-button2" id="fileName">Pilih Video Kamu</div>
                             <div class="file-select-name2" id="noFile2">No file chosen...</div> 
-                            <input type="file" name="uploadVideo" accept="video/mp4" id="chooseVideo">
+                            <input type="file" name="uploadVideo" accept="video/*" id="chooseVideo">
                         </div>
                     </div>
                 </div>
 
                 <button type="submit" class="btn-default mb-2 button">SAVE</button>
+            
             </form>
                  <?php } }elseif($data["day"]["rows"][$counter]["value"]["konten"] == "gambar") { ?>
                     <?php if($data["day"]["rows"][$counter]["value"]["stat_post"] == "1"){ 
                         $day = $data["day"]["rows"][$counter]["value"]["day"];
                         ?>
-
-                        <form method="post" action="/add/{{$day}}" enctype="multipart/form-data" class="form-inline"> 
+                        <form method="post" action="/add/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline"> 
                      @csrf
                 <div class="form-group mb-2">
                     <div class="dropdown">
@@ -874,7 +895,7 @@ body {
                 </div>
                 <div class="form-group mx-sm-4 mb-1">
                 <!-- button upload video -->    
-                    <label for="linkupload" class="sr-only">Linkupload</label>
+                    <label for="linkupload" class="sr-only">Upload Foto kamu</label>
                     <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
                     <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
                 </div>
@@ -887,7 +908,7 @@ body {
                          $day = $data["day"]["rows"][$counter]["value"]["day"];
                          ?>
  
-                         <form method="post" action="/add_youtube/{{$day}}" enctype="multipart/form-data" class="form-inline"> 
+                         <form method="post" action="/add_youtube/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline"> 
                       @csrf
                  <div class="form-group mb-2">
                      <div class="dropdown">
@@ -898,9 +919,9 @@ body {
                  </div>
                  <div class="form-group mx-sm-4 mb-1">
                  <!-- button upload video -->    
-                     <label for="linkupload" class="sr-only">Linkupload</label>
+                     <label for="linkupload" class="sr-only">Upload Video</label>
                      <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
-                     <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
+                     <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Link Youtube" style="width:100%">
                  </div>
                      <button type="submit" class="btn-default mb-2 button">SAVE</button>
              </form>
@@ -913,12 +934,14 @@ body {
                 <br><br>
                 <div> <!-- video entry start -->
                 <h5 style="text-align:left;">Your Video Enteries</h5>
-                <div class="scrollbar scrollbar-primary"><br>
+                <div class="scrollbar scrollbar-sunny-morning"><br>
                     <div class="force-overflow">
                         <div class="row">
                         <?php if($data["video"]!= "kosong"){ for($counter =0;$counter < count($data["video"]["rows"]);$counter++) { ?>
+                            <br>
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="shadow p-3 mb-3 bg-white rounded">
+                                <br>
                                     <?php if($data["video"]["rows"][$counter]["value"]["type"]=="video challenge") {?>
                                     <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe> 
                                     <?php }
@@ -929,10 +952,13 @@ body {
                                     }
                                     ?>
                                 </div> 
-                                <div class="row space vt shadow">
-                                    <span type="" id=""  class="label">500 &nbsp;&nbsp;<i class="fa fa-heart love" aria-hidden="true"></i></span>
+                                <div class="row space shadow">
+                                    <span type="" id=""  class="label"><?php echo $data["vote_video"][$counter] ?> &nbsp;&nbsp;<i class="fa fa-heart love" aria-hidden="true"></i></span>
                                 </div>
+                                <br>
+                                <br>
                             </div>
+                            
                             <?php } }?>
                         </div>
                     </div>
@@ -943,7 +969,7 @@ body {
                 <br><br><br>
                 <div> <!-- photo entry start -->
                 <h5 style="text-align:left;">Your Photo Enteries</h5>
-                <div class="scrollbar scrollbar-primary"><br>
+                <div class="scrollbar scrollbar-sunny-morning"><br>
                     <div class="force-overflow">
                         <div class="row">
                         <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
@@ -951,7 +977,7 @@ body {
                                 <div class="shadow p-2 mb-4 bg-white rounded">
                                     <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                 </div> 
-                                <div class="row space vt shadow">
+                                <div class="row space shadow">
                                     <span type="" id=""  class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
                                 </div>
                             </div>
@@ -966,7 +992,9 @@ body {
 
 
             </div>
+           
             </div> <!-- card content start -->
+         
         </div> <!-- col-sm-9 end -->
         
     </div><!-- row end -->
@@ -975,9 +1003,9 @@ body {
 
 <!-- footer -->
 <div class="footer" style="z-index:-1; padding-bottom:15px">
-    <img src="/images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-    <img src="/images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
-    <img src="/images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+    <img src="/images/buah-kiri-bawah.png" class="responsive foo" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+    <img src="/images/lipice.png" class="responsive foo" alt="" style=" margin:0 auto;">   
+    <img src="/images/buah-kanan-bawah.png" class="responsive foo" alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
 </div>  
 
 

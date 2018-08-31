@@ -28,12 +28,15 @@ Route::resource('votesession', 'votesession_controller');
 Route::resource('adminapproval', 'adminapproval_controller');
 Route::resource('adminbanner', 'adminbanner_controller');
 Route::get('/remove', 'votesession_controller@delete');
+Route::get('/remove_kont', 'votesession_controller@delete_kontestan');
+Route::get('/del_post/{id}', 'adminapproval_controller@delete');
 Route::post('/add/{day}', 'cha_day1_controller@add_cha');
 Route::post('/add_video/{day}', 'cha_video_controller@add_video');
 Route::post('/add_youtube/{day}', 'cha_day1_controller@add_cha_youtube');
 Route::get('/confirm_post/{day}', 'adminchallenge_controller@edit_post');
 Route::get('/confirm_vote/{day}', 'adminchallenge_controller@edit_vote');
 Route::get('/reset_confirm/{day}', 'adminchallenge_controller@reset');
+Route::get('/sess_kons/{notelp}', 'votesession_controller@sess_kontestan');
 Route::get('/form', function () {
   return view('form');
 });

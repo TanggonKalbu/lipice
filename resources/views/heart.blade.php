@@ -1,207 +1,611 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vote</title>
-
+  <title>LIPICE</title>
+    <link rel="icon" href="images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>    
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+</head>
+ <body>
 <style>
+.scrollbar-juicy-peach::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-juicy-peach::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-juicy-peach::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffecd2), to(#fcb69f));
+  background-image: -webkit-linear-gradient(left, #ffecd2 0%, #fcb69f 100%);
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%); }
+
+.scrollbar-young-passion::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-young-passion::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-young-passion::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left top, right top, from(#ff8177), color-stop(0%, #ff867a), color-stop(21%, #ff8c7f), color-stop(52%, #f99185), color-stop(78%, #cf556c), to(#b12a5b));
+  background-image: -webkit-linear-gradient(left, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+  background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%); }
+
+.scrollbar-lady-lips::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-lady-lips::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-lady-lips::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#ff9a9e), color-stop(99%, #fecfef), to(#fecfef));
+  background-image: -webkit-linear-gradient(bottom, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+  background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); }
+
+.scrollbar-sunny-morning::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-sunny-morning::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-sunny-morning::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #f6d365 0%, #fda085 100%);
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); }
+
+.scrollbar-rainy-ashville::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-rainy-ashville::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-rainy-ashville::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a6c1ee));
+  background-image: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a6c1ee 100%);
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%); }
+
+.scrollbar-frozen-dreams::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-frozen-dreams::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-frozen-dreams::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#fdcbf1), color-stop(1%, #fdcbf1), to(#e6dee9));
+  background-image: -webkit-linear-gradient(bottom, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+  background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); }
+
+.scrollbar-warm-flame::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-warm-flame::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-warm-flame::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+  background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); }
+
+.scrollbar-night-fade::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-night-fade::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-night-fade::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#a18cd1), to(#fbc2eb));
+  background-image: -webkit-linear-gradient(bottom, #a18cd1 0%, #fbc2eb 100%);
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); }
+
+.scrollbar-spring-warmth::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-spring-warmth::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-spring-warmth::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#fad0c4), to(#ffd1ff));
+  background-image: -webkit-linear-gradient(bottom, #fad0c4 0%, #ffd1ff 100%);
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%); }
+
+.scrollbar-winter-neva::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-winter-neva::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-winter-neva::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #a1c4fd 0%, #c2e9fb 100%);
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); }
+
+.scrollbar-dusty-grass::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-dusty-grass::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-dusty-grass::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #d4fc79 0%, #96e6a1 100%);
+  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%); }
+
+.scrollbar-tempting-azure::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-tempting-azure::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-tempting-azure::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #84fab0 0%, #8fd3f4 100%);
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); }
+
+.scrollbar-heavy-rain::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-heavy-rain::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-heavy-rain::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#cfd9df), to(#e2ebf0));
+  background-image: -webkit-linear-gradient(bottom, #cfd9df 0%, #e2ebf0 100%);
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); }
+
+.scrollbar-amy-crisp::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-amy-crisp::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-amy-crisp::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #a6c0fe 0%, #f68084 100%);
+  background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%); }
+
+.scrollbar-mean-fruit::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-mean-fruit::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-mean-fruit::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #fccb90 0%, #d57eeb 100%);
+  background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%); }
+
+.scrollbar-deep-blue::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-deep-blue::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-deep-blue::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #e0c3fc 0%, #8ec5fc 100%);
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); }
+
+.scrollbar-ripe-malinka::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-ripe-malinka::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-ripe-malinka::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #f093fb 0%, #f5576c 100%);
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); }
+
+.scrollbar-cloudy-knoxville::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-cloudy-knoxville::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-cloudy-knoxville::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #fdfbfb 0%, #ebedee 100%);
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); }
+
+.scrollbar-morpheus-den::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-morpheus-den::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-morpheus-den::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#30cfd0), to(#330867));
+  background-image: -webkit-linear-gradient(bottom, #30cfd0 0%, #330867 100%);
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); }
+
+.scrollbar-rare-wind::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-rare-wind::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-rare-wind::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#a8edea), to(#fed6e3));
+  background-image: -webkit-linear-gradient(bottom, #a8edea 0%, #fed6e3 100%);
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%); }
+
+.scrollbar-near-moon::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-near-moon::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-near-moon::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#5ee7df), to(#b490ca));
+  background-image: -webkit-linear-gradient(bottom, #5ee7df 0%, #b490ca 100%);
+  background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%); }
+/* reset */
 * {
     padding : 0;
-    margin: 0;
+    margin : 0;
     font-family: 'Montserrat', sans-serif;
 }
-
 body{
     background-color: #fbdee8;
-    padding-right:5%;
-    padding-left: 5%;
-    padding-top: 200px;
+    
 }
 
-
-.space {
-    margin-right:5px;
-    margin-left: 5px;
+/* form */
+.warn {
+  color:white;
+  border-radius:30px;
+  float:right;
+  background-color:#df930e;
+  width: auto;
+  padding: 10px 18px;
+  }
+.submit {
+  color:white;
+  border-radius:30px;
+  float:right;
+  background-color:#ea8a8a;
 }
 
-.button{
-    background-color: #fb61ca;
-    border: none;
-    color: white;
-    /* padding: 12px 28px; */
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    width: 50%;
-    font-size:1vw;
+.reg{
+  color:#6EBEE0;
+  font-size: 2vw;
 }
 
-.button:focus{
-    outline:none;
+.card{
+  padding:40px;
 }
 
-.label {
-
-     border:none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    width: 50%;
-    color: grey;
-    font-size:1vw;
-    padding: 2px;
-}
-.shadow{
-}
-.love{
-    color: #fb61ca; 
-    font-size:1vw;
-    text-align:right;
+input[type=text], select {
+    border: 1px solid #ea8a8a;
 }
 
-.name{
-    font-weight:bold;
-    color: grey;
-    font-size:1vw;
-    margin-top:50px;
+input[type=number], select {
+    border: 1px solid #ea8a8a;
 }
 
-a:focus{
-    outline:none;
+input[type=email], select {
+    border: 1px solid #ea8a8a;
 }
 
-.vt{
-    margin-top:0;
-}
-
-
-/* unvisited link */
-a:link {
-    color: grey;
-    font-weight:bold;
-    font-size:1vw;
-    text-decoration:none;
-}
-
-/* visited link */
-a:visited {
-    color: grey;
-    font-weight:bold;
-    font-size:1vw;
-    text-decoration:none;
-}
-
-/* mouse over link */
-a:hover {
-    color: black;
-    font-size:1vw;
-    text-decoration:none;
-}
-
-/* selected link */
-a:active {
-    color: grey;
-    font-size:1vw;
-    text-decoration:none;
-} 
-
-/* scrollbar start */
-.scrollbar2 {
-    float: left;
-    height: 1000px;
+textarea {
+    border: 1px solid #ea8a8a;
     width: 100%;
-    background: #fff;
-    overflow:auto;
-    margin-bottom: 25px;
-}
-.force-overflow {
-    max-width: 99%;
-}
-
-.scrollbar-primary::-webkit-scrollbar {
-  width: 1%;
-  border-radius: 15px;
-  background-color: #eee; }
-
-.scrollbar-primary::-webkit-scrollbar-thumb {
-  border-radius: 15px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  background-color: #f8c128; }
-
-/* scrollbar end */
-
-/* modal start */
-.modal-header2{
     height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 16px;
+    resize: none;
+}
+/* end form */
+
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.kiri-logo{
+    width:545px; 
+    height:454px; 
+    float:left;
+    margin-top:-140px;
+    padding-left:150px;
+}
+.kanan-ballon{
+    margin-top:-190px;
+    width:735px; 
+    height:820px; 
+    float:right;
+}
+.card {
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+    transition: 0.3s;
     width: 100%;
-    background-color:black;
-    padding-top:10px;
-    padding-right:20px;
+    background-color:white;
+    align:center;
+    padding-right:30%;
+    padding-left: 10%;
 }
 
-.modal-title2{
-    color:white;
-    justify-content:center;
-    style:bold;
-}
-/* modal end */
-
-.sosmed{
-    padding:20px;
+.card:hover {
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 }
 
-.abt{
-    margin-right: 30px;
-    margin-left: 30px;
+.container {
+    padding: 140px 85px;
 }
 
-.imground{
-    border-radius: 50%;
-    width:150px;
-    height:150px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top:-100px;
+.textatas{
+    color: grey;
+    font-size: 1vw;
+    font-family: arial;
+    position: absolute;
+    top: 600px;
+    left: 580px;
+    width: 40%;
 }
 
-/* days challenge */
-.label2 {
-    color: white;
-    padding: 15px;
-    font-family: Arial;
-    width:9%;
-    font-size:1vw;
-    border: none;
-    display: inline-block;
-    text-align:right;
+.samping{
+    padding-right:100px;
+    padding-left: 100px;
 }
 
-.label2:focus{
-    outline:none;
+.samping2{
+    padding-right:15%;
+    padding-left: 15%;
 }
-.done {border-left: 25px solid #679175; background-color: #93d0a8} /* Day 1 */
-.dtwo {border-left: 25px solid #006573; background-color: #0091a5;} /* Day 2 */
-.dthree {border-left: 25px solid #2e7e80; background-color:  #42b5b8;} /* Day 3 */
-.dfour {border-left: 25px solid #03354b; background-color: #054c6b;} /* Day 4 */
-.dfive {border-left: 25px solid  #659952; background-color: #90db75;} /* Day 5 */
-.dsix {border-left: 25px solid #979052; background-color:  #d8cf75;} /* Day 6 */
-.dseven {border-left: 25px solid #977652; background-color: #d8a975;} /* Day 7 */
+
+.samping3{
+    padding-right:15%;
+    padding-left: 35%;
+}
+
+.responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+.pdg-bottom{
+    padding-bottom: 2rem;
+}
+
+.kanan-atas{
+    float:right;
+}
+
+.kiri-atas{
+    float:left;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.grecaptcha-badge {
+    opacity:0;
+}
+
+/* footer start */
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+@media screen and (max-width: 1100px) {
+  .medq {
+    font-size: 17px;
+    display:block;
+  }
+  .medqInput{
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .medq {
+    font-size: 16px;
+  }
+}@media screen and (max-width: 900px) {
+  .medq {
+    font-size: 15px;
+  }
+ 
+}
+@media screen and (max-width: 800px) {
+  .medq {
+    font-size: 12px;
+  }
+}
+
+/**
+ * Footer Styles
+ */
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.2rem;
+  background-color: white;
+  text-align: center;
+}
+
+/* footer end */
+
+/* MAIN SCROLLBAR */
+/* width */
+/* ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #f6d365 0%, #fda085 100%);
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); } */
+
+
+::-webkit-scrollbar-track {
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); */
+  background-color: transparent;
+  border-radius: 10px; }
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #f093fb 0%, #f5576c 100%);
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); }
+
+
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+/* MAIN SCROLLBAR END */
+@media (max-width: 480px) {
+.samping2{
+    padding-right:15%;
+    padding-left: 15%;
+    }
+.a{
+    float:right; margin-top:-100px; z-index:1;
+    }
+}
 
 /* modal login start */
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -239,10 +643,26 @@ body {font-family: Arial, Helvetica, sans-serif;}
     padding: 10px 18px;
   }
 
+  .cancelbtn:focus{
+    outline:none;
+  }
+
    .loginbtn {
     width: auto;
     padding: 10px 18px;
     background-color: #ea8a8a;
+  }
+
+  .loginbtn:focus{
+    outline: none;
+  }
+
+  .sendbtn{
+    float:left; width: auto; padding: 10px 18px;
+  }
+
+  .sendbtn:focus{
+    outline: none;
   }
 
   /* Center the image and position the close button */
@@ -275,7 +695,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow: hidden; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding-top: 60px;
@@ -301,6 +721,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
   .close:hover,
   .close:focus {
+    color: red;
+    cursor: pointer;
+    outline:none;
+  }
+  .close2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close2:hover,
+  .close2:focus {
     color: red;
     cursor: pointer;
     outline:none;
@@ -343,289 +778,186 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 /* modal login end */
 
-
+.position-balon{
+    display:block; 
+    position:absolute; 
+    z-index:-1; 
+    top:0; 
+    right:0; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    margin-top:-110px;
+    margin-left:100px;
+}
 </style>
+
 </head>
+
 <body>
-<div>
-    <a href="{{action('profile_controller@edit', '81945314191')}}" class="btn btn-warning" style="width:auto">Edit</a>
+<!-- Save for Web Slices (summercamp (2).psd) -->
+<div class="responsive">
+<div class="scrollbar scrollbar-lady-lips">
+<div class="force-overflow">
 
-    <!-- Button to Open the Modal -->
-    <div>
-        <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right; background-color:#ea8a8a">Login</button>
-    </div>
-  
-    <div class="embed-responsive embed-responsive-21by9 ">   
-        <!-- <iframe class="embed-responsive-item" width="100%"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> -->
-            <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	<!-- buah atas -->
+    <img src="images/buah-kanan-atas.png" class="kanan-atas responsive" alt="">
+    <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="">
+    <br>
+    <div style="margin-top:100px;">
+    <img src="images/logo.png" class="kiri-atas responsive" alt="">
+    <img src="images/balon.png" class="kanan-atas responsive" alt="">
     </div>
 
-    <!-- card start -->
-    <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 100%">
-    <div class="card-body"> <!-- card body start -->
+<!-- <div class="container-fluid">
+<div class="row">
+        <div class="samping3">
+        <p style="text-align:center">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod eget nunc a cursus. Vestibulum quis ipsum est. Etiam mollis scelerisque suscipit. Sed eleifend neque metus. In lacus arcu, luctus et sagittis commodo, consequat eget nisi. Duis non ex semper, ultricies nisl nec, hendrerit mauris. Sed suscipit ut sapien in vehicula. Ut lacinia bibendum rhoncus. Nam augue augue, mollis sed tincidunt quis, pellentesque eget enim. Suspendisse eleifend eu lectus in vestibulum. Nulla efficitur, elit et convallis malesuada, est nunc malesuada nulla, cursus eleifend mauris nunc id sapien. Donec condimentum nunc eget tellus imperdiet, vitae lobortis dolor suscipit. Fusce mattis, nisl vitae porttitor interdum, justo est ultricies risus, nec fermentum urna est ac lectus. Praesent varius accumsan ante eget consectetur. Suspendisse velit justo, malesuada vitae vulputate id, tincidunt ut neque. Cras sed vehicula libero.
+        </p>
+    </div>
+    </div></div> -->
+
+        <!-- <h2 class="textatas"><b>LOREM IPSUM DOLOR SIT <br> 
+        AMET, CONSECTETUR <br> 
+        ADIPISINING ELIT. ED O <br> 
+        EIUSMOD TEMPOR INCINDINTU</b></h2> -->
+ 
+
+    <!-- Card -->
+    <div class="samping pdg-bottom">
+        <div class="card">
+        <div class="card-body">
+        @if (\Session::has('success'))
+      <div class="alert alert-success">
+        <p>{{ \Session::get('success') }}</p>
+      </div><br>
+        @endif
+            <h2 class="card-title reg medq">REGISTER HERE</h2>
+            <br>
+            <h3 class="card-title medq">Calling all beauty enthusiast!</h3>
+            <h3 class="card-title medq">Submission are available to anyone  and everyone with a passion</h3>
+            <h3 class="card-title medq">for make-up artistry.</h3>
         <br>
-        <h1 class="card-title text-center" style="font-size:3vw;">VOTE YOUR FAVORITE</h1>
-        <br>
-        <div class="text-center">
-            <button class="label2 done" style="margin-right:3px; margin-left:3px;">DAY <b>01</b></button>
-            <button class="label2 dtwo" style="margin-right:3px; margin-left:3px;">DAY <b>02</b></button>
-            <button class="label2 dthree" style="margin-right:3px; margin-left:3px;">DAY <b>03</b></button>
-            <button class="label2 dfour" style="margin-right:3px; margin-left:3px;">DAY <b>04</b></button>
-            <button class="label2 dfive" style="margin-right:3px; margin-left:3px;">DAY <b>05</b></button>
-            <button class="label2 dsix" style="margin-right:3px; margin-left:3px;">DAY <b>06</b></button>
-            <button class="label2 dseven" style="margin-right:3px; margin-left:3px;">DAY <b>07</b></button>
-            
+            <label class="card-subtitle mb-2 text-muted  medq">REGISTRATION FIELDS :</label>
+        <br><br>
+        <form class="form-horizontal" method="post" action="{{url('kontestans')}}" enctype="multipart/form-data">
+        @csrf
+
+        <div class="form-group row">
+            <label for="namaLengkap" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">NAMA LENGKAP  <b style="color:red;">*</b></p></label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="namaLengkap" name="nama" required onkeyup="capt()">
+            </div>
         </div>
-        <br>
-        <br>
-        <!-- <a href="#">
-            <i class="fas fa-chevron-left" style="font-size:25px;color:lightgrey;text-shadow:2px 2px 2px #000000;"></i>
-            &nbsp;&nbsp;&nbsp;&nbsp;PREVIOUS CHALENGE
-        </a> -->
 
-        <div class="scrollbar2 scrollbar-primary "> <!-- div utama start -->
-        <div class="force-overflow"> 
-            <div class="row justify-content-md-center">
-                <div class="col-md-3 space">
-                    <div class="row">
-                        <p for="" class="col name" style="text-align:left;"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
-                    </div>
-                    <blockquote class="instagram-media shadow-lg p-3 mb-4 bg-white rounded" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-                        <div style="padding:8px;"> 
-                            <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:62.5% 0; text-align:center; width:100%;"> 
-                                <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;">
-                                </div>
-                            </div> 
-                            <p style=" margin:8px 0 0 0; padding:0 4px;"> 
-                                <a href="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Hail satay</a>
-                            </p> 
-                            <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">Sebuah kiriman dibagikan oleh <a href="https://www.instagram.com/bayuharii/?utm_source=ig_embed" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Bayu Hari Saputro</a> (@bayuharii) pada 
-                            <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-07-08T13:58:02+00:00">8 Jul 2018 jam 6:58 PDT</time>
-                            </p>
-                        </div>
-                    </blockquote> 
-                    <div class="row space vt">
-                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                    </div>
-                </div>
+        <div class="form-group row">
+            <label for="email" name="email" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">EMAIL<b style="color:red;">*</b></p></label>
+            <div class="col-sm-9">  
+                <input type="email" class="form-control" name="email" id="email" required onkeyup="capt()">
+            </div>
+        </div>
 
-                <div class="col-md-3 space">
-                    <div class="row">
-                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
-                    </div>
-                    <div class="shadow p-3 mb-5 bg-white rounded"> 
-                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
-                    </div>
-                    <div class="row space vt">
-                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label shadow">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+
+        <div class="form-group row">
+            <label for="ttl" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">TEMPAT TANGGAL LAHIR<b style="color:red;">*</b></p></label>
+            <div class="form-group col-md-3">
+                <input type="text" class="form-control medqInput" name="tempatlahir"  id="kota" placeholder="Kota" required onkeyup="capt()">
+            </div>
+            <div class="form-group col-md-2">
+                <input type="number" min="1" max="31"  class="form-control medqInput" name="tgl"  id="tgl" placeholder="Tgl" required onkeyup="capt()">
+            </div>
+            <div class="form-group col-md-2">
+
+            <select name="bln" id="bulan" class="form-control medqInput" required="required" placeholder="Bulan" style="border: 1px solid #ea8a8a; margin-top:7px;"> 
+                <option value="1">Januari</option>
+                <option value="2">Februari</option>
+                <option value="3">Maret</option>
+                <option value="4">April</option>
+                <option value="5">Mei</option>
+                <option value="6">Juni</option>
+                <option value="7">Juli</option>
+                <option value="8">Agustus</option>
+                <option value="9">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+            </select>
                         
-                    </div>
-                </div>
-
-                <div class="col-md-3 space">
-                    <div class="row">
-                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
-                    </div>
-                    <div class="shadow p-3 mb-5 bg-white rounded"> 
-                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
-                    </div>
-                    <div class="row space vt">
-                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-
-                <div class="col-md-3 space">
-                    <div class="row">
-                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
-                    </div>
-                    <div class="shadow p-3 mb-5 bg-white rounded"> 
-                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
-                    </div>
-                    <div class="row space vt">
-                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-
-                <div class="col-md-3 space">
-                    <div class="row">
-                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
-                    </div>
-                    <blockquote class="instagram-media shadow-lg p-3 mb-4 bg-white rounded" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-                        <div style="padding:8px;"> 
-                            <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:62.5% 0; text-align:center; width:100%;"> 
-                                <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;">
-                                </div>
-                            </div> 
-                            <p style=" margin:8px 0 0 0; padding:0 4px;"> 
-                                <a href="https://www.instagram.com/p/Bk-SKN1HJW0/?utm_source=ig_embed" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Hail satay</a>
-                            </p> 
-                            <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">Sebuah kiriman dibagikan oleh <a href="https://www.instagram.com/bayuharii/?utm_source=ig_embed" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Bayu Hari Saputro</a> (@bayuharii) pada 
-                            <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-07-08T13:58:02+00:00">8 Jul 2018 jam 6:58 PDT</time>
-                            </p>
-                        </div>
-                    </blockquote> 
-                    <script async defer src="//www.instagram.com/embed.js"></script>
-                    <div class="row space vt">
-                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-
-                <div class="col-md-3 space">
-                    <div class="row">
-                        <p for="" class="col name" style="text-align:left"><a href="" data-toggle="modal" data-target="#largeModal">Putri clarisa</a></p>
-                        <p for="" class="col name" style="text-align:right">Jakarta</p>   
-                    </div>
-                    <div class="shadow p-3 mb-5 bg-white rounded"> 
-                        <iframe class="embed-responsive-item" width="100%" height="300px" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
-                    </div>
-                    <div class="row space vt">
-                        <button type="submit" class="button" onclick="document.getElementById('id02').style.display='block'">Vote</button>  
-                        <span type="" class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-
-                
-                
+            </div>
+            <div class="form-group col-md-2">
+                <input type="number" min="1990" max="2018" class="form-control medqInput" name="tahun" id="tahun" placeholder="Tahun" required onkeyup="capt()">
             </div>
         </div>
+
+        <div class="form-group row">
+            <label for="telp" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">NO TELEPON<b style="color:red;">*</b></p></label>
+            <div class="col-sm-9">
+                <input type="number" name="notelp" class="form-control" id="telp" required onkeyup="">
+            </div>
         </div>
 
+        <div class="form-group row">
+            <label for="ig" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">USERNAME AKUN INSTAGRAM<b style="color:red;">*</b></p></label>
+            <div class="col-sm-9">
+                <input type="text" name="linkig" class="form-control" id="ig" required onkeyup="capt(); cekig()">
+                <span class="fa fa-check-circle" style="color:green; display:none" id="icon-aktif"> Username Instagram Aktif</span>
+                <span class="fa fa-times-circle" style="color:red; display:none" id="icon-nonaktif">Username Instagram Tidak Aktif (tanpa '@')</span>
 
+            </div>
+        </div>
 
+        <div class="form-group row">
+            <label for="fb" class="col-sm-3 col-form-label medqInput"><p style="display:inline-block">LINK AKUN FACEBOOK</p></label>
+            <div class="col-sm-9">
+                <input type="text" name="linkfb" class="form-control" id="fb" >
+            </div>
+        </div>
 
+        <div class="form-group row">
+            <label class="control-label col-sm-3 medqInput" for="comment"><p style="display:inline-block;">ALASAN MENGIKUTI <br> #LIPICE7DAYSCHALLENGE<b style="color:red;">*</b></p></label>
+            <div class="col-sm-9" style="display:block"> 
+                <textarea class="form-group" name="alasan" rows="5" id="alasan" required onkeyup="capt()"></textarea>
+            </div>
+        </div>
 
+        <!-- <div class="form-group row">
+            <label class="control-label col-sm-3 medqInput" for="comment">Kode Validasi Nomor Telepon <b style="color:red;">*</b></label>
+            <div class="col-md-3"> 
+                <input class="form-control" type="text" id="verificationcode" >
+            </div>
+            <div class="col-md-2"> 
+                <button class="btn submit" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; display:none">Submit Kode</button>
+            </div>                    
+        </div> -->
 
-        
-    </div> <!-- card body end -->
-    </div> <!-- card end -->
-
-    <br><br><br>
-
-
-
-<!-- Modal About-->
-<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header2">
-        
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
-        </button>
-        
-      </div>
-      <div class="modal-body"> <!-- modal body start-->
-        
-        <img src="/images/a.jpeg" alt="Avatar" class="imground">
+        <!-- <div class="form-group row">
+            <div class="col-sm-3"></div>
+            <div class="col-md-2">
+                <button class="btn btn-info medqInput" type="button" id="button-kirim" style=" float:left; display:none ">Kirim Kode Verifikasi</button> 
+            </div>
+        </div> -->
         <br>
-        <div clas="row" style="text-align:center;"> <!-- div sosmed-->
-            <a href="" class="sosmed"><i class="fab fa-instagram"></i></a>
-            <a href="" class="sosmed"><i class="fab fa-youtube"></i></a> 
-            <a href="" class="sosmed"><i class="fab fa-facebook-square"></i></a> 
-            
-        </div> <!-- div sosmed end-->
-        
-      </div> <!-- modal body end-->
-
-      <div class="modal-footer"> <!-- modal footer start-->
-         <div class="abt"> <!-- div about-->
-            <p>
-            <h1>What is CSS?</h1>
-                Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.
-                Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any 
-                XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS 
-                is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces 
-                for many mobile applications.
-            </p>    
-            <div class="collapse" id="collapseExample">
-                CSS is designed primarily to enable the separation of document content from document presentation, including aspects such as the layout, 
-                colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, 
-                enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.
-                Separation of formatting and content makes it possible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, 
-                by voice (via speech-based browser or screen reader), and on Braille-based tactile devices. It can also display the web page differently depending on the screen size or viewing device. 
-                Readers can also specify a different style sheet, such as a CSS file stored on their own computer, to override the one the author specified.
-                Changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in the CSS file they use, rather than by changing markup in the documents.
-                The CSS specification describes a priority scheme to determine which style rules apply if more than one rule matches against a particular element. In this so-called cascade, priorities (or weights) are 
-                calculated and assigned to rules, so that the results are predictable.
-                The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS 
-                validation service for CSS documents.
-            </div>
-            <a id="toggle" style="float:right" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
-                    Read More
-            </a>
-            <br><br>
-        </div> <!-- div about end-->
-      </div><!-- modal footer start-->
-
-    </div>
-  </div>
-</div>
-<!-- Modal About End -->
-
-<!-- Modal Login START -->    
-<div id="id01" class="modall">
+        <button type="button" id="button-kirim" class="btn warn btn-lg medqInput" onclick="" style="pointer-events:">Submit</button>           
+        <div id="id02" class="modall">
     
-    <form class="modall-content animate" action="/action_page.php">
+    <div class="modall-content animate">
         <div class="container" style="background-color:#f1f1f1">
-                <h3>Login</h3>
-        </div>
-        <div class="container">
-            <div style="margin-right:30px; margin-left:30px">
-                <div class="row">
-                    <label for="vercode"><b>Validasi no Telepon</b></label>
-                </div>
-                <div class="row">
-                    <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
-                </div>
-                <div class="row">
-                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-            <div style="margin-right:30px; margin-left:16px">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Login</button>
-            </div>
-        </div>
-    </form>
-</div>
-<!-- Modal Login END -->
-
-<!-- Modal Verification Start -->
-<div id="id02" class="modall">
-    
-    <form class="modall-content animate" action="/action_page.php">
-        <div class="container" style="background-color:#f1f1f1">
-                <h3>Vote</h3>
+                <h3>Register</h3>
                 
         </div>
         
         <div class="container">
             <div style="margin-right:30px; margin-left:30px">
                 <div class="row">
-                    <label for="vercode"><b>Validasi no Telepon</b></label>
+                    <label for="vercode"><b>Masukkan kode validasi</b></label>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <input type="number" name="notelp" id="input-tlp" style="width:60%; margin-right:20px" placeholder="Masukkan No HP anda" required onkeyup="kirim()">
-                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:none">Kirim Kode Verifikasi</button>
-                </div>
+                    <button class="btn-info" type="button" id="button-kirim" style="float:left; width: auto; padding: 10px 18px;pointer-events:">Kirim Kode Verifikasi</button>
+                </div> -->
                 <div class="row">
-                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;display:none" placeholder="Kode Verifikasi">
-                    <button class="btn-success" type="button" id="button-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;display:none">Submit Kode</button>
+                    <input type="text" id="verificationcode"style="width:60%; margin-right:20px;" placeholder="Kode Verifikasi">
+                    <button class="btn-success" type="button" id="btn-submit-kode" onclick="myFunction()" style="float:left; width: auto; padding: 10px 18px;">Submit Kode</button>
                 </div>
             </div>
         </div>
@@ -633,65 +965,103 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <div class="container" style="background-color:#f1f1f1">
             <div style="margin-right:30px; margin-left:16px">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
-                <button  type="submit" id="button-login" class="loginbtn" style="pointer-events:none">Vote</button>
+                <button  type="submit" id="button-register" class="loginbtn" style="display:none">Register</button>
+                <!-- <button  type="submit" style="pointer-events">Vote</button> -->
             </div>
         </div>
-    </form>
+    </div>
+    
 </div>
+        </form>
+
+        </div>
+        </div>
+    </div>
+    <br><br><br><br><br>
+
+
+    <div class="pdg-bottom" style="">
+        <p style="text-align:center; font-size:20pt;" ><b>#LIPICE7DAYSCHALLENGE</b></p>
+        <p style="text-align:center;font-size: 18pt;"><b>SUMMER CAMP TIMELINE</b></p>
+        <br>
+        <p style="text-align:center; font-size:15pt; padding-right:10%; padding-left:10%;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod eget nunc a cursus. Vestibulum quis ipsum est. Etiam mollis scelerisque suscipit. Sed eleifend neque metus. In lacus arcu, luctus et sagittis commodo, consequat eget nisi. Duis non ex semper, ultricies nisl nec, hendrerit mauris. Sed suscipit ut sapien in vehicula. Ut lacinia bibendum rhoncus. Nam augue augue, mollis sed tincidunt quis, pellentesque eget enim. Suspendisse eleifend eu lectus in vestibulum. Nulla efficitur, elit et convallis malesuada, est nunc malesuada nulla, cursus eleifend mauris nunc id sapien. Donec condimentum nunc eget tellus imperdiet, vitae lobortis dolor suscipit. Fusce mattis, nisl vitae porttitor interdum, justo est ultricies risus, nec fermentum urna est ac lectus. Praesent varius accumsan ante eget consectetur. Suspendisse velit justo, malesuada vitae vulputate id, tincidunt ut neque. Cras sed vehicula libero.
+        </p>
+    </div>
+
+    <div class="inline-block pdg-bottom"> <!-- timeline start -->
+        <table style="width:100%; z-index:-1;">
+            <tr>
+                <th class="col-xs|sm|md|lg|xl-4">
+                    <img src="images/kiri.png" class="responsive" alt="" style="float:left;margin-top:300px; z-index:-1;">
+                </th>
+                <th></th>
+                <th class="col-xs|sm|md|lg|xl-4">
+                    <img src="images/timeline.png" class="responsive" alt="" style="display:block; margin:0 auto; z-index:-1;">
+                </th>
+                <th class="col-xs|sm|md|lg|xl-4">
+                    <div style="width:100%">
+                    <img src="images/kanan.png" class="responsive a" alt="" style="float:right;margin-top:-520px; z-index:-1;">
+                    </div>
+                </th>
+            </tr>
+        </table>      
+    </div> <!-- timeline end -->
+   
+
+<!-- footer -->
+<div class="footer" style="z-index:-1; padding-bottom:15px">
+    <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+    <img src="images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
+    <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+</div>  
+<br>
+
+<!-- Modal Verification Start -->
+
 <!-- Modal Verification end -->
+</div></div>
 
-</div> <!-- end div utama -->
+</div> <!-- Div Utama END -->
 
-<!-- script collapse start -->
-<script>
-$(document).ready(function() {
-  $("#toggle").click(function() {
-    var elem = $("#toggle").text();
-    if (elem == "Read Less") {
-      //Stuff to do when btn is in the read more state
-      $("#toggle").text("Read More");
-    } else {
-      //Stuff to do when btn is in the read less state
-      $("#toggle").text("Read Less");
-    }
-  });
-});
-</script>
-<!-- script collapse end -->
 
-<!-- modal verification -->
-<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-<script type="text/javascript">
-  // Initialize Firebase
-  
-</script>
-<!-- modal verification end -->
 
+<!-- ==========SCRIPT========== -->
 <script>
 // Get the modal
-var modal = document.getElementById('id01');
-var modal2 = document.getElementById('id02');
+var modal = document.getElementById('id02');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal || event.target == modal2 ) {
+    if (event.target == modal ) {
         modal.style.display = "none";
-        modal2.style.display = "none";
     } 
 }
-</script>
-<script>
-    var btnkirim = document.getElementById("button-kirim");
-    var btnlogin = document.getElementById("button-login");
-    var btnsubmitkode = document.getElementById("button-submit-kode");
-    var inputkode = document.getElementById("verificationcode");
-    var inputtelp = document.getElementById("input-tlp");
 
-    function kirim(){
-        if(inputtelp.value!=''){
-            btnkirim.style.pointerEvents = '';
-        } else{
-            btnkirim.style.pointerEvents = 'none';
-        }
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script>
+        var nama = document.getElementById("namaLengkap");
+        var email = document.getElementById("email");
+        var kota = document.getElementById("kota");
+        var tgl = document.getElementById("tgl");
+        var bulan = document.getElementById("bulan");
+        var tahun = document.getElementById("tahun");
+        var telp = document.getElementById("telp");
+        var ig = document.getElementById("ig");
+        var alasan = document.getElementById("alasan");
+        var buttonkirim = document.getElementById("button-kirim");
+        var buttonkode = document.getElementById("button-submit-kode");
+        var buttonregister = document.getElementById("button-register");
+
+    function capt() {
+        if(nama.value!='' && email.value!='' && kota.value!='' && tgl.value!='' && tahun.value!='' && telp.value!='' && ig.value!='' && alasan.value!=''){
+            buttonkirim.style.pointerEvents = '';
+        }else{
+            buttonkirim.style.pointerEvents = 'none';
+        } 
     }
 </script>
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
@@ -713,35 +1083,56 @@ window.onclick = function(event) {
     });
     recaptchaVerifier.render().then(function(widgetId) {
     window.recaptchaWidgetId = widgetId;
-
     });
 
   var submit = function(){
-    var telpv = "+62"+inputtelp.value;
-    var appVerifier = window.recaptchaVerifier;
-    firebase
-    .auth()
-    .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
-    .then(function(confirmationResult) {
-        window.confirmationResult = confirmationResult;
-        console.log("good");
-        document.getElementById("button-kirim").style.pointerEvents = 'none';
-        document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
-        setTimeout(kirimulang, 5000);
-        btnsubmitkode.style.display = ''
-        inputkode.style.display = '';
-        function kirimulang(){
-            document.getElementById("button-kirim").style.pointerEvents = '';
-        }
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/profile?key="'+telp.value+'"',
+    "method": "GET",
+    "headers": {
+    "content-type": "application/json"
+    },
+    "processData": false,
+    "data": ""
+    }
+    $.ajax(settings).done(function (response) {
+        if(response.rows==''){
+            var telpv = "+62"+telp.value;
+            var appVerifier = window.recaptchaVerifier;
+            firebase
+            .auth()
+            .signInWithPhoneNumber(telpv, window.recaptchaVerifier) 
+            .then(function(confirmationResult) {
+                window.confirmationResult = confirmationResult;
+                console.log("good");
+                document.getElementById('id02').style.display='block';
+                document.getElementById("button-kirim").disabled = true;
+                document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
+                setTimeout(kirimulang, 5000);
+                function kirimulang(){
+                    document.getElementById("button-kirim").disabled = false;
+                }
 
-    })
-    .catch(function (error) {
-            // Error; SMS not sent
-            console.error('Terjadi Kesalahan :', error);
-            window.alert('Error during signInWithPhoneNumber:\n\n'
-                + error.code + '\n\n');
-            document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";
-        });
+            })
+            .catch(function (error) {
+                    // Error; SMS not sent
+                    console.error('Terjadi Kesalahan :', error);
+                    window.alert('Error during signInWithPhoneNumber:\n\n'
+                        + error.code + '\n\n');
+                    document.getElementById("button-kirim").textContent = "Kirim Ulang Kode Verifikasi";        
+                    function kirimulang(){
+                        document.getElementById("button-kirim").disabled = false;
+                    }
+            });
+        }else {
+            window.alert('Nomor Sudah Terdaftar');
+            
+        }
+    }); 
+    
+    
   }
 
   var myFunction = function() {
@@ -749,13 +1140,48 @@ window.onclick = function(event) {
     .then(function(result) {
         window.alert('Konfirmasi Kode Berhasil');
         console.log("success");
-        btnlogin.style.pointerEvents = '';
+        buttonregister.style.display = "";
     }, function(error) {
         window.alert('Terjadi Kesalahan :\n\n'
                 + error.code + '\n\n' + error.message);
+            window.signingIn = false;
       console.log(error);
     });
   };
+  </script>
+  <script>
+
+
+var cekig = function(){
+var namaig = ig.value;
+var length = ig.value.length;
+var usernameig = namaig.substring(0, length);
+var alamatig = 'https://www.instagram.com/';
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": alamatig+usernameig,
+    "method": "GET",
+    "headers": {
+        "cookie": "rur=PRN; urlgen=%22%7B%5C%22203.128.93.3%5C%22%3A%2018103%7D%3A1fv2Ch%3AzBNbW49WSECQlVjpPoDz2FbcUtk%22; mid=W4TWhwAEAAH9JLkMVVB2649o6bMN; mcd=3; csrftoken=uVzzs61ysBrBt3tMUge36pSbhhd7rMhi"
+    }
+}
+console.log(ig.value);
+$.ajax(settings).done(function (response) {
+  if(response !=''){
+      if(ig.value!=''){
+            document.getElementById("icon-nonaktif").style.display = 'none';
+            document.getElementById("icon-aktif").style.display = '';
+      }
+    document.getElementById("icon-nonaktif").style.display = 'none';
+  }
+}).fail(function(response){
+  if(response !=''){
+    document.getElementById("icon-aktif").style.display = 'none';
+    document.getElementById("icon-nonaktif").style.display = '';
+  }
+});
+};
   </script>
 </body>
 </html>

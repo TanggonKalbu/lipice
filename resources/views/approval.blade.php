@@ -75,13 +75,14 @@
                             <?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?>
                         </td>
                         <td>
-                            <iframe class="embed-responsive-item" width="100%" height="300px" src="<?php echo $data["cha_1"][$counter] ?>" frameborder="0" allowfullscreen></iframe>
+                            <iframe class="embed-responsive-item" width="100%" height="300px" src="<?php echo $data["cha_1"][$counter]["link"] ?>" frameborder="0" allowfullscreen></iframe>
                         </td>
                         <td>
-                            ndek day e ditambah i status a gawe approval? gak ngubah akeh a?
+                            ndek day e ditambah i status a gawe approval? gakusah
                         </td>
                         <td>
-                            <a href="" class="btn btn-danger"> Delete</a>
+                        <?php $id =  $data["cha_1"][$counter]["_id"]?> 
+                            <button class="btn btn-danger" type="button" onclick="del('<?php echo $data["cha_1"][$counter]["_id"] ?>','<?php echo $data["cha_1"][$counter]["_rev"] ?>')" > Delete</button>
                             <a href="" class="btn btn-info">Approve</a>
 
                         </td>
@@ -106,7 +107,7 @@
                             ndek day e ditambah i status a gawe approval? gak ngubah akeh a?                            
                         </td>
                         <td>
-                            <a href="" class="btn btn-danger"> Delete</a>
+                            <button class="btn btn-danger"> Delete</button>
                             <a href="" class="btn btn-info">Approve</a>
 
                         </td>
@@ -165,6 +166,27 @@ for(a=0;a<imc.length;a++){
 var span = document.getElementsByClassName("closeimg")[0];
 span.onclick = function() { 
     modal.style.display = "none";
+}
+
+</script>
+<script>
+var id;
+var rev;
+function del(id,rev){
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": 'http://admin:lipice@159.65.139.254:5984/lipice/'+id+'?rev='+rev+'',
+  "method": "DELETE",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": ""
+}
+$.ajax(settings).done(function (response) {
+    location.reload();
+});
 }
 </script>
 </body>
