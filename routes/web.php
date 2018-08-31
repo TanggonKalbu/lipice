@@ -16,6 +16,7 @@ Route::get('/', function () {
   return view('main');
 });
 
+Route::resource('banner','banner_controller');
 Route::resource('kontestans', 'kontestan_controller');
 Route::resource('profile', 'profile_controller');
 Route::resource('about', 'about_controller');
@@ -29,6 +30,7 @@ Route::resource('adminapproval', 'adminapproval_controller');
 Route::resource('adminbanner', 'adminbanner_controller');
 Route::get('/remove', 'votesession_controller@delete');
 Route::get('/remove_kont', 'votesession_controller@delete_kontestan');
+Route::get('/remove_admin', 'votesession_controller@delete_admin');
 Route::get('/del_post/{id}', 'adminapproval_controller@delete');
 Route::post('/add/{day}', 'cha_day1_controller@add_cha');
 Route::post('/add_video/{day}', 'cha_video_controller@add_video');
@@ -37,6 +39,11 @@ Route::get('/confirm_post/{day}', 'adminchallenge_controller@edit_post');
 Route::get('/confirm_vote/{day}', 'adminchallenge_controller@edit_vote');
 Route::get('/reset_confirm/{day}', 'adminchallenge_controller@reset');
 Route::get('/sess_kons/{notelp}', 'votesession_controller@sess_kontestan');
+Route::get('/sess_admin/{username}', 'votesession_controller@sess_admin');
+Route::get('/adminlogin', 'admin_controller@login');
+//Route::get('/changepassword', 'admin_controller@changepassword');
+
+
 Route::get('/form', function () {
   return view('form');
 });
@@ -62,8 +69,11 @@ Route::get('/berhasil', function () {
   return view('berhasil');
 });
 
-Route::get('/loginadmin', function () {
-  return view('loginadmin');
+// Route::get('/loginadmin', function () {
+//   return view('loginadmin');
+// });
+Route::get('/changepassword', function () {
+  return view('changepassword');
 });
 
 

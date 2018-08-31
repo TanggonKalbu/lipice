@@ -13,8 +13,11 @@ class adminapproval_controller extends Controller
      */
     public function index()
     {
+        if(session("admin")!=null) {
         return view('approval');
-
+    }else {
+        return view("/loginadmin");
+    }
     }
 
     function gambar($url)
@@ -227,7 +230,7 @@ class adminapproval_controller extends Controller
      */
     public function edit($day)
     {
-
+        if(session("admin")!=null) {
         $data[1] = json_decode($this->challenge($day), true)["rows"];
         $data["day"] = json_decode($this->day($day), true)["rows"][0]["value"];
         $data["dayall"] = json_decode($this->dayall(), true)["rows"];
@@ -273,6 +276,9 @@ class adminapproval_controller extends Controller
             // echo "<br>";
             // print_r($data["dayall"]);
         return view('approval', compact('data'));
+    }else {
+        return redirect("/adminlogin");
+    }
     }
 
     /**

@@ -142,11 +142,11 @@ class profile_controller extends Controller
      */
     public function edit($notelp)
     {
-        // if(session('kontestan') !=null || session('admin') != null) {
-        //  if(session('kontestan')!=$notelp) {
-        //   return redirect('/profile/'.session('kontestan').'/edit');
-        //  }
-        $curl = curl_init();
+       if(session('kontestan') !=null || session('admin') != null) {
+         if(session('kontestan')!=$notelp && session('admin') == null ) {
+          return redirect('/profile/'.session('kontestan').'/edit');
+         }
+      $curl = curl_init();
         curl_setopt_array($curl, array(
         CURLOPT_PORT => "5984",
         CURLOPT_URL => 'http://admin:lipice@159.65.139.254:5984/lipice/_design/view/_view/profile?key="'.$notelp.'"',
@@ -179,43 +179,43 @@ class profile_controller extends Controller
                     $data["gambar"][$counter] = json_decode($this->gambar($url), TRUE);
                      if(json_decode($this->jumlah_vote($data["gambar"][$counter]["thumbnail_url"]), TRUE)==null) {
                       $data["vote"][$counter] =0;
-                    }else {
-                      $data["vote"][$counter] = json_decode($this->jumlah_vote($data["gambar"][$counter]["thumbnail_url"]), TRUE);
+                       } else {
+                            $data["vote"][$counter] = json_decode($this->jumlah_vote($data["gambar"][$counter]["thumbnail_url"]), TRUE);
+                          }
+                        }
+                      } else {
+                        $data["gambar"] = "kosong";
                     }
-                    // 
-                     }
-                    }else {
-                    $data["gambar"] = "kosong";
+                       if($data["video"]["rows"]!= null) {
+                        for($counter =0 ; $counter < ($data["video"]["total_rows"]); $counter++) {
+                           $url = $data["video"]["rows"][$counter]["value"]["_id"];
+                              if(json_decode($this->jumlah_vote($url), TRUE)["rows"]==null) {
+                                $data["vote_video"][$counter] =0;
+                             }else {
+                              $data["vote_video"][$counter] =json_decode($this->jumlah_vote($url), TRUE)["rows"][0]["value"];
+                          }
+                         }
+                      } else {
+                        $data["video"] = "kosong";
                     }
-                 if($data["video"]["total_rows"]!= 0) {
-                  for($counter =0 ; $counter < ($data["video"]["total_rows"]); $counter++) {
-                $url = $data["video"]["rows"][$counter]["value"]["_id"];
-                 if(json_decode($this->jumlah_vote($url), TRUE)["rows"]==null) {
-                  
-                   $data["vote_video"][$counter] =0;
-                 }else {
-                  $data["vote_video"][$counter] =json_decode($this->jumlah_vote($url), TRUE)["rows"][0]["value"];
-
-                 }
-              
-                // print_r($data["vote"][$counter]);
+                  }else {
+                    return view('blank');
                   }
-               }
-                 else {
+                }
+              }
+              else {
+                return redirect('/vote/day1/edit');
+              }
+                 return view('profile',compact('data','notelp'));
 
-                $data["video"] = "kosong";
-                 }
-           
-
-            return view('profile',compact('data','notelp'));
-        }
-        else {
-              return view('blank');
-        }
-    }
+              }
+   
+          
+     
+        
   
-    return redirect('/vote/day1/edit');
-    }
+  //  
+  
 
     /**
      * Update the specified resource in storage.

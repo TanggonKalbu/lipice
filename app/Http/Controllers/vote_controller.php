@@ -147,6 +147,34 @@ class vote_controller extends Controller
         }
     }
 
+    public function getbanner() {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_PORT => "5984",
+          CURLOPT_URL => "http://admin:lipice@159.65.139.254:5984/lipice/869999ee44c2ef3202a6fa489516cc71",
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "GET",
+          CURLOPT_POSTFIELDS => "",
+          CURLOPT_HTTPHEADER => array(
+            "content-type: application/json"
+          ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        
+        curl_close($curl);
+        
+        if ($err) {
+          echo "cURL Error #:" . $err;
+        } else {
+          return $response;
+        }
+
+    }
 
     public function profile($telp) {
         $curl = curl_init();
@@ -220,7 +248,7 @@ class vote_controller extends Controller
      */
     public function edit($day)
     {
-       
+       $data["banner"] = json_decode($this->getbanner(),TRUE);
        $data[1] = json_decode($this->challenge($day),TRUE)["rows"];
        $data["day"] = json_decode($this->day($day),TRUE)["rows"][0]["value"];
        $data["dayall"] = json_decode($this->dayall(),TRUE)["rows"];
@@ -230,7 +258,7 @@ class vote_controller extends Controller
          }
             else {
                 for($counter =0 ; $counter < count($data[1]); $counter++) {
-                    $url = $data[1][$counter]["value"]["link"];
+                    $url = $data[1][$counter]["value"];
                     $telp = $data[1][$counter]["value"]["notelp"];
                     $data["cha_1"][$counter] = $url;
                     $data["profile_cha_1"][$counter] = json_decode($this->profile($telp),TRUE)["rows"][0]["value"];
@@ -280,18 +308,9 @@ class vote_controller extends Controller
                         }
                      }    
                 }
-
-
         }
-            //  echo $day;
-            // print_r($telp);
-            // echo "<br>";
-            //  print_r($data["cha_1"]);
-            //  print_r($url);
-
-            // echo "<br>";
-            // print_r($data["dayall"]);
-             return view('votetest',compact('data'));
+        //print_r($data["banner"]);
+         return view('votetest',compact('data'));
     }
 
     /**

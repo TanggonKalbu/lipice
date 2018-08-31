@@ -23,7 +23,7 @@ class votesession_controller extends Controller
      */
     public function create()
     {
-        echo "sdasdad";
+  
     }
 
     /**
@@ -81,6 +81,11 @@ class votesession_controller extends Controller
         $request->session()->forget('kontestan');
         return redirect('/vote/day1/edit');
      }
+     public function delete_admin(Request $request){
+        $request->session()->forget('admin');
+        return redirect('/adminlogin');
+     }
+
 
     /**
      * Display the specified resource.
@@ -120,6 +125,13 @@ class votesession_controller extends Controller
     {
         $request->session()->put('kontestan',$notelp);
         return redirect('/profile/'.$notelp.'/edit');
+    }
+
+    public function sess_admin(Request $request, $username)
+    {
+        $request->session()->put('admin',$username);
+        $request->session()->get("admin");
+        return redirect('/admin');
     }
 
 

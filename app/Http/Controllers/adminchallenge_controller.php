@@ -13,6 +13,7 @@ class adminchallenge_controller extends Controller
      */
     public function index()
     {
+        if(session("admin")!=null) {
         $curl = curl_init();
         curl_setopt_array($curl, array(
         CURLOPT_PORT => "5984",
@@ -36,9 +37,10 @@ class adminchallenge_controller extends Controller
         } else {
         ($data["challenge"]=json_decode($response,TRUE)["rows"]);
         }
-        
-        
          return view('adminchallenge',compact('data'));
+        }else {
+            return view("/loginadmin");
+        }
     }
 
     /**

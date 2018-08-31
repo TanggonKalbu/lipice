@@ -680,9 +680,15 @@ body {
             <a  href="/remove" style="width:auto; float:right; background-color:#ea8a8a">Login</a>
         </div> -->
     
-        <div class="embed-responsive embed-responsive-21by9 ">   
-            <iframe class="embed-responsive-item" width="100%" src="https://www.youtube.com/embed/8DeJCbFhF8Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
+          
+        <?php if($data["banner"]["ext"]== "png" ||$data["banner"]["ext"]== "jpg" || $data["banner"]["ext"]== "jpeg"   ) { ?>
+            <img style="width:100%; z-index:1" src="http://159.65.139.254:5984/lipice/869999ee44c2ef3202a6fa489516cc71/banner.png" alt="">
+        <?php } else {?>
+            <div class="embed-responsive embed-responsive-21by9 "> 
+            <iframe class="embed-responsive-item" width="100%" src="http://159.65.139.254:5984/lipice/869999ee44c2ef3202a6fa489516cc71/banner.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        <?php } ?>
+        
 
         <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 100%">
     <div class="card-body"> <!-- card body start -->
@@ -742,6 +748,10 @@ body {
                         <span type="" id="<?php echo "jumlah" . $counter ?>"  class="label"><?php echo $data["jumlahvote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                     </div>
                       @endif
+                      </div>
+                      </div>
+                      </div>
+                      </div>
                 </div>
                 <!-- Modal About-->
                 <div class="modal" id="largeModal<?php echo $counter ?>" tabindex="-1" role="dialog" aria-labelledby="basicModal" >
@@ -752,8 +762,8 @@ body {
                         <span aria-hidden="true" style="color:white; float:right; margin-right:20px;">&times;</span>
                     </button>
 
-            <button style="top:50px;" type="button" class="close" style="color:white">
-            <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></span>
+                <button style="top:50px;" type="button" class="close" style="color:white">
+                <span aria-hidden="true" style="color:white; float:none; margin: auto 0; pointer-events:none"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></span>
             </button>
         </div>
         <div class="modal-body"> <!-- modal body start-->
@@ -777,32 +787,9 @@ body {
                 </p>
                 <br><br>
             </div> <!-- div about end-->
-        </div><!-- modal footer start-->
+    
 
-                    <div class="modal-body"> <!-- modal body start-->
-                        <img src="http://159.65.139.254:5984/lipice/<?php echo $data["profile_cha_1"][$counter]["_id"] ?>/profile.png" alt="Avatar" class="imground">
-                        <br>
-                        <div clas="row" style="text-align:center;"> <!-- div sosmed-->
-                            <a href="" class="sosmed" style="font-size:23px;"><i class="fab fa-youtube"></i></a> 
-                            <a href="" class="sosmed" style="font-size:23px;"><i class="fab fa-instagram"></i></a>
-                            <a href="" class="sosmed" style="font-size:23px;"><i class="fab fa-facebook-square"></i></a>   
-                        </div> <!-- div sosmed end-->
-                    </div> <!-- modal body end-->
-
-                    <div class="modal-footer"> <!-- modal footer start-->
-                        <div class="abt"> <!-- div about-->
-                            <p>
-                            <h1>What is CSS?</h1>
-                            
-                            </p>
-                            <br><br>
-                        </div> <!-- div about end-->
-                    </div><!-- modal footer start-->
-
-                    </div>
-                </div>
-                </div>
-                <!-- Modal About End -->
+                   
                 <?php
 
             }
@@ -812,13 +799,13 @@ body {
                 for ($counter = 0; $counter < count($data["cha_1"]); $counter++) { ?>
                 <div class="col-md-3 space">
                     <div class="row">
-                        <p for="" class="col name" style="text-align:left;"><a href="" style="font-size:15pt" data-toggle="modal" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:left;"><a href="" style="font-size:15pt" data-backdrop="false" data-toggle="modal" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
                          <img  src="<?php echo $data["cha_1"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%; max-height:300px">  
                      </div> 
-                     <?php $post = $data["cha_1"][$counter]["_id"];
+                     <?php $post = $data["cha_1"][$counter]["thumbnail_url"];
                     $kontestan = $data["profile_cha_1"][$counter]["notelp"];
                     ?>
                      @if(Session::has('vote'))
@@ -885,7 +872,7 @@ body {
                 for ($counter = 0; $counter < count($data["cha_1"]); $counter++) { ?>
                <div class="col-md-3 space">
                     <div class="row">
-                        <p for="" class="col name" style="text-align:left;"><a href="" style="font-size:15px" data-toggle="modal" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
+                        <p for="" class="col name" style="text-align:left;"><a href="" data-backdrop="false" style="font-size:15px" data-toggle="modal" data-target="#largeModal<?php echo $counter ?>"><?php echo $data["profile_cha_1"][$counter]["namalengkap"] ?></a></p>
                         <p for="" class="col name" style="text-align:right"><?php echo $data["profile_cha_1"][$counter]["kota"] ?></p>   
                     </div>
                     <div class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -1113,11 +1100,6 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 </script>
-
-
-
-    
-   
 
 
 <script> 

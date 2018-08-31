@@ -13,6 +13,7 @@ class admin_controller extends Controller
      */
     public function index()
     {
+        if(session("admin")!=null) {
         $curl = curl_init();
         curl_setopt_array($curl, array(
         CURLOPT_PORT => "5984",
@@ -42,6 +43,28 @@ class admin_controller extends Controller
          $data["kontestan"]=json_decode($response,TRUE);
         
         return view('daftarkontestan', compact('data'));
+    }else {
+        return view("/loginadmin");
+    }
+    }
+
+    public function login() {
+        if(session('admin')!=null) {
+            return redirect('/admin');
+         } 
+         else {
+             return view('/loginadmin');
+         }
+
+    }
+
+    public function changepassword(){
+        if(session('admin')!=null) {
+            return view('/changepassword');
+         } 
+         else {
+             return view('/loginadmin');
+         }
     }
 
     /**
@@ -49,6 +72,13 @@ class admin_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function adminlogin() {
+
+
+
+    } 
+
     public function create()
     {
 

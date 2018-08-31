@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -212,7 +213,7 @@ var loginadmin = function(){
         if(response["rows"].length==0){
             window.alert('Username atau Password Salah!');        
         }else if(response["rows"].length>0){
-            window.location.href = "/admin";        
+            window.location.href = '/sess_admin/'+username.value+'';      
         }
         
 

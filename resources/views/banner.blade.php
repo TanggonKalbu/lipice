@@ -61,15 +61,22 @@
                 <tbody>
                     <tr>
                         <td>
+                            <a href="/vote/day1/edit" > Lihat Disini
                         </td>
                         <td>
+                            <form action="{{url('adminbanner')}}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="file-upload input-group mb-3" style="display:" id="uploadbtn">
                                 <div class="file-select">
                                     <div class="file-select-button" id="fileName">Choose File</div>
                                     <div class="file-select-name" id="noFile">No file chosen...</div> 
-                                    <input type="file" name="fileToUpload" id="chooseFile">
+                                    <input type="file" name="fileToUpload" id="chooseFile" required >
+
                                 </div>
                             </div>
+                            <button class="btn btn-info" type="submit">Save</button>
+                            </form>
+                            
                         </td>
                     </tr>
                 </tbody>

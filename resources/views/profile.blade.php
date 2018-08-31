@@ -702,7 +702,9 @@ body {
             <div class="card"> <!-- card start -->
                 <div class="card-body"> <!-- card body -->
                     <!-- button edit -->
+                    <?php if(session("kontestan")!=null) {?>
                     <label class="btn btn-outline-secondary" id="btn-edit" type="" style="float:right" for="input-nama" onclick="editprofile()"><i class="fas fa-pen">&nbsp; Edit</i></label>
+                    <?php }?>
                     <!-- button edit end --> 
 
                     <form id="myForm" class="form-horizontal" method="post" action="{{action('profile_controller@update', $notelp)}}" enctype="multipart/form-data">
@@ -710,10 +712,9 @@ body {
                     <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
                              
                              <div class="round-border">
-                             <img id="blah" class="rounded-circle"  src="/images/lipice.png" alt="..." style="width:100%" class="rounded-circle"> 
+                                <img id="blah" class="rounded-circle"  src="/images/lipice.png" alt="..." style="width:100%" class="rounded-circle"> 
                              <!-- button change photo profile -->
-
-                        </div> 
+                            </div> 
                          <?php }else { ?>
                              <div class="round-border">
                                  <img id="blah" class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
@@ -809,7 +810,9 @@ body {
         
             <div class="card content"> <!-- card content start -->
             <div class="col-md-12">
+            <?php if(session("kontestan")!=null) {?>
             <a href="/remove_kont/" class="btn btn-warning" style="float:right;">Logout</a>
+            <?php }?>
 
             </div>
             <div class="card-body">
@@ -831,13 +834,18 @@ body {
                     <input type="hidden" id="tgllahir" name="tgllahir" value="<?php echo $data["profile"]["rows"][0]["value"]["tgllahir"]?>">
                     <input type="hidden" id="alasan" name="alasan" value="<?php echo $data["profile"]["rows"][0]["value"]["alasan"]?>">
                     <input type="hidden" id="umur" name="umur" value="<?php echo $data["profile"]["rows"][0]["value"]["umur"]?>">
+                    <?php if(session("kontestan")!=null) {?> 
                     <textarea id="input-about" onclick="editabout()" name="about" placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
                     <button id="save-dua" type="submit"  class="btn-default mb-2 button" style="float:right;display:none">SAVE</button>
+                    <?php } else { ?>
+                        <textarea id="input-about" onclick="editabout()" name="about" placeholder="About.." disabled><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
+                   <?php }?>
                 </form>
                 <br><br><br><br>
-                    <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
+                    
                         <!-- <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline"> -->
-            
+        <?php if(session("kontestan")!=null) {?> 
+            <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
             <?php for($counter = 0 ;$counter<$data["day"]["total_rows"]; $counter++) { ?>
                  <?php if($data["day"]["rows"][$counter]["value"]["konten"] == "video"){ ?>
                     <?php if($data["day"]["rows"][$counter]["value"]["stat_post"] == "1"){
@@ -889,6 +897,7 @@ body {
                     <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
                     <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
                 </div>
+                
                     <button type="submit" class="btn-default mb-2 button">SAVE</button>
             </form>
       
@@ -922,6 +931,7 @@ body {
                 <?php }?>
                 
                 <br><br>
+                    <?php }?>
                 <div> <!-- video entry start -->
                 <h5 style="text-align:left;">Your Video Enteries</h5>
                 <div class="scrollbar scrollbar-primary"><br>
@@ -931,7 +941,9 @@ body {
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="shadow p-3 mb-3 bg-white rounded">
                                     <?php if($data["video"]["rows"][$counter]["value"]["type"]=="video challenge") {?>
-                                    <iframe class="embed-responsive-item" width="100%" height="300px" src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4?rel=0" frameborder="0" allowfullscreen></iframe> 
+                                        <video class="" width="100%" height="300px" controls preload="none">
+                                          <source src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4" type="video/mp4">
+                                        </video>
                                     <?php }
                                     else { ?>
                                     <iframe class="embed-responsive-item" width="100%" height="300px" src="<?php echo $data["video"]["rows"][$counter]["value"]["link"];?>" frameborder="0" allowfullscreen></iframe> 
@@ -943,6 +955,9 @@ body {
                                 <div class="row space vt shadow">
                                     <span type="" id=""  class="label"><?php echo $data["vote_video"][$counter] ?> &nbsp;&nbsp;<i class="fa fa-heart love" aria-hidden="true"></i></span>
                                 </div>
+                                <br>
+                                <br>
+                                
                             </div>
                             <?php } }?>
                         </div>
@@ -963,7 +978,7 @@ body {
                                     <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                 </div> 
                                 <div class="row space vt shadow">
-                                    <span type="" id=""  class="label">500 <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                                    <span type="" id=""  class="label"><?php echo $data["vote"][$counter]["rows"][0]["value"] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                                 </div>
                             </div>
 
@@ -973,9 +988,6 @@ body {
                     </div>
                 </div>   
                 </div>
-
-
-
             </div>
            
             </div> <!-- card content start -->
