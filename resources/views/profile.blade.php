@@ -853,7 +853,7 @@ body {
                     <input type="hidden" id="alasan" name="alasan" value="<?php echo $data["profile"]["rows"][0]["value"]["alasan"]?>">
                     <input type="hidden" id="umur" name="umur" value="<?php echo $data["profile"]["rows"][0]["value"]["umur"]?>">
                     <?php if(session("kontestan")!=null) {?> 
-                    <textarea id="input-about" onclick="editabout()" name="about" placeholder="About.."><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
+                    <textarea id="input-about" onclick="editabout()" name="about" placeholder="Ceritakan Tentang Dirimu"><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>
                     <button id="save-dua" type="submit"  class="btn-default mb-2 button" style="float:right;display:none">SAVE</button>
                     <?php } else { ?>
                         <textarea id="input-about" onclick="editabout()" name="about" placeholder="About.." disabled><?php echo $data["profile"]["rows"][0]["value"]["about"] ?></textarea>

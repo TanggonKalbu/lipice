@@ -588,9 +588,9 @@
       <div class="body-space pdg-bottom">
       <!-- body space start -->
       <!-- Button to Open the Modal -->
-      <div>
+      <!-- <div>
          <a  href="/remove" style="width:auto; float:right; background-color:#ea8a8a">Login</a>
-      </div>
+      </div> -->
       <?php if($data["banner"]["ext"]== "png" ||$data["banner"]["ext"]== "jpg" || $data["banner"]["ext"]== "jpeg"   ) { ?>
       <div align="center" style="background-color:black">
          <img class="" style="width:auto; max-width:100%; height:auto; max-height:400px; z-index:1; align: center; float:none; margin-right:100px" src="http://159.65.139.254:5984/lipice/869999ee44c2ef3202a6fa489516cc71/banner.png" alt="">  
