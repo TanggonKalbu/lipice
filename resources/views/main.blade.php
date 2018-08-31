@@ -114,7 +114,7 @@ textarea {
     width: 100%;
     background-color:white;
     align:center;
-    padding-right:30%;
+    padding-right:15%;
     padding-left: 10%;
 }
 
@@ -477,6 +477,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
     }
 }
 
+.pos{
+
+}
 </style>
 
 </head>
@@ -495,14 +498,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <img src="images/balon.png" class="camp responsive m-t" alt="">
     </div>
 
-<!-- <div class="container-fluid">
+<div class="container-fluid">
 <div class="row">
         <div class="samping3">
-        <p style="text-align:center">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod eget nunc a cursus. Vestibulum quis ipsum est. Etiam mollis scelerisque suscipit. Sed eleifend neque metus. In lacus arcu, luctus et sagittis commodo, consequat eget nisi. Duis non ex semper, ultricies nisl nec, hendrerit mauris. Sed suscipit ut sapien in vehicula. Ut lacinia bibendum rhoncus. Nam augue augue, mollis sed tincidunt quis, pellentesque eget enim. Suspendisse eleifend eu lectus in vestibulum. Nulla efficitur, elit et convallis malesuada, est nunc malesuada nulla, cursus eleifend mauris nunc id sapien. Donec condimentum nunc eget tellus imperdiet, vitae lobortis dolor suscipit. Fusce mattis, nisl vitae porttitor interdum, justo est ultricies risus, nec fermentum urna est ac lectus. Praesent varius accumsan ante eget consectetur. Suspendisse velit justo, malesuada vitae vulputate id, tincidunt ut neque. Cras sed vehicula libero.
-        </p>
-    </div>
-    </div></div> -->
+        <span style="text-align:center">
+        <!-- TANTANGAN 7 HARI <br> UNTUK KAMU GENERASI INSTAGRAM YANG KREATIF DAN ASIK PARA PEMENANG #7DAYSCHALLENGE AKAN
+        MENJADI LIP ICE GIRL SQUAD DAN KONTRIBUTOR OFFICIAL SOCMED ACCOUNT @LIPICE_ID, BISA SERU-SERUAN DI SUMMER CAMP 2.0,
+        DAPET VOUCHER BELANJA, DAN KAMERA MIRORLESS YANG KEKINIAN BANGET! -->
+        </span>
+        </div>
+</div>
+</div>
 
         <!-- <h2 class="textatas"><b>LOREM IPSUM DOLOR SIT <br> 
         AMET, CONSECTETUR <br> 
@@ -608,7 +614,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
         </div>
 
         <div class="form-group row"><!-- TNC -->
-            <b style="color:red; margin-left:15px;">*&nbsp;</b><label class="control-label col-sm-4 medqInput tnc" style="font-style:italic;" for="comment"><a onclick="document.getElementById('tnc').style.display='block'">Terms and condition</a></label>
+            <label class="control-label col-sm-3 medqInput tnc" style="font-style:italic;" for="comment"><b style="color:red; margin-left:15px;">*</b><a onclick="document.getElementById('tnc').style.display='block'">Terms and condition</a></label>
         </div><!-- TNC END -->
 
 
@@ -677,7 +683,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <p style="text-align:center;font-size: 18pt;"><b>SUMMER CAMP TIMELINE</b></p>
         <br>
         <p style="text-align:center; font-size:15pt; padding-right:10%; padding-left:10%;">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod eget nunc a cursus. Vestibulum quis ipsum est. Etiam mollis scelerisque suscipit. Sed eleifend neque metus. In lacus arcu, luctus et sagittis commodo, consequat eget nisi. Duis non ex semper, ultricies nisl nec, hendrerit mauris. Sed suscipit ut sapien in vehicula. Ut lacinia bibendum rhoncus. Nam augue augue, mollis sed tincidunt quis, pellentesque eget enim. Suspendisse eleifend eu lectus in vestibulum. Nulla efficitur, elit et convallis malesuada, est nunc malesuada nulla, cursus eleifend mauris nunc id sapien. Donec condimentum nunc eget tellus imperdiet, vitae lobortis dolor suscipit. Fusce mattis, nisl vitae porttitor interdum, justo est ultricies risus, nec fermentum urna est ac lectus. Praesent varius accumsan ante eget consectetur. Suspendisse velit justo, malesuada vitae vulputate id, tincidunt ut neque. Cras sed vehicula libero.
+                YUK, CEK TIME SCHEDULE #LIPICE7DAYSCHALLENGE SUPAYA KAMU NGGAK KETINGGALAN SETIAP CHALLENGE DAN TETAP UPDATE SAMA SEMUA KESERUANNYA !
         </p>
     </div>
 
@@ -720,8 +726,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <div class="row">
                 The content of the pages of this website is for your general information and use only. It is subject to change without notice.
 This website uses cookies to monitor browsing preferences. If you do allow cookies to be used, the following personal information may be stored by us for use by third parties: [insert list of information].
-Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.
-Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.
+
                 </div>
             </div>
         </div>
