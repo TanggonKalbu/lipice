@@ -25,8 +25,8 @@ body{
 }
 
 .space {
-    margin-right:5px;
-    margin-left: 5px;
+    margin-right:3px;
+    margin-left: 3px;
 }
 
 .space-body{
@@ -66,31 +66,30 @@ body{
     display: inline-block;
     width: 100%;
     color: grey;
-    font-size:20pt;
-    padding: 7px;
+    font-size:15pt;
+    padding: 5px;
 }
 
 .love{
     color: #fb61ca; 
-    font-size:20pt;
+    font-size:15pt;
 }
 
 /* MAIN SCROLLBAR */
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* Track */
 ::-webkit-scrollbar-track {
-    background: transparent; 
-}
- 
-/* Handle */
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); */
+  background-color: transparent;
+  border-radius: 10px; }
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent; }
+
 ::-webkit-scrollbar-thumb {
-    background: #fb61ca; 
-    border-radius:15px;
-}
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #f093fb 0%, #f5576c 100%);
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
@@ -104,23 +103,28 @@ body{
     height: 600px;
     width: 100%;
     background: #fff; 
-    overflow:auto;
+    overflow: auto;
     margin-bottom: 95px;
+    overflow-x: hidden;
 }
 .force-overflow {
     max-width: 99%;
 }
 
-.scrollbar-primary::-webkit-scrollbar {
-  width: 10px;
-  border-radius: 15px;
-  background-color: #eee; }
-
-.scrollbar-primary::-webkit-scrollbar-thumb {
-  border-radius: 15px;
+.scrollbar-sunny-morning::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  background-color: #f8c128;  }
+  background-color: #F5F5F5;
+  border-radius: 10px; }
 
+.scrollbar-sunny-morning::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5; }
+
+.scrollbar-sunny-morning::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #f6d365 0%, #fda085 100%);
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); }
 /* scrollbar end */
 
 .card{
@@ -154,6 +158,8 @@ body{
     padding-bottom:4px;
     padding-left:4px;
     padding-right:4px;
+    border: 3px solid #00b2b2;
+
 }
 
 .size{
@@ -668,13 +674,19 @@ body {
         display:block; position:absolute; 
         z-index:-1; top:0; right:0; background-repeat: no-repeat; background-size: cover;
         margin-top:50px;
+        width:50%;
+        height:auto;
     }
     .logo{
-        width:80px;
+        width:20%;
         float:left;
     }
     .summercamp{
         width:120px;
+    }
+    .kanan-atas, .kiri-atas, .foo{
+        width:15%;
+        height:auto;
     }
     
 }
@@ -711,14 +723,19 @@ body {
                     @csrf                
                     <?php if($data["profile"]["rows"][0]["value"]["image"] == "" ){?>
                              
-                             <div class="round-border">
-                                <img id="blah" class="rounded-circle"  src="/images/lipice.png" alt="..." style="width:100%" class="rounded-circle"> 
+                             <div class="">
+                             <?php $img = 'http://159.65.139.254:5984/lipice/869999ee44c2ef3202a6fa4895183258/user.png'?>
+                                <img id="blah" class="rounded-circle"  src="/images/user.png" alt="..." style="width:100%; height:inherit;" class="rounded-circle"> 
                              <!-- button change photo profile -->
                             </div> 
+                            <br>
+                             <br>
                          <?php }else { ?>
-                             <div class="round-border">
-                                 <img id="blah" class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%" alt="..." > 
+                             <div>
+                             <?php $img = 'http://159.65.139.254:5984/lipice/'.$data["profile"]["rows"][0]["value"]["_id"].'/profile.png'?>
+                                 <img id="blah" class="rounded-circle" src='http://159.65.139.254:5984/lipice/<?php echo $data["profile"]["rows"][0]["value"]["_id"];?>/<?php echo $data["profile"]["rows"][0]["value"]["image"] ?>' style="width:100%; height:auto;" alt="..." > 
                             </div>
+                             <br>
                              <br>
 
                          <?php } ?>
@@ -757,7 +774,7 @@ body {
                         <div class="input-group mb-3">
                             <input name="_method" type="hidden" value="PATCH">
                             <input type="hidden" id="rev" name="rev" value="<?php echo $data["profile"]["rows"][0]["value"]["_rev"]?>">
-                            <?php $img = 'http://159.65.139.254:5984/lipice/'.$data["profile"]["rows"][0]["value"]["_id"].'/profile.png'?>
+                            
                             <input type="hidden" id="img" name="img" value="<?php echo ($img)?>">
                             <input type="hidden" id="id" name="id" value="<?php echo $data["profile"]["rows"][0]["value"]["_id"]?>">
                             <input type="hidden" id="about" name="about" value="<?php echo $data["profile"]["rows"][0]["value"]["about"]?>">
@@ -811,12 +828,13 @@ body {
             <div class="card content"> <!-- card content start -->
             <div class="col-md-12">
             <?php if(session("kontestan")!=null) {?>
-            <a href="/remove_kont/" class="btn btn-warning" style="float:right;">Logout</a>
+            <a href="/remove_kont/" class="btn btn-danger" style="float:right;">Logout</a>
             <?php }?>
 
             </div>
+            
             <div class="card-body">
-                <h5 style="text-align:left;">Ceritakan tentang dirimu :</h5>
+                <h5 style="text-align:left;">Ceritakan tentang dirimu...</h5>
                 <form method="post" action="{{action('about_controller@update', $notelp)}}" enctype="multipart/form-data" >
                     @csrf
                     <input name="_method" type="hidden" value="PATCH">
@@ -845,6 +863,11 @@ body {
                     
                         <!-- <form method="post" action="{{url('cha_day1')}}" enctype="multipart/form-data" class="form-inline"> -->
         <?php if(session("kontestan")!=null) {?> 
+            @if (\Session::has('error'))
+      <div class="alert alert-success">
+        <p>{{ \Session::get('error') }}</p>
+      </div><br />
+     @endif
             <h5 style="text-align:left;">Upload Video/ Photo Challenge</h5>
             <?php for($counter = 0 ;$counter<$data["day"]["total_rows"]; $counter++) { ?>
                  <?php if($data["day"]["rows"][$counter]["value"]["konten"] == "video"){ ?>
@@ -852,7 +875,7 @@ body {
                         $day = $data["day"]["rows"][$counter]["value"]["day"];
                         ?>
 
-            <form method="post" action="/add_video/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline"> 
+            <form method="post" action="/add_video/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline" id="formupload"> 
                 @csrf
                
                 <div class="form-group mb-2">
@@ -875,14 +898,15 @@ body {
                     </div>
                 </div>
 
-                <button type="submit" class="btn-default mb-2 button">SAVE</button>
+                <button type="submit" class="btn-default mb-2 button" onclick="konfirmasi()">SAVE</button>
             
             </form>
+           
                  <?php } }elseif($data["day"]["rows"][$counter]["value"]["konten"] == "gambar") { ?>
                     <?php if($data["day"]["rows"][$counter]["value"]["stat_post"] == "1"){ 
                         $day = $data["day"]["rows"][$counter]["value"]["day"];
                         ?>
-                        <form method="post" action="/add/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline"> 
+                        <form method="post" action="/add/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline" id="formupload"> 
                      @csrf
                 <div class="form-group mb-2">
                     <div class="dropdown">
@@ -898,7 +922,7 @@ body {
                     <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Insert link" style="width:100%">
                 </div>
                 
-                    <button type="submit" class="btn-default mb-2 button">SAVE</button>
+                    <button type="submit" class="btn-default mb-2 button" onclick="konfirmasi()">SAVE</button>
             </form>
       
                 <?php } ?>
@@ -907,7 +931,7 @@ body {
                          $day = $data["day"]["rows"][$counter]["value"]["day"];
                          ?>
  
-                         <form method="post" action="/add_youtube/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline"> 
+                         <form method="post" action="/add_youtube/<?php echo $day ?>" enctype="multipart/form-data" class="form-inline" id="formupload"> 
                       @csrf
                  <div class="form-group mb-2">
                      <div class="dropdown">
@@ -920,9 +944,9 @@ body {
                  <!-- button upload video -->    
                      <label for="linkupload" class="sr-only">Upload Video</label>
                      <input type="hidden" class="form-control" id="notelp" name="notelp"  value="<?php echo $notelp ?>" placeholder="Insert link" style="width:100%">
-                     <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Link Youtube" style="width:100%">
+                     <input type="text" class="form-control" name="upload" id="linkUpload" placeholder="Link Youtube" style="width:100%" required>
                  </div>
-                     <button type="submit" class="btn-default mb-2 button">SAVE</button>
+                     <button type="submit" class="btn-default mb-2 button" onclick="konfirmasi()">SAVE</button>
              </form>
                     
                     
@@ -934,12 +958,14 @@ body {
                     <?php }?>
                 <div> <!-- video entry start -->
                 <h5 style="text-align:left;">Your Video Enteries</h5>
-                <div class="scrollbar scrollbar-primary"><br>
+                <div class="scrollbar scrollbar-sunny-morning"><br>
                     <div class="force-overflow">
                         <div class="row">
                         <?php if($data["video"]!= "kosong"){ for($counter =0;$counter < count($data["video"]["rows"]);$counter++) { ?>
+                            <br>
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 <div class="shadow p-3 mb-3 bg-white rounded">
+                                <br>
                                     <?php if($data["video"]["rows"][$counter]["value"]["type"]=="video challenge") {?>
                                         <video class="" width="100%" height="300px" controls preload="none">
                                           <source src="http://159.65.139.254:5984/lipice/<?php echo $data["video"]["rows"][$counter]["value"]["_id"];?>/boomerang.mp4" type="video/mp4">
@@ -952,13 +978,14 @@ body {
                                     }
                                     ?>
                                 </div> 
-                                <div class="row space vt shadow">
+                                <div class="row space shadow">
                                     <span type="" id=""  class="label"><?php echo $data["vote_video"][$counter] ?> &nbsp;&nbsp;<i class="fa fa-heart love" aria-hidden="true"></i></span>
                                 </div>
                                 <br>
                                 <br>
                                 
                             </div>
+                            
                             <?php } }?>
                         </div>
                     </div>
@@ -969,7 +996,7 @@ body {
                 <br><br><br>
                 <div> <!-- photo entry start -->
                 <h5 style="text-align:left;">Your Photo Enteries</h5>
-                <div class="scrollbar scrollbar-primary"><br>
+                <div class="scrollbar scrollbar-sunny-morning"><br>
                     <div class="force-overflow">
                         <div class="row">
                         <?php if($data["gambar"]!= "kosong"){ for($counter =0;$counter < count($data["gambar"]);$counter++) { ?>
@@ -977,8 +1004,8 @@ body {
                                 <div class="shadow p-2 mb-4 bg-white rounded">
                                     <img  src="<?php echo $data["gambar"][$counter]["thumbnail_url"] ?>" alt="" id="myImg" style="width:100%  ">  
                                 </div> 
-                                <div class="row space vt shadow">
-                                    <span type="" id=""  class="label"><?php echo $data["vote"][$counter]["rows"][0]["value"] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
+                                <div class="row space shadow">
+                                    <span type="" id=""  class="label"><?php echo $data["vote"][$counter] ?> <i class="fa fa-heart love" aria-hidden="true"></i></span>
                                 </div>
                             </div>
 
@@ -1000,9 +1027,9 @@ body {
 
 <!-- footer -->
 <div class="footer" style="z-index:-1; padding-bottom:15px">
-    <img src="/images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-    <img src="/images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
-    <img src="/images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+    <img src="/images/buah-kiri-bawah.png" class="responsive foo" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+    <img src="/images/lipice.png" class="responsive foo" alt="" style=" margin:0 auto;">   
+    <img src="/images/buah-kanan-bawah.png" class="responsive foo" alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
 </div>  
 
 
@@ -1122,6 +1149,15 @@ $('#chooseVideo').bind('change', function () {
 });
 
 </script>
+<script>
+    var konfirmasi = function() {
+       if (confirm('Apakah anda yakin? Action ini tidak bisa dibatalkan')) {
+           document.getElementById("formupload").submit();
+       } else {
+           return false;
+       }
+    }
+  </script>
 
 </body>
 </html>

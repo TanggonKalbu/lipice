@@ -115,6 +115,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 /* footer end */
 
+@media screen and (max-width: 800px) {
+
+.responsive {
+    width: 15%;
+    height: auto;
+}
+
+}
 
 </style>
 </head>

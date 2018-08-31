@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Success!</title>
+    <title>Under Maintenance</title>
     <link rel="icon" href="images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -103,8 +103,7 @@ h1,h2, h3, h4, h5{
     
     <div class="col">
         <div class="centered">
-            <h1>Selamat! Registrasi kamu berhasil.<br> Nantikan 30 orang pilihan <b>Lip Ice</b> pada tanggal <b>4 Oktober 2018</b>.</h1>
-            <h2>Stay tune di Instagram <b><a href="https://www.instagram.com/lipice_id/" > @lipice_id</a></b> ya, Dear!</h2>
+            <h1>Maaf halaman ini belum bisa diakses.</h1>
         </div>
     </div>
    

@@ -11,6 +11,35 @@ class vote_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function get_challenge($url) {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+          CURLOPT_PORT => "5984",
+          CURLOPT_URL => "$url",
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "GET",
+          CURLOPT_POSTFIELDS => "",
+          CURLOPT_HTTPHEADER => array(
+            "content-type: application/json"
+          ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        
+        curl_close($curl);
+        
+        if ($err) {
+          echo "cURL Error #:" . $err;
+        } else {
+          return $response;
+        }
+
+    }
+     
     function gambar($url) {
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -205,7 +234,11 @@ class vote_controller extends Controller
 
     public function index()
     {   
-       
+        $day = $data["day"] = json_decode($this->get_challenge('http://159.65.139.254:5984/lipice/_design/view/_view/day'), true);
+        $cek = $day["rows"][0]["value"]["stat_post"];
+        if($cek!=1) {
+           return redirect("/maintenance");
+        }
     }
 
     /**
@@ -248,6 +281,11 @@ class vote_controller extends Controller
      */
     public function edit($day)
     {
+        $daycek = $data["day"] = json_decode($this->get_challenge('http://159.65.139.254:5984/lipice/_design/view/_view/day'), true);
+        $cek = $daycek["rows"][0]["value"]["stat_vote"];
+        if($cek!=1) {
+           return redirect("/maintenance");
+        }
        $data["banner"] = json_decode($this->getbanner(),TRUE);
        $data[1] = json_decode($this->challenge($day),TRUE)["rows"];
        $data["day"] = json_decode($this->day($day),TRUE)["rows"][0]["value"];
@@ -309,8 +347,9 @@ class vote_controller extends Controller
                      }    
                 }
         }
-        //print_r($data["banner"]);
-         return view('votetest',compact('data'));
+    
+        return view('votetest',compact('data'));
+     
     }
 
     /**

@@ -79,7 +79,7 @@ class votesession_controller extends Controller
 
     public function delete_kontestan(Request $request){
         $request->session()->forget('kontestan');
-        return redirect('/vote/day1/edit');
+        return redirect('/login');
      }
      public function delete_admin(Request $request){
         $request->session()->forget('admin');

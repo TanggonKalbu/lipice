@@ -177,8 +177,10 @@ class profile_controller extends Controller
                 for($counter =0 ; $counter < count($challenge["rows"]); $counter++) {
                     $url = $challenge["rows"][$counter]["value"]["link"];
                     $data["gambar"][$counter] = json_decode($this->gambar($url), TRUE);
-                     if(json_decode($this->jumlah_vote($data["gambar"][$counter]["thumbnail_url"]), TRUE)==null) {
-                      $data["vote"][$counter] =0;
+                   
+                     if(json_decode($this->jumlah_vote($data["gambar"][$counter]["thumbnail_url"]), TRUE)["rows"]==null) {
+                       
+                          $data["vote"][$counter] = 0;
                        } else {
                             $data["vote"][$counter] = json_decode($this->jumlah_vote($data["gambar"][$counter]["thumbnail_url"]), TRUE);
                           }
@@ -187,7 +189,7 @@ class profile_controller extends Controller
                         $data["gambar"] = "kosong";
                     }
                        if($data["video"]["rows"]!= null) {
-                        for($counter =0 ; $counter < ($data["video"]["total_rows"]); $counter++) {
+                        for($counter =0 ; $counter <count ($data["video"]["rows"]); $counter++) {
                            $url = $data["video"]["rows"][$counter]["value"]["_id"];
                               if(json_decode($this->jumlah_vote($url), TRUE)["rows"]==null) {
                                 $data["vote_video"][$counter] =0;
@@ -204,8 +206,11 @@ class profile_controller extends Controller
                 }
               }
               else {
-                return redirect('/vote/day1/edit');
+                return redirect('/login');
               }
+              // print_r(count($data["video"]["rows"]));
+              
+              
                  return view('profile',compact('data','notelp'));
 
               }

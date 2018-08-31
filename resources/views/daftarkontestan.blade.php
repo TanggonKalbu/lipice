@@ -3,6 +3,7 @@
 <head>
   <title>Lipice Admin</title>
   <meta charset="utf-8">
+  <link rel="icon" href="/images/callout-lipice.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -71,8 +72,8 @@
                         <td><?php echo $data["kontestan"]["rows"][$a]["value"]["email"]; ?></td>
                         <td><?php echo $data["kontestan"]["rows"][$a]["value"]["umur"]; ?></td>
                         <td><?php echo $data["kontestan"]["rows"][$a]["value"]["notelp"]; ?></td>
-                        <td><a href="<?php echo 'https://www.instagram.com/' . substr($data["kontestan"]["rows"][$a]["value"]["linkig"], 1, strlen($data["kontestan"]["rows"][$a]["value"]["linkig"])); ?>">
-                            <?php echo 'https://www.instagram.com/' . substr($data["kontestan"]["rows"][$a]["value"]["linkig"], 1, strlen($data["kontestan"]["rows"][$a]["value"]["linkig"])); ?>
+                        <td><a href="<?php echo 'https://www.instagram.com/' . substr($data["kontestan"]["rows"][$a]["value"]["linkig"], 0, strlen($data["kontestan"]["rows"][$a]["value"]["linkig"])); ?>">
+                            <?php echo 'https://www.instagram.com/' . substr($data["kontestan"]["rows"][$a]["value"]["linkig"], 0, strlen($data["kontestan"]["rows"][$a]["value"]["linkig"])); ?>
                         </a></td>
                         <td><?php echo $data["kontestan"]["rows"][$a]["value"]["linkfb"]; ?></td>
                         <td><?php echo $data["kontestan"]["rows"][$a]["value"]["alasan"]; ?></td>

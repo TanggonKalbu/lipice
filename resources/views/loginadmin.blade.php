@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login Admin</title>
-    <link rel="icon" href="images/callout-lipice.png">
+    <link rel="icon" href="/images/callout-lipice.png">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -122,11 +122,19 @@ input[type=number]::-webkit-outer-spin-button {
 }
 /* footer end */
 
+@media screen and (max-width: 800px) {
+
+.responsive {
+    width: 15%;
+    height: auto;
+}
+
+}
 
 </style>
 </head>
 <body>
-<div class="responsive">
+<div>
     <div class="ex1">
         <img src="images/buah-kanan-atas.png" class="kanan-atas responsive" alt="">
         <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="">

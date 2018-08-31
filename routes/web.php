@@ -12,6 +12,7 @@
  */
 
 
+
 Route::get('/', function () {
   return view('main');
 });
@@ -44,19 +45,6 @@ Route::get('/adminlogin', 'admin_controller@login');
 //Route::get('/changepassword', 'admin_controller@changepassword');
 
 
-Route::get('/form', function () {
-  return view('form');
-});
-
-Route::get('/test', function () {
-  return view('test');
-});
-
-Route::get('/heart', function () {
-  return view('heart');
-});
-
-
 Route::get('/blank', function () {
   return view('blank');
 });
@@ -69,6 +57,9 @@ Route::get('/berhasil', function () {
   return view('berhasil');
 });
 
+Route::get('/maintenance', function () {
+  return view('maintenance');
+});
 // Route::get('/loginadmin', function () {
 //   return view('loginadmin');
 // });

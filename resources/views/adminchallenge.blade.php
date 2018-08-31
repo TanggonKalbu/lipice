@@ -20,10 +20,10 @@
       <a class="navbar-brand" href="#">Lipice</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="{{URL('admin')}}">Kontestan</a></li>
+      <li ><a href="{{URL('admin')}}">Kontestan</a></li>
       <li class="active"><a href="{{URL('adminchallenge')}}">Challenge</a></li>
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" > Approval
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Approval
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a onclick="location.href='/adminapproval/day1/edit'">Day 1</a></li>
@@ -39,8 +39,8 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="/changepassword"><span class="glyphicon glyphicon-user"></span> Change Password</a></li>
+      <li><a href="remove_admin/"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
   </div>
 </nav>
@@ -65,10 +65,20 @@
                     <tr>
                         <td>Day <?php echo $a + 1 ?></td>
                         <td><?php echo $data["challenge"][$a]["value"]["konten"]; ?></td>
-                        <td><?php echo $data["challenge"][$a]["value"]["stat_post"];
+                        <td><?php if($data["challenge"][$a]["value"]["stat_post"]==0) {
+                             echo "tidak aktif";
+                        }
+                        else {
+                            echo "aktif";
+                        }
                             $day = $data["challenge"][$a]["value"]["day"];
                             ?></td>
-                        <td><?php echo $data["challenge"][$a]["value"]["stat_vote"]; ?></td>
+                        <td><?php if($data["challenge"][$a]["value"]["stat_vote"]==0) {
+                             echo "tidak aktif";
+                        }
+                        else {
+                            echo "aktif";
+                        }?></td>
                         <td><a href="/confirm_post/{{$day}}" class="btn btn-info" > post</a>
                         <a href="/confirm_vote/{{$day}}" class="btn btn-primary" > vote</a>
                         <a href="/reset_confirm/{{$day}}" class="btn btn-danger" > reset</a>

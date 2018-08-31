@@ -13,7 +13,7 @@ class kontestan_controller extends Controller
      */
     public function index()
     {
-        return view('main');
+        return view("berhasil");
     }
 
     /**
@@ -66,7 +66,7 @@ class kontestan_controller extends Controller
                \"linkig\": \"$linkig\",
                \n  \"linkfb\": \"$linkfb\",
                \n  \"linkyoutube\": \"\",
-             \n \"kota\": \" \",
+             \n \"kota\": \"kota kamu\",
              \n \"about\": \" \",
               \n \"image\": \"\", 
               \n  \"alasan\": \"$alasan\"
@@ -82,8 +82,8 @@ class kontestan_controller extends Controller
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            echo $response;
-            return redirect('kontestans')->with('success', 'Information has been added');
+            return redirect("/berhasil");
+            
         }
 
 

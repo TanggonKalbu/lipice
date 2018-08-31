@@ -72,6 +72,22 @@ h1{
 }
 /* footer end */
 
+@media screen and (max-width: 800px) {
+
+h1,h2, h3, h4, h5{
+    color:grey;
+    text-align:center;
+    letter-spacing: 3px; 
+    word-spacing: 10px;
+    font-size:20px;   
+}
+
+.responsive {
+    width: 15%;
+    height: auto;
+}
+
+}
 
 </style>
 </head>

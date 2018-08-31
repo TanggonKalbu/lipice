@@ -82,6 +82,12 @@ textarea {
     width: 33.33%;
     padding: 5px;
 }
+.tnc{
+    color:blue;
+}
+.tnc:hover{
+    text-decoration:underline;
+}
 
 /* Clearfix (clear floats) */
 .row::after {
@@ -154,11 +160,11 @@ textarea {
     padding-bottom: 2rem;
 }
 
-.kanan-atas{
+.kanan-atas, .camp{
     float:right;
 }
 
-.kiri-atas{
+.kiri-atas, .logo{
     float:left;
 }
 
@@ -233,27 +239,27 @@ body {
 /* footer end */
 
 /* MAIN SCROLLBAR */
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* Track */
 ::-webkit-scrollbar-track {
-    background: transparent; 
-}
- 
-/* Handle */
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); */
+  background-color: transparent;
+  border-radius: 10px; }
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent; }
+
 ::-webkit-scrollbar-thumb {
-    background: #fb61ca; 
-    border-radius:15px;
-}
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-linear-gradient(330deg, #f093fb 0%, #f5576c 100%);
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
 /* MAIN SCROLLBAR END */
+
 @media (max-width: 480px) {
 .samping2{
     padding-right:15%;
@@ -435,6 +441,42 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 /* modal login end */
 
+.position-balon{
+    display:block; 
+    position:absolute; 
+    z-index:-1; 
+    top:0; 
+    right:0; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    margin-top:-110px;
+    margin-left:100px;
+}
+
+.m-t{
+    margin-top:100px;
+}
+
+@media screen and (max-width: 800px) {
+
+    .kanan-atas, .kiri-atas, .foo{
+        width:15%;
+        height:auto;
+        }
+    .logo{
+        width:25%;
+        height:auto;
+    }
+    .camp{
+        width:35%;
+        height:auto;
+        margin-top:10px;
+    }
+    .m-t{
+        margin-top:10px;
+    }
+}
+
 </style>
 
 </head>
@@ -448,9 +490,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <img src="images/buah-kanan-atas.png" class="kanan-atas responsive" alt="">
     <img src="images/buah-kiri-atas.png" class="kiri-atas responsive" alt="">
     <br>
-    <div style="margin-top:100px;">
-    <img src="images/logo.png" class="kiri-atas responsive" alt="">
-    <img src="images/balon.png" class="kanan-atas responsive" alt="">
+    <div>
+    <img src="images/logo.png" class="logo responsive m-t" alt="">
+    <img src="images/balon.png" class="camp responsive m-t" alt="">
     </div>
 
 <!-- <div class="container-fluid">
@@ -565,6 +607,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
             </div>
         </div>
 
+        <div class="form-group row"><!-- TNC -->
+            <b style="color:red; margin-left:15px;">*&nbsp;</b><label class="control-label col-sm-4 medqInput tnc" style="font-style:italic;" for="comment"><a onclick="document.getElementById('tnc').style.display='block'">Terms and condition</a></label>
+        </div><!-- TNC END -->
+
+
         <!-- <div class="form-group row">
             <label class="control-label col-sm-3 medqInput" for="comment">Kode Validasi Nomor Telepon <b style="color:red;">*</b></label>
             <div class="col-md-3"> 
@@ -656,12 +703,39 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <!-- footer -->
 <div class="footer" style="z-index:-1; padding-bottom:15px">
-    <img src="images/buah-kiri-bawah.png" class="responsive" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
-    <img src="images/lipice.png" class="responsive" alt="" style=" margin:0 auto;">   
-    <img src="images/buah-kanan-bawah.png" class="responsive " alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
+    <img src="images/buah-kiri-bawah.png" class="responsive foo" alt="" style="position:absolute; left:0px; bottom:0px; z-index:-1;">
+    <img src="images/lipice.png" class="responsive foo" alt="" style=" margin:0 auto;">   
+    <img src="images/buah-kanan-bawah.png" class="responsive foo" alt="" style="position:absolute; right:0px; bottom:0px; z-index:-1;" >  
 </div>  
 <br>
 
+<div id="tnc" class="modall"><!-- MODAL TNC START -->
+    
+    <div class="modall-content animate">
+        <div class="container" style="background-color:#f1f1f1">
+                <h3>TERMS AND CONDITION</h3>      
+        </div>
+        <div class="container">
+            <div style="margin-right:30px; margin-left:30px">
+                <div class="row">
+                The content of the pages of this website is for your general information and use only. It is subject to change without notice.
+This website uses cookies to monitor browsing preferences. If you do allow cookies to be used, the following personal information may be stored by us for use by third parties: [insert list of information].
+Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.
+Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <div style="margin-right:30px; margin-left:16px">
+                <button type="button" onclick="document.getElementById('tnc').style.display='none'" class="cancelbtn btn-danger">Cancel</button>
+                
+                <!-- <button  type="submit" style="pointer-events">Vote</button> -->
+            </div>
+        </div>
+    </div> 
+
+</div><!-- MODAL TNC END -->
 <!-- Modal Verification Start -->
 
 <!-- Modal Verification end -->
@@ -675,13 +749,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script>
 // Get the modal
 var modal = document.getElementById('id02');
+
+var modalterms = document.getElementById('tnc');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal ) {
+    if (event.target == modal || event.tarhet == modalterms) {
         modal.style.display = "none";
+        modalterms.style.display = "none";
     } 
 }
-
 </script>
 
 

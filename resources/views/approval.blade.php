@@ -22,7 +22,7 @@
       <li><a href="{{URL('admin')}}">Kontestan</a></li>
       <li><a href="{{URL('adminchallenge')}}">Challenge</a></li>
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active" > Approval
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" class="active">Approval
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a onclick="location.href='/adminapproval/day1/edit'">Day 1</a></li>
@@ -38,8 +38,8 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="/changepassword"><span class="glyphicon glyphicon-user"></span> Change Password</a></li>
+      <li><a href="remove_admin/"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
   </div>
 </nav>
@@ -56,9 +56,7 @@
                         <td>
                             Konten
                         </td>
-                        <td>
-                            Status
-                        </td>
+                        
                         <td>
                             Action
                         </td>
@@ -77,13 +75,11 @@
                         <td>
                             <iframe class="embed-responsive-item" width="100%" height="300px" src="<?php echo $data["cha_1"][$counter]["link"] ?>" frameborder="0" allowfullscreen></iframe>
                         </td>
-                        <td>
-                            ndek day e ditambah i status a gawe approval? gakusah
-                        </td>
+                        
                         <td>
                         <?php $id =  $data["cha_1"][$counter]["_id"]?> 
                             <button class="btn btn-danger" type="button" onclick="del('<?php echo $data["cha_1"][$counter]["_id"] ?>','<?php echo $data["cha_1"][$counter]["_rev"] ?>')" > Delete</button>
-                            <a href="" class="btn btn-info">Approve</a>
+                            
 
                         </td>
                     </tr>   
