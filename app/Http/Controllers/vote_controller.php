@@ -235,9 +235,14 @@ class vote_controller extends Controller
     public function index()
     {   
         $day = $data["day"] = json_decode($this->get_challenge('http://159.65.139.254:5984/lipice/_design/view/_view/day'), true);
-        $cek = $day["rows"][0]["value"]["stat_post"];
+        $cek = $day["rows"][0]["value"]["stat_vote"];
+        echo $cek;
         if($cek!=1) {
            return redirect("/maintenance");
+        }
+        else {
+            
+            return redirect('/vote/day1/edit'); 
         }
     }
 
